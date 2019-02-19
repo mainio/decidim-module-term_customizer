@@ -1,0 +1,7 @@
+**/*{.,-}min.js
+spec/decidim_dummy_app/**/*.js
+development_app
+**/node_modules/**
+bundle.js
+*_manifest.js
+coverage

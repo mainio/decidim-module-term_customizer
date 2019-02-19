@@ -1,0 +1,9 @@
+<%= decidim_form_for(@form, html: { class: "form translation-sets-form edit_translation_set translation_set_form_admin" }) do |f| %>
+  <%= render partial: "form", object: f, locals: { title: t(".title") } %>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t(".save") %>
+  </div>
+<% end %>
+
+<%= javascript_include_tag "decidim/term_customizer/admin/translation_sets_admin" %>

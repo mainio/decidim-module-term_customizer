@@ -1,0 +1,23 @@
+/.bundle/
+/.yardoc
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
+
+# Node
+/node_modules/
+
+# rspec failure tracking
+.rspec-failures
+
+# rbenv environment variables
+.rbenv-vars
+
+# default test application
+spec/decidim_dummy_app
+
+# default development application
+development_app

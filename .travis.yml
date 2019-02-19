@@ -1,0 +1,19 @@
+language: ruby
+
+rvm:
+ - 2.5.1
+
+addons:
+  postgresql: "9.5"
+
+env:
+  global:
+    - BUNDLE_GEMFILE="$TRAVIS_BUILD_DIR/Gemfile"
+    - BUNDLE_PATH="$HOME/.bundle"
+  matrix:
+    - GEM=. DB=postgres
+
+script:
+  - cd $GEM;
+  - bundle exec rake decidim:generate_external_test_app
+  - SIMPLECOV=1 CODECOV=1 bundle exec rake

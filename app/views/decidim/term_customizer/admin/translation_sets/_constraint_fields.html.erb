@@ -1,0 +1,58 @@
+<%
+constraint = form.object
+
+if constraint.component
+  selected_component = constraint.component.id
+  selected_space = constraint.component.participatory_space.id
+else
+  selected_space = constraint.subject.try(:id)
+end
+%>
+
+<div class="card multifield-field constraint-section" id="<%= id %>-field">
+  <div class="card-divider multifield-field-divider section-divider">
+    <h2 class="card-title">
+      <span>
+        <%== "#{t(".constraint")}" %>
+      </span>
+
+      <button class="button small alert hollow remove-field button--title">
+        <%= t(".remove") %>
+      </button>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <%= form.select :subject_manifest, subject_manifests.map { |m| [
+        I18n.t("activerecord.models.#{m.model_class_name.underscore}.other"),
+        m.name
+      ] }, { include_blank: true }, class: "constraint-subject-selector" %>
+    </div>
+
+    <% subject_manifests.each do |manifest| %>
+      <div class="manifest-container" data-manifest="<%= manifest.name %>">
+        <% models = manifest.model_class_name.constantize.where(organization: current_organization) %>
+
+        <%= fields_for "constraints[#{index}][subject_model][#{manifest.name}]" do |subject_fields| %>
+          <div class="row column">
+            <%= subject_fields.hidden_field :subject_manifest, value: manifest.name.to_s %>
+            <%= subject_fields.select :subject_id, models.map { |m| [translated_attribute(m.title), m.id] }, { selected: selected_space, include_blank: true }, class: "constraint-subject-model-selector" %>
+          </div>
+
+          <% models.each do |model| %>
+            <%= fields_for "constraints[#{index}][subject_model][#{manifest.name}][component_model][#{model.id}]" do |component_fields| %>
+              <div class="row column component-container" data-components="<%= model.id %>">
+                <%= component_fields.hidden_field :subject_id, value: model.id %>
+                <%= component_fields.select :component_id, model.components.map { |c| [translated_attribute(c.name), c.id] }, selected: selected_component, include_blank: true %>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <%= form.hidden_field :id %>
+    <%= form.hidden_field :deleted %>
+  </div>
+</div>

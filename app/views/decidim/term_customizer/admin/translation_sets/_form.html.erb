@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t "translation_sets.form.title", scope: "decidim.term_customizer.admin" %></h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <%= form.translated :text_field, :name, autofocus: true %>
+    </div>
+
+    <div class="multifield-fields constraints-container" data-placeholder-id="<%= blank_constraint.to_param %>">
+      <template>
+        <%= fields_for "constraints[#{blank_constraint.to_param}]", blank_constraint do |constraint_form| %>
+          <%= render "constraint_fields", form: constraint_form, index: blank_constraint.to_param, id: tabs_id_for_constraint(blank_constraint) %>
+        <% end %>
+      </template>
+
+      <div class="multifield-fields-list constraints-list">
+        <% @form.constraints.each do |constraint| %>
+          <%= fields_for "constraints[]", constraint do |constraint_form| %>
+            <%= render "constraint_fields", form: constraint_form, index: constraint.id || blank_constraint.to_param, id: tabs_id_for_constraint(constraint) %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <button class="button small hollow add-field add-constraint"><%= t(".add_constraint") %></button>
+    </div>
+  </div>
+</div>
