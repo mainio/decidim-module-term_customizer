@@ -20,6 +20,10 @@ module Decidim
           []
         end
 
+        def initialized?
+          !@translations.nil?
+        end
+
         # Clean up translations hash on reload!
         def reload!
           @translations = nil
