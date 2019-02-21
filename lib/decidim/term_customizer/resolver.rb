@@ -10,34 +10,72 @@ module Decidim
       end
 
       def translations
-        @translations ||= Translation.joins(:constraints).where(
-          decidim_term_customizer_constraints: {
-            id: constraints
-          }
-        )
+        @translations ||= resolve_translations_query
       end
 
       def constraints
-        @constraints ||= resolve_query
+        @constraints ||= resolve_constraints_query
       end
 
       private
 
       attr_reader :organization, :space, :component
 
-      def resolve_query
-        query = TermCustomizer::Constraint.where(
-          organization: organization,
-          subject_type: nil,
-          subject_id: nil
-        )
-        add_space_query(query)
-        add_component_query(query)
+      def resolve_translations_query
+        query = translations_base_query
+        translations_add_constraints_query(query)
 
         query
       end
 
-      def add_space_query(query)
+      def translations_base_query
+        # All translations without any constraints
+        Translation.where.not(id: Translation.joins(:constraints))
+      end
+
+      def translations_add_constraints_query(query)
+        return unless constraints
+
+        query.or!(
+          Translation.where(
+            id: Translation.joins(:constraints).where(
+              decidim_term_customizer_constraints: {
+                id: constraints
+              }
+            )
+          )
+        )
+      end
+
+      def resolve_constraints_query
+        return nil unless organization
+
+        query = constraints_base_query
+        constraints_add_organization_query(query)
+        constraints_add_space_query(query)
+        constraints_add_component_query(query)
+
+        query
+      end
+
+      def constraints_base_query
+        # All constraints that are NOT attached with any organization
+        TermCustomizer::Constraint.where(organization: nil)
+      end
+
+      def constraints_add_organization_query(query)
+        return unless organization
+
+        query.or!(
+          TermCustomizer::Constraint.where(
+            organization: organization,
+            subject_type: nil,
+            subject_id: nil
+          )
+        )
+      end
+
+      def constraints_add_space_query(query)
         return unless space
 
         query.or!(
@@ -55,7 +93,7 @@ module Decidim
         )
       end
 
-      def add_component_query(query)
+      def constraints_add_component_query(query)
         return unless component
 
         query.or!(
