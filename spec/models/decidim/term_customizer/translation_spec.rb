@@ -34,24 +34,7 @@ module Decidim
         it { is_expected.to be_invalid }
       end
 
-      context "when key is empty" do
-        let(:key) { nil }
-
-        it { is_expected.to be_invalid }
-      end
-
-      context "when key already exists with the same locale and translation set" do
-        before do
-          create(
-            :translation,
-            translation_set: translation_set,
-            locale: locale,
-            key: key
-          )
-        end
-
-        it { is_expected.to be_invalid }
-      end
+      it_behaves_like "translation validatable"
     end
   end
 end

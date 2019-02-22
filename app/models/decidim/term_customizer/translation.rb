@@ -10,6 +10,7 @@ module Decidim
 
       validates :locale, presence: true
       validates :key, presence: true
+      validates :key, format: { with: /\A([a-z0-9_]+\.?)*[a-z0-9_]+\z/ }, unless: -> { key.blank? }
       validates :key, uniqueness: { scope: [:translation_set, :locale] }, unless: -> { key.blank? }
 
       class << self
