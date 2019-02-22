@@ -2,6 +2,11 @@
 
 **THIS GEM IS CURRENTLY UNDER DEVELOPMENT, DO NOT USE YET IN PRODUCTION**
 
+[![Build Status](https://travis-ci.com/mainio/decidim-module-term_customizer.svg?branch=master)](https://travis-ci.com/mainio/decidim-module-term_customizer)
+[![codecov](https://codecov.io/gh/mainio/decidim-module-term_customizer/branch/master/graph/badge.svg)](https://codecov.io/gh/mainio/decidim-module-term_customizer)
+
+The gem has been developed by [Mainio Tech](https://www.mainiotech.fi/).
+
 A [Decidim](https://github.com/decidim/decidim) module to customize the
 localized terms in the system. The module allows administrators to add
 "translation sets" through the admin panel which contain customized terms for
@@ -27,8 +32,6 @@ Example use cases for this module:
 Currently using this gem requires a bit of technical knowledge in defining the
 terms to be customized. The admin needs to know or find out the translation keys
 for the terms to be customized.
-
-The gem has been developed by [Mainio Tech](https://www.mainiotech.fi/).
 
 ## Installation
 
