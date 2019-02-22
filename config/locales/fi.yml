@@ -1,0 +1,59 @@
+fi:
+  decidim:
+    admin:
+      actions:
+        new_translation_set: Uusi käännöspaketti
+        new_translation: Uusi käännös
+      models:
+        translation_sets:
+          fields:
+            name: Nimi
+        translations:
+          fields:
+            key: Avain
+            term: Termi
+      titles:
+        translation_sets: Käännöspaketit
+        translations: Käännökset
+    term_customizer:
+      admin:
+        translation_sets:
+          constraint_fields:
+            constraint: Rajaussääntö
+            remove: Poista
+          create:
+            success: Käännöspaketin luonti onnistui.
+            error: Käännöspaketin luonti epäonnistui.
+          destroy:
+            success: Käännöspaketin poisto onnistui.
+          edit:
+            title: Käännöspaketti
+            save: Tallenna
+          form:
+            add_constraint: Lisää rajaussääntö
+            title: Käännöspaketti
+          new:
+            create: Luo
+            title: Käännöspaketit
+          update:
+            success: Käännöspaketin päivitys onnistui.
+            error: Käännöspaketin päivitys epäonnistui.
+        translations:
+          create:
+            success: Käännöksen luonti onnistui.
+            error: Käännöksen luonti epäonnistui.
+          destroy:
+            success: Käännöksen poisto onnistui.
+          edit:
+            title: Käännös
+            save: Tallenna
+          form:
+            title: Käännös
+          new:
+            create: Luo
+            title: Käännökset
+          update:
+            success: Käännöksen päivitys onnistui.
+            error: Käännöksen päivitys epäonnistui.
+      menu:
+        term_customizer: Termien kustomoinnit

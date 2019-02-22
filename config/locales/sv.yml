@@ -1,0 +1,59 @@
+sv:
+  decidim:
+    admin:
+      actions:
+        new_translation_set: New translation set
+        new_translation: New translation
+      models:
+        translation_sets:
+          fields:
+            name: Name
+        translations:
+          fields:
+            key: Key
+            term: Term
+      titles:
+        translation_sets: Translation sets
+        translations: Translations
+    term_customizer:
+      admin:
+        translation_sets:
+          constraint_fields:
+            constraint: Constraint
+            remove: Remove
+          create:
+            success: Translation set successfully created.
+            error: Error creating translation set.
+          destroy:
+            success: Translation set successfully deleted.
+          edit:
+            title: Translation set
+            save: Save
+          form:
+            add_constraint: Add constraint
+            title: Translation set
+          new:
+            create: Create
+            title: Translation sets
+          update:
+            success: Translation set successfully updated.
+            error: Error updating translation set.
+        translations:
+          create:
+            success: Translation successfully created.
+            error: Error creating translation.
+          destroy:
+            success: Translation successfully deleted.
+          edit:
+            title: Translation
+            save: Save
+          form:
+            title: Translation
+          new:
+            create: Create
+            title: Translations
+          update:
+            success: Translation successfully updated.
+            error: Error updating translation
+      menu:
+        term_customizer: Term customizer
