@@ -7,12 +7,24 @@ FactoryBot.define do
   end
 
   factory :translation_set, class: Decidim::TermCustomizer::TranslationSet do
+    transient do
+      organization { nil }
+    end
+
     name do
       {
         en: generate(:title),
         fi: generate(:title),
         sv: generate(:title)
       }
+    end
+
+    after(:create) do |set, evaluator|
+      if evaluator.organization
+        set.constraints.create!(
+          organization: evaluator.organization
+        )
+      end
     end
   end
 
