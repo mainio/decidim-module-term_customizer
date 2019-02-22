@@ -10,6 +10,8 @@ module Decidim
 
         translatable_attribute :name, String
         attribute :constraints, Array[TermCustomizer::Admin::TranslationSetConstraintForm]
+
+        validates :name, translatable_presence: true
       end
     end
   end
