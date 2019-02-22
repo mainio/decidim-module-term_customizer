@@ -71,6 +71,30 @@ describe Decidim::TermCustomizer::Admin::CreateTranslationSet do
           :count
         ).by(1)
       end
+
+      context "without any constraints" do
+        let(:form_params) { { name: { en: "Name of the set" } } }
+
+        it "broadcasts ok" do
+          expect { command.call }.to broadcast(:ok)
+        end
+
+        it "automatically adds the organization constraint" do
+          expect do
+            command.call
+          end.to change(
+            Decidim::TermCustomizer::TranslationSet, :count
+          ).by(1).and change(
+            Decidim::TermCustomizer::Constraint,
+            :count
+          ).by(1)
+
+          constraint = Decidim::TermCustomizer::Constraint.last
+          expect(constraint.organization).to eq(organization)
+          expect(constraint.subject).to be_nil
+          expect(constraint.subject_type).to be_nil
+        end
+      end
     end
   end
 end

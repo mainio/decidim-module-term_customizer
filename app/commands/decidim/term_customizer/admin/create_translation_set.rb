@@ -55,6 +55,11 @@ module Decidim
             translation_set.constraints.create!(attrs)
           end
 
+          if translation_set.constraints.count < 1
+            # Make sure that the organization constraint at least exists always
+            translation_set.constraints.create!(organization: form.current_organization)
+          end
+
           translation_set
         end
       end

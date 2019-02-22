@@ -49,6 +49,11 @@ module Decidim
 
             set.constraints.create!(attrs)
           end
+
+          if set.constraints.count < 1
+            # Make sure that the organization constraint at least exists always
+            set.constraints.create!(organization: form.current_organization)
+          end
         end
       end
     end
