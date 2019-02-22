@@ -54,6 +54,6 @@ sv:
             title: Translations
           update:
             success: Translation successfully updated.
-            error: Error updating translation
+            error: Error updating translation.
       menu:
         term_customizer: Term customizer
