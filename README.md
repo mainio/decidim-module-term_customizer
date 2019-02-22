@@ -164,7 +164,7 @@ If you want to generate the code coverage report for the tests, you can use
 the `SIMPLECOV=1` environment variable in the rspec command as follows:
 
 ```bash
-SIMPLECOV=1 bundle exec rspec
+$ SIMPLECOV=1 bundle exec rspec
 ```
 
 This will generate a folder named `coverage` in the project root which contains
