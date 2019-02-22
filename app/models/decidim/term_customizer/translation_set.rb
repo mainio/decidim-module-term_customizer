@@ -2,7 +2,7 @@
 
 module Decidim
   module TermCustomizer
-    class TranslationSet < ApplicationRecord
+    class TranslationSet < TermCustomizer::ApplicationRecord
       self.table_name = "decidim_term_customizer_translation_sets"
 
       has_many :translations,

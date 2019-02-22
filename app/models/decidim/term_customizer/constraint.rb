@@ -2,7 +2,7 @@
 
 module Decidim
   module TermCustomizer
-    class Constraint < ApplicationRecord
+    class Constraint < TermCustomizer::ApplicationRecord
       self.table_name = "decidim_term_customizer_constraints"
 
       belongs_to :organization, foreign_key: :decidim_organization_id, class_name: "Decidim::Organization"
