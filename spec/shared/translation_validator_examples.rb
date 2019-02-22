@@ -1,6 +1,26 @@
 # frozen_string_literal: true
 
 shared_examples "translation validatable" do
+  context "when key is correct format" do
+    context "with normal key" do
+      let(:key) { "normal.translation.key" }
+
+      it { is_expected.to be_valid }
+    end
+
+    context "with underscores in the key" do
+      let(:key) { "normal.translation_key.sub_set" }
+
+      it { is_expected.to be_valid }
+    end
+
+    context "with forward slashes in the key" do
+      let(:key) { "activerecord.models.decidim/model/test_model" }
+
+      it { is_expected.to be_valid }
+    end
+  end
+
   context "when key is empty" do
     let(:key) { nil }
 
