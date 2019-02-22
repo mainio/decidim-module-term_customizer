@@ -54,6 +54,6 @@ fi:
             title: Käännökset
           update:
             success: Käännöksen päivitys onnistui.
-            error: Error updating translation.
+            error: Käännöksen päivitys epäonnistui.
       menu:
         term_customizer: Termien kustomoinnit
