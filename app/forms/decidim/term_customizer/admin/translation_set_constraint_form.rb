@@ -11,7 +11,9 @@ module Decidim
         attribute :deleted, Boolean, default: false
 
         def to_param
-          id || "constraint-id"
+          return id if id.present?
+
+          "constraint-id"
         end
 
         def map_model(model)
