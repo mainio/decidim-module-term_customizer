@@ -29,5 +29,13 @@ RSpec.configure do |config|
     # The reason for this is that the factories are calling the faker gem which
     # is calling the translate method using the currently active I18n backend.
     I18n.backend = I18n::Backend::Simple.new
+
+    # Remove the subscribers from the start_processing.action_controller
+    # notification so that it does not leave any subscribers from individual
+    # tests which might be using the test doubles. May cause the same error as
+    # explained above.
+    ActiveSupport::Notifications.unsubscribe(
+      "start_processing.action_controller"
+    )
   end
 end
