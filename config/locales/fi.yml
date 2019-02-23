@@ -2,8 +2,8 @@ fi:
   decidim:
     admin:
       actions:
-        add_multiple_translations: Add multiple
-        back: Back
+        add_multiple_translations: Lisätä useita
+        back: Takaisin
         new_translation_set: Uusi käännöspaketti
         new_translation: Uusi käännös
       models:
@@ -21,8 +21,8 @@ fi:
       admin:
         add_translations:
           index:
-            add: Add
-            search: Search
+            add: Lisää
+            search: Hae
         translation_sets:
           constraint_fields:
             constraint: Rajaussääntö
