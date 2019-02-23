@@ -14,7 +14,7 @@ module Decidim
           translation_set: @translation_set
         )
         q = q.where(locale: @locale) if @locale
-        q
+        q.order(:key)
       end
     end
   end

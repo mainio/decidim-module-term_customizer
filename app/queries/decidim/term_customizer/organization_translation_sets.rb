@@ -9,11 +9,28 @@ module Decidim
       end
 
       def query
-        Decidim::TermCustomizer::TranslationSet.joins(:constraints).where(
+        columns = [
+          "DISTINCT(decidim_term_customizer_translation_sets.id)",
+          "name",
+          "name->>'#{current_locale}' AS local_name"
+        ]
+
+        q = Decidim::TermCustomizer::TranslationSet.joins(:constraints).where(
           decidim_term_customizer_constraints: {
             decidim_organization_id: @organization.id
           }
-        ).distinct
+        ).select(columns.join(","))
+        q.order("local_name")
+      end
+
+      def count
+        query.count(:id)
+      end
+
+      private
+
+      def current_locale
+        I18n.locale.to_s
       end
     end
   end
