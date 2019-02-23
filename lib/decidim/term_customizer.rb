@@ -9,6 +9,8 @@ module Decidim
   module TermCustomizer
     autoload :I18nBackend, "decidim/term_customizer/i18n_backend"
     autoload :Resolver, "decidim/term_customizer/resolver"
+    autoload :TranslationDirectory, "decidim/term_customizer/translation_directory"
+    autoload :TranslationStore, "decidim/term_customizer/translation_store"
 
     EMPTY_HASH = {}.freeze
 

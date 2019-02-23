@@ -11,6 +11,11 @@ module Decidim
       routes do
         resources :translation_sets, path: :sets, except: [:show] do
           resources :translations, except: [:show]
+          resources :add_translations, only: [:index, :create] do
+            collection do
+              get :search
+            end
+          end
         end
 
         root to: "translation_sets#index"

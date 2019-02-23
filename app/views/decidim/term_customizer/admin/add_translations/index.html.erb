@@ -1,0 +1,59 @@
+<div class="card" id="add-translations-search">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t "decidim.admin.titles.translations" %>
+
+      <%= link_to t("actions.back", scope: "decidim.admin"), translation_set_translations_path(set), class: "button tiny button--title" %>
+    </h2>
+  </div>
+  <div class="card-section">
+    <div class="filters row">
+      <div class="column medium-4">
+        <%= form_tag search_translation_set_add_translations_path, method: :get do %>
+          <div class="filters__search">
+            <%= search_field_tag :term, nil, label: false, id: "data_picker-autocomplete", class: "input-group-field", placeholder: t(".search") %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= decidim_form_for(@form, url: translation_set_add_translations_path(set), html: { class: "form translations-form add_translations translations_form_admin" }) do |f| %>
+  <div id="add-translations-results" class="hide">
+    <div class="card" id="add-translations">
+      <div class="card-section">
+        <div class="table-scroll">
+          <template>
+            <tr>
+              <td>{{translation_key}}</td>
+              <td>{{translation_term}}</td>
+              <td>
+                <input type="hidden" name="keys[]" value="{{translation_key}}">
+                <%= icon_link_to "circle-x", "#", t("actions.destroy", scope: "decidim.admin"), class: "remove-translation-key action-icon--remove" %>
+              </td>
+            </tr>
+          </template>
+
+          <table class="table-list">
+            <thead>
+              <tr>
+                <th><%= t("models.translations.fields.key", scope: "decidim.admin") %></th>
+                <th><%= t("models.translations.fields.term", scope: "decidim.admin") %></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="button--double form-general-submit">
+      <%= f.submit t(".add") %>
+    </div>
+  </div>
+<% end %>
+
+<%= javascript_include_tag "decidim/term_customizer/admin/translations_admin" %>

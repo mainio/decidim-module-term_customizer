@@ -2,6 +2,8 @@ en:
   decidim:
     admin:
       actions:
+        add_multiple_translations: Add multiple
+        back: Back
         new_translation_set: New translation set
         new_translation: New translation
       models:
@@ -17,6 +19,10 @@ en:
         translations: Translations
     term_customizer:
       admin:
+        add_translations:
+          index:
+            add: Add
+            search: Search
         translation_sets:
           constraint_fields:
             constraint: Constraint
