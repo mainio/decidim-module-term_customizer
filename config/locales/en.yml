@@ -13,7 +13,8 @@ en:
         translations:
           fields:
             key: Key
-            term: Term
+            original_term: Original term
+            term: Customized term
       titles:
         translation_sets: Translation sets
         translations: Translations

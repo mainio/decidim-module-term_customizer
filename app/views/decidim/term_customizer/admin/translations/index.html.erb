@@ -21,6 +21,7 @@
         <thead>
           <tr>
             <th><%= t("models.translations.fields.key", scope: "decidim.admin") %></th>
+            <th><%= t("models.translations.fields.original_term", scope: "decidim.admin") %></th>
             <th><%= t("models.translations.fields.term", scope: "decidim.admin") %></th>
             <th></th>
           </tr>
@@ -30,6 +31,9 @@
             <tr>
               <td>
                 <%= translation.key %>
+              </td>
+              <td>
+                <%= @directory.translations.term(translation.key) %>
               </td>
               <td>
                 <%= translation.value %>

@@ -9,6 +9,7 @@ module Decidim
         def index
           enforce_permission_to :read, :translation
           @translations = collection
+          @directory = TranslationDirectory.new(current_locale)
         end
 
         def new

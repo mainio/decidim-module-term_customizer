@@ -21,6 +21,18 @@ describe Decidim::TermCustomizer::TranslationStore do
     }
   end
 
+  describe "#term" do
+    it "returns expected term for existing keys" do
+      expect(subject.term("one.two.three1")).to eq("One two three1")
+      expect(subject.term("one.two.three2")).to eq("One two three2")
+      expect(subject.term("first_level.second_level.third_level")).to eq("First second third")
+    end
+
+    it "returns nil for unexisting keys" do
+      expect(subject.term("unexisting.key")).to be_nil
+    end
+  end
+
   describe "#by_key" do
     it "returns a specific transation for specific key" do
       expect(subject.by_key("one.two.three1").length).to eq(1)

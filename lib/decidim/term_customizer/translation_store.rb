@@ -7,6 +7,10 @@ module Decidim
         @values = flat_hash(hash || {})
       end
 
+      def term(key)
+        @values[key]
+      end
+
       def by_key(search)
         @values.select do |key|
           includes_string?(key, search, case_sensitive: true)
