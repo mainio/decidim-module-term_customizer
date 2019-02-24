@@ -2,7 +2,7 @@ fi:
   decidim:
     admin:
       actions:
-        add_multiple_translations: Lisätä useita
+        add_multiple_translations: Lisää useita
         back: Takaisin
         new_translation_set: Uusi käännöspaketti
         new_translation: Uusi käännös
@@ -13,7 +13,8 @@ fi:
         translations:
           fields:
             key: Avain
-            term: Termi
+            original_term: Alkuperäinen termi
+            term: Kustomoitu termi
       titles:
         translation_sets: Käännöspaketit
         translations: Käännökset
