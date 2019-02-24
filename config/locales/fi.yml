@@ -2,6 +2,8 @@ fi:
   decidim:
     admin:
       actions:
+        add_multiple_translations: Lisätä useita
+        back: Takaisin
         new_translation_set: Uusi käännöspaketti
         new_translation: Uusi käännös
       models:
@@ -17,6 +19,10 @@ fi:
         translations: Käännökset
     term_customizer:
       admin:
+        add_translations:
+          index:
+            add: Lisää
+            search: Hae
         translation_sets:
           constraint_fields:
             constraint: Rajaussääntö
