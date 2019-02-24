@@ -26,6 +26,13 @@ module Decidim
           it { is_expected.to be_valid }
         end
 
+        context "when updating an existing translation without changing the key" do
+          let(:translation) { create(:translation, key: key, translation_set: translation_set) }
+          let(:params) { { id: translation.id, key: key, value: value } }
+
+          it { is_expected.to be_valid }
+        end
+
         it_behaves_like "translation validatable"
       end
     end

@@ -31,7 +31,7 @@ module Decidim
           errors.add(:key, :taken) if translation_set && translation_set.translations.where(
             locale: I18n.locale,
             key: key
-          ).exists?
+          ).where.not(id: id).exists?
         end
       end
     end
