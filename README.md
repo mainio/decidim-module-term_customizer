@@ -1,7 +1,5 @@
 # Decidim::TermCustomizer
 
-**THIS GEM IS CURRENTLY UNDER DEVELOPMENT, DO NOT USE YET IN PRODUCTION**
-
 [![Build Status](https://travis-ci.com/mainio/decidim-module-term_customizer.svg?branch=master)](https://travis-ci.com/mainio/decidim-module-term_customizer)
 [![codecov](https://codecov.io/gh/mainio/decidim-module-term_customizer/branch/master/graph/badge.svg)](https://codecov.io/gh/mainio/decidim-module-term_customizer)
 
@@ -38,7 +36,7 @@ for the terms to be customized.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git"
+gem "decidim-term_customizer"
 ```
 
 And then execute:
