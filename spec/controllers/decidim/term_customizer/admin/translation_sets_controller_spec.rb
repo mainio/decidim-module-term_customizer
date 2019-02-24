@@ -33,10 +33,28 @@ module Decidim
       end
 
       describe "GET new" do
+        render_views
+
         it "renders the empty form" do
           get :new
           expect(response).to have_http_status(:ok)
           expect(subject).to render_template(:new)
+          expect(assigns(:subject_manifests)).to be_empty
+        end
+
+        context "when participatory space exists" do
+          before do
+            create(:participatory_process, organization: organization)
+          end
+
+          it "is available for selection" do
+            expected = Decidim.participatory_space_manifests.select do |sm|
+              sm.name == :participatory_processes
+            end
+
+            get :new
+            expect(assigns(:subject_manifests)).to match_array(expected)
+          end
         end
       end
 

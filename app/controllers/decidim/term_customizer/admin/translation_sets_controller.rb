@@ -89,7 +89,7 @@ module Decidim
             next unless models.count.positive?
 
             manifest
-          end
+          end.compact
         end
 
         def set
