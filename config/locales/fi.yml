@@ -13,7 +13,8 @@ fi:
         translations:
           fields:
             key: Avain
-            term: Termi
+            original_term: Original term
+            term: Customized term
       titles:
         translation_sets: Käännöspaketit
         translations: Käännökset
