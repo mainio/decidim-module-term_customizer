@@ -27,9 +27,12 @@ Example use cases for this module:
 - Admin wants to change the term "debate" to "discussion" for all assemblies
   within the system.
 
-Currently using this gem requires a bit of technical knowledge in defining the
-terms to be customized. The admin needs to know or find out the translation keys
-for the terms to be customized.
+You can add the term customizations using either of the following methods:
+
+- Search the terms from all the system translations matching the term itself or
+  the translation keys. This method is available in the "Add multiple" view.
+- Add the term customizations for specific translation keys in case you have the
+  technical knowledge to find out the translation keys.
 
 ## Installation
 
@@ -62,7 +65,9 @@ To keep the gem up to date, you can use the commands above to also update it.
   active.
 - Save the set.
 - Add the translations to the set which you want to customize within the defined
-  scope.
+  scope. You can either add specific translation keys manually or search the
+  translations from all the system's translations using the translation terms or
+  keys.
 
 ## Contributing
 
