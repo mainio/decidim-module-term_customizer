@@ -2,7 +2,7 @@ fi:
   decidim:
     admin:
       actions:
-        add_multiple_translations: Lisätä useita
+        add_multiple_translations: Lisää useita
         back: Takaisin
         new_translation_set: Uusi käännöspaketti
         new_translation: Uusi käännös
