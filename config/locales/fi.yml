@@ -2,14 +2,14 @@ fi:
   activemodel:
     attributes:
       constraint:
-        component_id: Component
-        subject_id: Participatory space
-        subject_manifest: Participatory space type
+        component_id: Komponentti
+        subject_id: Osallisuustila
+        subject_manifest: Osallisuustilan tyyppi
       translation:
-        key: Translation key
-        value: Customized term
+        key: Käännösavain
+        value: Kustomoitu termi
       translation_set:
-        name: Name
+        name: Nimi
   decidim:
     admin:
       actions:
@@ -23,7 +23,7 @@ fi:
             name: Nimi
         translations:
           fields:
-            key: Translation key
+            key: Käännösavain
             original_term: Alkuperäinen termi
             term: Kustomoitu termi
       titles:
