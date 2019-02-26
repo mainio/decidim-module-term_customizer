@@ -1,4 +1,15 @@
 en:
+  activemodel:
+    attributes:
+      constraint:
+        component_id: Component
+        subject_id: Participatory space
+        subject_manifest: Participatory space type
+      translation:
+        key: Translation key
+        value: Customized term
+      translation_set:
+        name: Name
   decidim:
     admin:
       actions:
@@ -12,7 +23,7 @@ en:
             name: Name
         translations:
           fields:
-            key: Key
+            key: Translation key
             original_term: Original term
             term: Customized term
       titles:

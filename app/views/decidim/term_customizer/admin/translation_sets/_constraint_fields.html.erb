@@ -34,14 +34,14 @@ end
       <div class="manifest-container" data-manifest="<%= manifest.name %>">
         <% models = manifest.model_class_name.constantize.where(organization: current_organization) %>
 
-        <%= fields_for "constraints[#{index}][subject_model][#{manifest.name}]" do |subject_fields| %>
+        <%= fields_for "constraints[#{index}][subject_model][#{manifest.name}]", constraint do |subject_fields| %>
           <div class="row column">
             <%= subject_fields.hidden_field :subject_manifest, value: manifest.name.to_s %>
             <%= subject_fields.select :subject_id, models.map { |m| [translated_attribute(m.title), m.id] }, { selected: selected_space, include_blank: true }, class: "constraint-subject-model-selector" %>
           </div>
 
           <% models.each do |model| %>
-            <%= fields_for "constraints[#{index}][subject_model][#{manifest.name}][component_model][#{model.id}]" do |component_fields| %>
+            <%= fields_for "constraints[#{index}][subject_model][#{manifest.name}][component_model][#{model.id}]", constraint do |component_fields| %>
               <div class="row column component-container" data-components="<%= model.id %>">
                 <%= component_fields.hidden_field :subject_id, value: model.id %>
                 <%= component_fields.select :component_id, model.components.map { |c| [translated_attribute(c.name), c.id] }, selected: selected_component, include_blank: true %>
