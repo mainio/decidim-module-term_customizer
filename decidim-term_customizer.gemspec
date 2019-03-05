@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
   spec.license = "AGPL-3.0"
 
   spec.files = Dir[
-    "{app,config,lib}/**/*",
+    "{app,config,db,lib}/**/*",
     "LICENSE-AGPLv3.txt",
     "Rakefile",
     "README.md"
