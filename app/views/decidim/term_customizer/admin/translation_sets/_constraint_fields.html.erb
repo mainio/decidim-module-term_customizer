@@ -44,7 +44,11 @@ end
             <%= fields_for "constraints[#{index}][subject_model][#{manifest.name}][component_model][#{model.id}]", constraint do |component_fields| %>
               <div class="row column component-container" data-components="<%= model.id %>">
                 <%= component_fields.hidden_field :subject_id, value: model.id %>
-                <%= component_fields.select :component_id, model.components.map { |c| [translated_attribute(c.name), c.id] }, selected: selected_component, include_blank: true %>
+                <% if model.respond_to?(:components) %>
+                  <%= component_fields.select :component_id, model.components.map { |c| [translated_attribute(c.name), c.id] }, selected: selected_component, include_blank: true %>
+                <% else %>
+                  <%= component_fields.hidden_field :component_id, value: nil %>
+                <% end %>
               </div>
             <% end %>
           <% end %>

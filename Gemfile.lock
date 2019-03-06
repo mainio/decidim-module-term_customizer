@@ -189,6 +189,10 @@ GEM
     decidim-comments (0.16.0)
       decidim-core (= 0.16.0)
       jquery-rails (~> 4.0)
+    decidim-consultations (0.16.0)
+      decidim-admin (= 0.16.0)
+      decidim-comments (= 0.16.0)
+      decidim-core (= 0.16.0)
     decidim-core (0.16.0)
       active_link_to (~> 1.0)
       autoprefixer-rails (~> 8.0)
@@ -735,6 +739,7 @@ DEPENDENCIES
   byebug (~> 10.0)
   codecov
   decidim (~> 0.16.0)
+  decidim-consultations (~> 0.16.0)
   decidim-dev (~> 0.16.0)
   decidim-term_customizer!
   faker (~> 1.9)

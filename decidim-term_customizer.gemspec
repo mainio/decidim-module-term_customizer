@@ -30,4 +30,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "decidim-dev", Decidim::TermCustomizer::DECIDIM_VERSION
   spec.add_development_dependency "decidim-participatory_processes", Decidim::TermCustomizer::DECIDIM_VERSION
   spec.add_development_dependency "decidim-proposals", Decidim::TermCustomizer::DECIDIM_VERSION
+  spec.add_development_dependency "decidim-consultations", Decidim::TermCustomizer::DECIDIM_VERSION
 end

@@ -40,6 +40,7 @@ module Decidim
         def component
           return unless component_form
           return unless subject
+          return unless subject.respond_to?(:components)
 
           subject.components.find_by(id: component_form.component_id)
         end

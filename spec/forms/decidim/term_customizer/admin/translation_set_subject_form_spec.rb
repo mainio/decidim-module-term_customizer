@@ -34,6 +34,31 @@ module Decidim
             end
           end
         end
+
+        describe "#component" do
+          let(:form_subject) { space }
+
+          before do
+            subject.map_model(form_subject)
+          end
+
+          context "with participatory space containing components" do
+            let(:space) { create(:participatory_process, organization: organization) }
+            let(:form_subject) { create(:proposal_component, participatory_space: space) }
+
+            it "returns the correct component" do
+              expect(subject.component).to eq(form_subject)
+            end
+          end
+
+          context "with participatory space containing no components" do
+            let(:form_subject) { create(:consultation, organization: organization) }
+
+            it "returns the correct component" do
+              expect(subject.component).to be_nil
+            end
+          end
+        end
       end
     end
   end
