@@ -1,0 +1,78 @@
+---
+es:
+  activemodel:
+    attributes:
+      constraint:
+        component_id: Componente
+        subject_id: Espacio participativo
+        subject_manifest: Tipo de espacio participativo
+      translation:
+        key: Llave de traducción
+        value: Valor personalizado
+      translation_set:
+        name: Nombre
+  decidim:
+    admin:
+      actions:
+        add_multiple_translations: Agregar varios
+        back: Volver
+        new_translation: Nueva traducción
+        new_translation_set: Nuevo grupo de traducciones
+      models:
+        translation_sets:
+          fields:
+            name: Nombre
+        translations:
+          fields:
+            key: Llave de traducción
+            original_term: Valor original
+            term: Valor personalizado
+      titles:
+        translation_sets: Grupo de traducciones
+        translations: Traducciones
+    term_customizer:
+      admin:
+        add_translations:
+          index:
+            add: Añadir
+            search: Buscar
+        translation_sets:
+          constraint_fields:
+            constraint: Ámbito
+            remove: Eliminar
+          create:
+            error: Error creando el grupo de traducciones.
+            success: Gurpo de tranducciones creado exitosamente.
+          destroy:
+            success: El grupo de traducciones ha sido creado exitosamente.
+          edit:
+            save: Guardar
+            title: Grupo de traducciones
+          form:
+            add_constraint: Agregar ámbito
+            title: Grupo de traducciones
+          new:
+            create: Crear
+            title: Grupo de traducciones
+          update:
+            error: Error actualizando el grupo de traducciones.
+            success: Grupo de tranducciones actualizado exitosamente.
+        translations:
+          create:
+            error: Error creando la traducción.
+            success: Traducción creada exitosamente.
+          destroy:
+            success: Traducción eliminada exitosamente.
+          edit:
+            save: Guardar
+            title: Traducción
+          form:
+            title: Traducción
+          new:
+            create: Crear
+            title: Traducciones
+          update:
+            error: Error actualizando la traducción.
+            success: Traducción actualizada exitosamente.
+      menu:
+        term_customizer: Personalización de términos
