@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -15,8 +16,8 @@ sv:
       actions:
         add_multiple_translations: Add multiple
         back: Back
-        new_translation_set: New translation set
         new_translation: New translation
+        new_translation_set: New translation set
       models:
         translation_sets:
           fields:
@@ -40,13 +41,13 @@ sv:
             constraint: Constraint
             remove: Remove
           create:
-            success: Translation set successfully created.
             error: Error creating translation set.
+            success: Translation set successfully created.
           destroy:
             success: Translation set successfully deleted.
           edit:
-            title: Translation set
             save: Save
+            title: Translation set
           form:
             add_constraint: Add constraint
             title: Translation set
@@ -54,24 +55,24 @@ sv:
             create: Create
             title: Translation sets
           update:
-            success: Translation set successfully updated.
             error: Error updating translation set.
+            success: Translation set successfully updated.
         translations:
           create:
-            success: Translation successfully created.
             error: Error creating translation.
+            success: Translation successfully created.
           destroy:
             success: Translation successfully deleted.
           edit:
-            title: Translation
             save: Save
+            title: Translation
           form:
             title: Translation
           new:
             create: Create
             title: Translations
           update:
-            success: Translation successfully updated.
             error: Error updating translation.
+            success: Translation successfully updated.
       menu:
         term_customizer: Term customizer
