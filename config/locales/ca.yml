@@ -1,0 +1,78 @@
+---
+ca:
+  activemodel:
+    attributes:
+      constraint:
+        component_id: Component
+        subject_id: Espai participatiu
+        subject_manifest: Tipus d'espai participatiu
+      translation:
+        key: Clau de traducció
+        value: Terme personalitzat
+      translation_set:
+        name: Nom
+  decidim:
+    admin:
+      actions:
+        add_multiple_translations: Afegir múltiples
+        back: Enrere
+        new_translation: Nova traducció
+        new_translation_set: Nou set/joc de traducció
+      models:
+        translation_sets:
+          fields:
+            name: Nom
+        translations:
+          fields:
+            key: Clau de traducció
+            original_term: Terme original
+            term: Terme personalitzat
+      titles:
+        translation_sets: Sets/Jocs de traducció
+        translations: Traduccions
+    term_customizer:
+      admin:
+        add_translations:
+          index:
+            add: Afegir
+            search: Buscar
+        translation_sets:
+          constraint_fields:
+            constraint: Obligatori
+            remove: Eliminar
+          create:
+            error: Error en crear la traducció
+            success: Traducció creada amb èxit
+          destroy:
+            success: La traducció ha estat esborrada amb èxit.
+          edit:
+            save: Guardar
+            title: Set/Joc de traducció
+          form:
+            add_constraint: Afegir restricció
+            title: Set/Joc de traducció
+          new:
+            create: Crear
+            title: Sets/Jocs de traduccions
+          update:
+            error: Error en l'actualització de la traducció
+            success: Set/Joc de traducció actualitzada amb èxit
+        translations:
+          create:
+            error: Error en crear la traducció
+            success: Traducció creada amb èxit
+          destroy:
+            success: La traducció ha estat esborrada amb èxit
+          edit:
+            save: Guardar
+            title: Traducció
+          form:
+            title: Traducció
+          new:
+            create: Crear
+            title: Traduccions
+          update:
+            error: Error en l'actualització de la traducció.
+            success: Traducció actualitzada amb èxit.
+      menu:
+        term_customizer: Personalització de termes
