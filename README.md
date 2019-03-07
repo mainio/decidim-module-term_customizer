@@ -68,6 +68,15 @@ To keep the gem up to date, you can use the commands above to also update it.
   scope. You can either add specific translation keys manually or search the
   translations from all the system's translations using the translation terms or
   keys.
+  * Using the "add multiple" view is definitely easier for beginners since it
+    allows searching for the terms and then automatically adding all the keys
+    where that translation exists.
+  * In case you are directly adding the translations, please note that the
+    **translation key** refers to the technical key that Rails uses to refer to
+    the translatable terms. For example, `decidim.menu.processes`.
+
+The UI is currently a bit rough, it could definitely use some improvement.
+Contributions regarding this are very welcome!
 
 ## Contributing
 
