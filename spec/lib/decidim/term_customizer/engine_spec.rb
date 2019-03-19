@@ -33,12 +33,15 @@ describe Decidim::TermCustomizer::Engine do
       }
     end
 
-    it "calls the subscribed block set during initialization" do
+    before do
       expect(Decidim::TermCustomizer::I18nBackend).to receive(:new).and_return(dummy_backend)
 
       run_initializer
 
-      expect(dummy_data_headers).to receive(:env).and_return(dummy_env)
+      expect(dummy_data_headers).to receive(:env).twice.and_return(dummy_env)
+    end
+
+    it "calls the subscribed block set during initialization" do
       expect(Decidim::TermCustomizer::Resolver).to receive(:new).with(
         dummy_organization,
         dummy_space,
@@ -50,6 +53,35 @@ describe Decidim::TermCustomizer::Engine do
         "start_processing.action_controller",
         dummy_data
       )
+    end
+
+    context "with controller defining the space" do
+      let(:controller) { double }
+      let(:controller_space) { double }
+      let(:dummy_env) do
+        {
+          "decidim.current_organization" => dummy_organization,
+          "decidim.current_participatory_space" => dummy_space,
+          "decidim.current_component" => dummy_component,
+          "action_controller.instance" => controller
+        }
+      end
+
+      it "fetches the space from the controller" do
+        expect(controller).to receive(:current_participatory_space).and_return(controller_space)
+
+        expect(Decidim::TermCustomizer::Resolver).to receive(:new).with(
+          dummy_organization,
+          controller_space,
+          dummy_component
+        )
+        expect(dummy_backend).to receive(:reload!)
+
+        ActiveSupport::Notifications.instrument(
+          "start_processing.action_controller",
+          dummy_data
+        )
+      end
     end
   end
 

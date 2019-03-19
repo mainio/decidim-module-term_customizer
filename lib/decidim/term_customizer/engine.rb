@@ -18,11 +18,23 @@ module Decidim
         # environment variables within Decidim.
         ActiveSupport::Notifications.subscribe "start_processing.action_controller" do |_name, _started, _finished, _unique_id, data|
           env = data[:headers].env
+          controller = data[:headers].env["action_controller.instance"]
+
+          # E.g. at the participatory process controller the
+          # `decidim.current_participatory_space` environment variable has not
+          # been set. Therefore, we need to fetch it directly from the
+          # controller using its private method.
+          space =
+            if controller.respond_to?(:current_participatory_space, true)
+              controller.send(:current_participatory_space)
+            else
+              env["decidim.current_participatory_space"]
+            end
 
           # Create a new resolver instance within the current request scope
           TermCustomizer.resolver = Resolver.new(
             env["decidim.current_organization"],
-            env["decidim.current_participatory_space"],
+            space,
             env["decidim.current_component"]
           )
 
