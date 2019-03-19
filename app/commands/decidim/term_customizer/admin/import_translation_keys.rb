@@ -38,20 +38,19 @@ module Decidim
         attr_reader :form
 
         def create_translations
-          form.keys.each do |key|
-            form.current_organization.available_locales.each do |locale|
+          items = form.keys.map do |key|
+            form.current_organization.available_locales.map do |locale|
               attrs = {
-                translation_set: form.translation_set,
                 key: key,
                 locale: locale
               }
               next unless TermCustomizer::Translation.find_by(attrs).nil?
 
-              TermCustomizer::Translation.create!(
-                attrs.merge(value: I18n.t(key, locale: locale, default: ""))
-              )
+              attrs.merge(value: I18n.t(key, locale: locale, default: ""))
             end
           end.flatten
+
+          form.translation_set.translations.create!(items)
         end
       end
     end
