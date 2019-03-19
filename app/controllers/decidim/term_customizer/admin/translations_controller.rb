@@ -88,7 +88,10 @@ module Decidim
         end
 
         def translations
-          @translations ||= SetTranslations.new(translation_set, current_locale)
+          @translations ||= SetTranslations.new(
+            translation_set,
+            current_locale
+          ).query.page(params[:page]).per(30)
         end
 
         def translation
