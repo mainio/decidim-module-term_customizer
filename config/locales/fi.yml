@@ -15,7 +15,7 @@ fi:
       actions:
         add_multiple_translations: Lisää useita
         back: Takaisin
-        clear_cache: Clear cache
+        clear_cache: Tyhjennä välimuisti
         new_translation_set: Uusi käännöspaketti
         new_translation: Uusi käännös
       models:
@@ -38,7 +38,7 @@ fi:
             search: Hae
         caches:
           clear:
-            success: Cache cleared successfully
+            success: Välimuistin tyhjennys onnistui
         translation_sets:
           constraint_fields:
             constraint: Rajaussääntö
