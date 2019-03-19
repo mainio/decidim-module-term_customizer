@@ -88,7 +88,7 @@ describe Decidim::TermCustomizer::Loader do
 
       it "clears cache with correct key" do
         expect(Rails.cache).to receive(:delete_matched).with(
-          "decidim_term_customizer/organization_#{organization.id}/space_#{space.id}/*"
+          "decidim_term_customizer/organization_#{organization.id}/*"
         )
 
         subject.clear_cache
@@ -101,7 +101,7 @@ describe Decidim::TermCustomizer::Loader do
 
       it "clears cache with correct key" do
         expect(Rails.cache).to receive(:delete_matched).with(
-          "decidim_term_customizer/organization_#{organization.id}/space_#{space.id}/component_#{component.id}/*"
+          "decidim_term_customizer/organization_#{organization.id}/*"
         )
 
         subject.clear_cache

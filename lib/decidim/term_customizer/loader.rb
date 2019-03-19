@@ -56,7 +56,7 @@ module Decidim
       # Clears the translations cache only for the current context defined by
       # the resolver.
       def clear_cache
-        Rails.cache.delete_matched("#{cache_key}/*")
+        Rails.cache.delete_matched("#{cache_key_base}/*")
       end
 
       private
