@@ -8,6 +8,7 @@ require_relative "term_customizer/admin_engine"
 module Decidim
   module TermCustomizer
     autoload :I18nBackend, "decidim/term_customizer/i18n_backend"
+    autoload :Loader, "decidim/term_customizer/loader"
     autoload :Resolver, "decidim/term_customizer/resolver"
     autoload :TranslationDirectory, "decidim/term_customizer/translation_directory"
     autoload :TranslationStore, "decidim/term_customizer/translation_store"
@@ -15,7 +16,7 @@ module Decidim
     EMPTY_HASH = {}.freeze
 
     class << self
-      attr_accessor :resolver
+      attr_accessor :loader
     end
   end
 end

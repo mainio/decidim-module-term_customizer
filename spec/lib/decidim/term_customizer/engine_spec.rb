@@ -32,6 +32,7 @@ describe Decidim::TermCustomizer::Engine do
         "decidim.current_component" => dummy_component
       }
     end
+    let(:resolver) { double }
 
     before do
       expect(Decidim::TermCustomizer::I18nBackend).to receive(:new).and_return(dummy_backend)
@@ -46,7 +47,8 @@ describe Decidim::TermCustomizer::Engine do
         dummy_organization,
         dummy_space,
         dummy_component
-      )
+      ).and_return(resolver)
+      expect(Decidim::TermCustomizer::Loader).to receive(:new).with(resolver)
       expect(dummy_backend).to receive(:reload!)
 
       ActiveSupport::Notifications.instrument(
@@ -74,7 +76,8 @@ describe Decidim::TermCustomizer::Engine do
           dummy_organization,
           controller_space,
           dummy_component
-        )
+        ).and_return(resolver)
+        expect(Decidim::TermCustomizer::Loader).to receive(:new).with(resolver)
         expect(dummy_backend).to receive(:reload!)
 
         ActiveSupport::Notifications.instrument(

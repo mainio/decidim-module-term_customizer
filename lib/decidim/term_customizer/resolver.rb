@@ -3,6 +3,8 @@
 module Decidim
   module TermCustomizer
     class Resolver
+      attr_reader :organization, :space, :component
+
       def initialize(organization, space, component)
         @organization = organization
         @space = space
@@ -18,8 +20,6 @@ module Decidim
       end
 
       private
-
-      attr_reader :organization, :space, :component
 
       def resolve_translations_query
         query = translations_base_query

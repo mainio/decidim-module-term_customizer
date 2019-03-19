@@ -32,11 +32,14 @@ module Decidim
             end
 
           # Create a new resolver instance within the current request scope
-          TermCustomizer.resolver = Resolver.new(
+          resolver = Resolver.new(
             env["decidim.current_organization"],
             space,
             env["decidim.current_component"]
           )
+
+          # Create the loader for the backend to fetch the translations from
+          TermCustomizer.loader = Loader.new(resolver)
 
           # Force the backend to reload the translations for the current request
           customizer_backend.reload!

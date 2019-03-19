@@ -25,15 +25,6 @@ describe Decidim::TermCustomizer::I18nBackend do
       }
     }
   end
-  let(:translation_objects) do
-    objects = []
-    translations_list.each_with_object({}) do |(locale, v)|
-      objects << flatten_hash(v).map do |translation_key, translation_term|
-        create(:translation, locale: locale, key: translation_key, value: translation_term)
-      end
-    end
-    objects.flatten
-  end
 
   describe "#available_locales" do
     context "when no translations are available" do
@@ -75,11 +66,11 @@ describe Decidim::TermCustomizer::I18nBackend do
     end
 
     context "when translations are loaded" do
-      let(:resolver) { double }
+      let(:loader) { double }
 
       before do
-        allow(Decidim::TermCustomizer).to receive(:resolver).and_return(resolver)
-        expect(resolver).to receive(:translations).and_return([])
+        allow(Decidim::TermCustomizer).to receive(:loader).and_return(loader)
+        expect(loader).to receive(:translations_hash).and_return([])
       end
 
       it "returns true" do
@@ -90,11 +81,11 @@ describe Decidim::TermCustomizer::I18nBackend do
   end
 
   describe "#reload!" do
-    let(:resolver) { double }
+    let(:loader) { double }
 
     before do
-      allow(Decidim::TermCustomizer).to receive(:resolver).and_return(resolver)
-      expect(resolver).to receive(:translations).and_return([])
+      allow(Decidim::TermCustomizer).to receive(:loader).and_return(loader)
+      expect(loader).to receive(:translations_hash).and_return([])
     end
 
     it "resets the translations" do
@@ -106,12 +97,11 @@ describe Decidim::TermCustomizer::I18nBackend do
   end
 
   describe "#translations" do
-    let(:resolver) { double }
+    let(:loader) { double }
 
     before do
-      translations = translation_objects
-      allow(Decidim::TermCustomizer).to receive(:resolver).and_return(resolver)
-      expect(resolver).to receive(:translations).and_return(translations)
+      allow(Decidim::TermCustomizer).to receive(:loader).and_return(loader)
+      expect(loader).to receive(:translations_hash).and_return(translations_list)
     end
 
     it "returns the correct translations list" do
@@ -126,12 +116,11 @@ describe Decidim::TermCustomizer::I18nBackend do
     end
 
     context "with actual translations" do
-      let(:resolver) { double }
+      let(:loader) { double }
 
       before do
-        translations = translation_objects
-        allow(Decidim::TermCustomizer).to receive(:resolver).and_return(resolver)
-        expect(resolver).to receive(:translations).and_return(translations)
+        allow(Decidim::TermCustomizer).to receive(:loader).and_return(loader)
+        expect(loader).to receive(:translations_hash).and_return(translations_list)
       end
 
       it "translates the translation keys correctly" do
@@ -141,18 +130,6 @@ describe Decidim::TermCustomizer::I18nBackend do
         expect(subject.translate(:fi, "decidim.term2")).to eq("Termi 2")
         expect(subject.translate(:sv, "decidim.term1")).to eq("Term 1")
         expect(subject.translate(:sv, "decidim.term2")).to eq("Term 2")
-      end
-    end
-  end
-
-  def flatten_hash(hash)
-    hash.each_with_object({}) do |(k, v), h|
-      if v.is_a? Hash
-        flatten_hash(v).map do |h_k, h_v|
-          h["#{k}.#{h_k}"] = h_v
-        end
-      else
-        h[k.to_s] = v
       end
     end
   end

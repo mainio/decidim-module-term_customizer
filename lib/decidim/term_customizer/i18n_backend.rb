@@ -32,24 +32,9 @@ module Decidim
 
         def translations
           return @translations if @translations
-          return {} unless TermCustomizer.resolver
+          return {} unless TermCustomizer.loader
 
-          @translations = {}
-
-          TermCustomizer.resolver.translations.each do |tr|
-            keyparts = [tr.locale] + tr.key.split(".")
-            lastkey = keyparts.pop.to_sym
-
-            current = @translations
-            keyparts.each do |key|
-              current[key.to_sym] ||= {}
-              current = current[key.to_sym]
-            end
-
-            current[lastkey] = tr.value
-          end
-
-          @translations
+          @translations = TermCustomizer.loader.translations_hash
         end
 
         protected
