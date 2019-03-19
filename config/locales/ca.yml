@@ -15,6 +15,7 @@ ca:
       actions:
         add_multiple_translations: Afegir múltiples
         back: Enrere
+        clear_cache: Clear cache
         new_translation_set: Nou set/joc de traducció
         new_translation: Nova traducció
       models:
@@ -35,6 +36,9 @@ ca:
           index:
             add: Afegir
             search: Buscar
+        caches:
+          clear:
+            success: Cache cleared successfully
         translation_sets:
           constraint_fields:
             constraint: Obligatori
