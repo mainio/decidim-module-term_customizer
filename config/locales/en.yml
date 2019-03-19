@@ -15,6 +15,7 @@ en:
       actions:
         add_multiple_translations: Add multiple
         back: Back
+        clear_cache: Clear cache
         new_translation_set: New translation set
         new_translation: New translation
       models:
@@ -35,6 +36,9 @@ en:
           index:
             add: Add
             search: Search
+        caches:
+          clear:
+            success: Cache cleared successfully
         translation_sets:
           constraint_fields:
             constraint: Constraint

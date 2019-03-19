@@ -18,6 +18,12 @@ module Decidim
           end
         end
 
+        resources :caches, only: [:index] do
+          collection do
+            delete :clear
+          end
+        end
+
         root to: "translation_sets#index"
       end
 
