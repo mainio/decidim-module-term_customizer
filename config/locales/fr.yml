@@ -1,0 +1,81 @@
+fr:
+  activemodel:
+    attributes:
+      constraint:
+        component_id: Composant
+        subject_id: Espace participatif
+        subject_manifest: Type d'espace participatif
+      translation:
+        key: Clé de traduction
+        value: terme modifié
+      translation_set:
+        name: Nom
+  decidim:
+    admin:
+      actions:
+        add_multiple_translations: Ajouter plusieurs
+        back: Retour
+        clear_cache: Purger le cache
+        new_translation_set: Nouveau jeu de traduction
+        new_translation: Nouvelle traduction
+      models:
+        translation_sets:
+          fields:
+            name: Nom
+        translations:
+          fields:
+            key: Clé de traduction
+            original_term: Terme original
+            term: terme modifié
+      titles:
+        translation_sets: Jeu de traductions
+        translations: Traductions
+    term_customizer:
+      admin:
+        add_translations:
+          index:
+            add: Ajouter
+            search: Rechercher
+        caches:
+          clear:
+            success: Cache purgé avec succès
+        translation_sets:
+          constraint_fields:
+            constraint: Contrainte
+            remove: Retirer
+          create:
+            success: Jeu de traduction créé avec succès.
+            error: Une erreur a lieu durant la création du jeu de traduction.
+          destroy:
+            success: Le jeu de traduction a été supprimé.
+          edit:
+            title: Jeu de traduction
+            save: Sauvegarder
+          form:
+            add_constraint: Ajouter contrainte
+            title: Jeu de traduction
+          new:
+            create: Créer
+            title: Jeu de traductions
+          update:
+            success: Jeu de traduction mis à jour avec succès.
+            error: Une erreur a lieu durant la mise à jour du jeu de traduction.
+        translations:
+          create:
+            success: Traduction créée avec succès.
+            error: Une erreur a lieu durant la création de la traduction.
+          destroy:
+            success: La traduction a été supprimée.
+          edit:
+            title: Traduction
+            save: Sauvegarder
+          form:
+            title: Traduction
+          new:
+            create: Créer
+            title: Traductions
+          update:
+            success: Traduction mis à jour avec succès.
+            error: Une erreur a lieu durant la mise à jour de la traduction.
+      menu:
+        term_customizer: Paramétrages des traductions
