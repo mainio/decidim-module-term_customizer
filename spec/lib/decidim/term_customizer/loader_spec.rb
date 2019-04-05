@@ -107,6 +107,59 @@ describe Decidim::TermCustomizer::Loader do
         subject.clear_cache
       end
     end
+
+    context "when using mem_cache_store" do
+      before do
+        allow(Rails.application.config).to receive(:cache_store).and_return(:mem_cache_store)
+      end
+
+      context "without organization" do
+        let(:organization) { nil }
+
+        it "clears cache with correct key" do
+          expect(Rails.cache).to receive(:delete).with(
+            "decidim_term_customizer/system"
+          )
+
+          subject.clear_cache
+        end
+      end
+
+      context "with organization" do
+        it "clears cache with correct key" do
+          expect(Rails.cache).to receive(:delete).with(
+            "decidim_term_customizer/organization_#{organization.id}"
+          )
+
+          subject.clear_cache
+        end
+      end
+
+      context "with organization and space" do
+        let(:space) { create(:participatory_process, organization: organization) }
+
+        it "clears cache with correct key" do
+          expect(Rails.cache).to receive(:delete).with(
+            "decidim_term_customizer/organization_#{organization.id}"
+          )
+
+          subject.clear_cache
+        end
+      end
+
+      context "with organization, space and component" do
+        let(:space) { create(:participatory_process, organization: organization) }
+        let(:component) { create(:proposal_component, participatory_space: space) }
+
+        it "clears cache with correct key" do
+          expect(Rails.cache).to receive(:delete).with(
+            "decidim_term_customizer/organization_#{organization.id}"
+          )
+
+          subject.clear_cache
+        end
+      end
+    end
   end
 
   def flatten_hash(hash)
