@@ -42,7 +42,8 @@ module Decidim
             form.current_organization.available_locales.map do |locale|
               attrs = {
                 key: key,
-                locale: locale
+                locale: locale,
+                translation_set_id: translation_set.id
               }
               next unless TermCustomizer::Translation.find_by(attrs).nil?
 
