@@ -43,7 +43,7 @@ module Decidim
               attrs = {
                 key: key,
                 locale: locale,
-                translation_set_id: translation_set.id
+                translation_set_id: form.translation_set.id
               }
               next unless TermCustomizer::Translation.find_by(attrs).nil?
 
