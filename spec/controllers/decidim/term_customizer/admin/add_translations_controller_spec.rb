@@ -66,7 +66,7 @@ module Decidim
             expect(response).to have_http_status(:ok)
 
             json = JSON.parse(response.body)
-            expect(json.length).to eq(27)
+            expect(json.length).to eq(39)
           end
         end
       end
