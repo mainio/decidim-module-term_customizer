@@ -10,6 +10,14 @@ module Decidim
         let!(:translation_set) { create :translation_set, organization: organization }
         let!(:user) { create(:user, organization: organization) }
 
+        before do
+          # Unsubscribe from the active job notification in order to avoid the
+          # "leaked" doubles error from rspec-mocks.
+          ActiveSupport::Notifications.unsubscribe(
+            "perform_start.active_job"
+          )
+        end
+
         it "sends an email with the result of the export" do
           ExportJob.perform_now(user, translation_set, "dummies", "CSV")
 
