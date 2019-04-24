@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    decidim-term_customizer (0.16.5)
+    decidim-term_customizer (0.16.6)
       decidim-admin (~> 0.16.0)
       decidim-core (~> 0.16.0)
 
