@@ -14,11 +14,11 @@ ca:
     term_customizer:
       admin:
         actions:
-          add_multiple_translations: Add multiple
-          back: Back
+          add_multiple_translations: Afegir múltiples
+          back: Enrere
           clear_cache: Clear cache
-          new_translation_set: New translation set
-          new_translation: New translation
+          new_translation_set: Nou set/joc de traducció
+          new_translation: Nova traducció
         add_translations:
           index:
             add: Afegir
@@ -29,16 +29,16 @@ ca:
         models:
           translation_sets:
             fields:
-              name: Name
+              name: Nom
           translations:
             fields:
-              key: Translation key
-              original_term: Original term
-              term: Customized term
+              key: Clau de traducció
+              original_term: Terme original
+              term: Terme personalitzat
         titles:
-          add_multiple_translations: Add multiple
-          translation_sets: Translation sets
-          translations: Translations
+          add_multiple_translations: Afegir múltiples
+          translation_sets: Sets/Jocs de traducció
+          translations: Traduccions
         translation_sets:
           constraint_fields:
             constraint: Obligatori
