@@ -56,9 +56,30 @@ module Decidim
       # Clears the translations cache only for the current context defined by
       # the resolver.
       def clear_cache
-        return Rails.cache.delete_matched("#{cache_key_base}/*") unless mem_cache_store?
+        Rails.cache.delete_matched("#{cache_key_base}/*")
+      rescue NotImplementedError
+        # Some cache store, such as `ActiveSupport::Cache::MemCacheStore` do not
+        # support `delete_matched`. Therefore, clear all the possibly existing
+        # cache keys manually for each space and component.
 
+        # Clear all the "organization" translation keys.
         Rails.cache.delete(cache_key_base)
+
+        # Iterate over the participatory spaces and their components to manually
+        # clear the cached records for all of them.
+        Decidim.participatory_space_registry.manifests.each do |manifest|
+          manifest.model_class_name.constantize.all.each do |space|
+            Rails.cache.delete("#{cache_key_base}/space_#{space.id}")
+
+            next unless space.respond_to?(:components)
+
+            space.components.each do |component|
+              Rails.cache.delete(
+                "#{cache_key_base}/space_#{space.id}/component_#{component.id}"
+              )
+            end
+          end
+        end
       end
 
       private
@@ -82,10 +103,6 @@ module Decidim
           end
 
         "decidim_term_customizer/#{main_key}"
-      end
-
-      def mem_cache_store?
-        Rails.application.config.cache_store == :mem_cache_store
       end
     end
   end
