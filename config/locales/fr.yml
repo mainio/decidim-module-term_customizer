@@ -11,27 +11,14 @@ fr:
       translation_set:
         name: Nom
   decidim:
-    admin:
-      actions:
-        add_multiple_translations: Ajouter plusieurs
-        back: Retour
-        clear_cache: Purger le cache
-        new_translation_set: Nouveau jeu de traduction
-        new_translation: Nouvelle traduction
-      models:
-        translation_sets:
-          fields:
-            name: Nom
-        translations:
-          fields:
-            key: Clé de traduction
-            original_term: Terme original
-            term: terme modifié
-      titles:
-        translation_sets: Jeu de traductions
-        translations: Traductions
     term_customizer:
       admin:
+        actions:
+          add_multiple_translations: Add multiple
+          back: Back
+          clear_cache: Clear cache
+          new_translation_set: New translation set
+          new_translation: New translation
         add_translations:
           index:
             add: Ajouter
@@ -39,6 +26,19 @@ fr:
         caches:
           clear:
             success: Cache purgé avec succès
+        models:
+          translation_sets:
+            fields:
+              name: Name
+          translations:
+            fields:
+              key: Translation key
+              original_term: Original term
+              term: Customized term
+        titles:
+          add_multiple_translations: Add multiple
+          translation_sets: Translation sets
+          translations: Translations
         translation_sets:
           constraint_fields:
             constraint: Contrainte
