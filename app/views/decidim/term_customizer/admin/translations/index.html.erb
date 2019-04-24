@@ -13,6 +13,9 @@
             <%= link_to t("actions.add_multiple_translations", scope: "decidim.term_customizer.admin"), translation_set_add_translations_path(set), class: "button tiny button--simple" %>
             <%= link_to t("actions.new_translation", scope: "decidim.term_customizer.admin"), new_translation_set_translation_path(set), class: "button tiny button--simple" %>
           <% end %>
+          <% if allowed_to? :export, :translation_set, translation_set: set %>
+            <%= render partial: "export_dropdown" %>
+          <% end %>
         </div>
       </div>
     </h2>

@@ -11,6 +11,7 @@ module Decidim
     autoload :Loader, "decidim/term_customizer/loader"
     autoload :Resolver, "decidim/term_customizer/resolver"
     autoload :TranslationDirectory, "decidim/term_customizer/translation_directory"
+    autoload :TranslationSerializer, "decidim/term_customizer/translation_serializer"
     autoload :TranslationStore, "decidim/term_customizer/translation_store"
 
     EMPTY_HASH = {}.freeze
