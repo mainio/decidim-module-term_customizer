@@ -11,27 +11,14 @@ ca:
       translation_set:
         name: Nom
   decidim:
-    admin:
-      actions:
-        add_multiple_translations: Afegir múltiples
-        back: Enrere
-        clear_cache: Clear cache
-        new_translation_set: Nou set/joc de traducció
-        new_translation: Nova traducció
-      models:
-        translation_sets:
-          fields:
-            name: Nom
-        translations:
-          fields:
-            key: Clau de traducció
-            original_term: Terme original
-            term: Terme personalitzat
-      titles:
-        translation_sets: Sets/Jocs de traducció
-        translations: Traduccions
     term_customizer:
       admin:
+        actions:
+          add_multiple_translations: Add multiple
+          back: Back
+          clear_cache: Clear cache
+          new_translation_set: New translation set
+          new_translation: New translation
         add_translations:
           index:
             add: Afegir
@@ -39,6 +26,19 @@ ca:
         caches:
           clear:
             success: Cache cleared successfully
+        models:
+          translation_sets:
+            fields:
+              name: Name
+          translations:
+            fields:
+              key: Translation key
+              original_term: Original term
+              term: Customized term
+        titles:
+          add_multiple_translations: Add multiple
+          translation_sets: Translation sets
+          translations: Translations
         translation_sets:
           constraint_fields:
             constraint: Obligatori
