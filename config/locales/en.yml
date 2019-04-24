@@ -11,27 +11,14 @@ en:
       translation_set:
         name: Name
   decidim:
-    admin:
-      actions:
-        add_multiple_translations: Add multiple
-        back: Back
-        clear_cache: Clear cache
-        new_translation_set: New translation set
-        new_translation: New translation
-      models:
-        translation_sets:
-          fields:
-            name: Name
-        translations:
-          fields:
-            key: Translation key
-            original_term: Original term
-            term: Customized term
-      titles:
-        translation_sets: Translation sets
-        translations: Translations
     term_customizer:
       admin:
+        actions:
+          add_multiple_translations: Add multiple
+          back: Back
+          clear_cache: Clear cache
+          new_translation_set: New translation set
+          new_translation: New translation
         add_translations:
           index:
             add: Add
@@ -39,6 +26,19 @@ en:
         caches:
           clear:
             success: Cache cleared successfully
+        models:
+          translation_sets:
+            fields:
+              name: Name
+          translations:
+            fields:
+              key: Translation key
+              original_term: Original term
+              term: Customized term
+        titles:
+          add_multiple_translations: Add multiple
+          translation_sets: Translation sets
+          translations: Translations
         translation_sets:
           constraint_fields:
             constraint: Constraint

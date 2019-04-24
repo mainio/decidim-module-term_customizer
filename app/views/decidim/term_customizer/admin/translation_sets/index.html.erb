@@ -2,16 +2,16 @@
   <div class="card-divider">
     <h2 class="card-title flex--sbc">
       <div>
-        <%= t "decidim.admin.titles.translation_sets" %>
+        <%= t "decidim.term_customizer.admin.titles.translation_sets" %>
       </div>
 
       <div class="flex--cc flex-gap--1">
         <div id="js-other-actions-wrapper">
           <% if allowed_to? :create, :translation_set %>
-            <%= link_to t("actions.new_translation_set", scope: "decidim.admin"), new_translation_set_path, class: "button tiny button--simple" %>
+            <%= link_to t("actions.new_translation_set", scope: "decidim.term_customizer.admin"), new_translation_set_path, class: "button tiny button--simple" %>
           <% end %>
           <% if allowed_to? :update, :organization %>
-            <%= link_to t("actions.clear_cache", scope: "decidim.admin"), clear_caches_path, method: :delete, class: "button tiny button--simple", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+            <%= link_to t("actions.clear_cache", scope: "decidim.term_customizer.admin"), clear_caches_path, method: :delete, class: "button tiny button--simple", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
           <% end %>
         </div>
       </div>
@@ -22,7 +22,7 @@
       <table class="table-list">
         <thead>
           <tr>
-            <th><%= t("models.translation_sets.fields.name", scope: "decidim.admin") %></th>
+            <th><%= t("models.translation_sets.fields.name", scope: "decidim.term_customizer.admin") %></th>
             <th></th>
           </tr>
         </thead>
