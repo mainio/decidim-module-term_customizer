@@ -56,13 +56,13 @@ fi:
             save: Tallenna
           form:
             add_constraint: Lisää rajaussääntö
-            constraint_help_html: <p>Constraints are specific rules that allow you to apply the customizations in a set to a specific context.</p> <p>In case you do not define any constraint rules, the customizations in this set will apply to the whole application. On the other hand, if you want the customizations in this set to apply only to a specific process, select "Participatory processes" as the participatory space type and the target process as the participatory space. Furthermore, you can also apply the customizations to a specific component by defining the component for the constraint.</p> <p>If you define multiple constraints, the customizations will apply in all of those.</p>
+            constraint_help_html: <p>Rajaussääntöjen avulla voit rajata käännöspaketin muutokset ainoastaan tiettyyn kontekstiin sivustolla.</p><p>Mikäli et määritä mitään sääntöjä, tämän käännöspaketin termikustomoinnit tulevat käyttöön koko applikaatioon. Toisaalta, jos haluat rajata tämän käännöspaketin kustomoinnit ainoastaan tiettyyn prosessiin, valitse "Osallisuusprosessit" osallisuustilaksi ja määritä haluamasi prosessi osallisuustila-kenttään. Voit myös liittää kustomoinnit ainoastaan tiettyyn komponenttiin määrittämällä kyseisen komponentin komponentti-kenttään.</p><p>Jos määrität useita rajaussääntöjä, termikustomointeja käytetään kaikkialla, jokin kyseisistä säännöistä pätee.</p>
             constraint_help_title: Mitä ovat rajaussäännöt?
-            help_html: <p>A translation set is a "container" that holds the translations for a specific context you want to customize.</p> <p>Translation sets help you to organize your customizations and apply them to different contexts. This allows you to customize the same translation differently in different contexts.</p> <p>For example, if you want to customize a button with the term "Add" differently for different participatory processes, you can create separate translation sets for both processes and apply the set to those processes using the constraints.</p>
-            help_title: What is a translation set?
+            help_html: <p>Käännöspaketti, on "paketti", joka sisältää käännöksiä tietylle kontekstille, jonka termejä haluat muuttaa.</p><p>Käännöspaketit auttavat sinua pitämään kustomointisi järjestyksessä ja rajaamaan niitä tiettyihin konteksteihin. Tämä mahdollistaa sen, että voit esimerkiksi muuttaa saman termin eri tavalla sivuston eri paikoissa.</p><p>Mikäli haluat esimerkiski muuttaa "Lisää" -napin tekstin erilaiseksi eri prosesseille, voit luoda kaksi erillistä käännöspakettia molempia prosesseja varten. Molemmat paketit rajataan kyseisiin prosesseihin rajaussääntöjen avulla.</p>
+            help_title: Mikä on käännöspaketti?
             title: Käännöspaketti
           index:
-            no_records_html: <p>No translation sets available.</p> <p>Start by adding a translation set from the "<a href="%{new_set_link}">%{button_name}</a>" button.</p>
+            no_records_html: <p>Ei käännöspaketteja.</p><p>Aloita lisäämällä käännöspaketti "<a href="%{new_set_link}">%{button_name}</a>" -napin avulla.</p>
           new:
             create: Luo
             title: Käännöspaketit
@@ -80,12 +80,12 @@ fi:
             save: Tallenna
           form:
             title: Käännös
-            help_title: What is translation key?
-            help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
-            term_help_title: What is customized term?
-            term_help_html: <p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>
+            help_title: Mikä on käännösavain?
+            help_html: <p>Käännösavain on tekninen viittaus käännökseen. Tämä ei siis ole se termi, jonka haluat muuttaa, vaan tekninen avain, joka viittaa kyseiseen termiin.</p><p>Mikäli haluat muuttaa esimerkiksi sanan <em>"Prosessit"</em> ylävalikosta, voit käyttää käännösavainta <em>"decidim.menu.processes"</em>.</p><p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank">Lue lisää Rails-kehyksen käännöksistä</a>.</p>
+            term_help_title: Mikä on kustomoitu termi?
+            term_help_html: <p>Kustomoitu termi on lopullinen sana, jonka haluat esiintyvän käyttöliittymässä alkuperäisen termin sijaan. Luonnollisesti, kustomoitu termi voi olla erilainen kaikille käytössä oleville kielille.</p>
           index:
-            no_records_html: <p>No translations available in this set.</p> <p>Start by adding translations to this set. The easiest way is to use the "<a href="%{add_multiple_link}">%{button_name}</a>" button where you can search translations with the same terms that you see in the UI.</p>
+            no_records_html: <p>Ei käännöksiä tässä paketissa.</p><p>Aloita lisäämällä käännöksiä tähän pakettiin. Helpoin tapa on käyttää "<a href="%{add_multiple_link}">%{button_name}</a>" -painiketta, jota painamalla voit etsiä käännöksiä niillä termeillä, jotka näet käyttöliittymässä.</p>
           new:
             create: Luo
             title: Käännökset
