@@ -18,42 +18,48 @@
     </h2>
   </div>
   <div class="card-section">
-    <div class="table-scroll">
-      <table class="table-list">
-        <thead>
-          <tr>
-            <th><%= t("models.translations.fields.key", scope: "decidim.term_customizer.admin") %></th>
-            <th><%= t("models.translations.fields.original_term", scope: "decidim.term_customizer.admin") %></th>
-            <th><%= t("models.translations.fields.term", scope: "decidim.term_customizer.admin") %></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @translations.each do |translation| %>
+    <% if @translations.count > 0 %>
+      <div class="table-scroll">
+        <table class="table-list">
+          <thead>
             <tr>
-              <td>
-                <%= translation.key %>
-              </td>
-              <td>
-                <%= @directory.translations.term(translation.key) %>
-              </td>
-              <td>
-                <%= translation.value %>
-              </td>
-              <td class="table-list__actions">
-                <% if allowed_to? :update, :translation, translation: translation %>
-                  <%= icon_link_to "pencil", edit_translation_set_translation_path(set, translation), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
-                <% end %>
-
-                <% if allowed_to? :destroy, :translation, translation: translation %>
-                  <%= icon_link_to "circle-x", translation_set_translation_path(set, translation), t("actions.destroy", scope: "decidim.admin"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
-                <% end %>
-              </td>
+              <th><%= t("models.translations.fields.key", scope: "decidim.term_customizer.admin") %></th>
+              <th><%= t("models.translations.fields.original_term", scope: "decidim.term_customizer.admin") %></th>
+              <th><%= t("models.translations.fields.term", scope: "decidim.term_customizer.admin") %></th>
+              <th></th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <%= paginate @translations, theme: "decidim" %>
-    </div>
+          </thead>
+          <tbody>
+            <% @translations.each do |translation| %>
+              <tr>
+                <td>
+                  <%= translation.key %>
+                </td>
+                <td>
+                  <%= @directory.translations.term(translation.key) %>
+                </td>
+                <td>
+                  <%= translation.value %>
+                </td>
+                <td class="table-list__actions">
+                  <% if allowed_to? :update, :translation, translation: translation %>
+                    <%= icon_link_to "pencil", edit_translation_set_translation_path(set, translation), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
+                  <% end %>
+
+                  <% if allowed_to? :destroy, :translation, translation: translation %>
+                    <%= icon_link_to "circle-x", translation_set_translation_path(set, translation), t("actions.destroy", scope: "decidim.admin"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= paginate @translations, theme: "decidim" %>
+      </div>
+    <% else %>
+      <div class="text-center">
+        <%= t ".no_records_html", add_multiple_link: translation_set_add_translations_path(set), button_name: t("decidim.term_customizer.admin.actions.add_multiple_translations") %>
+      </div>
+    <% end %>
   </div>
 </div>
