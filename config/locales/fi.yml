@@ -17,14 +17,14 @@ fi:
           add_multiple_translations: Lisää useita
           back: Takaisin
           clear_cache: Tyhjennä välimuisti
-          help: Help
+          help: Ohjeet
           new_translation_set: Uusi käännöspaketti
           new_translation: Uusi käännös
         add_translations:
           index:
             add: Lisää
-            help_title: How to search for translations?
-            help_html: <p>Start by typing a couple of letters appearing in the term that you want to change in the search panel. Wait for few seconds and a list of all translations matching your search will be displayed below the search field. Click the translations in that list that you want to change. They will appear below the search field in the list of translations to be added.</p> <p>Once you have added all the translations that you want to change, click the "%{button_name}" button at the bottom of the screen.</p>
+            help_title: Kuinka käännöksiä etsitään?
+            help_html: "<p>Aloita kirjoittamalla muutama ensimmäinen kirjain, jotka esiintyvät termissä, jonka haluat muuttaa. Odota muutama sekunti, niin hakukentän alle ilmestyy lista kaikista termeistä, joista kirjoittamasi hakutermi löytyy. Valitse listasta klikkaamalla ne termit, joita haluat muuttaa. Ne ilmestyvät hakukentän alle lisättävien termien listaan.</p>\n<p>Kun olet lisännyt kaikki termit, jotka haluat muuttaa, klikkaa listan alla olevaa \"%{button_name}\" -painiketta ruudun alalaidasta.</p>"
             search: Hae
         caches:
           clear:
@@ -56,8 +56,8 @@ fi:
             save: Tallenna
           form:
             add_constraint: Lisää rajaussääntö
-            constraint_help_html: <p>Constraints are specific rules that allow you to apply the customizations in a set to a specific context.</p> <p>In case you do not define any constraint rules, the customizations in this set will apply to the whole application. On the other hand, if you want the customizations in this set to apply only to a specific process, select "Participatory processes" as the participatory space type and the target process as the participatory space. Furthermnore, you can also apply the customizations to a specific component by defining the component for the constraint.</p> <p>If you define multiple constraints, the customizations will apply in all of those.</p>
-            constraint_help_title: What are constraints?
+            constraint_help_html: <p>Constraints are specific rules that allow you to apply the customizations in a set to a specific context.</p> <p>In case you do not define any constraint rules, the customizations in this set will apply to the whole application. On the other hand, if you want the customizations in this set to apply only to a specific process, select "Participatory processes" as the participatory space type and the target process as the participatory space. Furthermore, you can also apply the customizations to a specific component by defining the component for the constraint.</p> <p>If you define multiple constraints, the customizations will apply in all of those.</p>
+            constraint_help_title: Mitä ovat rajaussäännöt?
             help_html: <p>A translation set is a "container" that holds the translations for a specific context you want to customize.</p> <p>Translation sets help you to organize your customizations and apply them to different contexts. This allows you to customize the same translation differently in different contexts.</p> <p>For example, if you want to customize a button with the term "Add" differently for different participatory processes, you can create separate translation sets for both processes and apply the set to those processes using the constraints.</p>
             help_title: What is a translation set?
             title: Käännöspaketti
