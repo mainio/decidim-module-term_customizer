@@ -42,10 +42,9 @@ module Decidim
             form.current_organization.available_locales.map do |locale|
               attrs = {
                 key: key,
-                locale: locale,
-                translation_set_id: form.translation_set.id
+                locale: locale
               }
-              next unless TermCustomizer::Translation.find_by(attrs).nil?
+              next unless form.translation_set.translations.find_by(attrs).nil?
 
               attrs.merge(value: I18n.t(key, locale: locale, default: ""))
             end
