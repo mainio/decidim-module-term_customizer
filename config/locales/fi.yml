@@ -11,27 +11,14 @@ fi:
       translation_set:
         name: Nimi
   decidim:
-    admin:
-      actions:
-        add_multiple_translations: Lisää useita
-        back: Takaisin
-        clear_cache: Tyhjennä välimuisti
-        new_translation_set: Uusi käännöspaketti
-        new_translation: Uusi käännös
-      models:
-        translation_sets:
-          fields:
-            name: Nimi
-        translations:
-          fields:
-            key: Käännösavain
-            original_term: Alkuperäinen termi
-            term: Kustomoitu termi
-      titles:
-        translation_sets: Käännöspaketit
-        translations: Käännökset
     term_customizer:
       admin:
+        actions:
+          add_multiple_translations: Add multiple
+          back: Back
+          clear_cache: Clear cache
+          new_translation_set: New translation set
+          new_translation: New translation
         add_translations:
           index:
             add: Lisää
@@ -39,6 +26,19 @@ fi:
         caches:
           clear:
             success: Välimuistin tyhjennys onnistui
+        models:
+          translation_sets:
+            fields:
+              name: Name
+          translations:
+            fields:
+              key: Translation key
+              original_term: Original term
+              term: Customized term
+        titles:
+          add_multiple_translations: Add multiple
+          translation_sets: Translation sets
+          translations: Translations
         translation_sets:
           constraint_fields:
             constraint: Rajaussääntö
