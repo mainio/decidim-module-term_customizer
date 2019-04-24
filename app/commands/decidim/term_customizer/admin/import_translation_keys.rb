@@ -44,7 +44,7 @@ module Decidim
                 key: key,
                 locale: locale
               }
-              next unless TermCustomizer::Translation.find_by(attrs).nil?
+              next unless form.translation_set.translations.find_by(attrs).nil?
 
               attrs.merge(value: I18n.t(key, locale: locale, default: ""))
             end
