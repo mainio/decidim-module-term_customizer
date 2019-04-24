@@ -14,11 +14,11 @@ es:
     term_customizer:
       admin:
         actions:
-          add_multiple_translations: Add multiple
-          back: Back
+          add_multiple_translations: Agregar varios
+          back: Volver
           clear_cache: Clear cache
-          new_translation_set: New translation set
-          new_translation: New translation
+          new_translation_set: Nuevo grupo de traducciones
+          new_translation: Nueva traducción
         add_translations:
           index:
             add: Añadir
@@ -29,16 +29,16 @@ es:
         models:
           translation_sets:
             fields:
-              name: Name
+              name: Nombre
           translations:
             fields:
-              key: Translation key
-              original_term: Original term
-              term: Customized term
+              key: Llave de traducción
+              original_term: Valor original
+              term: Valor personalizado
         titles:
-          add_multiple_translations: Add multiple
-          translation_sets: Translation sets
-          translations: Translations
+          add_multiple_translations: Agregar varios
+          translation_sets: Grupo de traducciones
+          translations: Traducciones
         translation_sets:
           constraint_fields:
             constraint: Ámbito
