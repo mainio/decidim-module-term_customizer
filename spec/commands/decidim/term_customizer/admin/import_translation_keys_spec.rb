@@ -59,19 +59,34 @@ describe Decidim::TermCustomizer::Admin::ImportTranslationKeys do
           Decidim::TermCustomizer::Translation, :count
         ).by(12)
 
-        keys.each { |key| expect(Decidim::TermCustomizer::Translation.where(key: key).count).to eq(3) }
+        keys.each do |key|
+          expect(
+            Decidim::TermCustomizer::Translation.where(key: key).count
+          ).to eq(3)
+        end
       end
     end
 
     context "when the key exists in another translation set" do
-      let!(:translation_set_2) { create(:translation_set, organization: organization) }
+      let!(:translation_set_2) do
+        create(:translation_set, organization: organization)
+      end
       let(:key) { "decidim.admin.actions.new_translation" }
-      let!(:translation) { create(:translation, translation_set: translation_set_2, locale: :en, key: key) }
+      let!(:translation) do
+        create(
+          :translation,
+          translation_set: translation_set_2,
+          locale: :en,
+          key: key
+        )
+      end
 
       it "adds the translation" do
         command.call
 
-        expect(Decidim::TermCustomizer::Translation.where(key: key).count).to eq(4)
+        expect(
+          Decidim::TermCustomizer::Translation.where(key: key).count
+        ).to eq(4)
       end
     end
   end
