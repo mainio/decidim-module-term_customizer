@@ -40,7 +40,7 @@ module Decidim
           case permission_action.action
           when :create, :read
             allow!
-          when :update, :destroy, :export
+          when :update, :destroy, :import, :export
             toggle_allow(translation_set.present?)
           end
         end

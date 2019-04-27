@@ -14,7 +14,12 @@ module Decidim
             post :export
           end
 
-          resources :translations, except: [:show]
+          resources :translations, except: [:show] do
+            collection do
+              get :import, action: :new_import
+              post :import
+            end
+          end
           resources :add_translations, only: [:index, :create] do
             collection do
               get :search

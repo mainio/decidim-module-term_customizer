@@ -95,6 +95,31 @@ module Decidim
           expect(response).to have_http_status(:found)
         end
       end
+
+      describe "GET import" do
+        it "renders the import form" do
+          get :new_import, params: params
+
+          expect(response).to have_http_status(:ok)
+          expect(subject).to render_template(:new_import)
+        end
+      end
+
+      describe "POST import" do
+        let(:file) do
+          fixture_file_upload(
+            file_fixture("set-translations.json"),
+            "application/json"
+          )
+        end
+
+        it "runs the import" do
+          post :import, params: params.merge(file: file)
+
+          expect(flash[:notice]).not_to be_empty
+          expect(response).to have_http_status(:found)
+        end
+      end
     end
   end
 end

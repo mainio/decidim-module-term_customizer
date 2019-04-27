@@ -79,6 +79,29 @@ module Decidim
           redirect_to translation_set_translations_path(set)
         end
 
+        def new_import
+          enforce_permission_to :import, :translation_set, translation_set: set
+
+          @import = Admin::TranslationsImportForm.new
+        end
+
+        def import
+          enforce_permission_to :import, :translation_set, translation_set: set
+
+          @import = form(Admin::TranslationsImportForm).from_params(params)
+          ImportSetTranslations.call(@import, set) do
+            on(:ok) do
+              flash[:notice] = I18n.t("translations.import.success", scope: "decidim.term_customizer.admin")
+              redirect_to translation_set_translations_path(set)
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("translations.import.error", scope: "decidim.term_customizer.admin")
+              render action: "new_import"
+            end
+          end
+        end
+
         private
 
         def translation_set

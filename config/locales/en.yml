@@ -8,8 +8,16 @@ en:
       translation:
         key: Translation key
         value: Customized term
+      translations_import:
+        file: Import file
       translation_set:
         name: Name
+    errors:
+      models:
+        translations_import:
+          attributes:
+            file:
+              invalid_mime_type: 'Invalid file type. Accepted formats are: %{valid_mime_types}'
   decidim:
     term_customizer:
       admin:
@@ -18,6 +26,7 @@ en:
           back: Back
           clear_cache: Clear cache
           help: Help
+          import: Import
           new_translation_set: New translation set
           new_translation: New translation
         add_translations:
@@ -88,7 +97,7 @@ en:
               create separate translation sets for both processes and apply the
               set to those processes using the constraints.</p>
             help_title: What is a translation set?
-            title: Translation set
+            title: Translation set.
           index:
             no_records_html: <p>No translation sets available.</p>
               <p>Start by adding a translation set from the
@@ -123,6 +132,9 @@ en:
             term_help_html: <p>The customized term is the final word you want to
               appear in the UI instead of the original term. Obviously, the
               customized term can differ for each enabled language.</p>
+          import:
+            error: Error importing translations
+            success: Translations successfully imported.
           index:
             no_records_html: <p>No translations available in this set.</p>
               <p>Start by adding translations to this set. The easiest way is to
@@ -132,6 +144,15 @@ en:
           new:
             create: Create
             title: Translations
+          new_import:
+            accepted_mime_types:
+              csv: CSV
+              json: JSON
+              xls: XLS
+            bottom_hint: "(You can also upload the zip file from the translations export)"
+            file_legend: 'Add an import file that will be parsed for translations. Suported formats are: %{valid_mime_types}'
+            title: Import translations
+            start_import: Start import
           update:
             success: Translation successfully updated.
             error: Error updating translation.
