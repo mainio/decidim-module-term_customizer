@@ -8,8 +8,16 @@ fr:
       translation:
         key: Clé de traduction
         value: terme modifié
+      translations_import:
+        file: Import file
       translation_set:
         name: Nom
+    errors:
+      models:
+        translations_import:
+          attributes:
+            file:
+              invalid_mime_type: 'Invalid file type. Accepted formats are: %{valid_mime_types}'
   decidim:
     term_customizer:
       admin:
@@ -18,6 +26,7 @@ fr:
           back: Retour
           clear_cache: Purger le cache
           help: Help
+          import: Import
           new_translation_set: Nouveau jeu de traduction
           new_translation: Nouvelle traduction
         add_translations:
@@ -60,7 +69,7 @@ fr:
             constraint_help_title: What are constraints?
             help_html: <p>A translation set is a "container" that holds the translations for a specific context you want to customize.</p> <p>Translation sets help you to organize your customizations and apply them to different contexts. This allows you to customize the same translation differently in different contexts.</p> <p>For example, if you want to customize a button with the term "Add" differently for different participatory processes, you can create separate translation sets for both processes and apply the set to those processes using the constraints.</p>
             help_title: What is a translation set?
-            title: Jeu de traduction
+            title: Translation set.
           index:
             no_records_html: <p>No translation sets available.</p> <p>Start by adding a translation set from the "<a href="%{new_set_link}">%{button_name}</a>" button.</p>
           new:
@@ -84,11 +93,23 @@ fr:
             help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
             term_help_title: What is customized term?
             term_help_html: <p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>
+          import:
+            error: Error importing translations
+            success: Translations successfully imported.
           index:
             no_records_html: <p>No translations available in this set.</p> <p>Start by adding translations to this set. The easiest way is to use the "<a href="%{add_multiple_link}">%{button_name}</a>" button where you can search translations with the same terms that you see in the UI.</p>
           new:
             create: Créer
             title: Traductions
+          new_import:
+            accepted_mime_types:
+              csv: CSV
+              json: JSON
+              xls: XLS
+            bottom_hint: "(You can also upload the zip file from the translations export)"
+            file_legend: 'Add an import file that will be parsed for translations. Suported formats are: %{valid_mime_types}'
+            title: Import translations
+            start_import: Start import
           update:
             success: Traduction mis à jour avec succès.
             error: Une erreur a lieu durant la mise à jour de la traduction.
