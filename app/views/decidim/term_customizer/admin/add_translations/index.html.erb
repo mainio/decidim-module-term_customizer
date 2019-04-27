@@ -49,7 +49,7 @@
               <td>{{translation_key}}</td>
               <td>{{translation_term}}</td>
               <td>
-                <input type="hidden" name="keys[]" value="{{translation_key}}">
+                <input type="hidden" name="keys[]" value="{{translation_key}}" />
                 <%= icon_link_to "circle-x", "#", t("actions.destroy", scope: "decidim.admin"), class: "remove-translation-key action-icon--remove" %>
               </td>
             </tr>
