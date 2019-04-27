@@ -9,7 +9,7 @@ fi:
         key: Käännösavain
         value: Kustomoitu termi
       translations_import:
-        file: Import file
+        file: Tuo tiedosto
       translation_set:
         name: Nimi
     errors:
@@ -17,7 +17,7 @@ fi:
         translations_import:
           attributes:
             file:
-              invalid_mime_type: 'Invalid file type. Accepted formats are: %{valid_mime_types}'
+              invalid_mime_type: 'Virheellinen tiedostotyyppi. Hyväksytyt tiedostomuodot ovat: %{valid_mime_types}'
   decidim:
     term_customizer:
       admin:
@@ -26,7 +26,7 @@ fi:
           back: Takaisin
           clear_cache: Tyhjennä välimuisti
           help: Ohjeet
-          import: Import
+          import: Tuo
           new_translation_set: Uusi käännöspaketti
           new_translation: Uusi käännös
         add_translations:
@@ -69,7 +69,7 @@ fi:
             constraint_help_title: Mitä ovat rajaussäännöt?
             help_html: <p>Käännöspaketti, on "paketti", joka sisältää käännöksiä tietylle kontekstille, jonka termejä haluat muuttaa.</p><p>Käännöspaketit auttavat sinua pitämään kustomointisi järjestyksessä ja rajaamaan niitä tiettyihin konteksteihin. Tämä mahdollistaa sen, että voit esimerkiksi muuttaa saman termin eri tavalla sivuston eri paikoissa.</p><p>Mikäli haluat esimerkiski muuttaa "Lisää" -napin tekstin erilaiseksi eri prosesseille, voit luoda kaksi erillistä käännöspakettia molempia prosesseja varten. Molemmat paketit rajataan kyseisiin prosesseihin rajaussääntöjen avulla.</p>
             help_title: Mikä on käännöspaketti?
-            title: Translation set.
+            title: Käännöspaketti.
           index:
             no_records_html: <p>Ei käännöspaketteja.</p><p>Aloita lisäämällä käännöspaketti "<a href="%{new_set_link}">%{button_name}</a>" -napin avulla.</p>
           new:
@@ -94,8 +94,8 @@ fi:
             term_help_title: Mikä on kustomoitu termi?
             term_help_html: <p>Kustomoitu termi on lopullinen sana, jonka haluat esiintyvän käyttöliittymässä alkuperäisen termin sijaan. Luonnollisesti, kustomoitu termi voi olla erilainen kaikille käytössä oleville kielille.</p>
           import:
-            error: Error importing translations
-            success: Translations successfully imported.
+            error: Käännösten tuonti epäonnistui
+            success: Käännösten tuonti onnistui.
           index:
             no_records_html: <p>Ei käännöksiä tässä paketissa.</p><p>Aloita lisäämällä käännöksiä tähän pakettiin. Helpoin tapa on käyttää "<a href="%{add_multiple_link}">%{button_name}</a>" -painiketta, jota painamalla voit etsiä käännöksiä niillä termeillä, jotka näet käyttöliittymässä.</p>
           new:
@@ -106,10 +106,10 @@ fi:
               csv: CSV
               json: JSON
               xls: XLS
-            bottom_hint: "(You can also upload the zip file from the translations export)"
-            file_legend: 'Add an import file that will be parsed for translations. Suported formats are: %{valid_mime_types}'
-            title: Import translations
-            start_import: Start import
+            bottom_hint: "(Voit myös ladata zip-tiedoston, jonka olet ladannut käännösten vientitoiminnolla)"
+            file_legend: 'Lisää tiedosto, josta käännöksiä tuodaan. Hyväksytyt tiedostomuodot ovat: %{valid_mime_types}'
+            title: Tuo käännöksiä
+            start_import: Aloita tuonti
           update:
             success: Käännöksen päivitys onnistui.
             error: Käännöksen päivitys epäonnistui.
