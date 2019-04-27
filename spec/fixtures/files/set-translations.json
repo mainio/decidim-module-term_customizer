@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "locale": "fi",
+    "key": "activerecord.models.decidim/participatory_process_group.one",
+    "value": "Osallisuusprosessiryhmä"
+  },
+  {
+    "id": 2,
+    "locale": "en",
+    "key": "activerecord.models.decidim/participatory_process_group.one",
+    "value": "Participatory process group"
+  },
+  {
+    "id": 3,
+    "locale": "fi",
+    "key": "activerecord.models.decidim/participatory_process.other",
+    "value": "Osallisuusprosessit"
+  },
+  {
+    "id": 4,
+    "locale": "en",
+    "key": "activerecord.models.decidim/participatory_process.other",
+    "value": "Participatory processes"
+  },
+  {
+    "id": 5,
+    "locale": "fi",
+    "key": "activerecord.models.decidim/participatory_process.one",
+    "value": "Osallisuusprosessi"
+  },
+  {
+    "id": 6,
+    "locale": "en",
+    "key": "activerecord.models.decidim/participatory_process.one",
+    "value": "Participatory process"
+  }
+]

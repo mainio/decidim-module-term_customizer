@@ -1,0 +1,7 @@
+id;locale;key;value
+1;fi;activerecord.models.decidim/participatory_process_group.one;Osallisuusprosessiryhmä
+2;en;activerecord.models.decidim/participatory_process_group.one;Participatory process group
+3;fi;activerecord.models.decidim/participatory_process.other;Osallisuusprosessit
+4;en;activerecord.models.decidim/participatory_process.other;Participatory processes
+5;fi;activerecord.models.decidim/participatory_process.one;Osallisuusprosessi
+6;en;activerecord.models.decidim/participatory_process.one;Participatory process
