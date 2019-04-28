@@ -82,7 +82,7 @@ module Decidim
         def new_import
           enforce_permission_to :import, :translation_set, translation_set: set
 
-          @import = Admin::TranslationsImportForm.new
+          @import = form(Admin::TranslationsImportForm).instance
         end
 
         def import
