@@ -70,7 +70,7 @@ module Decidim
               expect(subject.translations).to eq(
                 translation_set.translations.where(
                   key: translations.map(&:key)
-                )
+                ).order(:id)
               )
             end
           end

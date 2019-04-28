@@ -20,7 +20,7 @@ module Decidim
 
           @translations ||= translation_set.translations.where(
             key: translation_keys
-          )
+          ).order(:id)
         end
 
         # Only the translations passed with the IDs (current locale).
@@ -28,8 +28,8 @@ module Decidim
           return [] unless translation_set
 
           @translations_current ||= translation_set.translations.where(
-            id: translation_ids
-          ).uniq
+            id: translation_ids.uniq
+          ).order(:id)
         end
 
         private
