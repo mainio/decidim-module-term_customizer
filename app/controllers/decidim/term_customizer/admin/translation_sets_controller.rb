@@ -60,7 +60,7 @@ module Decidim
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("translation_sets.update.invalid", scope: "decidim.term_customizer.admin")
+              flash.now[:alert] = I18n.t("translation_sets.update.error", scope: "decidim.term_customizer.admin")
               render action: "edit"
             end
           end
