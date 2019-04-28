@@ -95,7 +95,7 @@ en:
               processes, you can create separate translation sets for both processes
               and apply the set to those processes using the constraints.</p>
             help_title: What is a translation set?
-            title: Translation set.
+            title: Translation set
           index:
             no_records_html: <p>No translation sets available.</p> <p>Start by adding
               a translation set from the "<a href="%{new_set_link}">%{button_name}</a>"
