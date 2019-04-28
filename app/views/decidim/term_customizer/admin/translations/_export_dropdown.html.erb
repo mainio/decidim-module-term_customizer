@@ -2,7 +2,7 @@
 <div class="dropdown-pane" id="export-dropdown" data-dropdown data-position=bottom data-alignment=right data-auto-focus="true" data-close-on-click="true">
   <ul class="vertical menu add-components">
     <% %w{CSV JSON Excel}.each do |format| %>
-      <li class="exports--format--<%= format.downcase %> exports--translations"><%= link_to t("decidim.admin.exports.export_as", name: t("decidim.term_customizer.admin.titles.translations"), export_format: format.upcase), export_translation_set_path(set, format: format), method: :post %></li>
+      <li class="exports--format--<%= format.downcase %> exports--translations"><%= link_to t("decidim.admin.exports.export_as", name: t("decidim.term_customizer.admin.titles.translations"), export_format: format.upcase), export_translation_set_translations_path(set, format: format), method: :post %></li>
     <% end %>
   </ul>
 </div>

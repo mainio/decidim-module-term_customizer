@@ -10,12 +10,9 @@ module Decidim
 
       routes do
         resources :translation_sets, path: :sets, except: [:show] do
-          member do
-            post :export
-          end
-
           resources :translations, except: [:show] do
             collection do
+              post :export
               get :import, action: :new_import
               post :import
               resource :translations_destroy, only: [:new, :destroy]

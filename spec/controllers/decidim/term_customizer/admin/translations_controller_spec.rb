@@ -85,6 +85,17 @@ module Decidim
         end
       end
 
+      describe "POST export" do
+        let(:translation_set) { create(:translation_set, organization: organization) }
+
+        it "exports the translations" do
+          post :export, params: params.merge(format: "JSON")
+
+          expect(flash[:notice]).not_to be_empty
+          expect(response).to have_http_status(:found)
+        end
+      end
+
       describe "DELETE destroy" do
         let(:translation) { create(:translation, translation_set: translation_set) }
 

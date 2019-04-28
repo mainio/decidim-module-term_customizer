@@ -79,6 +79,17 @@ module Decidim
           redirect_to translation_set_translations_path(set)
         end
 
+        def export
+          enforce_permission_to :export, :translation_set, translation_set: set
+          name = "set-translations"
+
+          ExportJob.perform_later(current_user, set, name, params[:format] || "json")
+
+          flash[:notice] = I18n.t("exports.notice", scope: "decidim.admin")
+
+          redirect_to translation_set_translations_path(set)
+        end
+
         def new_import
           enforce_permission_to :import, :translation_set, translation_set: set
 
