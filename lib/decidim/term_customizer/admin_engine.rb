@@ -18,6 +18,7 @@ module Decidim
             collection do
               get :import, action: :new_import
               post :import
+              resource :translations_destroy, only: [:new, :destroy]
             end
           end
           resources :add_translations, only: [:index, :create] do

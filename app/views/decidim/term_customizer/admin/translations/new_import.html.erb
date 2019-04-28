@@ -21,7 +21,11 @@
       <div class="grid-x">
         <div class="cell">
           <fieldset>
-            <legend><%= t(".file_legend", valid_mime_types: mime_types).html_safe %></legend>
+            <legend>
+              <%= t(".file_legend", valid_mime_types: mime_types).html_safe %>
+              <br>
+              <%= t(".zip_hint") %>
+            </legend>
             <div class="row column">
               <%= form.upload :file, optional: false %>
             </div>
@@ -32,8 +36,5 @@
   </div>
   <div class="grid-x align-center mt-sm">
     <%= form.submit t(".start_import") %>
-  </div>
-  <div class="grid-x align-center">
-    <%= t(".bottom_hint") %>
   </div>
 <% end -%>

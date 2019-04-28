@@ -5,9 +5,13 @@
         <%= link_to t("decidim.term_customizer.menu.term_customizer"), root_path %>
         &gt;
         <%= translated_attribute(set.name) %>
+
+        <span id="js-selected-proposals-count" class="component-counter component-counter--inline" title="<%= t("decidim.term_customizer.admin.translations.index.selected") %>"></span>
       </div>
 
       <div class="flex--cc flex-gap--1">
+        <%= render partial: "decidim/term_customizer/admin/translations/bulk_actions/dropdown" %>
+
         <div id="js-other-actions-wrapper">
           <% if allowed_to? :create, :translation %>
             <%= link_to t("actions.add_multiple_translations", scope: "decidim.term_customizer.admin"), translation_set_add_translations_path(set), class: "button tiny button--simple" %>
@@ -20,6 +24,8 @@
             <%= render partial: "export_dropdown" %>
           <% end %>
         </div>
+
+        <%= render partial: "decidim/term_customizer/admin/translations/bulk_actions/destroy" %>
       </div>
     </h2>
   </div>
@@ -29,6 +35,9 @@
         <table class="table-list">
           <thead>
             <tr>
+              <th>
+                <%= check_box_tag "translations_bulk", "all", false, class: "js-check-all" %>
+              </th>
               <th><%= t("models.translations.fields.key", scope: "decidim.term_customizer.admin") %></th>
               <th><%= t("models.translations.fields.original_term", scope: "decidim.term_customizer.admin") %></th>
               <th><%= t("models.translations.fields.term", scope: "decidim.term_customizer.admin") %></th>
@@ -38,6 +47,9 @@
           <tbody>
             <% @translations.each do |translation| %>
               <tr>
+                <td>
+                  <%= check_box_tag "translation_ids_s[]", translation.id, false, class: "js-check-all-translation js-translation-list-check  js-translation-id-#{translation.id}" %><br />
+                </td>
                 <td>
                   <%= translation.key %>
                 </td>
@@ -69,3 +81,5 @@
     <% end %>
   </div>
 </div>
+
+<%= javascript_include_tag "decidim/term_customizer/admin/translations_admin_bulk" %>

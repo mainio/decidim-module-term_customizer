@@ -24,6 +24,7 @@ en:
         actions:
           add_multiple_translations: Add multiple
           back: Back
+          cancel: Cancel
           clear_cache: Clear cache
           help: Help
           import: Import
@@ -136,11 +137,13 @@ en:
             error: Error importing translations
             success: Translations successfully imported.
           index:
+            actions: Actions
             no_records_html: <p>No translations available in this set.</p>
               <p>Start by adding translations to this set. The easiest way is to
               use the "<a href="%{add_multiple_link}">%{button_name}</a>"
               button where you can search translations with the same terms that
               you see in the UI.</p>
+            selected: selected
           new:
             create: Create
             title: Translations
@@ -149,12 +152,19 @@ en:
               csv: CSV
               json: JSON
               xls: XLS
-            bottom_hint: "(You can also upload the zip file from the translations export)"
             file_legend: 'Add an import file that will be parsed for translations. Suported formats are: %{valid_mime_types}'
-            title: Import translations
             start_import: Start import
+            title: Import translations
+            zip_hint: You can also upload the ZIP file from the translations export.
           update:
             success: Translation successfully updated.
             error: Error updating translation.
+        translations_destroys:
+          destroy:
+            success: Translations successfully deleted.
+            error: Error deleting translations.
+          new:
+            destroy: Delete
+            title: Translations delete
       menu:
         term_customizer: Term customizer
