@@ -20,7 +20,7 @@
           <% if allowed_to? :import, :translation_set, translation_set: set %>
             <%= link_to t("actions.import", scope: "decidim.term_customizer.admin"), import_translation_set_translations_path(set), class: "button tiny button--simple" %>
           <% end %>
-          <% if allowed_to? :export, :translation_set, translation_set: set %>
+          <% if set.translations.count > 0 && allowed_to?(:export, :translation_set, translation_set: set) %>
             <%= render partial: "export_dropdown" %>
           <% end %>
         </div>
