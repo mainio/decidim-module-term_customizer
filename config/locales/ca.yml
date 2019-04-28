@@ -30,6 +30,7 @@ ca:
           import: Import
           new_translation: Nova traducció
           new_translation_set: Nou set/joc de traducció
+          view: View
         add_translations:
           index:
             add: Afegir
@@ -70,7 +71,7 @@ ca:
             constraint_help_title: What are constraints?
             help_html: <p>A translation set is a "container" that holds the translations for a specific context you want to customize.</p> <p>Translation sets help you to organize your customizations and apply them to different contexts. This allows you to customize the same translation differently in different contexts.</p> <p>For example, if you want to customize a button with the term "Add" differently for different participatory processes, you can create separate translation sets for both processes and apply the set to those processes using the constraints.</p>
             help_title: What is a translation set?
-            title: Translation set.
+            title: Set/Joc de traducció
           index:
             no_records_html: <p>No translation sets available.</p> <p>Start by adding a translation set from the "<a href="%{new_set_link}">%{button_name}</a>" button.</p>
           new:

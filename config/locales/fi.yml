@@ -30,6 +30,7 @@ fi:
           import: Tuo
           new_translation: Uusi käännös
           new_translation_set: Uusi käännöspaketti
+          view: Näytä
         add_translations:
           index:
             add: Lisää
@@ -70,7 +71,7 @@ fi:
             constraint_help_title: Mitä ovat rajaussäännöt?
             help_html: <p>Käännöspaketti, on "paketti", joka sisältää käännöksiä tietylle kontekstille, jonka termejä haluat muuttaa.</p><p>Käännöspaketit auttavat sinua pitämään kustomointisi järjestyksessä ja rajaamaan niitä tiettyihin konteksteihin. Tämä mahdollistaa sen, että voit esimerkiksi muuttaa saman termin eri tavalla sivuston eri paikoissa.</p><p>Mikäli haluat esimerkiski muuttaa "Lisää" -napin tekstin erilaiseksi eri prosesseille, voit luoda kaksi erillistä käännöspakettia molempia prosesseja varten. Molemmat paketit rajataan kyseisiin prosesseihin rajaussääntöjen avulla.</p>
             help_title: Mikä on käännöspaketti?
-            title: Käännöspaketti.
+            title: Käännöspaketti
           index:
             no_records_html: <p>Ei käännöspaketteja.</p><p>Aloita lisäämällä käännöspaketti "<a href="%{new_set_link}">%{button_name}</a>" -napin avulla.</p>
           new:
