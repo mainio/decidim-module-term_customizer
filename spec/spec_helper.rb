@@ -18,6 +18,10 @@ require "decidim/dev/test/base_spec_helper"
 
 RSpec.configure do |config|
   config.before do
+    # Reset the locales to Decidim defaults before each test.
+    # Some tests may change this which is why this is important.
+    I18n.available_locales = [:en, :ca, :es]
+
     # Revert back to the simple backend before every test because otherwise the
     # tests may be interfered by the backend set by the specific tests. You
     # could otherwise see the following errors in case the tests are not run in

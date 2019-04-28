@@ -64,13 +64,14 @@ module Decidim
         # Returns Array or nil. The returned value is an array of the imported
         # translations when the import is successful, otherwise nil.
         def import_file(filepath, mime_type)
-          importer_for(filepath, mime_type).import do |collection|
-            collection.each do |record|
-              record.translation_set = translation_set
-              record.save!
-            end
+          importer_for(filepath, mime_type).import do |records|
+            import = TranslationImportCollection.new(
+              translation_set,
+              records,
+              form.current_organization.available_locales
+            )
 
-            return collection
+            return translation_set.translations.create(import.import_attributes)
           end
 
           nil

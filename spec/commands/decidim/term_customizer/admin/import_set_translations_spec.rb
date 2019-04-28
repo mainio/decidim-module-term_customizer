@@ -5,7 +5,8 @@ require "spec_helper"
 describe Decidim::TermCustomizer::Admin::ImportSetTranslations do
   let(:form_klass) { Decidim::TermCustomizer::Admin::TranslationsImportForm }
 
-  let(:organization) { create(:organization) }
+  let(:locales) { [:en, :fi] }
+  let(:organization) { create(:organization, available_locales: locales) }
   let(:translation_set) { create(:translation_set, organization: organization) }
   let(:file) { nil }
   let(:form_params) { { file: file } }
@@ -15,6 +16,10 @@ describe Decidim::TermCustomizer::Admin::ImportSetTranslations do
     ).with_context(
       current_organization: organization
     )
+  end
+
+  before do
+    I18n.available_locales = locales
   end
 
   describe "call" do

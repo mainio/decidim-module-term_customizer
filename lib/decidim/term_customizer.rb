@@ -12,6 +12,7 @@ module Decidim
     autoload :Loader, "decidim/term_customizer/loader"
     autoload :Resolver, "decidim/term_customizer/resolver"
     autoload :TranslationDirectory, "decidim/term_customizer/translation_directory"
+    autoload :TranslationImportCollection, "decidim/term_customizer/translation_import_collection"
     autoload :TranslationParser, "decidim/term_customizer/translation_parser"
     autoload :TranslationSerializer, "decidim/term_customizer/translation_serializer"
     autoload :TranslationStore, "decidim/term_customizer/translation_store"
