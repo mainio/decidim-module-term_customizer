@@ -8,10 +8,10 @@ fi:
       translation:
         key: Käännösavain
         value: Kustomoitu termi
-      translations_import:
-        file: Tuo tiedosto
       translation_set:
         name: Nimi
+      translations_import:
+        file: Tuo tiedosto
     errors:
       models:
         translations_import:
@@ -24,16 +24,17 @@ fi:
         actions:
           add_multiple_translations: Lisää useita
           back: Takaisin
+          cancel: Peruuta
           clear_cache: Tyhjennä välimuisti
           help: Ohjeet
           import: Tuo
-          new_translation_set: Uusi käännöspaketti
           new_translation: Uusi käännös
+          new_translation_set: Uusi käännöspaketti
         add_translations:
           index:
             add: Lisää
-            help_title: Kuinka käännöksiä etsitään?
             help_html: "<p>Aloita kirjoittamalla muutama ensimmäinen kirjain, jotka esiintyvät termissä, jonka haluat muuttaa. Odota muutama sekunti, niin hakukentän alle ilmestyy lista kaikista termeistä, joista kirjoittamasi hakutermi löytyy. Valitse listasta klikkaamalla ne termit, joita haluat muuttaa. Ne ilmestyvät hakukentän alle lisättävien termien listaan.</p>\n<p>Kun olet lisännyt kaikki termit, jotka haluat muuttaa, klikkaa listan alla olevaa \"%{button_name}\" -painiketta ruudun alalaidasta.</p>"
+            help_title: Kuinka käännöksiä etsitään?
             search: Hae
         caches:
           clear:
@@ -56,13 +57,13 @@ fi:
             constraint: Rajaussääntö
             remove: Poista
           create:
-            success: Käännöspaketin luonti onnistui.
             error: Käännöspaketin luonti epäonnistui.
+            success: Käännöspaketin luonti onnistui.
           destroy:
             success: Käännöspaketin poisto onnistui.
           edit:
-            title: Käännöspaketti
             save: Tallenna
+            title: Käännöspaketti
           form:
             add_constraint: Lisää rajaussääntö
             constraint_help_html: <p>Rajaussääntöjen avulla voit rajata käännöspaketin muutokset ainoastaan tiettyyn kontekstiin sivustolla.</p><p>Mikäli et määritä mitään sääntöjä, tämän käännöspaketin termikustomoinnit tulevat käyttöön koko applikaatioon. Toisaalta, jos haluat rajata tämän käännöspaketin kustomoinnit ainoastaan tiettyyn prosessiin, valitse "Osallisuusprosessit" osallisuustilaksi ja määritä haluamasi prosessi osallisuustila-kenttään. Voit myös liittää kustomoinnit ainoastaan tiettyyn komponenttiin määrittämällä kyseisen komponentin komponentti-kenttään.</p><p>Jos määrität useita rajaussääntöjä, termikustomointeja käytetään kaikkialla, jokin kyseisistä säännöistä pätee.</p>
@@ -76,28 +77,30 @@ fi:
             create: Luo
             title: Käännöspaketit
           update:
-            success: Käännöspaketin päivitys onnistui.
             error: Käännöspaketin päivitys epäonnistui.
+            success: Käännöspaketin päivitys onnistui.
         translations:
           create:
-            success: Käännöksen luonti onnistui.
             error: Käännöksen luonti epäonnistui.
+            success: Käännöksen luonti onnistui.
           destroy:
             success: Käännöksen poisto onnistui.
           edit:
-            title: Käännös
             save: Tallenna
-          form:
             title: Käännös
-            help_title: Mikä on käännösavain?
+          form:
             help_html: <p>Käännösavain on tekninen viittaus käännökseen. Tämä ei siis ole se termi, jonka haluat muuttaa, vaan tekninen avain, joka viittaa kyseiseen termiin.</p><p>Mikäli haluat muuttaa esimerkiksi sanan <em>"Prosessit"</em> ylävalikosta, voit käyttää käännösavainta <em>"decidim.menu.processes"</em>.</p><p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank">Lue lisää Rails-kehyksen käännöksistä</a>.</p>
+            help_title: Mikä on käännösavain?
+            term_help_html: "<p>Kustomoitu termi on lopullinen sana, jonka haluat esiintyvän käyttöliittymässä alkuperäisen termin sijaan. Luonnollisesti, kustomoitu termi voi olla erilainen kaikille käytössä oleville kielille.</p>"
             term_help_title: Mikä on kustomoitu termi?
-            term_help_html: <p>Kustomoitu termi on lopullinen sana, jonka haluat esiintyvän käyttöliittymässä alkuperäisen termin sijaan. Luonnollisesti, kustomoitu termi voi olla erilainen kaikille käytössä oleville kielille.</p>
+            title: Käännös
           import:
             error: Käännösten tuonti epäonnistui
             success: Käännösten tuonti onnistui.
           index:
+            actions: Toiminnot
             no_records_html: <p>Ei käännöksiä tässä paketissa.</p><p>Aloita lisäämällä käännöksiä tähän pakettiin. Helpoin tapa on käyttää "<a href="%{add_multiple_link}">%{button_name}</a>" -painiketta, jota painamalla voit etsiä käännöksiä niillä termeillä, jotka näet käyttöliittymässä.</p>
+            selected: valittu
           new:
             create: Luo
             title: Käännökset
@@ -106,12 +109,19 @@ fi:
               csv: CSV
               json: JSON
               xls: XLS
-            bottom_hint: "(Voit myös ladata zip-tiedoston, jonka olet ladannut käännösten vientitoiminnolla)"
             file_legend: 'Lisää tiedosto, josta käännöksiä tuodaan. Hyväksytyt tiedostomuodot ovat: %{valid_mime_types}'
-            title: Tuo käännöksiä
             start_import: Aloita tuonti
+            title: Tuo käännöksiä
+            zip_hint: Voit myös ladata ZIP-tiedoston, jonka olet luonut käännösten vientitoiminnolla.
           update:
-            success: Käännöksen päivitys onnistui.
             error: Käännöksen päivitys epäonnistui.
+            success: Käännöksen päivitys onnistui.
+        translations_destroys:
+          destroy:
+            error: Käännösten poistaminen epäonnistui.
+            success: Käännösten poistaminen onnistui.
+          new:
+            destroy: Poista
+            title: Käännösten poisto
       menu:
         term_customizer: Termien kustomoinnit

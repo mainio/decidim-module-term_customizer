@@ -8,10 +8,10 @@ es:
       translation:
         key: Llave de traducción
         value: Valor personalizado
-      translations_import:
-        file: Import file
       translation_set:
         name: Nombre
+      translations_import:
+        file: Import file
     errors:
       models:
         translations_import:
@@ -24,16 +24,17 @@ es:
         actions:
           add_multiple_translations: Agregar varios
           back: Volver
+          cancel: Cancel
           clear_cache: Clear cache
           help: Help
           import: Import
-          new_translation_set: Nuevo grupo de traducciones
           new_translation: Nueva traducción
+          new_translation_set: Nuevo grupo de traducciones
         add_translations:
           index:
             add: Añadir
-            help_title: How to search for translations?
             help_html: <p>Start by typing a couple of letters appearing in the term that you want to change in the search panel. Wait for few seconds and a list of all translations matching your search will be displayed below the search field. Click the translations in that list that you want to change. They will appear below the search field in the list of translations to be added.</p> <p>Once you have added all the translations that you want to change, click the "%{button_name}" button at the bottom of the screen.</p>
+            help_title: How to search for translations?
             search: Buscar
         caches:
           clear:
@@ -56,13 +57,13 @@ es:
             constraint: Ámbito
             remove: Eliminar
           create:
-            success: Gurpo de tranducciones creado exitosamente.
             error: Error creando el grupo de traducciones.
+            success: Gurpo de tranducciones creado exitosamente.
           destroy:
             success: El grupo de traducciones ha sido creado exitosamente.
           edit:
-            title: Grupo de traducciones
             save: Guardar
+            title: Grupo de traducciones
           form:
             add_constraint: Agregar ámbito
             constraint_help_html: <p>Constraints are specific rules that allow you to apply the customizations in a set to a specific context.</p> <p>In case you do not define any constraint rules, the customizations in this set will apply to the whole application. On the other hand, if you want the customizations in this set to apply only to a specific process, select "Participatory processes" as the participatory space type and the target process as the participatory space. Furthermore, you can also apply the customizations to a specific component by defining the component for the constraint.</p> <p>If you define multiple constraints, the customizations will apply in all of those.</p>
@@ -76,28 +77,30 @@ es:
             create: Crear
             title: Grupo de traducciones
           update:
-            success: Grupo de tranducciones actualizado exitosamente.
             error: Error actualizando el grupo de traducciones.
+            success: Grupo de tranducciones actualizado exitosamente.
         translations:
           create:
-            success: Traducción creada exitosamente.
             error: Error creando la traducción.
+            success: Traducción creada exitosamente.
           destroy:
             success: Traducción eliminada exitosamente.
           edit:
-            title: Traducción
             save: Guardar
-          form:
             title: Traducción
-            help_title: What is translation key?
+          form:
             help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
+            help_title: What is translation key?
+            term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
             term_help_title: What is customized term?
-            term_help_html: <p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>
+            title: Traducción
           import:
             error: Error importing translations
             success: Translations successfully imported.
           index:
+            actions: Actions
             no_records_html: <p>No translations available in this set.</p> <p>Start by adding translations to this set. The easiest way is to use the "<a href="%{add_multiple_link}">%{button_name}</a>" button where you can search translations with the same terms that you see in the UI.</p>
+            selected: selected
           new:
             create: Crear
             title: Traducciones
@@ -106,12 +109,19 @@ es:
               csv: CSV
               json: JSON
               xls: XLS
-            bottom_hint: "(You can also upload the zip file from the translations export)"
             file_legend: 'Add an import file that will be parsed for translations. Suported formats are: %{valid_mime_types}'
-            title: Import translations
             start_import: Start import
+            title: Import translations
+            zip_hint: You can also upload the ZIP file from the translations export.
           update:
-            success: Traducción actualizada exitosamente.
             error: Error actualizando la traducción.
+            success: Traducción actualizada exitosamente.
+        translations_destroys:
+          destroy:
+            error: Error deleting translations.
+            success: Translations successfully deleted.
+          new:
+            destroy: Delete
+            title: Translations delete
       menu:
         term_customizer: Personalización de términos
