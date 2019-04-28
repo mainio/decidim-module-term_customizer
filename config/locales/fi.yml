@@ -24,7 +24,7 @@ fi:
         actions:
           add_multiple_translations: Lisää useita
           back: Takaisin
-          cancel: Cancel
+          cancel: Peruuta
           clear_cache: Tyhjennä välimuisti
           help: Ohjeet
           import: Tuo
@@ -98,9 +98,9 @@ fi:
             error: Käännösten tuonti epäonnistui
             success: Käännösten tuonti onnistui.
           index:
-            actions: Actions
+            actions: Toiminnot
             no_records_html: <p>Ei käännöksiä tässä paketissa.</p><p>Aloita lisäämällä käännöksiä tähän pakettiin. Helpoin tapa on käyttää "<a href="%{add_multiple_link}">%{button_name}</a>" -painiketta, jota painamalla voit etsiä käännöksiä niillä termeillä, jotka näet käyttöliittymässä.</p>
-            selected: selected
+            selected: valittu
           new:
             create: Luo
             title: Käännökset
@@ -112,16 +112,16 @@ fi:
             file_legend: 'Lisää tiedosto, josta käännöksiä tuodaan. Hyväksytyt tiedostomuodot ovat: %{valid_mime_types}'
             start_import: Aloita tuonti
             title: Tuo käännöksiä
-            zip_hint: You can also upload the ZIP file from the translations export.
+            zip_hint: Voit myös ladata ZIP-tiedoston, jonka olet luonut käännösten vientitoiminnolla.
           update:
             error: Käännöksen päivitys epäonnistui.
             success: Käännöksen päivitys onnistui.
         translations_destroys:
           destroy:
-            error: Error deleting translations.
-            success: Translations successfully deleted.
+            error: Käännösten poistaminen epäonnistui.
+            success: Käännösten poistaminen onnistui.
           new:
-            destroy: Delete
-            title: Translations delete
+            destroy: Poista
+            title: Käännösten poisto
       menu:
         term_customizer: Termien kustomoinnit
