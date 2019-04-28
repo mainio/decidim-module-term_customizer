@@ -30,6 +30,7 @@ es:
           import: Import
           new_translation: Nueva traducción
           new_translation_set: Nuevo grupo de traducciones
+          view: View
         add_translations:
           index:
             add: Añadir
