@@ -13,8 +13,8 @@ require_relative "#{base_path}lib/decidim/term_customizer/version"
 gem "decidim", Decidim::TermCustomizer::DECIDIM_VERSION
 gem "decidim-term_customizer", path: "."
 
-gem "bootsnap", "~> 1.3"
-gem "puma", "~> 3.0"
+gem "bootsnap", "~> 1.4"
+gem "puma", "~> 3.12"
 gem "uglifier", "~> 4.1"
 
 group :development, :test do
@@ -40,3 +40,6 @@ end
 
 # Remediate CVE-2019-5420
 gem "railties", ">= 5.2.2.1"
+
+# See: https://github.com/decidim/decidim/pull/5303
+gem "ransack", "~> 2.1.1"
