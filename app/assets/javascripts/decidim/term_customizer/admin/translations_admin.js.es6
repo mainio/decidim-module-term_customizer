@@ -32,8 +32,13 @@ $(() => {
       const re = new RegExp(`(${sanitizedSearch.split(" ").join("|")})`, "gi");
       const modelId = item[0];
       const title = item[1];
+      // The terms are already escaped but when they are rendered to a data
+      // attribute, they get unescaped when those values are used. The only
+      // character we need to replace is the ampersand
+      const value = title.replace(/&/g, "&amp;");
+
       const val = `${title} - ${modelId}`;
-      return `<div class="autocomplete-suggestion" data-model-id="${modelId}" data-val="${title}">${val.replace(re, "<b>$1</b>")}</div>`;
+      return `<div class="autocomplete-suggestion" data-model-id="${modelId}" data-val="${value}">${val.replace(re, "<b>$1</b>")}</div>`;
     },
     onSelect: function(event, term, item) {
       const $suggestions = $search.data("sc");
