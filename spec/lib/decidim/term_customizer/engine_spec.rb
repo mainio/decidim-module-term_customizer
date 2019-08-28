@@ -42,7 +42,7 @@ describe Decidim::TermCustomizer::Engine do
 
       run_initializer
 
-      expect(dummy_data_headers).to receive(:env).twice.and_return(dummy_env)
+      expect(dummy_data_headers).to receive(:env).and_return(dummy_env)
     end
 
     it "calls the subscribed block set during initialization" do

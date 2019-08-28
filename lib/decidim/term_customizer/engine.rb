@@ -17,25 +17,13 @@ module Decidim
         # done through a notification to get access to the `current_*`
         # environment variables within Decidim.
         ActiveSupport::Notifications.subscribe "start_processing.action_controller" do |_name, _started, _finished, _unique_id, data|
-          env = data[:headers].env
-          controller = data[:headers].env["action_controller.instance"]
-
-          # E.g. at the participatory process controller the
-          # `decidim.current_participatory_space` environment variable has not
-          # been set. Therefore, we need to fetch it directly from the
-          # controller using its private method.
-          space =
-            if controller.respond_to?(:current_participatory_space, true)
-              controller.send(:current_participatory_space)
-            else
-              env["decidim.current_participatory_space"]
-            end
+          context = TermCustomizer.controller_context_class.new(data)
 
           # Create a new resolver instance within the current request scope
           resolver = Resolver.new(
-            env["decidim.current_organization"],
-            space,
-            env["decidim.current_component"]
+            context.organization,
+            context.space,
+            context.component
           )
 
           # Create the loader for the backend to fetch the translations from
@@ -58,22 +46,15 @@ module Decidim
         # job that may be fired by another job (i.e. the notification job is
         # always performed last).
         ActiveSupport::Notifications.subscribe "perform_start.active_job" do |_name, _started, _finished, _unique_id, data|
-          # Figure out the organization and user through the job arguments if
-          # passed for the job.
-          organization = nil
-          user = nil
-          data[:job].arguments.each do |arg|
-            organization = arg if arg.is_a?(Decidim::Organization)
-            user = arg if arg.is_a?(Decidim::User)
-          end
-
-          # In case an organization was not passed for the job, check it through
-          # the user.
-          organization = user.organization if organization.nil? && user
+          context = TermCustomizer.job_context_class.new(data)
 
           # Create resolver for the target organization or global context in
           # case organization was not found
-          resolver = Resolver.new(organization, nil, nil)
+          resolver = Resolver.new(
+            context.organization,
+            context.space,
+            context.component
+          )
 
           # Create the loader for the backend to fetch the translations from
           TermCustomizer.loader = Loader.new(resolver)
