@@ -26,6 +26,8 @@ fr:
           back: Retour
           cancel: Cancel
           clear_cache: Purger le cache
+          confirm_duplicate: Are you sure you want to duplicate this set?
+          duplicate: Duplicate
           help: Help
           import: Import
           new_translation: Nouvelle traduction
@@ -62,6 +64,10 @@ fr:
             success: Jeu de traduction créé avec succès.
           destroy:
             success: Le jeu de traduction a été supprimé.
+          duplicate:
+            copied_set_name: Copy of %{name}
+            error: Error duplicating translation set.
+            success: Translation set successfully duplicated.
           edit:
             save: Sauvegarder
             title: Jeu de traductions

@@ -26,6 +26,8 @@ es:
           back: Volver
           cancel: Cancel
           clear_cache: Clear cache
+          confirm_duplicate: Are you sure you want to duplicate this set?
+          duplicate: Duplicate
           help: Help
           import: Import
           new_translation: Nueva traducción
@@ -62,6 +64,10 @@ es:
             success: Gurpo de tranducciones creado exitosamente.
           destroy:
             success: El grupo de traducciones ha sido creado exitosamente.
+          duplicate:
+            copied_set_name: Copy of %{name}
+            error: Error duplicating translation set.
+            success: Translation set successfully duplicated.
           edit:
             save: Guardar
             title: Grupo de traducciones
