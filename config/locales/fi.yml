@@ -26,6 +26,8 @@ fi:
           back: Takaisin
           cancel: Peruuta
           clear_cache: Tyhjennä välimuisti
+          confirm_duplicate: Are you sure you want to duplicate this set?
+          duplicate: Duplicate
           help: Ohjeet
           import: Tuo
           new_translation: Uusi käännös
@@ -62,6 +64,10 @@ fi:
             success: Käännöspaketin luonti onnistui.
           destroy:
             success: Käännöspaketin poisto onnistui.
+          duplicate:
+            copied_set_name: Copy of %{name}
+            error: Error duplicating translation set.
+            success: Translation set successfully duplicated.
           edit:
             save: Tallenna
             title: Käännöspaketti
