@@ -15,5 +15,7 @@ $(() => {
     }
   );
 
-  $(".constraints-list", $fields).constraintSection();
+  $(".constraints-list .constraint-section", $fields).each((_i, el) => {
+    $(el).constraintSection();
+  });
 });
