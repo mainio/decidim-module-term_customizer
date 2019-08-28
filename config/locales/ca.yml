@@ -26,6 +26,8 @@ ca:
           back: Enrere
           cancel: Cancel
           clear_cache: Clear cache
+          confirm_duplicate: Are you sure you want to duplicate this set?
+          duplicate: Duplicate
           help: Help
           import: Import
           new_translation: Nova traducció
@@ -62,6 +64,10 @@ ca:
             success: Traducció creada amb èxit
           destroy:
             success: La traducció ha estat esborrada amb èxit.
+          duplicate:
+            copied_set_name: Copy of %{name}
+            error: Error duplicating translation set.
+            success: Translation set successfully duplicated.
           edit:
             save: Guardar
             title: Set/Joc de traducció
