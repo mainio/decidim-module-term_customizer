@@ -69,10 +69,13 @@ module Decidim
           enforce_permission_to :destroy, :translation, translation: translation
 
           # Destroy all locales of the translation key
-          Decidim::TermCustomizer::Translation.where(
+          pfm = TermCustomizer::PluralFormsManager.new(current_organization)
+          translations = Decidim::TermCustomizer::Translation.where(
             translation_set: set,
             key: translation.key
-          ).destroy_all
+          )
+          pfm.destroy!(translations)
+          translations.destroy_all
 
           flash[:notice] = I18n.t("translations.destroy.success", scope: "decidim.term_customizer.admin")
 
@@ -99,7 +102,10 @@ module Decidim
         def import
           enforce_permission_to :import, :translation_set, translation_set: set
 
-          @import = form(Admin::TranslationsImportForm).from_params(params)
+          @import = form(Admin::TranslationsImportForm).from_params(
+            params,
+            current_organization: current_organization
+          )
           ImportSetTranslations.call(@import, set) do
             on(:ok) do
               flash[:notice] = I18n.t("translations.import.success", scope: "decidim.term_customizer.admin")

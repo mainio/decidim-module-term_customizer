@@ -6,6 +6,8 @@ module Decidim
       # A command with all the business logic when an admin destroys
       # translations from a translation set.
       class DestroyTranslations < Rectify::Command
+        include TermCustomizer::PluralFormsForm
+
         # Public: Initializes the command.
         #
         # form - A form object with the params.
@@ -22,6 +24,7 @@ module Decidim
         def call
           return broadcast(:invalid) unless form.valid?
 
+          destroy_plural_forms(form.translations)
           destroy_translations
 
           broadcast(:ok)

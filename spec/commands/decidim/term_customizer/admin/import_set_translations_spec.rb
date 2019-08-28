@@ -52,11 +52,17 @@ describe Decidim::TermCustomizer::Admin::ImportSetTranslations do
         end
 
         it "adds the translations" do
+          # NOTE:
+          # The source translations only include the `:one` key for:
+          # activerecord.models.decidim/participatory_process_group
+          # The `:other` plural form key is also added for this translation
+          # automatically by the PluralFormsManager which increases the amount
+          # of added translations to 8 (import file only includes 6).
           expect do
             command.call
           end.to change(
             Decidim::TermCustomizer::Translation, :count
-          ).by(6)
+          ).by(8)
 
           expected_data.each do |data|
             tr = translation_set.translations.find_by(

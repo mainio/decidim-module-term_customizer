@@ -1,0 +1,8 @@
+en:
+  test:
+    city: City
+    plural:
+      zero: Zero
+      one: One
+      other: Other
+    translation: Translation

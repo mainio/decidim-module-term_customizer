@@ -10,6 +10,8 @@ module Decidim
     autoload :I18nBackend, "decidim/term_customizer/i18n_backend"
     autoload :Import, "decidim/term_customizer/import"
     autoload :Loader, "decidim/term_customizer/loader"
+    autoload :PluralFormsForm, "decidim/term_customizer/plural_forms_form"
+    autoload :PluralFormsManager, "decidim/term_customizer/plural_forms_manager"
     autoload :Resolver, "decidim/term_customizer/resolver"
     autoload :TranslationDirectory, "decidim/term_customizer/translation_directory"
     autoload :TranslationImportCollection, "decidim/term_customizer/translation_import_collection"

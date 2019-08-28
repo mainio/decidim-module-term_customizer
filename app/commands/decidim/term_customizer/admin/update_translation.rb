@@ -6,6 +6,8 @@ module Decidim
       # This command is executed when the user changes a translation from the
       # admin panel.
       class UpdateTranslation < Rectify::Command
+        include TermCustomizer::PluralFormsForm
+
         # Public: Initializes the command.
         #
         # form        - A form object with the params.
@@ -25,7 +27,8 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
 
           transaction do
-            update_translations!
+            @translations = update_translations!
+            create_plural_forms(@translations)
           end
 
           broadcast(:ok, translation)
@@ -36,7 +39,7 @@ module Decidim
         attr_reader :form, :translation
 
         def update_translations!
-          form.value.each do |locale, value|
+          form.value.map do |locale, value|
             l_translation = TermCustomizer::Translation.find_by(
               translation_set: translation.translation_set,
               key: translation.key,
@@ -50,13 +53,15 @@ module Decidim
                 locale: locale
               )
             else
-              TermCustomizer::Translation.create!(
+              l_translation = TermCustomizer::Translation.create!(
                 translation_set: translation.translation_set,
                 key: form.key,
                 value: value,
                 locale: locale
               )
             end
+
+            l_translation
           end
         end
       end

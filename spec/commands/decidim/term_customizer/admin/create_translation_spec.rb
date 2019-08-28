@@ -67,6 +67,37 @@ describe Decidim::TermCustomizer::Admin::CreateTranslation do
           key: form_params[:key]
         ).count).to eq(3)
       end
+
+      context "and the passed translations have plural forms" do
+        let(:form_params) do
+          {
+            key: "test.plural.one",
+            value: {
+              en: "English value",
+              fi: "Suomenkielinen arvo",
+              sv: "Svenska värdet"
+            }
+          }
+        end
+
+        it "adds the translation and its plural forms" do
+          expect do
+            command.call
+          end.to change(
+            Decidim::TermCustomizer::Translation, :count
+          ).by(9)
+
+          expect(Decidim::TermCustomizer::Translation.where(
+            key: "test.plural.zero"
+          ).count).to eq(3)
+          expect(Decidim::TermCustomizer::Translation.where(
+            key: "test.plural.one"
+          ).count).to eq(3)
+          expect(Decidim::TermCustomizer::Translation.where(
+            key: "test.plural.other"
+          ).count).to eq(3)
+        end
+      end
     end
   end
 end

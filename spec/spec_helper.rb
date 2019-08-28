@@ -17,10 +17,21 @@ Decidim::Dev.dummy_app_path =
 require "decidim/dev/test/base_spec_helper"
 
 RSpec.configure do |config|
+  # Add extra traslation load path for the tests
+  I18n.load_path << File.join(__dir__, "fixtures", "locales", "en.yml")
+  I18n.load_path << File.join(__dir__, "fixtures", "locales", "fi.yml")
+  I18n.load_path << File.join(__dir__, "fixtures", "locales", "sv.yml")
+
+  # Store the original plural keys so that we can revert back before each test
+  original_plural_keys = Decidim::TermCustomizer::PluralFormsManager.plural_keys
+
   config.before do
     # Reset the locales to Decidim defaults before each test.
     # Some tests may change this which is why this is important.
     I18n.available_locales = [:en, :ca, :es]
+
+    # Revert the plural keys back to normal
+    Decidim::TermCustomizer::PluralFormsManager.plural_keys = original_plural_keys
 
     # Revert back to the simple backend before every test because otherwise the
     # tests may be interfered by the backend set by the specific tests. You

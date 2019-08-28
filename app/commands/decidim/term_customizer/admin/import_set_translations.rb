@@ -10,6 +10,8 @@ module Decidim
       # supported import formats or a ZIP file containing a supported import
       # file.
       class ImportSetTranslations < Rectify::Command
+        include TermCustomizer::PluralFormsForm
+
         # Public: Initializes the command.
         #
         # form            - A form object with the params.
@@ -30,6 +32,7 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
 
           @translations = import_translations
+          create_plural_forms(@translations)
 
           if @translations.length.positive?
             broadcast(:ok, @translations)

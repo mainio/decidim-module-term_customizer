@@ -61,6 +61,35 @@ describe Decidim::TermCustomizer::Admin::DestroyTranslations do
           Decidim::TermCustomizer::Translation, :count
         ).by(-10)
       end
+
+      context "and the passed translations have plural forms" do
+        let!(:translations) do
+          [
+            create(
+              :translation,
+              translation_set: translation_set,
+              key: "test.plural.one"
+            )
+          ]
+        end
+
+        before do
+          # Add a plural form that should also get destroyed
+          create(
+            :translation,
+            translation_set: translation_set,
+            key: "test.plural.other"
+          )
+        end
+
+        it "destroys the translation and its plural forms" do
+          expect do
+            command.call
+          end.to change(
+            Decidim::TermCustomizer::Translation, :count
+          ).by(-2)
+        end
+      end
     end
   end
 end

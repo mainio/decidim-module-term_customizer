@@ -89,5 +89,25 @@ describe Decidim::TermCustomizer::Admin::ImportTranslationKeys do
         ).to eq(4)
       end
     end
+
+    context "and the passed keys have plural forms" do
+      let(:keys) do
+        ["test.plural.one"]
+      end
+
+      it "adds the translation and its plural forms" do
+        command.call
+
+        expect(Decidim::TermCustomizer::Translation.where(
+          key: "test.plural.zero"
+        ).count).to eq(3)
+        expect(Decidim::TermCustomizer::Translation.where(
+          key: "test.plural.one"
+        ).count).to eq(3)
+        expect(Decidim::TermCustomizer::Translation.where(
+          key: "test.plural.other"
+        ).count).to eq(3)
+      end
+    end
   end
 end

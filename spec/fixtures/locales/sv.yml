@@ -1,0 +1,8 @@
+sv:
+  test:
+    city: Stad
+    plural:
+      zero: Noll
+      one: Ett
+      other: Andra
+    translation: Översättning

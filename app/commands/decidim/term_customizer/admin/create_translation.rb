@@ -6,6 +6,8 @@ module Decidim
       # A command with all the business logic when creating a new translation
       # set in the system.
       class CreateTranslation < Rectify::Command
+        include TermCustomizer::PluralFormsForm
+
         # Public: Initializes the command.
         #
         # form - A form object with the params.
@@ -24,6 +26,7 @@ module Decidim
 
           transaction do
             @translations = create_translations
+            create_plural_forms(@translations)
           end
 
           if @translations.length.positive?

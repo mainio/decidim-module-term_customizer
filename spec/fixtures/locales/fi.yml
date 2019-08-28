@@ -1,0 +1,8 @@
+fi:
+  test:
+    city: Kaupunki
+    plural:
+      zero: Nolla
+      one: Yksi
+      other: Muut
+    translation: Käännös
