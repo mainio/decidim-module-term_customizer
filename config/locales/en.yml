@@ -27,6 +27,8 @@ en:
           back: Back
           cancel: Cancel
           clear_cache: Clear cache
+          confirm_duplicate: Are you sure you want to duplicate this set?
+          duplicate: Duplicate
           help: Help
           import: Import
           new_translation: New translation
@@ -70,6 +72,10 @@ en:
             success: Translation set successfully created.
           destroy:
             success: Translation set successfully deleted.
+          duplicate:
+            copied_set_name: Copy of %{name}
+            error: Error duplicating translation set.
+            success: Translation set successfully duplicated.
           edit:
             save: Save
             title: Translation set

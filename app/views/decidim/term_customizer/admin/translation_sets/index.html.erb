@@ -46,6 +46,10 @@
                     <%= icon_link_to "pencil", edit_translation_set_path(set), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
                   <% end %>
 
+                  <% if allowed_to? :create, :translation_set %>
+                    <%= icon_link_to "fork", duplicate_translation_set_path(set), t("actions.duplicate", scope: "decidim.term_customizer.admin"), method: :post, class: "action-icon--new", data: { confirm: t("actions.confirm_duplicate", scope: "decidim.term_customizer.admin") } %>
+                  <% end %>
+
                   <% if allowed_to? :destroy, :translation_set, translation_set: set %>
                     <%= icon_link_to "circle-x", translation_set_path(set), t("actions.destroy", scope: "decidim.admin"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
                   <% end %>

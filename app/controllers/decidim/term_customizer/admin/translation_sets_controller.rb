@@ -75,6 +75,39 @@ module Decidim
           redirect_to translation_sets_path
         end
 
+        def duplicate
+          enforce_permission_to :create, :translation_set
+
+          # Automatically generate the name
+          name_attrs = {}.tap do |hash|
+            current_organization.available_locales.each do |locale|
+              hash["name_#{locale}"] = I18n.t(
+                "translation_sets.duplicate.copied_set_name",
+                name: set.name[locale],
+                locale: locale,
+                scope: "decidim.term_customizer.admin"
+              )
+            end
+          end
+
+          @form = form(TranslationSetForm).from_params(
+            params.merge(name_attrs),
+            current_organization: current_organization
+          )
+
+          DuplicateTranslationSet.call(@form, set) do
+            on(:ok) do
+              flash[:notice] = I18n.t("translation_sets.duplicate.success", scope: "decidim.term_customizer.admin")
+              redirect_to translation_sets_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("translation_sets.duplicate.error", scope: "decidim.term_customizer.admin")
+              redirect_to translation_sets_path
+            end
+          end
+        end
+
         private
 
         def sets

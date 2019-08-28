@@ -101,6 +101,17 @@ module Decidim
           expect(response).to have_http_status(:found)
         end
       end
+
+      describe "POST duplicate" do
+        let(:translation_set) { create(:translation_set, organization: organization) }
+
+        it "duplicates a translation set" do
+          post :duplicate, params: { id: translation_set.id }
+
+          expect(flash[:notice]).not_to be_empty
+          expect(response).to have_http_status(:found)
+        end
+      end
     end
   end
 end
