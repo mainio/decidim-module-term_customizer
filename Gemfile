@@ -40,6 +40,3 @@ end
 
 # Remediate CVE-2019-5420
 gem "railties", ">= 5.2.2.1"
-
-# See: https://github.com/decidim/decidim/pull/5303
-gem "ransack", "~> 2.1.1"
