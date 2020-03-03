@@ -174,6 +174,73 @@ describe Decidim::TermCustomizer::Loader do
         end
       end
     end
+
+    # The DalliStore does not implement `delete_matched` which allows us to
+    # test the `clear_cache` functionality when the cache implementation raises
+    # a `NoMethodError`.
+    context "when using dalli_store" do
+      before do
+        allow(Rails).to receive(:cache).and_return(
+          ActiveSupport::Cache.lookup_store(:dalli_store)
+        )
+      end
+
+      context "without organization" do
+        let(:organization) { nil }
+
+        it "clears cache with correct key" do
+          expect(Rails.cache).to receive(:delete).with(
+            "decidim_term_customizer/system"
+          )
+
+          subject.clear_cache
+        end
+      end
+
+      context "with organization" do
+        it "clears cache with correct key" do
+          expect(Rails.cache).to receive(:delete).with(
+            "decidim_term_customizer/organization_#{organization.id}"
+          )
+
+          subject.clear_cache
+        end
+      end
+
+      context "with organization and space" do
+        let(:space) { create(:participatory_process, organization: organization) }
+
+        it "clears cache with correct key" do
+          expect(Rails.cache).to receive(:delete).with(
+            "decidim_term_customizer/organization_#{organization.id}"
+          )
+          expect(Rails.cache).to receive(:delete).with(
+            "decidim_term_customizer/organization_#{organization.id}/space_#{space.id}"
+          )
+
+          subject.clear_cache
+        end
+      end
+
+      context "with organization, space and component" do
+        let(:space) { create(:participatory_process, organization: organization) }
+        let(:component) { create(:proposal_component, participatory_space: space) }
+
+        it "clears cache with correct key" do
+          expect(Rails.cache).to receive(:delete).with(
+            "decidim_term_customizer/organization_#{organization.id}"
+          )
+          expect(Rails.cache).to receive(:delete).with(
+            "decidim_term_customizer/organization_#{organization.id}/space_#{space.id}"
+          )
+          expect(Rails.cache).to receive(:delete).with(
+            "decidim_term_customizer/organization_#{organization.id}/space_#{space.id}/component_#{component.id}"
+          )
+
+          subject.clear_cache
+        end
+      end
+    end
   end
 
   def flatten_hash(hash)
