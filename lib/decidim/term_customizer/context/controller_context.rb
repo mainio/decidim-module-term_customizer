@@ -17,7 +17,7 @@ module Decidim
           # be implemented (https://github.com/mainio/decidim-module-term_customizer/issues/28)
           # in which case we do not have access to the participatory space.
           if controller.respond_to?(:current_participatory_space, true)
-            @space = controller.try(
+            @space = controller.send(
               :current_participatory_space
             )
           end
