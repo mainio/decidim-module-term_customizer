@@ -10,19 +10,22 @@ base_path = ""
 base_path = "../" if File.basename(__dir__) == "development_app"
 require_relative "#{base_path}lib/decidim/term_customizer/version"
 
-gem "decidim", Decidim::TermCustomizer::DECIDIM_VERSION
+DECIDIM_DEV_VERSION = { github: "decidim/decidim", branch: "develop" }.freeze
+
+# gem "decidim", Decidim::TermCustomizer::DECIDIM_VERSION
+gem "decidim", DECIDIM_DEV_VERSION
 gem "decidim-term_customizer", path: "."
 
 gem "bootsnap", "~> 1.4"
-gem "puma", "~> 3.12"
+gem "puma", "~> 4.3.3"
 gem "uglifier", "~> 4.1"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
   gem "dalli", "~> 2.7", ">= 2.7.10" # For testing MemCacheStore
-  gem "decidim-consultations", Decidim::TermCustomizer::DECIDIM_VERSION
-  gem "decidim-dev", Decidim::TermCustomizer::DECIDIM_VERSION
+  gem "decidim-consultations", DECIDIM_DEV_VERSION
+  gem "decidim-dev", DECIDIM_DEV_VERSION
 end
 
 group :development do
@@ -37,6 +40,3 @@ end
 group :test do
   gem "codecov", require: false
 end
-
-# Remediate CVE-2019-5420
-gem "railties", ">= 5.2.2.1"
