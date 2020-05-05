@@ -10,7 +10,7 @@ base_path = ""
 base_path = "../" if File.basename(__dir__) == "development_app"
 require_relative "#{base_path}lib/decidim/term_customizer/version"
 
-gem "decidim", Decidim::TermCustomizer::DECIDIM_VERSION
+gem "decidim", ">= 0.20.0", Decidim::TermCustomizer::DECIDIM_VERSION
 gem "decidim-term_customizer", path: "."
 
 gem "bootsnap", "~> 1.4"
@@ -21,8 +21,8 @@ group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
   gem "dalli", "~> 2.7", ">= 2.7.10" # For testing MemCacheStore
-  gem "decidim-consultations", Decidim::TermCustomizer::DECIDIM_VERSION
-  gem "decidim-dev", Decidim::TermCustomizer::DECIDIM_VERSION
+  gem "decidim-consultations", ">= 0.20.0", Decidim::TermCustomizer::DECIDIM_VERSION
+  gem "decidim-dev", ">= 0.20.0", Decidim::TermCustomizer::DECIDIM_VERSION
 end
 
 group :development do
