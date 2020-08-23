@@ -11,33 +11,33 @@ fr:
       translation_set:
         name: Nom
       translations_import:
-        file: Import file
+        file: Importer un fichier
     errors:
       models:
         translations_import:
           attributes:
             file:
-              invalid_mime_type: 'Invalid file type. Accepted formats are: %{valid_mime_types}'
+              invalid_mime_type: 'Type de document invalide. Les formats acceptés sont: %{valid_mime_types}'
   decidim:
     term_customizer:
       admin:
         actions:
           add_multiple_translations: Ajouter plusieurs
           back: Retour
-          cancel: Cancel
+          cancel: Annuler
           clear_cache: Purger le cache
-          confirm_duplicate: Are you sure you want to duplicate this set?
-          duplicate: Duplicate
-          help: Help
-          import: Import
+          confirm_duplicate: Êtes-vous sûr de vouloir dupliquer cet ensemble ?
+          duplicate: Dupliquer
+          help: Aide
+          import: Importer
           new_translation: Nouvelle traduction
           new_translation_set: Nouveau jeu de traduction
-          view: View
+          view: Afficher
         add_translations:
           index:
             add: Ajouter
-            help_html: <p>Start by typing a couple of letters appearing in the term that you want to change in the search panel. Wait for few seconds and a list of all translations matching your search will be displayed below the search field. Click the translations in that list that you want to change. They will appear below the search field in the list of translations to be added.</p> <p>Once you have added all the translations that you want to change, click the "%{button_name}" button at the bottom of the screen.</p>
-            help_title: How to search for translations?
+            help_html: <p>Commencez par taper quelques lettres apparaissant dans le terme que vous souhaitez modifier dans le panneau de recherche. Attendez quelques secondes et une liste de toutes les traductions correspondant à votre recherche sera affichée sous le champ de recherche. Cliquez sur les traductions dans cette liste que vous souhaitez modifier. Elles apparaîtront sous le champ de recherche dans la liste des traductions à ajouter.</p> <p>Une fois que vous avez ajouté toutes les traductions que vous voulez modifier, cliquez sur le bouton "%{button_name}" en bas de l'écran.</p>
+            help_title: Comment rechercher des traductions ?
             search: Rechercher
         caches:
           clear:
@@ -65,21 +65,21 @@ fr:
           destroy:
             success: Le jeu de traduction a été supprimé.
           duplicate:
-            copied_set_name: Copy of %{name}
-            error: Error duplicating translation set.
-            success: Translation set successfully duplicated.
+            copied_set_name: Copie de %{name}
+            error: Erreur lors de la duplication du jeu de traduction.
+            success: Ensemble de traduction dupliqué avec succès.
           edit:
             save: Sauvegarder
             title: Jeu de traductions
           form:
             add_constraint: Ajouter contrainte
-            constraint_help_html: <p>Constraints are specific rules that allow you to apply the customizations in a set to a specific context.</p> <p>In case you do not define any constraint rules, the customizations in this set will apply to the whole application. On the other hand, if you want the customizations in this set to apply only to a specific process, select "Participatory processes" as the participatory space type and the target process as the participatory space. Furthermore, you can also apply the customizations to a specific component by defining the component for the constraint.</p> <p>If you define multiple constraints, the customizations will apply in all of those.</p>
-            constraint_help_title: What are constraints?
-            help_html: <p>A translation set is a "container" that holds the translations for a specific context you want to customize.</p> <p>Translation sets help you to organize your customizations and apply them to different contexts. This allows you to customize the same translation differently in different contexts.</p> <p>For example, if you want to customize a button with the term "Add" differently for different participatory processes, you can create separate translation sets for both processes and apply the set to those processes using the constraints.</p>
-            help_title: What is a translation set?
+            constraint_help_html: <p>Les contraintes sont des règles spécifiques qui vous permettent d'appliquer les personnalisations dans un ensemble à un contexte spécifique.</p> <p>Si vous ne définissez aucune règle de contrainte, les personnalisations de cet ensemble s'appliqueront à l'ensemble de l'application. Par contre, si vous voulez que les personnalisations de cet ensemble s'appliquent uniquement à un processus spécifique, sélectionnez "Processus participatifs" comme type d'espace participatif et le processus cible comme espace participatif. De plus, vous pouvez également appliquer les personnalisations à un composant spécifique en définissant le composant de la contrainte.</p> <p>Si vous définissez plusieurs contraintes, les personnalisations s'appliqueront à tous ceux-ci.</p>
+            constraint_help_title: Quelles sont les contraintes?
+            help_html: <p>Un jeu de traduction est un "conteneur" qui contient les traductions pour un contexte spécifique que vous souhaitez personnaliser.</p> <p>Les ensembles de traduction vous aident à organiser vos personnalisations et à les appliquer à différents contextes. Cela vous permet de personnaliser la même traduction différemment dans différents contextes.</p> <p>Par exemple, si vous voulez personnaliser un bouton avec le terme "Ajouter" différemment pour différents processus participatifs, vous pouvez créer des ensembles de traduction séparés pour les deux processus et appliquer l'ensemble à ces processus en utilisant les contraintes.</p>
+            help_title: Qu'est-ce qu'un ensemble de traductions ?
             title: Jeu de traductions
           index:
-            no_records_html: <p>No translation sets available.</p> <p>Start by adding a translation set from the "<a href="%{new_set_link}">%{button_name}</a>" button.</p>
+            no_records_html: <p>Aucune ensemble de traduction disponible.</p> <p>Commencez par ajouter une traduction définie à partir du bouton "<a href="%{new_set_link}">%{button_name}</a>.</p>
           new:
             create: Créer
             title: Jeu de traductions
@@ -96,18 +96,18 @@ fr:
             save: Sauvegarder
             title: Traduction
           form:
-            help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
-            help_title: What is translation key?
-            term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
-            term_help_title: What is customized term?
+            help_html: <p>Une clé de traduction est une référence technique à la traduction à traduire. Ce n'est pas le terme que vous voulez changer, mais la clé technique qui fait référence à cette traduction.</p> <p>Par exemple, si vous voulez changer le terme <em>"Processus"</em> dans le menu supérieur, vous utiliseriez la clé <em>"decidim. enu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> En savoir plus sur l'internationalisation Rails</a>.</p>
+            help_title: Qu'est-ce que la clé de traduction ?
+            term_help_html: "<p>Le terme personnalisé est le dernier mot que vous voudriez apparaître dans l'interface utilisateur au lieu du terme original. Évidemment, le terme personnalisé peut différer pour chaque langue activée.</p>"
+            term_help_title: Qu'est-ce qu'un terme personnalisé ?
             title: Traduction
           import:
-            error: Error importing translations
-            success: Translations successfully imported.
+            error: Erreur lors de l'importation des traductions
+            success: Traductions importées avec succès.
           index:
             actions: Actions
-            no_records_html: <p>No translations available in this set.</p> <p>Start by adding translations to this set. The easiest way is to use the "<a href="%{add_multiple_link}">%{button_name}</a>" button where you can search translations with the same terms that you see in the UI.</p>
-            selected: selected
+            no_records_html: <p>Aucune traduction disponible dans cet ensemble.</p> <p>Commencez par ajouter des traductions à cet ensemble. La façon la plus simple est d'utiliser le bouton "<a href="%{add_multiple_link}">%{button_name}</a>" où vous pouvez rechercher des traductions avec les mêmes termes que ceux que vous voyez dans l'interface utilisateur.</p>
+            selected: sélectionné
           new:
             create: Créer
             title: Traductions
@@ -116,19 +116,19 @@ fr:
               csv: CSV
               json: JSON
               xls: XLS
-            file_legend: 'Add an import file that will be parsed for translations. Suported formats are: %{valid_mime_types}'
-            start_import: Start import
-            title: Import translations
-            zip_hint: You can also upload the ZIP file from the translations export.
+            file_legend: 'Ajouter un fichier d''importation qui sera analysé pour les traductions. Les formats supportés sont: %{valid_mime_types}'
+            start_import: Démarrer l'import
+            title: Importer des traductions
+            zip_hint: Vous pouvez également télécharger le fichier ZIP à partir de l'export des traductions.
           update:
             error: Une erreur a lieu durant la mise à jour de la traduction.
             success: Traduction mis à jour avec succès.
         translations_destroys:
           destroy:
-            error: Error deleting translations.
-            success: Translations successfully deleted.
+            error: Erreur lors de la suppression des traductions.
+            success: Traductions supprimées avec succès.
           new:
-            destroy: Delete
-            title: Translations delete
+            destroy: Supprimer
+            title: Traduction supprimées
       menu:
         term_customizer: Paramétrages des traductions

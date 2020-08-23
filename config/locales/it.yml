@@ -1,0 +1,134 @@
+it:
+  activemodel:
+    attributes:
+      constraint:
+        component_id: Componente
+        subject_id: Spazio partecipativo
+        subject_manifest: Tipo di spazio partecipativo
+      translation:
+        key: Chiave di traduzione
+        value: Termine personalizzato
+      translation_set:
+        name: Nome
+      translations_import:
+        file: Importa File
+    errors:
+      models:
+        translations_import:
+          attributes:
+            file:
+              invalid_mime_type: 'Tipo di file non valido. I formati accettati sono: %{valid_mime_types}'
+  decidim:
+    term_customizer:
+      admin:
+        actions:
+          add_multiple_translations: Aggiungi più
+          back: Indietro
+          cancel: Annulla
+          clear_cache: Cancella Cache
+          confirm_duplicate: Sei sicuro di voler duplicare questo set?
+          duplicate: Duplica
+          help: Guida
+          import: Importa
+          new_translation: Nuova traduzione
+          new_translation_set: Nuovo set di traduzione
+          view: Visualizza
+        add_translations:
+          index:
+            add: Aggiungi
+            help_html: <p>Inizia digitando un paio di lettere che appaiono nel termine che vuoi cambiare nel pannello di ricerca. Attendere alcuni secondi e una lista di tutte le traduzioni corrispondenti alla ricerca verrà visualizzata sotto il campo di ricerca. Fare clic sulle traduzioni nella lista che si desidera modificare. Esse appariranno sotto il campo di ricerca nell'elenco delle traduzioni da aggiungere.</p> <p>Una volta che hai aggiunto tutte le traduzioni che vuoi cambiare, clicca sul pulsante "%{button_name}" nella parte inferiore dello schermo.</p>
+            help_title: Come cercare le traduzioni?
+            search: Search
+        caches:
+          clear:
+            success: Cache cancellata con successo
+        models:
+          translation_sets:
+            fields:
+              name: Nome
+          translations:
+            fields:
+              key: Chiave di traduzione
+              original_term: Termine originale
+              term: Termine personalizzato
+        titles:
+          add_multiple_translations: Aggiungi più
+          translation_sets: Set di traduzione
+          translations: Traduzioni
+        translation_sets:
+          constraint_fields:
+            constraint: Vincolo
+            remove: Elimina
+          create:
+            error: Errore nella creazione della traduzione.
+            success: Set di traduzioni creato con successo.
+          destroy:
+            success: Set di traduzioni eliminato con successo.
+          duplicate:
+            copied_set_name: Copia di %{name}
+            error: Errore nella duplicazione della traduzione.
+            success: Set di traduzioni duplicato con successo.
+          edit:
+            save: Salva
+            title: Set di traduzioni
+          form:
+            add_constraint: Aggiungi vincolo
+            constraint_help_html: <p>I vincoli sono regole specifiche che consentono di applicare le personalizzazioni in un set a un contesto specifico.</p> <p>Nel caso in cui non si definiscano regole vincolanti, le personalizzazioni in questo set si applicheranno all'intera applicazione. D'altra parte, se si desidera che le personalizzazioni in questo set si applichino solo a un processo specifico, selezionare "Processi partecipativi" come tipo di spazio partecipativo e il processo di destinazione come spazio partecipativo. Inoltre, è anche possibile applicare le personalizzazioni a un componente specifico definendo il componente per il vincolo.</p> <p>Se definisci più vincoli, le personalizzazioni si applicheranno in tutti questi.</p>
+            constraint_help_title: Quali sono i vincoli?
+            help_html: <p>Un set di traduzioni è un "contenitore" che contiene le traduzioni per un contesto specifico che si desidera personalizzare.</p> <p>I set di traduzioni ti aiutano a organizzare le tue personalizzazioni e applicarle a contesti diversi. Questo consente di personalizzare la stessa traduzione in diversi contesti.</p> <p>Ad esempio, se si desidera personalizzare un pulsante con il termine "Aggiungi" in modo diverso per i diversi processi partecipativi, è possibile creare set di traduzioni separati per entrambi i processi e applicare il set a quei processi utilizzando i vincoli.</p>
+            help_title: Cos'è un set di traduzione?
+            title: Set di traduzioni
+          index:
+            no_records_html: <p>Nessun set di traduzione disponibile.</p> <p>Inizia aggiungendo un set di traduzioni dal pulsante "<a href="%{new_set_link}">%{button_name}</a>".</p>
+          new:
+            create: Crea
+            title: Set di traduzione
+          update:
+            error: Error updating translation set.
+            success: Translation set successfully updated.
+        translations:
+          create:
+            error: Error creating translation.
+            success: Translation successfully created.
+          destroy:
+            success: Translation successfully deleted.
+          edit:
+            save: Save
+            title: Translation
+          form:
+            help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
+            help_title: What is translation key?
+            term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
+            term_help_title: What is customized term?
+            title: Translation
+          import:
+            error: Error importing translations
+            success: Translations successfully imported.
+          index:
+            actions: Actions
+            no_records_html: <p>No translations available in this set.</p> <p>Start by adding translations to this set. The easiest way is to use the "<a href="%{add_multiple_link}">%{button_name}</a>" button where you can search translations with the same terms that you see in the UI.</p>
+            selected: selected
+          new:
+            create: Create
+            title: Translations
+          new_import:
+            accepted_mime_types:
+              csv: CSV
+              json: JSON
+              xls: XLS
+            file_legend: 'Add an import file that will be parsed for translations. Suported formats are: %{valid_mime_types}'
+            start_import: Start import
+            title: Import translations
+            zip_hint: You can also upload the ZIP file from the translations export.
+          update:
+            error: Error updating translation.
+            success: Translation successfully updated.
+        translations_destroys:
+          destroy:
+            error: Error deleting translations.
+            success: Translations successfully deleted.
+          new:
+            destroy: Delete
+            title: Translations delete
+      menu:
+        term_customizer: Term customizer
