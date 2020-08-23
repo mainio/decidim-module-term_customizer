@@ -11,7 +11,7 @@ base_path = "../" if File.basename(__dir__) == "development_app"
 require_relative "#{base_path}lib/decidim/term_customizer/version"
 
 #DECIDIM_VERSION = Decidim::TermCustomizer::DECIDIM_VERSION
-DECIDIM_VERSION = { github: "decidim/decidim", branch: "release/0.22-stable" }
+DECIDIM_VERSION = { github: "decidim/decidim", branch: "develop" }
 
 # gem "decidim", Decidim::TermCustomizer::DECIDIM_VERSION
 gem "decidim", DECIDIM_VERSION
