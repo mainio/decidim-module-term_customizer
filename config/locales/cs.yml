@@ -63,7 +63,7 @@ cs:
             error: Chyba při vytváření překladové sady.
             success: Překlad byl úspěšně vytvořen.
           destroy:
-            success: Translation set successfully deleted.
+            success: Překladová sada byla úspěšně odstraněna.
           duplicate:
             copied_set_name: Kopie %{name}
             error: Chyba při duplikování překladové sady.
@@ -76,59 +76,59 @@ cs:
             constraint_help_html: <p>Omezení jsou specifická pravidla, která vám umožňují použít vlastní nastavení v nastaveném kontextu.</p> <p>V případě, že nedefinujete žádná pravidla vazeb, budou přizpůsobení v této sadě platit pro celou aplikaci. Na druhé straně, pokud chcete, aby se přizpůsobení v této sadě vztahovalo pouze na konkrétní proces, jako participační prostor vyberte „účastnické procesy“ a cílový proces. Kromě toho můžete také použít přizpůsobení na určitou komponentu definováním komponenty pro omezení.</p> <p>Pokud definujete více vazeb, budou aplikovány na všechny tyto vazby.</p>
             constraint_help_title: Co jsou omezení?
             help_html: <p>sada překladů je "kontejner", který obsahuje překlady pro konkrétní kontext, který chcete upravit.</p> <p>Překlad vám pomůže uspořádat si vlastní nastavení a aplikovat je na různé kontexty. To vám umožní přizpůsobit stejný překlad rozdílně v různých kontextech.</p> <p>Například, pokud chcete přizpůsobit tlačítko s termínem "Přidat" odlišně pro různé participační procesy, můžete vytvořit samostatné sady překladů pro oba procesy a použít nastavení pro tyto procesy pomocí omezení.</p>
-            help_title: What is a translation set?
-            title: Translation set
+            help_title: Co je to překladová sada?
+            title: Překladová sada
           index:
-            no_records_html: <p>No translation sets available.</p> <p>Start by adding a translation set from the "<a href="%{new_set_link}">%{button_name}</a>" button.</p>
+            no_records_html: <p>Žádné překladové sady nejsou k dispozici.</p> <p>Začněte přidáním překladové sady tlačítkem "<a href="%{new_set_link}">%{button_name}</a>.</p>
           new:
-            create: Create
-            title: Translation sets
+            create: Vytvořit
+            title: Překladové sady
           update:
-            error: Error updating translation set.
-            success: Translation set successfully updated.
+            error: Chyba při aktualizaci překladové sady.
+            success: Překlad byl úspěšně aktualizován.
         translations:
           create:
-            error: Error creating translation.
-            success: Translation successfully created.
+            error: Chyba při vytváření překladu.
+            success: Překlad byl úspěšně vytvořen.
           destroy:
-            success: Translation successfully deleted.
+            success: Překlad byl úspěšně odstraněn.
           edit:
-            save: Save
-            title: Translation
+            save: Uložit
+            title: Překlad
           form:
-            help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
-            help_title: What is translation key?
-            term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
-            term_help_title: What is customized term?
-            title: Translation
+            help_html: <p>Překladový klíč je technickým odkazem na překlad, který má být přeložen. Toto není termín, který chcete změnit, ale technický klíč, který odkazuje na tento překlad.</p> <p>Například pokud chcete změnit termín <em>"Procesy"</em> v horním menu, byste použili klíč <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Přečtěte si více o Rails Internationalization</a>.</p>
+            help_title: Co je překladový klíč?
+            term_help_html: "<p>Nastavený termín je poslední slovo, které se chcete objevit v uživatelském rozhraní namísto původního výrazu. Přizpůsobený termín se samozřejmě může lišit pro každý povolený jazyk.</p>"
+            term_help_title: Co je upravený termín?
+            title: Překlad
           import:
-            error: Error importing translations
-            success: Translations successfully imported.
+            error: Chyba při importu překladů
+            success: Překlady byly úspěšně importovány.
           index:
-            actions: Actions
-            no_records_html: <p>No translations available in this set.</p> <p>Start by adding translations to this set. The easiest way is to use the "<a href="%{add_multiple_link}">%{button_name}</a>" button where you can search translations with the same terms that you see in the UI.</p>
-            selected: selected
+            actions: Akce
+            no_records_html: <p>V této sadě nejsou k dispozici žádné překlady.</p> <p>Začněte přidáním překladů do této sady. Nejjednodušším způsobem je použít tlačítko "<a href="%{add_multiple_link}">%{button_name}</a>, kde můžete vyhledávat překlady se stejnými termíny, jaké vidíte v uživatelském rozhraní.</p>
+            selected: vybráno
           new:
-            create: Create
-            title: Translations
+            create: Vytvořit
+            title: Překlady
           new_import:
             accepted_mime_types:
               csv: CSV
               json: JSON
               xls: XLS
-            file_legend: 'Add an import file that will be parsed for translations. Suported formats are: %{valid_mime_types}'
-            start_import: Start import
-            title: Import translations
-            zip_hint: You can also upload the ZIP file from the translations export.
+            file_legend: 'Přidat importovaný soubor, který bude zpracován pro překlady. Podporované formáty jsou: %{valid_mime_types}'
+            start_import: Zahájit import
+            title: Importovat překlady
+            zip_hint: Můžete také nahrát ZIP soubor z exportu překladů.
           update:
-            error: Error updating translation.
-            success: Translation successfully updated.
+            error: Chyba při aktualizaci překladu.
+            success: Překlad byl úspěšně aktualizován.
         translations_destroys:
           destroy:
-            error: Error deleting translations.
-            success: Translations successfully deleted.
+            error: Chyba při odstraňování překladů.
+            success: Překlady byly úspěšně odstraněny.
           new:
-            destroy: Delete
-            title: Translations delete
+            destroy: Vymazat
+            title: Smazat překlady
       menu:
-        term_customizer: Term customizer
+        term_customizer: Úprava termínů
