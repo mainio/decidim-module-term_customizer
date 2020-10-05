@@ -2,66 +2,66 @@ cs:
   activemodel:
     attributes:
       constraint:
-        component_id: Component
-        subject_id: Participatory space
-        subject_manifest: Participatory space type
+        component_id: Komponenta
+        subject_id: Účastnický prostor
+        subject_manifest: Typ účastnického prostoru
       translation:
-        key: Translation key
-        value: Customized term
+        key: Překladový klíč
+        value: Vlastní termín
       translation_set:
-        name: Name
+        name: Název
       translations_import:
-        file: Import file
+        file: Importovat soubor
     errors:
       models:
         translations_import:
           attributes:
             file:
-              invalid_mime_type: 'Invalid file type. Accepted formats are: %{valid_mime_types}'
+              invalid_mime_type: 'Neplatný typ souboru. Přijatelné formáty jsou: %{valid_mime_types}'
   decidim:
     term_customizer:
       admin:
         actions:
-          add_multiple_translations: Add multiple
-          back: Back
-          cancel: Cancel
-          clear_cache: Clear cache
-          confirm_duplicate: Are you sure you want to duplicate this set?
-          duplicate: Duplicate
-          help: Help
-          import: Import
-          new_translation: New translation
-          new_translation_set: New translation set
-          view: View
+          add_multiple_translations: Přidat více
+          back: Zpět
+          cancel: Zrušit
+          clear_cache: Vymazat mezipaměť
+          confirm_duplicate: Opravdu chcete duplikovat tuto sadu?
+          duplicate: Duplikovat
+          help: Nápověda
+          import: Importovat
+          new_translation: Nový překlad
+          new_translation_set: Nová sada překladů
+          view: Zobrazit
         add_translations:
           index:
-            add: Add
+            add: Přidat
             help_html: <p>Start by typing a couple of letters appearing in the term that you want to change in the search panel. Wait for few seconds and a list of all translations matching your search will be displayed below the search field. Click the translations in that list that you want to change. They will appear below the search field in the list of translations to be added.</p> <p>Once you have added all the translations that you want to change, click the "%{button_name}" button at the bottom of the screen.</p>
-            help_title: How to search for translations?
-            search: Search
+            help_title: Jak hledat překlady?
+            search: Hledat
         caches:
           clear:
-            success: Cache cleared successfully
+            success: Mezipaměť úspěšně vymazána
         models:
           translation_sets:
             fields:
-              name: Name
+              name: Název
           translations:
             fields:
-              key: Translation key
-              original_term: Original term
-              term: Customized term
+              key: Překladový klíč
+              original_term: Původní termín
+              term: Vlastní termín
         titles:
-          add_multiple_translations: Add multiple
-          translation_sets: Translation sets
-          translations: Translations
+          add_multiple_translations: Přidat více
+          translation_sets: Překladové sady
+          translations: Překlady
         translation_sets:
           constraint_fields:
-            constraint: Constraint
-            remove: Remove
+            constraint: Omezení
+            remove: Smazat
           create:
-            error: Error creating translation set.
-            success: Translation set successfully created.
+            error: Chyba při vytváření překladové sady.
+            success: Překlad byl úspěšně vytvořen.
           destroy:
             success: Translation set successfully deleted.
           duplicate:
@@ -69,7 +69,7 @@ cs:
             error: Error duplicating translation set.
             success: Translation set successfully duplicated.
           edit:
-            save: Save
+            save: Uložit
             title: Translation set
           form:
             add_constraint: Add constraint
