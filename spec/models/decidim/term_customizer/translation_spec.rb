@@ -34,6 +34,12 @@ module Decidim
         it { is_expected.to be_invalid }
       end
 
+      context "when key contains special characters" do
+        let(:key) { "translation.test-key?" }
+
+        it { is_expected.to be_valid }
+      end
+
       context "when key is invalid" do
         let(:key) { "test.test.test.test.test.test.test.test.test-key?" }
 
