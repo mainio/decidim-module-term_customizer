@@ -34,6 +34,16 @@ module Decidim
         it { is_expected.to be_invalid }
       end
 
+      context "when key is invalid" do
+        let(:key) { "test.test.test.test.test.test.test.test.test-key?" }
+
+        it "does not run exponentially long" do
+          limit = 3.seconds.from_now
+          expect(subject).to be_invalid
+          expect(Time.now).to be < limit
+        end
+      end
+
       it_behaves_like "translation validatable"
     end
   end
