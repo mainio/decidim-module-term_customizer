@@ -41,7 +41,7 @@ module Decidim
       end
 
       context "when key is invalid" do
-        let(:key) { "test.test.test.test.test.test.test.test.test-key?" }
+        let(:key) { "test.test.test.test.test.test.test.test.testA" }
 
         it "does not run exponentially long" do
           limit = 3.seconds.from_now
