@@ -16,10 +16,11 @@ module Decidim
           # controller using its private method. In some edge cases this may not
           # be implemented (https://github.com/mainio/decidim-module-term_customizer/issues/28)
           # in which case we do not have access to the participatory space.
-          if controller.respond_to?(:current_participatory_space, true)
-            @space = controller.send(
-              :current_participatory_space
-            )
+          unless controller.respond_to?(:current_participatory_space)
+            controller.define_singleton_method(:public_current_participatory_space) { current_participatory_space }
+            @space = controller.try(:public_current_participatory_space)
+          else
+            @space = controller.try(:current_participatory_space)
           end
           @space ||= env["decidim.current_participatory_space"]
 
