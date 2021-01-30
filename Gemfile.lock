@@ -212,7 +212,7 @@ GIT
 PATH
   remote: .
   specs:
-    decidim-term_customizer (0.23.0)
+    decidim-term_customizer (0.24.0)
       decidim-admin (~> 0.24.0.dev)
       decidim-core (~> 0.24.0.dev)
 
@@ -801,7 +801,7 @@ DEPENDENCIES
   web-console (~> 3.7)
 
 RUBY VERSION
-   ruby 2.6.6p146
+   ruby 2.7.1p83
 
 BUNDLED WITH
    2.1.4
