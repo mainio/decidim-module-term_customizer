@@ -32,24 +32,29 @@ module Decidim
       # This will also cache the results and fetch the result directly from
       # cache on consequent calls until the cache is expired.
       def translations_hash
-        @translations_hash ||= Rails.cache.fetch(
-          cache_key,
-          expires_in: 24.hours
-        ) do
-          final_hash = {}
-          resolver.translations.each do |tr|
-            keyparts = [tr.locale] + tr.key.split(".")
-            lastkey = keyparts.pop.to_sym
+        # In order to avoid endless loops with cache logging calling the I18n
+        # calling the translation loader, calling cache logging calling I18n
+        # (etc.), temporarily mute the cache logging during this call. If the
+        # cache logging level is set to `Logger::DEBUG`, it could happen as
+        # explained at:
+        # https://github.com/mainio/decidim-module-term_customizer/issues/38
+        @translations_hash ||= Rails.cache.mute do
+          Rails.cache.fetch(cache_key, expires_in: 24.hours) do
+            final_hash = {}
+            resolver.translations.each do |tr|
+              keyparts = [tr.locale] + tr.key.split(".")
+              lastkey = keyparts.pop.to_sym
 
-            current = final_hash
-            keyparts.each do |key|
-              current[key.to_sym] ||= {}
-              current = current[key.to_sym]
+              current = final_hash
+              keyparts.each do |key|
+                current[key.to_sym] ||= {}
+                current = current[key.to_sym]
+              end
+
+              current[lastkey] = tr.value
             end
-
-            current[lastkey] = tr.value
+            final_hash
           end
-          final_hash
         end
       end
 
