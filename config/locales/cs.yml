@@ -1,0 +1,134 @@
+cs:
+  activemodel:
+    attributes:
+      constraint:
+        component_id: Komponenta
+        subject_id: Účastnický prostor
+        subject_manifest: Typ účastnického prostoru
+      translation:
+        key: Překladový klíč
+        value: Vlastní termín
+      translation_set:
+        name: Název
+      translations_import:
+        file: Importovat soubor
+    errors:
+      models:
+        translations_import:
+          attributes:
+            file:
+              invalid_mime_type: 'Neplatný typ souboru. Přijatelné formáty jsou: %{valid_mime_types}'
+  decidim:
+    term_customizer:
+      admin:
+        actions:
+          add_multiple_translations: Přidat více
+          back: Zpět
+          cancel: Zrušit
+          clear_cache: Vymazat mezipaměť
+          confirm_duplicate: Opravdu chcete duplikovat tuto sadu?
+          duplicate: Duplikovat
+          help: Nápověda
+          import: Importovat
+          new_translation: Nový překlad
+          new_translation_set: Nová sada překladů
+          view: Zobrazit
+        add_translations:
+          index:
+            add: Přidat
+            help_html: <p>Začněte zadáním několika písmen ve výrazu, který chcete změnit ve vyhledávacím panelu. Počkejte několik sekund a seznam všech překladů, které odpovídají vašemu vyhledávání, se zobrazí pod vyhledávacím polem. Klikněte na překlady v tomto seznamu, které chcete změnit. Zobrazí se pod vyhledávacím polem v seznamu překladů, které mají být přidány.</p> <p>Jakmile přidáte všechny překlady, které chcete změnit, klikněte na tlačítko "%{button_name}" v dolní části obrazovky.</p>
+            help_title: Jak hledat překlady?
+            search: Hledat
+        caches:
+          clear:
+            success: Mezipaměť úspěšně vymazána
+        models:
+          translation_sets:
+            fields:
+              name: Název
+          translations:
+            fields:
+              key: Překladový klíč
+              original_term: Původní termín
+              term: Vlastní termín
+        titles:
+          add_multiple_translations: Přidat více
+          translation_sets: Překladové sady
+          translations: Překlady
+        translation_sets:
+          constraint_fields:
+            constraint: Omezení
+            remove: Smazat
+          create:
+            error: Chyba při vytváření překladové sady.
+            success: Překlad byl úspěšně vytvořen.
+          destroy:
+            success: Překladová sada byla úspěšně odstraněna.
+          duplicate:
+            copied_set_name: Kopie %{name}
+            error: Chyba při duplikování překladové sady.
+            success: Překladová sada byla úspěšně duplikována.
+          edit:
+            save: Uložit
+            title: Překladová sada
+          form:
+            add_constraint: Přidat omezení
+            constraint_help_html: <p>Omezení jsou specifická pravidla, která vám umožňují použít vlastní nastavení v nastaveném kontextu.</p> <p>V případě, že nedefinujete žádná pravidla vazeb, budou přizpůsobení v této sadě platit pro celou aplikaci. Na druhé straně, pokud chcete, aby se přizpůsobení v této sadě vztahovalo pouze na konkrétní proces, jako participační prostor vyberte „účastnické procesy“ a cílový proces. Kromě toho můžete také použít přizpůsobení na určitou komponentu definováním komponenty pro omezení.</p> <p>Pokud definujete více vazeb, budou aplikovány na všechny tyto vazby.</p>
+            constraint_help_title: Co jsou omezení?
+            help_html: <p>sada překladů je "kontejner", který obsahuje překlady pro konkrétní kontext, který chcete upravit.</p> <p>Překlad vám pomůže uspořádat si vlastní nastavení a aplikovat je na různé kontexty. To vám umožní přizpůsobit stejný překlad rozdílně v různých kontextech.</p> <p>Například, pokud chcete přizpůsobit tlačítko s termínem "Přidat" odlišně pro různé participační procesy, můžete vytvořit samostatné sady překladů pro oba procesy a použít nastavení pro tyto procesy pomocí omezení.</p>
+            help_title: Co je to překladová sada?
+            title: Překladová sada
+          index:
+            no_records_html: <p>Žádné překladové sady nejsou k dispozici.</p> <p>Začněte přidáním překladové sady tlačítkem "<a href="%{new_set_link}">%{button_name}</a>.</p>
+          new:
+            create: Vytvořit
+            title: Překladové sady
+          update:
+            error: Chyba při aktualizaci překladové sady.
+            success: Překlad byl úspěšně aktualizován.
+        translations:
+          create:
+            error: Chyba při vytváření překladu.
+            success: Překlad byl úspěšně vytvořen.
+          destroy:
+            success: Překlad byl úspěšně odstraněn.
+          edit:
+            save: Uložit
+            title: Překlad
+          form:
+            help_html: <p>Překladový klíč je technickým odkazem na překlad, který má být přeložen. Toto není termín, který chcete změnit, ale technický klíč, který odkazuje na tento překlad.</p> <p>Například pokud chcete změnit termín <em>"Procesy"</em> v horním menu, byste použili klíč <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Přečtěte si více o Rails Internationalization</a>.</p>
+            help_title: Co je překladový klíč?
+            term_help_html: "<p>Nastavený termín je poslední slovo, které se chcete objevit v uživatelském rozhraní namísto původního výrazu. Přizpůsobený termín se samozřejmě může lišit pro každý povolený jazyk.</p>"
+            term_help_title: Co je upravený termín?
+            title: Překlad
+          import:
+            error: Chyba při importu překladů
+            success: Překlady byly úspěšně importovány.
+          index:
+            actions: Akce
+            no_records_html: <p>V této sadě nejsou k dispozici žádné překlady.</p> <p>Začněte přidáním překladů do této sady. Nejjednodušším způsobem je použít tlačítko "<a href="%{add_multiple_link}">%{button_name}</a>, kde můžete vyhledávat překlady se stejnými termíny, jaké vidíte v uživatelském rozhraní.</p>
+            selected: vybráno
+          new:
+            create: Vytvořit
+            title: Překlady
+          new_import:
+            accepted_mime_types:
+              csv: CSV
+              json: JSON
+              xls: XLS
+            file_legend: 'Přidat importovaný soubor, který bude zpracován pro překlady. Podporované formáty jsou: %{valid_mime_types}'
+            start_import: Zahájit import
+            title: Importovat překlady
+            zip_hint: Můžete také nahrát ZIP soubor z exportu překladů.
+          update:
+            error: Chyba při aktualizaci překladu.
+            success: Překlad byl úspěšně aktualizován.
+        translations_destroys:
+          destroy:
+            error: Chyba při odstraňování překladů.
+            success: Překlady byly úspěšně odstraněny.
+          new:
+            destroy: Vymazat
+            title: Smazat překlady
+      menu:
+        term_customizer: Úprava termínů
