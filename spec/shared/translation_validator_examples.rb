@@ -19,6 +19,18 @@ shared_examples "translation validatable" do
 
       it { is_expected.to be_valid }
     end
+
+    context "when key contains special characters" do
+      let(:key) { "translation.test-key?" }
+
+      it { is_expected.to be_valid }
+    end
+
+    context "when key contains only a single part" do
+      let(:key) { "translation" }
+
+      it { is_expected.to be_valid }
+    end
   end
 
   context "when key is empty" do
@@ -62,6 +74,16 @@ shared_examples "translation validatable" do
       let(:key) { "translation.key." }
 
       it { is_expected.to be_invalid }
+    end
+
+    context "with a long key repeating similar strings" do
+      let(:key) { "test.test.test.test.test.test.test.test.testA" }
+
+      it "does not run exponentially long" do
+        limit = 3.seconds.from_now
+        expect(subject).to be_invalid
+        expect(Time.now).to be < limit
+      end
     end
   end
 
