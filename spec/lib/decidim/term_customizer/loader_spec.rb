@@ -58,6 +58,13 @@ describe Decidim::TermCustomizer::Loader do
 
       subject.translations_hash
     end
+
+    it "mutes the cache logging during fetch" do
+      expect(Rails.cache).to receive(:mute).and_call_original
+      expect(Rails.cache).to receive(:fetch)
+
+      subject.translations_hash
+    end
   end
 
   describe "#clear_cache" do
