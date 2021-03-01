@@ -14,7 +14,7 @@ module Decidim
         translatable_attribute :value, String
 
         validates :key, presence: true
-        validates :key, format: { with: %r{\A([a-z0-9_/]+\.?)*[a-z0-9_/]+\z} }, unless: -> { key.blank? }
+        validates :key, format: { with: %r{\A([a-z0-9_/\?\-]+\.)*[a-z0-9_/\?\-]+\z} }, unless: -> { key.blank? }
         validates :value, translatable_presence: true
         validate :key_uniqueness
 
