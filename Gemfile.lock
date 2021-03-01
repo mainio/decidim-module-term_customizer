@@ -788,13 +788,13 @@ DEPENDENCIES
   decidim-dev (~> 0.23.0)
   decidim-term_customizer!
   faker (~> 1.9)
-  letter_opener_web (~> 1.4)
+  letter_opener_web (~> 1.4, >= 1.4.0)
   listen (~> 3.1)
   puma (~> 4.3.3)
   spring (~> 2.0)
   spring-watcher-listen (~> 2.0)
   uglifier (~> 4.1)
-  web-console (~> 3.7)
+  web-console (~> 3.7, >= 3.7.0)
 
 RUBY VERSION
    ruby 2.6.6p146
