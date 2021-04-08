@@ -1,6 +1,6 @@
 # Decidim::TermCustomizer
 
-[![Build Status](https://travis-ci.com/mainio/decidim-module-term_customizer.svg?branch=master)](https://travis-ci.com/mainio/decidim-module-term_customizer)
+[![Build Status](https://github.com/mainio/decidim-module-term_customizer/actions/workflows/ci_term_customizer.yml/badge.svg)](https://github.com/mainio/decidim-module-term_customizer/actions)
 [![codecov](https://codecov.io/gh/mainio/decidim-module-term_customizer/branch/master/graph/badge.svg)](https://codecov.io/gh/mainio/decidim-module-term_customizer)
 
 The gem has been developed by [Mainio Tech](https://www.mainiotech.fi/).
