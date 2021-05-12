@@ -12,7 +12,7 @@ require_relative "#{base_path}lib/decidim/term_customizer/version"
 
 DECIDIM_VERSION = Decidim::TermCustomizer::DECIDIM_VERSION
 
-gem "decidim", DECIDIM_VERSION
+gem "decidim", ">= 0.24.0", DECIDIM_VERSION
 gem "decidim-term_customizer", path: "."
 
 gem "bootsnap", "~> 1.4"
@@ -23,8 +23,8 @@ group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
   gem "dalli", "~> 2.7", ">= 2.7.10" # For testing MemCacheStore
-  gem "decidim-consultations", DECIDIM_VERSION
-  gem "decidim-dev", DECIDIM_VERSION
+  gem "decidim-consultations", ">= 0.24.0", DECIDIM_VERSION
+  gem "decidim-dev", ">= 0.24.0", DECIDIM_VERSION
   gem "rubocop-faker"
   gem "rubocop-performance", "~> 1.6.0"
 end
