@@ -85,7 +85,7 @@ it:
             title: Set di traduzione
           update:
             error: Error updating translation set.
-            success: Translation set successfully updated.
+            success: Set di traduzioni aggiornato con successo.
         translations:
           create:
             error: Error creating translation.
@@ -93,19 +93,19 @@ it:
           destroy:
             success: Translation successfully deleted.
           edit:
-            save: Save
-            title: Translation
+            save: Salva
+            title: Traduzione
           form:
             help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
             help_title: What is translation key?
             term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
             term_help_title: What is customized term?
-            title: Translation
+            title: Traduzione
           import:
             error: Error importing translations
             success: Translations successfully imported.
           index:
-            actions: Actions
+            actions: Azioni
             no_records_html: <p>No translations available in this set.</p> <p>Start by adding translations to this set. The easiest way is to use the "<a href="%{add_multiple_link}">%{button_name}</a>" button where you can search translations with the same terms that you see in the UI.</p>
             selected: selected
           new:
