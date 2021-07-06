@@ -44,10 +44,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_term_customizer.admin_assets" do |app|
-        app.config.assets.precompile += %w(translation_sets_admin_manifest.js)
-      end
-
       initializer "decidim_term_customizer.admin_menu" do
         Decidim.menu :admin_menu do |menu|
           menu.item I18n.t("menu.term_customizer", scope: "decidim.term_customizer"),
