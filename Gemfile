@@ -16,8 +16,7 @@ gem "decidim", DECIDIM_VERSION
 gem "decidim-term_customizer", path: "."
 
 gem "bootsnap", "~> 1.4"
-gem "puma", ">= 5.0.0"
-gem "uglifier", "~> 4.1"
+gem "puma", "~> 5.3"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
