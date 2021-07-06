@@ -1,5 +1,5 @@
-import "decidim/term_customizer/admin/multifield"
-import "decidim/term_customizer/admin/constraint_fields"
+import "src/decidim/term_customizer/admin/multifield"
+import "src/decidim/term_customizer/admin/constraint_fields"
 
 $(() => {
   const $fields = $("form.translation-sets-form .multifield-fields")
