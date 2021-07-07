@@ -26,6 +26,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "decidim-admin", Decidim::TermCustomizer::DECIDIM_VERSION
   spec.add_dependency "decidim-core", Decidim::TermCustomizer::DECIDIM_VERSION
+  spec.add_dependency "spreadsheet", "~> 1.2"
 
   spec.add_development_dependency "dalli", "~> 2.7", ">= 2.7.10" # For testing MemCacheStore
   spec.add_development_dependency "decidim-consultations", Decidim::TermCustomizer::DECIDIM_VERSION

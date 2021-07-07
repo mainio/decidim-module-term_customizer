@@ -15,6 +15,7 @@ DECIDIM_VERSION = Decidim::TermCustomizer::DECIDIM_VERSION
 gem "decidim", DECIDIM_VERSION
 gem "decidim-term_customizer", path: "."
 
+gem "spreadsheet", "~> 1.2"
 gem "bootsnap", "~> 1.4"
 gem "puma", "~> 5.3"
 
