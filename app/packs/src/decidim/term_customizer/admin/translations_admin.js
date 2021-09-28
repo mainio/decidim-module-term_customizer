@@ -3,47 +3,71 @@ $(() => {
   const $results = $("#add-translations-results");
   const $template = $("template", $results);
   const $form = $search.parents("form");
-  // let xhr = null;
   let currentSearch = "";
+  let selectedTerms = [];
 
   $search.on("keyup", function() {
     currentSearch = $search.val();
   });
 
-  // Regexp copied from jquery.autocomplete
-  const regEx = new RegExp(
-    `(\\${["/", ".", "*", "+", "?", "|", "(", ")", "[", "]", "{", "}", "\\"].join("|\\")})`,
-    "g"
-  );
+  // Prevent accidental submit on the autocomplete field
+  $form.on("submit", (ev) => ev.preventDefault());
 
-  // console.log($search.autocomplete);
-  const autocomplete = $search.autocomplete({
+  const customizeAutocomplete = (ac) => {
+    const $ac = $(`#${ac.mainContainerId}`);
+    const $acWrap = $("<div />");
+    $ac.css({ top: "", left: "" });
+    $acWrap.css({ position: "relative", width: "100%" });
+    $acWrap.append($ac);
+
+    // Move the element to correct position in the DOM to control its alignment
+    // better.
+    $search.after($acWrap);
+
+    // Do not set the top and left CSS attributes on the element
+    ac.fixPosition = () => {};
+
+    // Hack the suggest method to exclude values that are already selected.
+    ac.origSuggest = ac.suggest;
+    ac.suggest = () => {
+      // Filter out the selected items from the list
+      selectedTerms.forEach((term) => {
+        ac.suggestions = ac.suggestions.filter((val) => val !== term);
+        ac.data = ac.data.filter((val) => val.value !== term);
+      });
+
+      return ac.origSuggest();
+    };
+
+    return ac;
+  }
+
+  // Customized methods for the autocomplete to add our hacks
+  $.fn.tcAutocomplete = function(options) {
+    $(this).each((_i, el) => {
+      const $el = $(el);
+      const ac = customizeAutocomplete($el.autocomplete(options));
+      $el.data("autocomplete", ac);
+    })
+  };
+
+  $search.tcAutocomplete({
+    width: "100%",
     minChars: 2,
     noCache: true,
     serviceUrl: $form.attr("action"),
     // Custom format result because of some weird bugs in the old version of the
     // jquery.autocomplete library.
-    formatResult: (_term, itemData) => {
-      const value = itemData.value;
-      const pattern = `(${value.replace(regEx, "\\$1")})`;
-      return value.replace(new RegExp(pattern, "gi"), "<strong>$1</strong>");
+    formatResult: (term, itemData) => {
+      const value = `${itemData.value} - ${itemData.data}`;
+      return value.replace(new RegExp(`(${term})`, "gi"), "<strong>$1</strong>");
     },
-    // renderItem: function (item, search) {
-    //   const sanitizedSearch = search.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
-    //   const re = new RegExp(`(${sanitizedSearch.split(" ").join("|")})`, "gi");
-    //   const modelId = item[0];
-    //   const title = item[1];
-    //   // The terms are already escaped but when they are rendered to a data
-    //   // attribute, they get unescaped when those values are used. The only
-    //   // character we need to replace is the ampersand
-    //   const value = title.replace(/&/g, "&amp;");
-
-    //   const val = `${title} - ${modelId}`;
-    //   return `<div class="autocomplete-suggestion" data-model-id="${modelId}" data-val="${value}">${val.replace(re, "<b>$1</b>")}</div>`;
-    // },
-    onSelect: function(_suggestion, itemData) {
+    onSelect: function(suggestion, itemData) {
       const modelId = itemData.data;
       const title = itemData.value;
+
+      // Mark the term as selected
+      selectedTerms.push(suggestion);
 
       let template = $template.html();
       template = template.replace(new RegExp("{{translation_key}}", "g"), modelId);
@@ -61,6 +85,7 @@ $(() => {
         ev.preventDefault();
         $newRow.remove();
         $field.remove();
+        selectedTerms = selectedTerms.filter((val) => val !== suggestion);
 
         if ($("table tbody tr", $results).length < 1) {
           $results.addClass("hide");
@@ -70,13 +95,8 @@ $(() => {
       $search.val(currentSearch);
 
       setTimeout(() => {
-        autocomplete.suggest();
+        $search.data("autocomplete").suggest();
       }, 20);
-      // Reopen the autocomplete results
-      // setTimeout(function() {
-      //   $(`[data-model-id="${modelId}"]`, $suggestions).remove();
-      //   $suggestions.show();
-      // }, 20);
     }
   });
 });

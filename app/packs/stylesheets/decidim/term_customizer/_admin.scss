@@ -2,11 +2,20 @@
 // https://github.com/lloydwatkin/jquery.autocomplete
 //
 // TODO: Customize for Decidim UI.
+#add-translations-search{
+  overflow: visible;
+}
+
+.autocompleteContainer{
+  width: 100%;
+}
+
 .autocomplete-w1{
   position: absolute;
   top: 0;
   left: 0;
   margin: 6px 0 0 6px;
+  width: 100%;
 }
 
 .autocomplete{
