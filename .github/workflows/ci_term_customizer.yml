@@ -4,6 +4,7 @@ on: [push, pull_request]
 env:
   CI: "true"
   CODECOV: "true"
+  NODE_VERSION: 16.9.1
 
 jobs:
   main:
