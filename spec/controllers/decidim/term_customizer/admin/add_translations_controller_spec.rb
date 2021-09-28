@@ -54,19 +54,20 @@ module Decidim
             expect(response).to have_http_status(:ok)
 
             json = JSON.parse(response.body)
-            expect(json.length).to eq(0)
+            expect(json["data"].length).to eq(0)
           end
         end
 
         context "with search term provided" do
           it "renders the search results JSON" do
             get :search, params: params.merge(
-              term: "term_customizer"
+              query: "term_customizer"
             )
             expect(response).to have_http_status(:ok)
 
             json = JSON.parse(response.body)
-            expect(json.length).to eq(75)
+            expect(json["data"].length).to eq(75)
+            expect(json["suggestions"].length).to eq(75)
           end
         end
       end
