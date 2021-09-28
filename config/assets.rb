@@ -29,7 +29,7 @@ Decidim::Webpacker.register_entrypoints(
 
 # If you want to do the same but include the SCSS file for the admin panel's
 # main SCSS file, you can use the following method.
-# Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/foo/admin", group: :admin)
+Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/term_customizer/admin", group: :admin)
 
 # If you want to override some SCSS variables/settings for Foundation from the
 # module, you can add the following registered import.

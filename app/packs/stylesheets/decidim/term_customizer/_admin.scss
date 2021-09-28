@@ -1,0 +1,35 @@
+// Default CSS from:
+// https://github.com/lloydwatkin/jquery.autocomplete
+//
+// TODO: Customize for Decidim UI.
+.autocomplete-w1{
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 6px 0 0 6px;
+}
+
+.autocomplete{
+  border: 1px solid #999;
+  background: #fff;
+  cursor: default;
+  text-align: left;
+  max-height: 350px;
+  overflow: auto;
+  margin: -6px 6px 6px -6px;
+
+  strong{
+    font-weight: normal;
+    color: #39f;
+  }
+}
+
+.autocomplete .selected{
+  background: #f0f0f0;
+}
+
+.autocomplete div{
+  padding: 2px 5px;
+  white-space: nowrap;
+  overflow: hidden;
+}
