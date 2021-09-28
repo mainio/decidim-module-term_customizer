@@ -1,0 +1,6 @@
+import "src/decidim/term_customizer/admin/multifield/component"
+import "src/decidim/term_customizer/admin/constraint_fields"
+// import "app/packs/src/decidim/term_customizer/admin/multifield"
+import "src/decidim/term_customizer/admin/translation_sets_admin"
+import "src/decidim/term_customizer/admin/translations_admin_bulk"
+import "src/decidim/term_customizer/admin/translations_admin"

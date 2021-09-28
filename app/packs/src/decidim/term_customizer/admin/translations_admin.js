@@ -1,7 +1,8 @@
-// = require_self
+import "jquery.autocomplete"
 
 $(() => {
   const $search = $("#data_picker-autocomplete");
+  console.log("$search", $search)
   const $results = $("#add-translations-results");
   const $template = $("template", $results);
   const $form = $search.parents("form");

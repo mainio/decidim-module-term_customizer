@@ -7,7 +7,7 @@ module Decidim
         autoload :Base, "decidim/term_customizer/import/readers/base"
         autoload :CSV, "decidim/term_customizer/import/readers/csv"
         autoload :JSON, "decidim/term_customizer/import/readers/json"
-        autoload :XLS, "decidim/term_customizer/import/readers/xls"
+        autoload :XLSX, "decidim/term_customizer/import/readers/xlsx"
 
         # Accepted mime types
         # keys: are used for dynamic help text on admin form.
@@ -15,14 +15,14 @@ module Decidim
         ACCEPTED_MIME_TYPES = {
           json: Readers::JSON::MIME_TYPE,
           csv: Readers::CSV::MIME_TYPE,
-          xls: Readers::XLS::MIME_TYPE
+          xlsx: Readers::XLSX::MIME_TYPE
         }.freeze
 
         def self.all
           [
             Readers::CSV,
             Readers::JSON,
-            Readers::XLS
+            Readers::XLSX
           ]
         end
 

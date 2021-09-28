@@ -1,5 +1,12 @@
-((exports) => {
-  const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
+import AutoLabelByPositionComponent from "src/decidim/admin/auto_label_by_position.component"
+import AutoButtonsByPositionComponent from "src/decidim/admin/auto_buttons_by_position.component"
+import createDynamicFields from "src/decidim/admin/dynamic_fields.component"
+import createSortList from "src/decidim/admin/sort_list.component"
+
+console.log("EKA")
+$(() => {
+  console.log("LOAD")
+  // const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
 
   const initMultifield = ($wrapper) => {
     const wrapperSelector = `#${$wrapper.attr("id")}`;
@@ -100,4 +107,4 @@
       }
     )
   }
-})(window);
+})

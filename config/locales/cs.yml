@@ -115,7 +115,7 @@ cs:
             accepted_mime_types:
               csv: CSV
               json: JSON
-              xls: XLS
+              xlsx: XLSX
             file_legend: 'Přidat importovaný soubor, který bude zpracován pro překlady. Podporované formáty jsou: %{valid_mime_types}'
             start_import: Zahájit import
             title: Importovat překlady

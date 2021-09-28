@@ -1,5 +1,3 @@
-// = require_self
-
 /* eslint-disable no-invalid-this */
 $(document).ready(function () {
   let selectedTranslationsCount = function() {

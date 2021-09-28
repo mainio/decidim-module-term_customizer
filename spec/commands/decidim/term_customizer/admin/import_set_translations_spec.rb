@@ -97,11 +97,11 @@ describe Decidim::TermCustomizer::Admin::ImportSetTranslations do
         it_behaves_like "functional translation import"
       end
 
-      context "with XLS import file" do
+      context "with XLSX import file" do
         let(:file) do
           fixture_file_upload(
-            file_fixture("set-translations.xls"),
-            "application/vnd.ms-excel"
+            file_fixture("set-translations.xlsx"),
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
           )
         end
 
@@ -130,10 +130,10 @@ describe Decidim::TermCustomizer::Admin::ImportSetTranslations do
         it_behaves_like "functional translation import"
       end
 
-      context "with ZIP import file containing a XLS" do
+      context "with ZIP import file containing a XLSX" do
         let(:file) do
           fixture_file_upload(
-            file_fixture("set-translations.xls.zip"),
+            file_fixture("set-translations.xlsx.zip"),
             "application/zip"
           )
         end
