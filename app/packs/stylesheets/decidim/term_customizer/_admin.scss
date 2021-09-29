@@ -1,7 +1,16 @@
 // Default CSS from:
 // https://github.com/lloydwatkin/jquery.autocomplete
 //
-// TODO: Customize for Decidim UI.
+// Customized for Decidim UI according to the Decidim theme.
+
+// If you want to override these for the instance, just add them to the
+// instance's own SCSS settings without the `!default` flag.
+$autocomplete-border: $input-border !default;
+$autocomplete-background: $white !default;
+$autocomplete-highlight-color: $highlight-color !default;
+$autocomplete-selected-color: $medium-gray !default;
+$autocomplete-max-height: 350px !default;
+
 #add-translations-search{
   overflow: visible;
 }
@@ -14,27 +23,25 @@
   position: absolute;
   top: 0;
   left: 0;
-  margin: 6px 0 0 6px;
   width: 100%;
 }
 
 .autocomplete{
-  border: 1px solid #999;
-  background: #fff;
+  border: $autocomplete-border;
+  background: $autocomplete-background;
   cursor: default;
   text-align: left;
-  max-height: 350px;
+  max-height: $autocomplete-max-height;
   overflow: auto;
-  margin: -6px 6px 6px -6px;
 
   strong{
     font-weight: normal;
-    color: #39f;
+    color: $autocomplete-highlight-color;
   }
 }
 
 .autocomplete .selected{
-  background: #f0f0f0;
+  background: $autocomplete-selected-color;
 }
 
 .autocomplete div{
