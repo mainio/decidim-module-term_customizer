@@ -13,39 +13,39 @@ $autocomplete-max-height: 350px !default;
 
 #add-translations-search{
   overflow: visible;
-}
 
-.autocompleteContainer{
-  width: 100%;
-}
-
-.autocomplete-w1{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-
-.autocomplete{
-  border: $autocomplete-border;
-  background: $autocomplete-background;
-  cursor: default;
-  text-align: left;
-  max-height: $autocomplete-max-height;
-  overflow: auto;
-
-  strong{
-    font-weight: normal;
-    color: $autocomplete-highlight-color;
+  .autocompleteContainer{
+    width: 100%;
   }
-}
 
-.autocomplete .selected{
-  background: $autocomplete-selected-color;
-}
+  .autocomplete-w1{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
 
-.autocomplete div{
-  padding: 2px 5px;
-  white-space: nowrap;
-  overflow: hidden;
+  .autocomplete{
+    border: $autocomplete-border;
+    background: $autocomplete-background;
+    cursor: default;
+    text-align: left;
+    max-height: $autocomplete-max-height;
+    overflow: auto;
+
+    strong{
+      font-weight: normal;
+      color: $autocomplete-highlight-color;
+    }
+  }
+
+  .autocomplete .selected{
+    background: $autocomplete-selected-color;
+  }
+
+  .autocomplete div{
+    padding: 2px 5px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
 }
