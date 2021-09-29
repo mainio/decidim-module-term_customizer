@@ -57,8 +57,11 @@ $(() => {
     // Custom format result because of some weird bugs in the old version of the
     // jquery.autocomplete library.
     formatResult: (term, itemData) => {
+      const sanitizedSearch = term.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
+      const re = new RegExp(`(${sanitizedSearch})`, "gi");
+
       const value = `${itemData.value} - ${itemData.data}`;
-      return value.replace(new RegExp(`(${term})`, "gi"), "<strong>$1</strong>");
+      return value.replace(re, "<strong>$1</strong>");
     },
     onSelect: function(suggestion, itemData) {
       const modelId = itemData.data;
