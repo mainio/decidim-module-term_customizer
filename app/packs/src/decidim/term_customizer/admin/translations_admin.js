@@ -17,7 +17,7 @@ $(() => {
     const $ac = $(`#${ac.mainContainerId}`);
     const $acWrap = $("<div />");
     $ac.css({ top: "", left: "" });
-    $acWrap.css({ position: "relative", width: "100%" });
+    $acWrap.css({ position: "relative" });
     $acWrap.append($ac);
 
     // Move the element to correct position in the DOM to control its alignment
@@ -31,16 +31,14 @@ $(() => {
     ac.origSuggest = ac.suggest;
     ac.suggest = () => {
       // Filter out the selected items from the list
-      selectedTerms.forEach((term) => {
-        ac.suggestions = ac.suggestions.filter((val) => val !== term);
-        ac.data = ac.data.filter((val) => val.value !== term);
-      });
+      ac.suggestions = ac.suggestions.filter((val) => !selectedTerms.includes(val));
+      ac.data = ac.data.filter((val) => !selectedTerms.includes(val.value));
 
       return ac.origSuggest();
     };
 
     return ac;
-  }
+  };
 
   // Customized methods for the autocomplete to add our hacks
   $.fn.tcAutocomplete = function(options) {
