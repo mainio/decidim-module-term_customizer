@@ -37,6 +37,59 @@ $(() => {
       return ac.origSuggest();
     };
 
+    // Customize the onKeyPress to allow spaces because we do not want
+    // selection to happen on space press.
+    //
+    // Original code at: https://git.io/JzjAM
+    ac.onKeyPress = (ev) => {
+      if (ac.disabled || !ac.enabled) {
+        return;
+      }
+
+      switch (ev.keyCode) {
+      case 27:
+        // ESC
+        ac.el.val(ac.currentValue);
+        ac.hide();
+        break;
+      case 9:
+      case 13:
+        // TAB or RETURN
+        if (ac.suggestions.length === 1) {
+          ac.select(0)
+        } else if (ac.selectedIndex === -1) {
+          ac.hide();
+          return;
+        } else {
+          ac.select(ac.selectedIndex);
+        }
+        if (ev.keyCode === 9) {
+          return;
+        }
+        break;
+      case 38:
+        // UP
+        ac.moveUp();
+        break
+      case 40:
+        // DOWN
+        ac.moveDown();
+        break
+      // DISABLED:
+      // case 32:
+      //   // SPACE
+      //   if (ac.selectedIndex === -1) {
+      //     break;
+      //   }
+      //   ac.select(ac.selectedIndex);
+      //   break;
+      default:
+        return;
+      }
+      ev.stopImmediatePropagation();
+      ev.preventDefault();
+    }
+
     return ac;
   };
 
@@ -54,6 +107,7 @@ $(() => {
     minChars: 2,
     noCache: true,
     serviceUrl: $form.attr("action"),
+    delimiter: "||",
     // Custom format result because of some weird bugs in the old version of the
     // jquery.autocomplete library.
     formatResult: (term, itemData) => {
