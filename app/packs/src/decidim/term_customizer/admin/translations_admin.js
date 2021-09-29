@@ -108,6 +108,7 @@ $(() => {
     noCache: true,
     serviceUrl: $form.attr("action"),
     delimiter: "||",
+    deferRequestBy: 500,
     // Custom format result because of some weird bugs in the old version of the
     // jquery.autocomplete library.
     formatResult: (term, itemData) => {
