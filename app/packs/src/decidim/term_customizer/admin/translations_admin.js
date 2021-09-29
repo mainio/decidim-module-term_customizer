@@ -13,6 +13,10 @@ $(() => {
   // Prevent accidental submit on the autocomplete field
   $form.on("submit", (ev) => ev.preventDefault());
 
+  // jquery.autocomplete is calling this method which is apparently removed from
+  // newer jQuery versions.
+  $.isObject = $.isPlainObject; // eslint-disable-line id-length
+
   const customizeAutocomplete = (ac) => {
     const $ac = $(`#${ac.mainContainerId}`);
     const $acWrap = $("<div />");
