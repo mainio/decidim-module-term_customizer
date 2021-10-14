@@ -12,7 +12,7 @@ module Decidim
         let(:translation_set) { create(:translation_set, organization: organization) }
         let(:key) { "translation.key" }
         let(:locale) { I18n.locale }
-        let(:value) { Decidim::Faker::Localized.sentence(3) }
+        let(:value) { Decidim::Faker::Localized.sentence(word_count: 3) }
         let(:params) { { key: key, value: value } }
 
         let(:form) do
