@@ -6,8 +6,6 @@ require "i18n/backend/flatten"
 module Decidim
   module TermCustomizer
     class I18nBackend
-      using I18n::HashRefinements
-
       (class << self; self; end).class_eval { public :include }
 
       module Implementation
