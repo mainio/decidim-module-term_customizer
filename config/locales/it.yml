@@ -129,6 +129,6 @@ it:
             success: Translations successfully deleted.
           new:
             destroy: Delete
-            title: Translations delete
+            title: Traduzioni elimina
       menu:
         term_customizer: Term customizer
