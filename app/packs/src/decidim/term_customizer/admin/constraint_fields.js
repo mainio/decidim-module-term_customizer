@@ -1,6 +1,4 @@
-// = require_self
-
-(() => {
+$(() => {
   const initConstraintFields = ($section) => {
     const $select = $("select.constraint-subject-selector", $section);
     const $modelSelect = $("select.constraint-subject-model-selector", $section);
@@ -42,4 +40,4 @@
       }
     )
   }
-})();
+})

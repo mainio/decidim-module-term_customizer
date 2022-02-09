@@ -1,7 +1,3 @@
-// = require decidim/term_customizer/admin/multifield
-// = require decidim/term_customizer/admin/constraint_fields
-// = require_self
-
 $(() => {
   const $fields = $("form.translation-sets-form .multifield-fields");
 

@@ -8,6 +8,7 @@ module Decidim
       class TranslationsImportForm < Decidim::Form
         ACCEPTED_MIME_TYPES = Decidim::TermCustomizer::Import::Readers::ACCEPTED_MIME_TYPES
         MIME_TYPE_ZIP = "application/zip"
+        include Decidim::HasUploadValidations
 
         mimic :translations_import
 

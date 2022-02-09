@@ -12,12 +12,12 @@ describe Decidim::TermCustomizer::Admin::TranslationsHelper do
         ".accepted_mime_types.csv"
       ).and_return("CSV")
       allow(helper).to receive(:t).with(
-        ".accepted_mime_types.xls"
-      ).and_return("XLS")
+        ".accepted_mime_types.xlsx"
+      ).and_return("XLSX")
     end
 
     it "returns the expected mime types" do
-      expect(helper.mime_types).to eq("JSON, CSV, XLS")
+      expect(helper.mime_types).to eq("JSON, CSV, XLSX")
     end
   end
 end

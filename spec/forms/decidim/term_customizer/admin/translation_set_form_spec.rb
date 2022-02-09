@@ -9,7 +9,7 @@ module Decidim
         subject { form }
 
         let(:organization) { create(:organization) }
-        let(:name) { Decidim::Faker::Localized.sentence(3) }
+        let(:name) { Decidim::Faker::Localized.sentence(word_count: 3) }
         let(:params) { { name: name } }
 
         let(:form) do

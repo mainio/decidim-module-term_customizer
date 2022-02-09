@@ -59,7 +59,7 @@ module Decidim
                   translation_set: translation_set,
                   locale: locale,
                   key: tr.key,
-                  value: Decidim::Faker::Localized.sentence(3)
+                  value: Decidim::Faker::Localized.sentence(word_count: 3)
                 )
               end
             end

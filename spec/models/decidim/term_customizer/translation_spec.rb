@@ -20,7 +20,7 @@ module Decidim
       end
       let(:locale) { :en }
       let(:key) { "translation.key" }
-      let(:value) { ::Faker::Lorem.sentence(3) }
+      let(:value) { ::Faker::Lorem.sentence(word_count: 3) }
 
       it { is_expected.to be_valid }
 

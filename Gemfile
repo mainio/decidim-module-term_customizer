@@ -21,7 +21,6 @@ gem "uglifier", "~> 4.1"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
-
   gem "dalli", "~> 2.7", ">= 2.7.10" # For testing MemCacheStore
   gem "decidim-consultations", DECIDIM_VERSION
   gem "decidim-dev", DECIDIM_VERSION

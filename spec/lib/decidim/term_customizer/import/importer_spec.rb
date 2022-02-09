@@ -21,9 +21,9 @@ describe Decidim::TermCustomizer::Import::Importer do
     it_behaves_like "translation importer"
   end
 
-  context "with XLS" do
-    let(:file) { file_fixture("set-translations.xls") }
-    let(:reader) { Decidim::TermCustomizer::Import::Readers::XLS }
+  context "with XLSX" do
+    let(:file) { file_fixture("set-translations.xlsx") }
+    let(:reader) { Decidim::TermCustomizer::Import::Readers::XLSX }
 
     it_behaves_like "translation importer"
   end
