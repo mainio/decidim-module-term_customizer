@@ -94,7 +94,6 @@ shared_examples "translation import reader" do
 
   include_context "with translation import data"
 
-
   it "yields all the data correctly" do
     data = []
     subject.read_rows do |row, index|
