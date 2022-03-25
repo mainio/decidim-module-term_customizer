@@ -5,7 +5,7 @@ module Decidim
     class Translation < TermCustomizer::ApplicationRecord
       self.table_name = "decidim_term_customizer_translations"
 
-      belongs_to :translation_set, class_name: "Decidim::TermCustomizer::TranslationSet", foreign_key: "translation_set_id"
+      belongs_to :translation_set, class_name: "Decidim::TermCustomizer::TranslationSet"
       has_many :constraints, through: :translation_set
 
       validates :locale, presence: true
