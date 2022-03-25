@@ -3,15 +3,15 @@ ja:
     attributes:
       constraint:
         component_id: コンポーネント
-        subject_id: Participatory space
-        subject_manifest: Participatory space type
+        subject_id: 参加型スペース
+        subject_manifest: 参加型スペース種別
       translation:
         key: 翻訳キー
         value: カスタマイズされた文言
       translation_set:
         name: 名前
       translations_import:
-        file: Import file
+        file: ファイルのインポート
     errors:
       models:
         translations_import:
@@ -88,25 +88,25 @@ ja:
             success: 翻訳キーが正常に更新されました。
         translations:
           create:
-            error: Error creating translation.
-            success: Translation successfully created.
+            error: 翻訳の作成エラー
+            success: 翻訳は正常に作成されました。
           destroy:
             success: 翻訳セットが正常に削除されました。
           edit:
             save: 保存
             title: 翻訳
           form:
-            help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
-            help_title: What is translation key?
-            term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
-            term_help_title: What is customized term?
+            help_html: "<p>翻訳キーは、翻訳される文言の内部的な参照先です。これは、変更したい用語そのものではなく、その用語を参照するための技術的なキーになります。</p>\n<p>たとえば、トップメニューの <em>\"Processes\"</em> という用語を変更したい場合、キーとしては<em>\"decidim.menu.processes\"</em>を使用します。</p>\n<p><a href=\"https://guides.rubyonrails.org/i18n.html\" target=\"_blank\"> Railsの国際化についてもっと読む</a></p>"
+            help_title: 翻訳キーとは?
+            term_help_html: "<p>カスタマイズされた文言は、元の単語の代わりにUIに表示させたい最終的な文言です。当然ながら、カスタマイズされた文言は、言語ごとに異なる場合があります。</p>"
+            term_help_title: カスタマイズされた文言とは?
             title: 翻訳
           import:
             error: 翻訳のインポートエラー
             success: 翻訳は正常にインポートされました。
           index:
             actions: アクション
-            no_records_html: <p>No translations available in this set.</p> <p>Start by adding translations to this set. The easiest way is to use the "<a href="%{add_multiple_link}">%{button_name}</a>" button where you can search translations with the same terms that you see in the UI.</p>
+            no_records_html: <p>このセットで利用できる翻訳はありません。</p> <p>このセットに翻訳を追加することから始めてください。最も簡単な方法は、「<a href="%{add_multiple_link}">%{button_name}</a>」ボタンを使って、UIに表示されているものと同じ言葉で翻訳を検索することです。</p>
             selected: 選択済み
           new:
             create: 作成
@@ -118,17 +118,17 @@ ja:
               xlsx: XLSX
             file_legend: '翻訳用に解析されるインポートファイルを追加します。サポートしているフォーマット:%{valid_mime_types}'
             start_import: インポートを開始
-            title: Import translations
-            zip_hint: You can also upload the ZIP file from the translations export.
+            title: 翻訳のインポート
+            zip_hint: エクスポートした翻訳のZIPファイルもアップロードできます。
           update:
-            error: Error updating translation.
-            success: Translation successfully updated.
+            error: 翻訳の更新エラー
+            success: 翻訳は正常に更新されました。
         translations_destroys:
           destroy:
-            error: Error deleting translations.
-            success: Translations successfully deleted.
+            error: 翻訳の削除エラー
+            success: 翻訳は正常に削除されました。
           new:
-            destroy: Delete
-            title: Translations delete
+            destroy: 削除
+            title: 翻訳の削除
       menu:
-        term_customizer: Term customizer
+        term_customizer: 文言の差し替え
