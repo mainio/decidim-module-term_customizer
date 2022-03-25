@@ -56,7 +56,7 @@ module Decidim
         return if value.is_a?(Symbol)
 
         # Exclude the faker translations.
-        return if key =~ /^faker\./
+        return if /^faker\./.match?(key)
 
         if value.is_a?(Array)
           value.each_with_index do |v, i|

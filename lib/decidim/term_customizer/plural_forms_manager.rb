@@ -38,7 +38,7 @@ module Decidim
         translations.each do |tr|
           # Check that the last part of the translation key matches with some
           # of the plural translation keys.
-          next unless tr.key =~ /\.(#{keys.join("|")})$/
+          next unless /\.(#{keys.join("|")})$/.match?(tr.key)
 
           parts = tr.key.split(".")
           plural_part = parts.pop
