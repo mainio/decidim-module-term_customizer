@@ -2,14 +2,14 @@ ja:
   activemodel:
     attributes:
       constraint:
-        component_id: Component
+        component_id: コンポーネント
         subject_id: Participatory space
         subject_manifest: Participatory space type
       translation:
-        key: Translation key
-        value: Customized term
+        key: 翻訳キー
+        value: カスタマイズされた文言
       translation_set:
-        name: Name
+        name: 名前
       translations_import:
         file: Import file
     errors:
