@@ -91,6 +91,7 @@ end
 
 shared_examples "translation import reader" do
   subject { described_class.new(file) }
+
   include_context "with translation import data"
 
 
