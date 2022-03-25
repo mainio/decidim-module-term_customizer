@@ -84,40 +84,40 @@ ja:
             create: 作成
             title: 翻訳セット
           update:
-            error: Error updating translation set.
-            success: Translation set successfully updated.
+            error: 翻訳セットの更新エラー
+            success: 翻訳キーが正常に更新されました。
         translations:
           create:
             error: Error creating translation.
             success: Translation successfully created.
           destroy:
-            success: Translation successfully deleted.
+            success: 翻訳セットが正常に削除されました。
           edit:
-            save: Save
-            title: Translation
+            save: 保存
+            title: 翻訳
           form:
             help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
             help_title: What is translation key?
             term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
             term_help_title: What is customized term?
-            title: Translation
+            title: 翻訳
           import:
-            error: Error importing translations
-            success: Translations successfully imported.
+            error: 翻訳のインポートエラー
+            success: 翻訳は正常にインポートされました。
           index:
-            actions: Actions
+            actions: アクション
             no_records_html: <p>No translations available in this set.</p> <p>Start by adding translations to this set. The easiest way is to use the "<a href="%{add_multiple_link}">%{button_name}</a>" button where you can search translations with the same terms that you see in the UI.</p>
-            selected: selected
+            selected: 選択済み
           new:
-            create: Create
-            title: Translations
+            create: 作成
+            title: 翻訳
           new_import:
             accepted_mime_types:
               csv: CSV
               json: JSON
               xlsx: XLSX
-            file_legend: 'Add an import file that will be parsed for translations. Suported formats are: %{valid_mime_types}'
-            start_import: Start import
+            file_legend: '翻訳用に解析されるインポートファイルを追加します。サポートしているフォーマット:%{valid_mime_types}'
+            start_import: インポートを開始
             title: Import translations
             zip_hint: You can also upload the ZIP file from the translations export.
           update:
