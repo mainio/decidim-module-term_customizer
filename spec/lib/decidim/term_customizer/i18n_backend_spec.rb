@@ -111,7 +111,7 @@ describe Decidim::TermCustomizer::I18nBackend do
 
   describe "#translate" do
     it "calls lookup" do
-      expect(subject).to receive(:lookup).and_return("Translation")
+      expect(subject).to receive(:lookup).and_return("Translation") # rubocop:disable RSpec/SubjectStub
       subject.translate(:en, "decidim.term1")
     end
 
