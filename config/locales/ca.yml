@@ -97,17 +97,17 @@ ca:
             title: Traducció
           form:
             help_html: <p>Una clau de traducció és una referència tècnica de la paraula i/o frase que s'ha de traduir. Aquest no és el terme que voleu canviar, sinó la clau tècnica que fa referència a aquesta traducció.</p> <p>Per exemple, si voleu canviar el terme <em>"Processos"</em> al menú superior, utilitzareu la clau <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target=" _blank"> Més informació sobre la internacionalització de Rails</a>.</p>
-            help_title: What is translation key?
-            term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
-            term_help_title: What is customized term?
+            help_title: Què és una clau de traducció?
+            term_help_html: "<p>El terme personalitzat és la paraula final que voleu que aparegui a la IU en lloc del terme original. Evidentment, el terme personalitzat pot variar per a cada idioma habilitat.</p>"
+            term_help_title: Què és un terme personalizat?
             title: Traducció
           import:
-            error: Error importing translations
-            success: Translations successfully imported.
+            error: Error en l'importació de traduccions
+            success: Èxit en l'importació de traducció.
           index:
-            actions: Actions
-            no_records_html: <p>No translations available in this set.</p> <p>Start by adding translations to this set. The easiest way is to use the "<a href="%{add_multiple_link}">%{button_name}</a>" button where you can search translations with the same terms that you see in the UI.</p>
-            selected: selected
+            actions: Accions
+            no_records_html: <p>No hi ha traduccions disponibles en aquest conjunt.</p> <p>Comenceu afegint traduccions per aquest conjunt. La manera més senzilla és utilitzar el botó "<a href="%{add_multiple_link}">%{button_name}</a>" on pots cercar traduccions amb els mateixos termes que veus a la IU.</p>
+            selected: selecciona
           new:
             create: Crear
             title: Traduccions
@@ -116,19 +116,19 @@ ca:
               csv: CSV
               json: JSON
               xlsx: XLSX
-            file_legend: 'Add an import file that will be parsed for translations. Suported formats are: %{valid_mime_types}'
-            start_import: Start import
-            title: Import translations
-            zip_hint: You can also upload the ZIP file from the translations export.
+            file_legend: 'Afegiu un fitxer d''importació que s''analitzarà per a les traduccions. Els formats admesos són: %{valid_mime_types}'
+            start_import: Començar importació
+            title: Importa les traduccions
+            zip_hint: També podeu carregar el fitxer ZIP des de l'exportació de traduccions.
           update:
             error: Error en l'actualització de la traducció.
             success: Traducció actualitzada amb èxit.
         translations_destroys:
           destroy:
-            error: Error deleting translations.
-            success: Translations successfully deleted.
+            error: Error en l'eliminiació de les traduccions.
+            success: Les traduccions han estat esborrades amb èxit.
           new:
-            destroy: Delete
-            title: Translations delete
+            destroy: Eliminar
+            title: Traduccions eliminades
       menu:
         term_customizer: Personalització de termes
