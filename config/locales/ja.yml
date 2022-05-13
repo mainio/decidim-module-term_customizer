@@ -1,0 +1,134 @@
+ja:
+  activemodel:
+    attributes:
+      constraint:
+        component_id: コンポーネント
+        subject_id: 参加型スペース
+        subject_manifest: 参加型スペース種別
+      translation:
+        key: 翻訳キー
+        value: カスタマイズされた文言
+      translation_set:
+        name: 名前
+      translations_import:
+        file: ファイルのインポート
+    errors:
+      models:
+        translations_import:
+          attributes:
+            file:
+              invalid_mime_type: '無効なファイルタイプです。使用できるフォーマット: %{valid_mime_types}'
+  decidim:
+    term_customizer:
+      admin:
+        actions:
+          add_multiple_translations: まとめて追加
+          back: 戻る
+          cancel: キャンセル
+          clear_cache: キャッシュのクリア
+          confirm_duplicate: このセットを複製してもよろしいですか？
+          duplicate: 複製
+          help: ヘルプ
+          import: インポート
+          new_translation: 新しい翻訳
+          new_translation_set: 新しい翻訳セット
+          view: 表示
+        add_translations:
+          index:
+            add: 追加
+            help_html: "<p>まず、検索パネルで変更したい用語に現れる文字を数文字入力してください。\n少し待つと、検索フィールドの下に検索に一致するすべての翻訳のリストが表示されます。\nそのリストの中から、変更したい文言をクリックします。</p>\n<p>変更したい翻訳をすべて追加したら、画面下部の「%{button_name}」ボタンをクリックします。</p>"
+            help_title: 翻訳の検索方法
+            search: 検索
+        caches:
+          clear:
+            success: キャッシュを削除しました
+        models:
+          translation_sets:
+            fields:
+              name: 名前
+          translations:
+            fields:
+              key: 翻訳キー
+              original_term: 元の文言
+              term: カスタマイズされた文言
+        titles:
+          add_multiple_translations: まとめて追加
+          translation_sets: 翻訳セット
+          translations: 翻訳
+        translation_sets:
+          constraint_fields:
+            constraint: 制約
+            remove: 削除
+          create:
+            error: 翻訳セットの作成エラー
+            success: 翻訳セットが正常に作成されました。
+          destroy:
+            success: 翻訳セットは正常に削除されました。
+          duplicate:
+            copied_set_name: '%{name} のコピー'
+            error: 翻訳セットの複製エラー
+            success: 翻訳セットは正常に複製されました。
+          edit:
+            save: 保存
+            title: 翻訳セット
+          form:
+            add_constraint: 制約の追加
+            constraint_help_html: "<p>制約とは、セット内のカスタマイズを特定のコンテキストのみに適用できるようにするための特別なルールです。</p>\n<p>制約ルールを定義しない場合、このセットのカスタマイズは、アプリケーション全体に適用されます。\n一方、このセットのカスタマイズを特定のプロセスのみに適用したい場合は、\n参加型スペースの種類として「参加型プロセス」、参加型スペースとして対象のプロセスを選択します。\nさらに、制約にコンポーネントを定義することで、カスタマイズを特定のコンポーネントのみに適用することもできます。</p>\n<p>複数の制約を定義した場合、カスタマイズはそれら全てに適用されます。</p>"
+            constraint_help_title: 制約とは?
+            help_html: "<p>翻訳セットは、カスタマイズしたい特定のコンテキストのための翻訳を保持する「コンテナ」です。</p>\n<p>翻訳セットを使用すると、カスタマイズを整理し、異なるコンテキストに適用することができます。\nこれにより、同じ翻訳を異なるコンテキストで異なるようにカスタマイズすることができます。</p>\n<p>たとえば、「追加」という用語のボタンを異なる参加型プロセス用で異なるようにカスタマイズしたい場合、\n両方のプロセス用に別々の翻訳セットを作成し、制約を使用してこれらのプロセスにセットを適用することができます。</p>"
+            help_title: 翻訳セットとは?
+            title: 翻訳セット
+          index:
+            no_records_html: "<p>利用できる翻訳セットはありません。</p>\n<p>「<a href=\"%{new_set_link}\">%{button_name}</a>」ボタンで、翻訳セットを追加することから始めてみてください。</p>"
+          new:
+            create: 作成
+            title: 翻訳セット
+          update:
+            error: 翻訳セットの更新エラー
+            success: 翻訳キーが正常に更新されました。
+        translations:
+          create:
+            error: 翻訳の作成エラー
+            success: 翻訳は正常に作成されました。
+          destroy:
+            success: 翻訳セットが正常に削除されました。
+          edit:
+            save: 保存
+            title: 翻訳
+          form:
+            help_html: "<p>翻訳キーは、翻訳される文言の内部的な参照先です。これは、変更したい用語そのものではなく、その用語を参照するための技術的なキーになります。</p>\n<p>たとえば、トップメニューの <em>\"Processes\"</em> という用語を変更したい場合、キーとしては<em>\"decidim.menu.processes\"</em>を使用します。</p>\n<p><a href=\"https://guides.rubyonrails.org/i18n.html\" target=\"_blank\"> Railsの国際化についてもっと読む</a></p>"
+            help_title: 翻訳キーとは?
+            term_help_html: "<p>カスタマイズされた文言は、元の単語の代わりにUIに表示させたい最終的な文言です。当然ながら、カスタマイズされた文言は、言語ごとに異なる場合があります。</p>"
+            term_help_title: カスタマイズされた文言とは?
+            title: 翻訳
+          import:
+            error: 翻訳のインポートエラー
+            success: 翻訳は正常にインポートされました。
+          index:
+            actions: アクション
+            no_records_html: <p>このセットで利用できる翻訳はありません。</p> <p>このセットに翻訳を追加することから始めてください。最も簡単な方法は、「<a href="%{add_multiple_link}">%{button_name}</a>」ボタンを使って、UIに表示されているものと同じ言葉で翻訳を検索することです。</p>
+            selected: 選択済み
+          new:
+            create: 作成
+            title: 翻訳
+          new_import:
+            accepted_mime_types:
+              csv: CSV
+              json: JSON
+              xlsx: XLSX
+            file_legend: '翻訳用に解析されるインポートファイルを追加します。サポートしているフォーマット:%{valid_mime_types}'
+            start_import: インポートを開始
+            title: 翻訳のインポート
+            zip_hint: エクスポートした翻訳のZIPファイルもアップロードできます。
+          update:
+            error: 翻訳の更新エラー
+            success: 翻訳は正常に更新されました。
+        translations_destroys:
+          destroy:
+            error: 翻訳の削除エラー
+            success: 翻訳は正常に削除されました。
+          new:
+            destroy: 削除
+            title: 翻訳の削除
+      menu:
+        term_customizer: 文言の差し替え
