@@ -5,12 +5,12 @@ module Decidim
     class Translation < TermCustomizer::ApplicationRecord
       self.table_name = "decidim_term_customizer_translations"
 
-      belongs_to :translation_set, class_name: "Decidim::TermCustomizer::TranslationSet", foreign_key: "translation_set_id"
+      belongs_to :translation_set, class_name: "Decidim::TermCustomizer::TranslationSet"
       has_many :constraints, through: :translation_set
 
       validates :locale, presence: true
       validates :key, presence: true
-      validates :key, format: { with: %r{\A([a-z0-9_/\?\-]+\.)*[a-z0-9_/\?\-]+\z} }, unless: -> { key.blank? }
+      validates :key, format: { with: %r{\A([a-z0-9_/?\-]+\.)*[a-z0-9_/?\-]+\z} }, unless: -> { key.blank? }
       validates :key, uniqueness: { scope: [:translation_set, :locale] }, unless: -> { key.blank? }
 
       class << self

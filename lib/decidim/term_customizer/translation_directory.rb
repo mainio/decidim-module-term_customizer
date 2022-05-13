@@ -21,7 +21,7 @@ module Decidim
         translations_by_key(search).merge(translations_by_term(search))
       end
 
-      def translations_by_key(search)
+      def translations_by_key(search) # rubocop:disable Rails/Delegate
         translations.by_key(search)
       end
 

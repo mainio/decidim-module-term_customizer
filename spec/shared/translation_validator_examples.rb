@@ -82,7 +82,7 @@ shared_examples "translation validatable" do
       it "does not run exponentially long" do
         limit = 3.seconds.from_now
         expect(subject).to be_invalid
-        expect(Time.now).to be < limit
+        expect(Time.zone.now).to be < limit
       end
     end
   end

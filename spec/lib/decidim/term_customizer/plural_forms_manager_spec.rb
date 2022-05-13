@@ -35,6 +35,7 @@ describe Decidim::TermCustomizer::PluralFormsManager do
 
       other_keys = [:one, :other, :zero].map do |other_key|
         next if other_key == plural_key
+
         "#{base_key}.#{other_key}"
       end.reject(&:nil?)
 
@@ -61,6 +62,7 @@ describe Decidim::TermCustomizer::PluralFormsManager do
       # calling the destroy! method for.
       [:zero, :one, :other].each do |other_key|
         next if other_key == plural_key
+
         create_translations("#{base_key}.#{other_key}", *locales)
       end
 
