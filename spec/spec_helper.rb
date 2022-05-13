@@ -28,7 +28,7 @@ RSpec.configure do |config|
   config.before do
     # Reset the locales to Decidim defaults before each test.
     # Some tests may change this which is why this is important.
-    I18n.available_locales = [:en, :ca, :es]
+    I18n.available_locales = [:en, :ca, :es, :ja]
 
     # Revert the plural keys back to normal
     Decidim::TermCustomizer::PluralFormsManager.plural_keys = original_plural_keys

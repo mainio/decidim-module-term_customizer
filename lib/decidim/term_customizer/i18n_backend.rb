@@ -10,6 +10,7 @@ module Decidim
 
       module Implementation
         include I18n::Backend::Base
+        include I18n::Backend::Pluralization
 
         # Get available locales from the translations hash
         def available_locales

@@ -26,6 +26,26 @@ describe Decidim::TermCustomizer::I18nBackend do
     }
   end
 
+  let(:pluralize_translations_list) do
+    {
+      en: {
+        decidim: {
+          term1: {
+            one: "Term 1 singular",
+            other: "Term 1 plural"
+          }
+        }
+      },
+      ja: {
+        decidim: {
+          term1: {
+            other: "Term 1 invariant"
+          }
+        }
+      }
+    }
+  end
+
   describe "#available_locales" do
     context "when no translations are available" do
       it "returns an empty result" do
@@ -130,6 +150,22 @@ describe Decidim::TermCustomizer::I18nBackend do
         expect(subject.translate(:fi, "decidim.term2")).to eq("Termi 2")
         expect(subject.translate(:sv, "decidim.term1")).to eq("Term 1")
         expect(subject.translate(:sv, "decidim.term2")).to eq("Term 2")
+      end
+    end
+
+    context "with plural forms" do
+      let(:loader) { double }
+
+      before do
+        allow(Decidim::TermCustomizer).to receive(:loader).and_return(loader)
+        expect(loader).to receive(:translations_hash).and_return(pluralize_translations_list)
+      end
+
+      it "translates the translation keys correctly" do
+        expect(subject.translate(:en, "decidim.term1", count: 1)).to eq("Term 1 singular")
+        expect(subject.translate(:en, "decidim.term1", count: 2)).to eq("Term 1 plural")
+        expect(subject.translate(:ja, "decidim.term1", count: 1)).to eq("Term 1 invariant")
+        expect(subject.translate(:ja, "decidim.term1", count: 2)).to eq("Term 1 invariant")
       end
     end
   end
