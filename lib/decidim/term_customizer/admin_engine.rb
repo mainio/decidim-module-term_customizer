@@ -46,12 +46,15 @@ module Decidim
 
       initializer "decidim_term_customizer.admin_menu" do
         Decidim.menu :admin_menu do |menu|
-          menu.item I18n.t("menu.term_customizer", scope: "decidim.term_customizer"),
-                    decidim_admin_term_customizer.translation_sets_path,
-                    icon_name: "text",
-                    position: 7.1,
-                    active: :inclusive,
-                    if: allowed_to?(:update, :organization, organization: current_organization)
+          menu.add_item(
+            :term_customizer,
+            I18n.t("menu.term_customizer", scope: "decidim.term_customizer"),
+            decidim_admin_term_customizer.translation_sets_path,
+            icon_name: "text",
+            position: 7.1,
+            active: :inclusive,
+            if: allowed_to?(:update, :organization, organization: current_organization)
+          )
         end
       end
     end
