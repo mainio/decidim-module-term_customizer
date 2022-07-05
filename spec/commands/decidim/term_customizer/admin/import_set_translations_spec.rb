@@ -77,9 +77,11 @@ describe Decidim::TermCustomizer::Admin::ImportSetTranslations do
 
       context "with CSV import file" do
         let(:file) do
-          fixture_file_upload(
-            file_fixture("set-translations.csv"),
-            "text/csv"
+          upload_test_file(
+            Rack::Test::UploadedFile.new(
+              file_fixture("set-translations.csv"),
+              "text/csv"
+            )
           )
         end
 
@@ -88,9 +90,11 @@ describe Decidim::TermCustomizer::Admin::ImportSetTranslations do
 
       context "with JSON import file" do
         let(:file) do
-          fixture_file_upload(
-            file_fixture("set-translations.json"),
-            "application/json"
+          upload_test_file(
+            Rack::Test::UploadedFile.new(
+              file_fixture("set-translations.json"),
+              "application/json"
+            )
           )
         end
 
@@ -99,9 +103,11 @@ describe Decidim::TermCustomizer::Admin::ImportSetTranslations do
 
       context "with XLSX import file" do
         let(:file) do
-          fixture_file_upload(
-            file_fixture("set-translations.xlsx"),
-            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+          upload_test_file(
+            Rack::Test::UploadedFile.new(
+              file_fixture("set-translations.xlsx"),
+              "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            )
           )
         end
 
@@ -110,9 +116,11 @@ describe Decidim::TermCustomizer::Admin::ImportSetTranslations do
 
       context "with ZIP import file containing a CSV" do
         let(:file) do
-          fixture_file_upload(
-            file_fixture("set-translations.csv.zip"),
-            "application/zip"
+          upload_test_file(
+            Rack::Test::UploadedFile.new(
+              file_fixture("set-translations.csv.zip"),
+              "application/zip"
+            )
           )
         end
 
@@ -121,9 +129,11 @@ describe Decidim::TermCustomizer::Admin::ImportSetTranslations do
 
       context "with ZIP import file containing a JSON" do
         let(:file) do
-          fixture_file_upload(
-            file_fixture("set-translations.json.zip"),
-            "application/zip"
+          upload_test_file(
+            Rack::Test::UploadedFile.new(
+              file_fixture("set-translations.json.zip"),
+              "application/zip"
+            )
           )
         end
 
@@ -132,9 +142,11 @@ describe Decidim::TermCustomizer::Admin::ImportSetTranslations do
 
       context "with ZIP import file containing a XLSX" do
         let(:file) do
-          fixture_file_upload(
-            file_fixture("set-translations.xlsx.zip"),
-            "application/zip"
+          upload_test_file(
+            Rack::Test::UploadedFile.new(
+              file_fixture("set-translations.xlsx.zip"),
+              "application/zip"
+            )
           )
         end
 

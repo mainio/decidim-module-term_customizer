@@ -10,9 +10,11 @@ module Decidim
 
         let(:organization) { create(:organization) }
         let(:file) do
-          fixture_file_upload(
-            file_fixture("set-translations.json"),
-            "application/json"
+          upload_test_file(
+            Rack::Test::UploadedFile.new(
+              file_fixture("set-translations.json"),
+              "application/json"
+            )
           )
         end
         let(:params) { { file: file } }
@@ -23,12 +25,8 @@ module Decidim
           )
         end
 
-        describe "#file_path" do
-          it { expect(subject.file_path).to eq(file.path) }
-        end
-
         describe "#mime_type" do
-          it { expect(subject.mime_type).to eq(file.content_type) }
+          it { expect(subject.mime_type).to eq("application/json") }
         end
 
         describe "#zip_file?" do
@@ -38,9 +36,11 @@ module Decidim
 
           context "when zip file is provided" do
             let(:file) do
-              fixture_file_upload(
-                file_fixture("set-translations.json.zip"),
-                "application/zip"
+              upload_test_file(
+                Rack::Test::UploadedFile.new(
+                  file_fixture("set-translations.json.zip"),
+                  "application/zip"
+                )
               )
             end
 
@@ -60,9 +60,11 @@ module Decidim
 
         context "when invalid file type is provided" do
           let(:file) do
-            fixture_file_upload(
-              file_fixture("set-translations.json"),
-              "text/plain"
+            upload_test_file(
+              Rack::Test::UploadedFile.new(
+                file_fixture("set-translations.json"),
+                "text/plain"
+              )
             )
           end
 
