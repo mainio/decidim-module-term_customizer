@@ -12,14 +12,10 @@ module Decidim
 
         mimic :translations_import
 
-        attribute :file
+        attribute :file, Decidim::Attributes::Blob
 
         validates :file, presence: true
         validate :accepted_mime_type
-
-        def file_path
-          file&.path
-        end
 
         def mime_type
           file&.content_type

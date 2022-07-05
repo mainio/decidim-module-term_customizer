@@ -11,6 +11,7 @@ module Decidim
       # file.
       class ImportSetTranslations < Decidim::Command
         include TermCustomizer::PluralFormsForm
+        include Decidim::ProcessesFileLocally
 
         # Public: Initializes the command.
         #
@@ -52,9 +53,13 @@ module Decidim
         # Returns Array or nil. The returned value is an array of the imported
         # translations when the import is successful, otherwise nil.
         def import_translations
-          return import_zip(form.file_path) if form.zip_file?
-
-          import_file(form.file_path, form.mime_type)
+          process_file_locally(form.file) do |filepath|
+            if form.zip_file?
+              import_zip(filepath)
+            else
+              import_file(filepath, form.mime_type)
+            end
+          end
         end
 
         # Private: Handles the import of a regular import file, one of the
@@ -67,17 +72,20 @@ module Decidim
         # Returns Array or nil. The returned value is an array of the imported
         # translations when the import is successful, otherwise nil.
         def import_file(filepath, mime_type)
-          importer_for(filepath, mime_type).import do |records|
-            import = TranslationImportCollection.new(
-              translation_set,
-              records,
-              form.current_organization.available_locales
-            )
+          translations = nil
+          Decidim::TermCustomizer::Translation.transaction do
+            importer_for(filepath, mime_type).import do |records|
+              import = TranslationImportCollection.new(
+                translation_set,
+                records,
+                form.current_organization.available_locales
+              )
 
-            return translation_set.translations.create(import.import_attributes)
+              translations = translation_set.translations.create(import.import_attributes)
+            end
           end
 
-          nil
+          translations
         end
 
         # Private: Parses through the provided zip file and searches for the
