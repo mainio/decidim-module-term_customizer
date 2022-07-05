@@ -5,7 +5,7 @@ $(() => {
   const resultsElement = document.getElementById("add-translations-results");
   const template = resultsElement.querySelector("template");
   const form = searchInput.closest("form");
-  const searchUrl = form.getAttribute("action");
+  const searchUrl = new URL(form.getAttribute("action"), window.location.origin);
   let currentSearch = "";
   let selectedTerms = [];
 
@@ -17,8 +17,9 @@ $(() => {
   form.addEventListener("submit", (ev) => ev.preventDefault());
 
   const dataSource = (query, callback) => {
-    const params = new URLSearchParams({ term: query });
-    fetch(`${searchUrl}?${params.toString()}`, {
+    const baseParams = Object.fromEntries(searchUrl.searchParams.entries());
+    const params = new URLSearchParams({ ...baseParams, term: query });
+    fetch(`${searchUrl.pathname}?${params.toString()}`, {
       method: "GET",
       headers: { "Content-Type": "application/json" }
     }).then((response) => response.json()).then((data) => {
