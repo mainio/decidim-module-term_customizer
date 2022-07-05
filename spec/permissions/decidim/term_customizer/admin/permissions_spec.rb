@@ -16,7 +16,7 @@ describe Decidim::TermCustomizer::Admin::Permissions do
       translation: translation
     }
   end
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   describe "translation set creation" do
     let(:action) do
