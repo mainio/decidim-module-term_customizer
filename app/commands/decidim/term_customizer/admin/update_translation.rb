@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user changes a translation from the
       # admin panel.
-      class UpdateTranslation < Rectify::Command
+      class UpdateTranslation < Decidim::Command
         include TermCustomizer::PluralFormsForm
 
         # Public: Initializes the command.

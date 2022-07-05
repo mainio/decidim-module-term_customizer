@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user duplicates a translation set from
       # the admin panel.
-      class DuplicateTranslationSet < Rectify::Command
+      class DuplicateTranslationSet < Decidim::Command
         # Initializes a DuplicateTranslationSet Command.
         #
         # form - A form object with the params.

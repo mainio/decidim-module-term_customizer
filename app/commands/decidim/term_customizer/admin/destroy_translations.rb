@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when an admin destroys
       # translations from a translation set.
-      class DestroyTranslations < Rectify::Command
+      class DestroyTranslations < Decidim::Command
         include TermCustomizer::PluralFormsForm
 
         # Public: Initializes the command.

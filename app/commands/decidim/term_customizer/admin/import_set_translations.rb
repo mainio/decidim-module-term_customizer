@@ -9,7 +9,7 @@ module Decidim
       # set from a file submitted through the form. The file may be one of the
       # supported import formats or a ZIP file containing a supported import
       # file.
-      class ImportSetTranslations < Rectify::Command
+      class ImportSetTranslations < Decidim::Command
         include TermCustomizer::PluralFormsForm
 
         # Public: Initializes the command.
