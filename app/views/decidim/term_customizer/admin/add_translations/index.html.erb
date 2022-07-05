@@ -31,7 +31,7 @@
       <div class="column medium-4">
         <%= form_tag search_translation_set_add_translations_path, method: :get do %>
           <div class="filters__search">
-            <%= search_field_tag :term, nil, label: false, id: "data_picker-autocomplete", class: "input-group-field", placeholder: t(".search") %>
+            <%= search_field_tag :term, nil, label: false, id: "tc-autocomplete", class: "autocomplete-input input-group-field", placeholder: t(".search") %>
           </div>
         <% end %>
       </div>
@@ -76,6 +76,5 @@
   </div>
 <% end %>
 
-<%#= javascript_pack_tag "decidim/term_customizer/admin/translations_admin" %>
 <%= javascript_pack_tag "decidim_term_customizer_admin" %>
 
