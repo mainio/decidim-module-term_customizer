@@ -52,7 +52,8 @@ describe Decidim::TermCustomizer::AdminEngine do
           organization: organization
         ).and_return(allowed_to_result)
         expect(routes).to receive(:translation_sets_path).and_return(path)
-        expect(menu).to receive(:item).with(
+        expect(menu).to receive(:add_item).with(
+          :term_customizer,
           "Term customizer",
           path,
           icon_name: "text",
