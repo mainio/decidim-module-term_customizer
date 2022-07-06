@@ -31,7 +31,11 @@
       <div class="column medium-4">
         <%= form_tag search_translation_set_add_translations_path, method: :get do %>
           <div class="filters__search">
-            <%= search_field_tag :term, nil, label: false, id: "tc-autocomplete", class: "autocomplete-input input-group-field", placeholder: t(".search") %>
+            <%= search_field_tag :term, nil, label: false, id: "tc-autocomplete", class: "autocomplete-input input-group-field", placeholder: t(".search"), data: {
+              autocomplete: {
+                searchPromptText: t("autocomplete.search_prompt", scope: "decidim.admin")
+              }
+            } %>
           </div>
         <% end %>
       </div>

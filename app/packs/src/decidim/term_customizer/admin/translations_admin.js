@@ -29,12 +29,13 @@ $(() => {
 
   // Just to avoid the "no-new" ESLint issue, wrap this in a function
   const initiate = () => {
+    const config = JSON.parse(searchInput.dataset.autocomplete);
+
     return new AutoComplete(searchInput, {
       name: searchInput.getAttribute("name"),
       placeholder: searchInput.getAttribute("placeholder"),
-      selected: "",
       searchPrompt: true,
-      searchPromptText: "Testing prompt text",
+      searchPromptText: config.searchPromptText,
       threshold: 3,
       dataMatchKeys: ["label"],
       modifyResult: (item, valueItem) => {
