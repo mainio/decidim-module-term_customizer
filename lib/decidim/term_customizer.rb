@@ -36,12 +36,6 @@ module Decidim
       Decidim::TermCustomizer::Context::JobContext
     end
 
-    # In case you want to customize column separator in CSV import,
-    # configure column separator string.
-    config_accessor :csv_col_sep do
-      Decidim.default_csv_col_sep
-    end
-
     class << self
       attr_accessor :loader
     end
