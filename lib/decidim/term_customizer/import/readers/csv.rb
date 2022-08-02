@@ -12,7 +12,7 @@ module Decidim
           MIME_TYPE = "text/csv"
 
           def read_rows
-            ::CSV.read(file, col_sep: TermCustomizer.csv_col_sep).each_with_index do |row, index|
+            ::CSV.read(file, col_sep: Decidim.default_csv_col_sep).each_with_index do |row, index|
               yield row, index
             end
           end
