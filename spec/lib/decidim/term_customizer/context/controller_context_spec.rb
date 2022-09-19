@@ -47,8 +47,6 @@ describe Decidim::TermCustomizer::Context::ControllerContext do
   end
 
   context "with participatory space defined in the controller" do
-    let(:space) { double }
-
     let(:env) do
       {
         "action_controller.instance" => controller,
@@ -56,14 +54,30 @@ describe Decidim::TermCustomizer::Context::ControllerContext do
       }
     end
 
-    before do
-      allow(controller).to receive(:current_participatory_space).and_return(space)
+    context "when the participatory space exists" do
+      let(:space) { double }
+
+      before do
+        allow(controller).to receive(:current_participatory_space).and_return(space)
+      end
+
+      it "resolves the participatory space" do
+        expect(subject.organization).to be(organization)
+        expect(subject.space).to be(space)
+        expect(subject.component).to be_nil
+      end
     end
 
-    it "resolves the participatory space" do
-      expect(subject.organization).to be(organization)
-      expect(subject.space).to be(space)
-      expect(subject.component).to be_nil
+    context "when the method raises an ActiveRecord::RecordNotFound" do
+      before do
+        allow(controller).to receive(:current_participatory_space).and_raise(ActiveRecord::RecordNotFound)
+      end
+
+      it "recovers from the error" do
+        expect(subject.organization).to be(organization)
+        expect(subject.space).to be_nil
+        expect(subject.component).to be_nil
+      end
     end
   end
 
