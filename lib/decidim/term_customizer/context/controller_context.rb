@@ -27,6 +27,11 @@ module Decidim
               # we take this into account here.
             end
           end
+
+          if controller.respond_to?(:set_group, true)
+            @space = controller.send(:set_group)
+          end
+
           @space ||= env["decidim.current_participatory_space"]
 
           @component = env["decidim.current_component"]

@@ -100,4 +100,25 @@ describe Decidim::TermCustomizer::Context::ControllerContext do
       expect(subject.component).to be(component)
     end
   end
+
+  context "with participatory process group defined in the controller" do
+    let(:env) do
+      {
+        "action_controller.instance" => controller,
+        "decidim.current_organization" => organization
+      }
+    end
+
+    let(:process_group) { double }
+
+    before do
+      allow(controller).to receive(:current_participatory_space).and_return(process_group)
+    end
+
+    it "resolves the participatory space as the participatory_process group" do
+      expect(subject.organization).to be(organization)
+      expect(subject.space).to be(process_group)
+      expect(subject.component).to be_nil
+    end
+  end
 end

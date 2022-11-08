@@ -3,6 +3,8 @@
 module Decidim
   module TermCustomizer
     class Constraint < TermCustomizer::ApplicationRecord
+      include Decidim::TermCustomizer::Admin::ApplicationHelper
+
       self.table_name = "decidim_term_customizer_constraints"
 
       belongs_to :organization, foreign_key: :decidim_organization_id, class_name: "Decidim::Organization"
@@ -23,7 +25,7 @@ module Decidim
       def manifest
         space_class = space ? space.class.name : subject_type
 
-        Decidim.participatory_space_manifests.find do |manifest|
+        manifests.find do |manifest|
           manifest.model_class_name == space_class
         end
       end
