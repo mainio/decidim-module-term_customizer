@@ -7,7 +7,7 @@ describe Decidim::TermCustomizer::Context::ControllerContext do
   let(:data) { { headers: headers } }
   let(:headers) { double }
   let(:controller) { double }
-  let(:organization) { double }
+  let(:organization) { create(:organization) }
 
   before do
     allow(headers).to receive(:env).and_return(env)
@@ -109,15 +109,17 @@ describe Decidim::TermCustomizer::Context::ControllerContext do
       }
     end
 
-    let(:process_group) { double }
+    let(:process_group) { create(:participatory_process_group, organization: organization) }
 
     before do
-      allow(controller).to receive(:current_participatory_space).and_return(process_group)
+      allow(controller).to receive(:params).and_return({ id: process_group.id })
+      allow(controller).to receive(:instance_of?).with(Decidim::ParticipatoryProcesses::ParticipatoryProcessGroupsController).and_return(true)
     end
 
     it "resolves the participatory space as the participatory_process group" do
       expect(subject.organization).to be(organization)
-      expect(subject.space).to be(process_group)
+      expect(subject.space).to be_nil
+      expect(subject.participatory_process_group).to eq(process_group)
       expect(subject.component).to be_nil
     end
   end

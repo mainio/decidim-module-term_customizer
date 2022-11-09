@@ -3,10 +3,11 @@
 require "spec_helper"
 
 describe Decidim::TermCustomizer::Resolver do
-  let(:subject) { described_class.new(organization, space, component) }
+  let(:subject) { described_class.new(organization, space, component, group) }
   let(:organization) { create(:organization) }
   let(:space) { nil }
   let(:component) { nil }
+  let(:group) { nil }
   let(:set) { create(:translation_set) }
   let(:constraint) { set.constraints.create!(organization: organization) }
 
@@ -75,6 +76,70 @@ describe Decidim::TermCustomizer::Resolver do
         other_set.constraints.create!(
           organization: organization,
           subject_type: other_space.class.name
+        )
+      end
+
+      describe "#constraints" do
+        it "returns correct constraints" do
+          expect(subject.constraints).to contain_exactly(constraint, other_constraint)
+        end
+      end
+
+      describe "#translations" do
+        let(:translations) { create_list(:translation, 10, translation_set: set) }
+        let!(:other_translations) { create_list(:translation, 10, translation_set: other_set) }
+
+        it "returns correct translations" do
+          expect(subject.translations).to match_array(translations + other_translations)
+        end
+      end
+    end
+  end
+
+  context "with participatory process group" do
+    let(:group) { create(:participatory_process_group, organization: organization) }
+    let(:other_group) { create(:participatory_process_group, organization: organization) }
+    let(:other_set) { create(:translation_set) }
+
+    let(:constraint) do
+      set.constraints.create!(
+        organization: organization,
+        subject: group
+      )
+    end
+    let!(:other_constraint) do
+      other_set.constraints.create!(
+        organization: organization,
+        subject: other_group
+      )
+    end
+
+    describe "#constraints" do
+      it "returns correct constraints" do
+        expect(subject.constraints).to contain_exactly(constraint)
+      end
+    end
+
+    describe "#translations" do
+      let(:translations) { create_list(:translation, 10, translation_set: set) }
+      let!(:other_translations) { create_list(:translation, 10, translation_set: other_set) }
+
+      it "returns correct translations" do
+        expect(subject.translations).to match_array(translations)
+      end
+    end
+
+    context "when constraints are set for the subject type" do
+      let(:constraint) do
+        set.constraints.create!(
+          organization: organization,
+          subject_type: group.class.name
+        )
+      end
+      let!(:other_constraint) do
+        other_set.constraints.create!(
+          organization: organization,
+          subject_type: other_group.class.name
         )
       end
 
