@@ -26,12 +26,13 @@ module Decidim
         # collection is yielded in case block is given in which case the saving
         # should happen outside of this class.
         def import
+          if block_given?
+            yield collection
+            return
+          end
+
           parser.resource_klass.transaction do
-            if block_given?
-              yield collection
-            else
-              collection.each(&:save!)
-            end
+            collection.each(&:save!)
           end
         end
 
@@ -53,11 +54,10 @@ module Decidim
             if index.zero?
               data_headers = rowdata.map(&:to_sym)
             else
-              @collection_data << Hash[
-                rowdata.each_with_index.map do |val, ind|
+              @collection_data <<
+                rowdata.each_with_index.to_h do |val, ind|
                   [data_headers[ind], val]
                 end
-              ]
             end
           end
 

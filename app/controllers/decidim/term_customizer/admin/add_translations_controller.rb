@@ -35,18 +35,13 @@ module Decidim
 
         def search
           enforce_permission_to :read, :translation
-          return render json: { query: "", suggestions: [], data: [] } unless params.has_key?(:query)
+          return render json: [] unless params.has_key?(:term)
 
           directory = TranslationDirectory.new(current_locale)
-          translations = directory.translations_search(params[:query])
+          translations = directory.translations_search(params[:term])
           translations.reject! { |k| reject_keys.include?(k) }
 
-          data = translations.map { |k, v| { data: k, value: ERB::Util.html_escape(v) } }
-          render json: {
-            query: params[:query],
-            suggestions: data.map { |v| v[:value] },
-            data: data
-          }
+          render json: translations.map { |k, v| { value: k, label: ERB::Util.html_escape("#{v} (#{k})") } }
         end
 
         private

@@ -17,9 +17,15 @@ module Decidim
           # be implemented (https://github.com/mainio/decidim-module-term_customizer/issues/28)
           # in which case we do not have access to the participatory space.
           if controller.respond_to?(:current_participatory_space, true)
-            @space = controller.send(
-              :current_participatory_space
-            )
+            begin
+              @space = controller.send(:current_participatory_space)
+            rescue ActiveRecord::RecordNotFound
+              # In Decidim 0.27+ also consultations and initiatives implement
+              # the `current_participatory_space` method but calling it on the
+              # index action would cause an `ActiveRecord::RecordNotFound` which
+              # would not happen when using these modules normally. Therefore,
+              # we take this into account here.
+            end
           end
           @space ||= env["decidim.current_participatory_space"]
 

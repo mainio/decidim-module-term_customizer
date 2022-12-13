@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new translation
       # set in the system.
-      class CreateTranslationSet < Rectify::Command
+      class CreateTranslationSet < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.

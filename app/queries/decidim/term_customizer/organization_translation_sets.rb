@@ -3,7 +3,7 @@
 module Decidim
   module TermCustomizer
     # This query class filters all assemblies given an organization.
-    class OrganizationTranslationSets < Rectify::Query
+    class OrganizationTranslationSets < Decidim::Query
       def initialize(organization)
         @organization = organization
       end

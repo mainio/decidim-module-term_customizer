@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when creating new translations
       # from the keys submitted through the form.
-      class ImportTranslationKeys < Rectify::Command
+      class ImportTranslationKeys < Decidim::Command
         include TermCustomizer::PluralFormsForm
 
         # Public: Initializes the command.

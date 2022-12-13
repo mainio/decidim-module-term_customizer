@@ -118,9 +118,11 @@ module Decidim
 
       describe "POST import" do
         let(:file) do
-          fixture_file_upload(
-            file_fixture("set-translations.json"),
-            "application/json"
+          upload_test_file(
+            Rack::Test::UploadedFile.new(
+              file_fixture("set-translations.json"),
+              "application/json"
+            )
           )
         end
 

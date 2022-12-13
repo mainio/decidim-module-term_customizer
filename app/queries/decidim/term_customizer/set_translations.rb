@@ -3,7 +3,7 @@
 module Decidim
   module TermCustomizer
     # This query class filters all assemblies given an organization.
-    class SetTranslations < Rectify::Query
+    class SetTranslations < Decidim::Query
       def initialize(translation_set, locale = nil)
         @translation_set = translation_set
         @locale = locale
