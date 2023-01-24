@@ -11,33 +11,33 @@ ca:
       translation_set:
         name: Nom
       translations_import:
-        file: Import file
+        file: Importa un fitxer
     errors:
       models:
         translations_import:
           attributes:
             file:
-              invalid_mime_type: 'Invalid file type. Accepted formats are: %{valid_mime_types}'
+              invalid_mime_type: 'Tipus de document no vàlid. Els formats acceptats són: %{valid_mime_types}'
   decidim:
     term_customizer:
       admin:
         actions:
           add_multiple_translations: Afegir múltiples
           back: Enrere
-          cancel: Cancel
+          cancel: Cancel·lar
           clear_cache: Clear cache
-          confirm_duplicate: Are you sure you want to duplicate this set?
-          duplicate: Duplicate
-          help: Help
-          import: Import
+          confirm_duplicate: Esteu segur de voler duplicar aquest conjunt?
+          duplicate: Duplicar
+          help: Ajuda
+          import: Importar
           new_translation: Nova traducció
           new_translation_set: Nou set/joc de traducció
-          view: View
+          view: Visualitza
         add_translations:
           index:
             add: Afegir
-            help_html: <p>Start by typing a couple of letters appearing in the term that you want to change in the search panel. Wait for few seconds and a list of all translations matching your search will be displayed below the search field. Click the translations in that list that you want to change. They will appear below the search field in the list of translations to be added.</p> <p>Once you have added all the translations that you want to change, click the "%{button_name}" button at the bottom of the screen.</p>
-            help_title: How to search for translations?
+            help_html: Comença per posar un parell de lletres que apareixin en el terme que vulguis traduir. Espera uns segons i veuràs que es desplega una llista de totes les traduccions que contenen la teva cerca. Clica en aquelles traduccions que vulguis traduir. Aquestes paraules i/o frases s'afageixen i es guarden dins el conjunt que has creat prèviament. </p> <p>Una vegada tinguis totes les frases i/o paraules, clica a el "%{button_name}" botó que està sota de les frases.</p>
+            help_title: Com cercar traduccions?
             search: Buscar
         caches:
           clear:
@@ -65,21 +65,21 @@ ca:
           destroy:
             success: La traducció ha estat esborrada amb èxit.
           duplicate:
-            copied_set_name: Copy of %{name}
-            error: Error duplicating translation set.
-            success: Translation set successfully duplicated.
+            copied_set_name: Còpia de %{name}
+            error: Error en la duplicació del conjunt de traduccions.
+            success: El conjunt de traduccions s'ha duplicat amb èxit.
           edit:
             save: Guardar
             title: Set/Joc de traducció
           form:
             add_constraint: Afegir restricció
-            constraint_help_html: <p>Constraints are specific rules that allow you to apply the customizations in a set to a specific context.</p> <p>In case you do not define any constraint rules, the customizations in this set will apply to the whole application. On the other hand, if you want the customizations in this set to apply only to a specific process, select "Participatory processes" as the participatory space type and the target process as the participatory space. Furthermore, you can also apply the customizations to a specific component by defining the component for the constraint.</p> <p>If you define multiple constraints, the customizations will apply in all of those.</p>
-            constraint_help_title: What are constraints?
-            help_html: <p>A translation set is a "container" that holds the translations for a specific context you want to customize.</p> <p>Translation sets help you to organize your customizations and apply them to different contexts. This allows you to customize the same translation differently in different contexts.</p> <p>For example, if you want to customize a button with the term "Add" differently for different participatory processes, you can create separate translation sets for both processes and apply the set to those processes using the constraints.</p>
-            help_title: What is a translation set?
+            constraint_help_html: <p> Les restriccions són regles específiques que us permeten aplicar les personalitzacions en un conjunt a un context específic. </p> <p> En cas que no definiu cap regla de restricció, les personalitzacions d'aquest conjunt s'aplicaran a tota l'aplicació. D'altra banda, si voleu que les personalitzacions d'aquest conjunt només s'apliquin a un procés concret, seleccioneu "Processos participatius" com a tipus d'espai participatiu i el procés objectiu com a espai participatiu. A més, també podeu aplicar les personalitzacions a un component específic definint el component per a la restricció. </p> <p> Si definiu diverses restriccions, les personalitzacions s'aplicaran en aquestes. </p>
+            constraint_help_title: Què són les restriccions?
+            help_html: <p>Un conjunt de traduccions és un "conjunt" que conté les traduccions d'un context específic que voleu personalitzar.</p> <p>Els conjunts de traduccions us ajuden a personalitzar el vocabulari i aplicar-les a diferents contextos. Això us permet personalitzar la mateixa traducció de manera diferent en diferents contextos.</p> <p>Per exemple, si voleu personalitzar un botó amb el terme "Afegeix" de manera diferent per a diferents processos de participació, podeu crear conjunts de traduccions separats per a tots dos processos i aplicar el conjunt en els processos mitjançant les restriccions.</p>
+            help_title: Què és un conjunt de traduccions?
             title: Set/Joc de traducció
           index:
-            no_records_html: <p>No translation sets available.</p> <p>Start by adding a translation set from the "<a href="%{new_set_link}">%{button_name}</a>" button.</p>
+            no_records_html: <p>No hi ha cap conjunt de traduccions disponible.</p> <p>Comenceu afegint un conjunt de traduccions des del botó "<a href="%{new_set_link}">%{button_name}</a>".</p>
           new:
             create: Crear
             title: Sets/Jocs de traduccions
@@ -96,18 +96,18 @@ ca:
             save: Guardar
             title: Traducció
           form:
-            help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
-            help_title: What is translation key?
-            term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
-            term_help_title: What is customized term?
+            help_html: <p>Una clau de traducció és una referència tècnica de la paraula i/o frase que s'ha de traduir. Aquest no és el terme que voleu canviar, sinó la clau tècnica que fa referència a aquesta traducció.</p> <p>Per exemple, si voleu canviar el terme <em>"Processos"</em> al menú superior, utilitzareu la clau <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target=" _blank"> Més informació sobre la internacionalització de Rails</a>.</p>
+            help_title: Què és una clau de traducció?
+            term_help_html: "<p>El terme personalitzat és la paraula final que voleu que aparegui a la IU en lloc del terme original. Evidentment, el terme personalitzat pot variar per a cada idioma habilitat.</p>"
+            term_help_title: Què és un terme personalizat?
             title: Traducció
           import:
-            error: Error importing translations
-            success: Translations successfully imported.
+            error: Error en l'importació de traduccions
+            success: Èxit en l'importació de traducció.
           index:
-            actions: Actions
-            no_records_html: <p>No translations available in this set.</p> <p>Start by adding translations to this set. The easiest way is to use the "<a href="%{add_multiple_link}">%{button_name}</a>" button where you can search translations with the same terms that you see in the UI.</p>
-            selected: selected
+            actions: Accions
+            no_records_html: <p>No hi ha traduccions disponibles en aquest conjunt.</p> <p>Comenceu afegint traduccions per aquest conjunt. La manera més senzilla és utilitzar el botó "<a href="%{add_multiple_link}">%{button_name}</a>" on pots cercar traduccions amb els mateixos termes que veus a la IU.</p>
+            selected: selecciona
           new:
             create: Crear
             title: Traduccions
@@ -116,19 +116,19 @@ ca:
               csv: CSV
               json: JSON
               xlsx: XLSX
-            file_legend: 'Add an import file that will be parsed for translations. Suported formats are: %{valid_mime_types}'
-            start_import: Start import
-            title: Import translations
-            zip_hint: You can also upload the ZIP file from the translations export.
+            file_legend: 'Afegiu un fitxer d''importació que s''analitzarà per a les traduccions. Els formats admesos són: %{valid_mime_types}'
+            start_import: Començar importació
+            title: Importa les traduccions
+            zip_hint: També podeu carregar el fitxer ZIP des de l'exportació de traduccions.
           update:
             error: Error en l'actualització de la traducció.
             success: Traducció actualitzada amb èxit.
         translations_destroys:
           destroy:
-            error: Error deleting translations.
-            success: Translations successfully deleted.
+            error: Error en l'eliminiació de les traduccions.
+            success: Les traduccions han estat esborrades amb èxit.
           new:
-            destroy: Delete
-            title: Translations delete
+            destroy: Eliminar
+            title: Traduccions eliminades
       menu:
         term_customizer: Personalització de termes
