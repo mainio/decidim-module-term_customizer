@@ -9,10 +9,6 @@ $(() => {
   let currentSearch = "";
   let selectedTerms = [];
 
-  searchInput.addEventListener("keyup", () => {
-    currentSearch = searchInput.value;
-  });
-
   // Prevent accidental submit on the autocomplete field
   form.addEventListener("submit", (ev) => ev.preventDefault());
 
@@ -49,6 +45,11 @@ $(() => {
     });
   };
 
+  const ac = initiate();
+
+  searchInput.addEventListener("keyup", () => {
+    currentSearch = searchInput.value;
+  });
   // Method for hiding the currently selected items
   const hideSelectedItems = () => {
     const resultsList = searchInput.nextSibling;
@@ -60,8 +61,6 @@ $(() => {
       }
     }
   };
-
-  initiate();
 
   // Currently not possible in Decidim to get notified when the list is
   // modified, so hack it with a MutationObserver.
@@ -99,5 +98,16 @@ $(() => {
         resultsElement.classList.add("hide");
       }
     });
+    setTimeout(() => {
+      ac.autocomplete.open();
+    }, 0)
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!searchInput.nextSibling.contains(event.target)) {
+      setTimeout(() => {
+        ac.autocomplete.close();
+      }, 0)
+    }
   });
 });

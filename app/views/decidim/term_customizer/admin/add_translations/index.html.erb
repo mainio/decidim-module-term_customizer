@@ -29,10 +29,11 @@
 
     <div class="filters row">
       <div class="column medium-4">
-        <%= form_tag search_translation_set_add_translations_path, method: :get do %>
+        <%= form_tag search_translation_set_add_translations_path, autocomplete: "off", method: :get do %>
           <div class="filters__search">
             <%= search_field_tag :term, nil, label: false, id: "tc-autocomplete", class: "autocomplete-input input-group-field", placeholder: t(".search"), data: {
               autocomplete: {
+                searchURL: search_translation_set_add_translations_url,
                 searchPromptText: t("autocomplete.search_prompt", scope: "decidim.admin")
               }
             } %>
