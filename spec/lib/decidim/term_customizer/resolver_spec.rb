@@ -130,4 +130,117 @@ describe Decidim::TermCustomizer::Resolver do
       end
     end
   end
+
+  context "with consultations" do
+    let(:space) { create(:consultation, organization: organization) }
+    let(:other_space) { create(:consultation, organization: organization) }
+    let(:other_set) { create(:translation_set) }
+
+    let(:constraint) do
+      set.constraints.create!(
+        organization: organization,
+        subject: space
+      )
+    end
+    let!(:other_constraint) do
+      other_set.constraints.create!(
+        organization: organization,
+        subject: other_space
+      )
+    end
+
+    describe "#constraints" do
+      it "returns correct constraints" do
+        expect(subject.constraints).to contain_exactly(constraint)
+      end
+    end
+
+    describe "#translations" do
+      let(:translations) { create_list(:translation, 10, translation_set: set) }
+      let!(:other_translations) { create_list(:translation, 10, translation_set: other_set) }
+
+      it "returns correct translations" do
+        expect(subject.translations).to match_array(translations)
+      end
+    end
+
+    context "when constraints are set for the subject type" do
+      let(:constraint) do
+        set.constraints.create!(
+          organization: organization,
+          subject_type: space.class.name
+        )
+      end
+      let!(:other_constraint) do
+        other_set.constraints.create!(
+          organization: organization,
+          subject_type: other_space.class.name
+        )
+      end
+
+      describe "#constraints" do
+        it "returns correct constraints" do
+          expect(subject.constraints).to contain_exactly(constraint, other_constraint)
+        end
+      end
+
+      describe "#translations" do
+        let(:translations) { create_list(:translation, 10, translation_set: set) }
+        let!(:other_translations) { create_list(:translation, 10, translation_set: other_set) }
+
+        it "returns correct translations" do
+          expect(subject.translations).to match_array(translations + other_translations)
+        end
+      end
+    end
+  end
+
+  context "with consultations question" do
+    let(:consultation) { create(:consultation, organization: organization) }
+    let(:space) { create(:question, :published, consultation: consultation) }
+
+    let(:constraint) do
+      set.constraints.create!(
+        organization: organization,
+        subject: space
+      )
+    end
+
+    describe "#constraints" do
+      it "returns correct constraints" do
+        expect(subject.constraints).to contain_exactly(constraint)
+      end
+    end
+
+    describe "#translations" do
+      let(:translations) { create_list(:translation, 10, translation_set: set) }
+
+      it "returns correct translations" do
+        expect(subject.translations).to match_array(translations)
+      end
+    end
+
+    context "when constraints are set for the subject type with Consultations class name" do
+      let(:constraint) do
+        set.constraints.create!(
+          organization: organization,
+          subject_type: "Decidim::Consultation"
+        )
+      end
+
+      describe "#constraints" do
+        it "returns correct constraints" do
+          expect(subject.constraints).to contain_exactly(constraint)
+        end
+      end
+
+      describe "#translations" do
+        let(:translations) { create_list(:translation, 10, translation_set: set) }
+
+        it "returns correct translations" do
+          expect(subject.translations).to match_array(translations)
+        end
+      end
+    end
+  end
 end

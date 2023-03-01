@@ -87,7 +87,7 @@ module Decidim
         query.or!(
           TermCustomizer::Constraint.where(
             organization: organization,
-            subject_type: space.class.name,
+            subject_type: space_class_name,
             subject_id: nil
           )
         )
@@ -102,6 +102,10 @@ module Decidim
             subject: component
           )
         )
+      end
+
+      def space_class_name
+        space.class.name == "Decidim::Consultations::Question" ? "Decidim::Consultation" : space.class.name
       end
     end
   end
