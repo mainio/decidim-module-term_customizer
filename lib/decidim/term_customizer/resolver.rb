@@ -3,7 +3,7 @@
 module Decidim
   module TermCustomizer
     class Resolver
-      attr_reader :organization, :space, :component, :participatory_process_group
+      attr_reader :organization, :space, :component
 
       def initialize(organization, space, component)
         @organization = organization
