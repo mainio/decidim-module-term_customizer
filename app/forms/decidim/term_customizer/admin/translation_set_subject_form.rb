@@ -4,8 +4,6 @@ module Decidim
   module TermCustomizer
     module Admin
       class TranslationSetSubjectForm < Decidim::Form
-        include ApplicationHelper
-
         attribute :subject_manifest, String
         attribute :subject_id, Integer
         attribute :component_model, Array[TermCustomizer::Admin::TranslationSetSubjectComponentForm]
@@ -18,7 +16,7 @@ module Decidim
                       model
                     end
 
-          self.subject_manifest = manifests.find do |m|
+          self.subject_manifest = Decidim::TermCustomizer.manifests.find do |m|
             m.model_class_name == subject.class.name
           end.try(:name)
           self.subject_id = subject.id
@@ -48,7 +46,7 @@ module Decidim
         end
 
         def manifest
-          @manifest ||= manifests.find do |m|
+          @manifest ||= Decidim::TermCustomizer.manifests.find do |m|
             m.name.to_sym == subject_manifest.to_sym
           end
         end

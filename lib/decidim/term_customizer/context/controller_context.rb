@@ -10,6 +10,12 @@ module Decidim
 
           @organization = env["decidim.current_organization"]
 
+          if defined?(Decidim::ParticipatoryProcesses)
+            @space ||= if controller.instance_of?(Decidim::ParticipatoryProcesses::ParticipatoryProcessGroupsController)
+                         Decidim::ParticipatoryProcessGroup.where(organization: @organization).find(controller.params[:id])
+                       end
+          end
+
           # E.g. at the participatory process controller the
           # `decidim.current_participatory_space` environment variable has not
           # been set. Therefore, we need to fetch it directly from the
@@ -26,12 +32,6 @@ module Decidim
               # would not happen when using these modules normally. Therefore,
               # we take this into account here.
             end
-          end
-
-          if defined?(Decidim::ParticipatoryProcesses)
-            @space = if controller.instance_of?(Decidim::ParticipatoryProcesses::ParticipatoryProcessGroupsController)
-                       Decidim::ParticipatoryProcessGroup.where(organization: @organization).find(controller.params[:id])
-                     end
           end
 
           @space ||= env["decidim.current_participatory_space"]

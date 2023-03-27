@@ -11,11 +11,4 @@ describe Decidim::TermCustomizer::Admin::ApplicationHelper do
       expect(helper.tabs_id_for_constraint(constraint)).to eq("constraint_test")
     end
   end
-
-  describe "#manifests" do
-    it "returns the expected manifests" do
-      expect(helper.manifests.size).to equal(Decidim.participatory_space_manifests.size + 1)
-      expect(helper.manifests).to include(Decidim.find_resource_manifest(:participatory_process_group))
-    end
-  end
 end

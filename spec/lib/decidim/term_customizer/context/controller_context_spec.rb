@@ -118,8 +118,7 @@ describe Decidim::TermCustomizer::Context::ControllerContext do
 
     it "resolves the participatory space as the participatory_process group" do
       expect(subject.organization).to be(organization)
-      expect(subject.space).to be_nil
-      expect(subject.participatory_process_group).to eq(process_group)
+      expect(subject.space).to eq(process_group)
       expect(subject.component).to be_nil
     end
   end

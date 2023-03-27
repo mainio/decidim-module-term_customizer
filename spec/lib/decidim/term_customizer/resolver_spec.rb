@@ -3,11 +3,10 @@
 require "spec_helper"
 
 describe Decidim::TermCustomizer::Resolver do
-  let(:subject) { described_class.new(organization, space, component, group) }
+  let(:subject) { described_class.new(organization, space, component) }
   let(:organization) { create(:organization) }
   let(:space) { nil }
   let(:component) { nil }
-  let(:group) { nil }
   let(:set) { create(:translation_set) }
   let(:constraint) { set.constraints.create!(organization: organization) }
 
@@ -97,14 +96,14 @@ describe Decidim::TermCustomizer::Resolver do
   end
 
   context "with participatory process group" do
-    let(:group) { create(:participatory_process_group, organization: organization) }
+    let(:space) { create(:participatory_process_group, organization: organization) }
     let(:other_group) { create(:participatory_process_group, organization: organization) }
     let(:other_set) { create(:translation_set) }
 
     let(:constraint) do
       set.constraints.create!(
         organization: organization,
-        subject: group
+        subject: space
       )
     end
     let!(:other_constraint) do
@@ -133,7 +132,7 @@ describe Decidim::TermCustomizer::Resolver do
       let(:constraint) do
         set.constraints.create!(
           organization: organization,
-          subject_type: group.class.name
+          subject_type: space.class.name
         )
       end
       let!(:other_constraint) do

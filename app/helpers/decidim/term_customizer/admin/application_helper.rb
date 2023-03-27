@@ -9,7 +9,7 @@ module Decidim
         end
 
         def manifests
-          Decidim.participatory_space_manifests + [Decidim.find_resource_manifest(:participatory_process_group)]
+          Decidim::TermCustomizer.manifests
         end
       end
     end
