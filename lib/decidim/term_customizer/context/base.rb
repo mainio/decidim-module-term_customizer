@@ -15,7 +15,7 @@ module Decidim
       # space and component). These are then used to load the correct
       # translations for each context based on the translation set constraints.
       class Base
-        attr_reader :organization, :space, :component, :participatory_process_group
+        attr_reader :organization, :space, :component
 
         def initialize(data)
           @data = data

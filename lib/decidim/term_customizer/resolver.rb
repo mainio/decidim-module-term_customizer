@@ -5,11 +5,10 @@ module Decidim
     class Resolver
       attr_reader :organization, :space, :component, :participatory_process_group
 
-      def initialize(organization, space, component, participatory_process_group)
+      def initialize(organization, space, component)
         @organization = organization
         @space = space
         @component = component
-        @participatory_process_group = participatory_process_group
       end
 
       def translations
@@ -55,7 +54,6 @@ module Decidim
         constraints_add_organization_query(query)
         constraints_add_space_query(query)
         constraints_add_component_query(query)
-        constraints_add_participatory_process_group_query(query)
 
         query
       end
@@ -90,24 +88,6 @@ module Decidim
           TermCustomizer::Constraint.where(
             organization: organization,
             subject_type: space.class.name,
-            subject_id: nil
-          )
-        )
-      end
-
-      def constraints_add_participatory_process_group_query(query)
-        return unless participatory_process_group
-
-        query.or!(
-          TermCustomizer::Constraint.where(
-            organization: organization,
-            subject: participatory_process_group
-          )
-        )
-        query.or!(
-          TermCustomizer::Constraint.where(
-            organization: organization,
-            subject_type: participatory_process_group.class.name,
             subject_id: nil
           )
         )

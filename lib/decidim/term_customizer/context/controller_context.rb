@@ -28,9 +28,11 @@ module Decidim
             end
           end
 
-          @participatory_process_group = if controller.instance_of?(Decidim::ParticipatoryProcesses::ParticipatoryProcessGroupsController)
-                                           Decidim::ParticipatoryProcessGroup.where(organization: @organization).find(controller.params[:id])
-                                         end
+          if defined?(Decidim::ParticipatoryProcesses)
+            @space = if controller.instance_of?(Decidim::ParticipatoryProcesses::ParticipatoryProcessGroupsController)
+                       Decidim::ParticipatoryProcessGroup.where(organization: @organization).find(controller.params[:id])
+                     end
+          end
 
           @space ||= env["decidim.current_participatory_space"]
 

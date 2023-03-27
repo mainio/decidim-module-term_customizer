@@ -23,8 +23,7 @@ module Decidim
           resolver = Resolver.new(
             context.organization,
             context.space,
-            context.component,
-            context.participatory_process_group
+            context.component
           )
 
           # Create the loader for the backend to fetch the translations from
@@ -54,8 +53,7 @@ module Decidim
           resolver = Resolver.new(
             context.organization,
             context.space,
-            context.component,
-            context.participatory_process_group
+            context.component
           )
 
           # Create the loader for the backend to fetch the translations from
