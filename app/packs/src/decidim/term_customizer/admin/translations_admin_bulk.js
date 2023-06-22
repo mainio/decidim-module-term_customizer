@@ -99,7 +99,7 @@ $(document).ready(function () {
       }
 
       $(".js-bulk-action-form").find(`.js-translation-id-${translationId}`).prop("checked", checked);
-      window.selectedTranslationCountUpdate();
+      window.selectedTranslationsCountUpdate();
     });
 
     $(".js-cancel-bulk-action").on("click", function () {
