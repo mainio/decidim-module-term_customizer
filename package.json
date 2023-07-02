@@ -6,18 +6,27 @@
   "author": "Antti Hukkanen <antti.hukkanen@mainiotech.fi>",
   "license": "AGPL-3.0",
   "scripts": {
-    "lint": "eslint -c .eslintrc.json --ext .js,.js.es6 ."
+    "lint": "eslint -c .eslintrc.json --no-error-on-unmatched-pattern --ignore-pattern app/packs/vendor --ext .js app/packs",
+    "stylelint": "stylelint app/packs/**/*.scss"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-eslint": "^8.2.2",
-    "eslint": "^4.18.2",
+    "@babel/eslint-parser": "^7.16.5",
+    "@babel/plugin-proposal-private-methods": "^7.18.6",
+    "@babel/plugin-transform-runtime": "^7.22.5",
+    "@babel/preset-env": "^7.21.5",
+    "@babel/preset-react": "^7.22.5",
+    "@decidim/dev": "^0.27.2",
+    "@decidim/eslint-config": "^0.27.2",
+    "@decidim/stylelint-config": "^0.27.2",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.2.0",
     "eslint-config-standard": "^11.0.0",
-    "eslint-loader": "^2.2.1",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-standard": "^3.0.1"
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-standard": "^3.1.0",
+    "stylelint": "^13.11.0"
   }
 }
