@@ -1,0 +1,134 @@
+de:
+  activemodel:
+    attributes:
+      constraint:
+        component_id: Komponente
+        subject_id: Beteiligungsbereich
+        subject_manifest: Partizipativer Bereichstyp
+      translation:
+        key: Übersetzungsschlüssel
+        value: Angepasster Begriff
+      translation_set:
+        name: Name
+      translations_import:
+        file: Datei importieren
+    errors:
+      models:
+        translations_import:
+          attributes:
+            file:
+              invalid_mime_type: 'Ungültiger Dokumenttyp. Akzeptierte Formate sind: %{valid_mime_types}'
+  decidim:
+    term_customizer:
+      admin:
+        actions:
+          add_multiple_translations: Mehrere hinzufügen
+          back: Zurück
+          cancel: Abbrechen
+          clear_cache: Cache leeren
+          confirm_duplicate: Sind Sie sicher, dass Sie dieses Set duplizieren möchten?
+          duplicate: Duplizieren
+          help: Hilfe
+          import: Importieren
+          new_translation: Neue Übersetzung
+          new_translation_set: Neues Übersetzungsset
+          view: Ansicht
+        add_translations:
+          index:
+            add: Hinzufügen
+            help_html: <p>Geben Sie zuerst im Suchfeld ein paar Buchstaben des zu ändernden Begriffs ein. Warten Sie einige Sekunden bis eine Liste aller Übersetzungen unter dem Suchfeld angezeigt wird. Klicken Sie auf diejenigen Übersetzungen in dieser Liste, die Sie ändern möchten. Danach erscheinen sie unter dem Suchfeld auf der Liste der hinzuzufügenden Übersetzungen.</p> <p>Sobald Sie alle zu ändernden Übersetzungen hinzugefügt haben, klicken Sie auf die Schaltfläche "%{button_name}" am unteren Bildschirmrand.</p>
+            help_title: Wie sucht man nach Übersetzungen?
+            search: Suchen
+        caches:
+          clear:
+            success: Cache wurde erfolgreich geleert
+        models:
+          translation_sets:
+            fields:
+              name: Name
+          translations:
+            fields:
+              key: Übersetzungsschlüssel
+              original_term: Ursprünglicher Begriff
+              term: Angepasster Begriff
+        titles:
+          add_multiple_translations: Mehrere hinzufügen
+          translation_sets: Übersetzungssets
+          translations: Übersetzungen
+        translation_sets:
+          constraint_fields:
+            constraint: Einschränkung
+            remove: Entfernen
+          create:
+            error: Fehler beim Erstellen des Übersetzungssets.
+            success: Übersetzungsset erfolgreich erstellt.
+          destroy:
+            success: Übersetzungsset erfolgreich gelöscht.
+          duplicate:
+            copied_set_name: Kopie von %{name}
+            error: Fehler beim Duplizieren des Übersetzungssets.
+            success: Übersetzungsset erfolgreich dupliziert.
+          edit:
+            save: Speichern
+            title: Übersetzungsset
+          form:
+            add_constraint: Einschränkung hinzufügen
+            constraint_help_html: <p>Einschränkungen sind Regeln, die Ihnen erlauben, Anpassungen eines Sets auf einen bestimmten Kontext anzuwenden.</p> <p>Falls Sie keine Einschränkungsregeln definieren, werden die Anpassungen eines Sets auf die gesamte Plattform angewendet. Wenn Sie jedoch möchten, dass die Anpassungen eines Sets nur für einen bestimmten Prozess gelten sollen, dann wählen Sie als partizipativen Bereichstyp "Beteiligungsprozesse" und als partizipativen Bereich den Zielprozess aus. Sie können zusätzlich Anpassungen nur auf eine bestimmte Komponente anwenden, indem Sie die Komponente für die Einschränkung auswählen.</p> <p>Wenn Sie mehrere Einschränkungen definieren, werden die Anpassungen auf alle angewendet.</p>
+            constraint_help_title: Was sind Einschränkungen?
+            help_html: <p>Ein Übersetzungsset ist ein Behälter für Übersetzungen eines bestimmten Kontexts, den Sie anpassen möchten.</p> <p>Übersetzungssets helfen Ihnen, Ihre Anpassungen zu organisieren und sie auf verschiedene Kontexte anzuwenden. So können Sie die gleiche Übersetzung in verschiedenen Kontexten unterschiedlich anpassen.</p> <p>Wenn Sie zum Beispiel einen Button mit dem Begriff "Hinzufügen" für verschiedene Beteiligungsprozesse anders beschriften möchten, dann können Sie separate Übersetzungssets für beide Prozesse erstellen und sie unter Verwendung der Einschränkungen auf diese Prozesse anwenden.</p>
+            help_title: Was ist ein Übersetzungsset?
+            title: Übersetzungsset
+          index:
+            no_records_html: <p>Keine Übersetzungssets verfügbar.</p> <p>Beginnen Sie, indem Sie ein Übersetzungsset mit einem Klick auf "<a href="%{new_set_link}">%{button_name}</a>" hinzufügen.</p>
+          new:
+            create: Erstellen
+            title: Übersetzungssets
+          update:
+            error: Fehler beim Aktualisieren des Übersetzungsset.
+            success: Übersetzungsset erfolgreich aktualisiert.
+        translations:
+          create:
+            error: Fehler beim Erstellen der Übersetzung.
+            success: Übersetzung erfolgreich erstellt.
+          destroy:
+            success: Übersetzung erfolgreich gelöscht.
+          edit:
+            save: Speichern
+            title: Übersetzung
+          form:
+            help_html: <p>Ein Übersetzungsschlüssel ist eine technische Referenz für die zu übersetzende Übersetzung. Dies ist nicht der Begriff, den Sie ändern wollen, sondern der technische Schlüssel, auf den sich diese Übersetzung bezieht.</p> <p>Zum Beispiel, wenn Sie den Begriff <em>"Prozesse"</em> im oberen Menü ändern möchten, verwenden Sie den Schlüssel <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Hier finden Sie mehr Informationen Internationalisierung bei Rails</a>.</p>
+            help_title: Was ist Übersetzungsschlüssel?
+            term_help_html: "<p>Der angepasste Begriff ist das Wort, das Sie auf der Benutzeroberfläche, anstelle des ursprünglichen Begriffs, anzeigen lassen möchten. Selbstverständlich kann der angepasste Begriff für jede aktivierte Sprache unterschiedlich sein.</p>"
+            term_help_title: Was ist ein angepasster Begriff?
+            title: Übersetzung
+          import:
+            error: Fehler beim Importieren der Übersetzungen
+            success: Übersetzungen erfolgreich importiert.
+          index:
+            actions: Aktionen
+            no_records_html: <p>In diesem Set sind keine Übersetzungen verfügbar.</p> <p>Fügen Sie Übersetzungen zu diesem Set hinzu. Der einfachste Weg ist, auf "<a href="%{add_multiple_link}">%{button_name}</a>" zu klicken, wo Sie Übersetzungen mit den gleichen Begriffen durchsuchen können, welche Sie gleich in der Benutzeroberfläche sehen können.</p>
+            selected: ausgewählt
+          new:
+            create: Erstellen
+            title: Übersetzungen
+          new_import:
+            accepted_mime_types:
+              csv: CSV
+              json: JSON
+              xlsx: XLSX
+            file_legend: 'Fügen Sie eine Importdatei hinzu, die für Übersetzungen durchsucht wird. Unterstützte Formate sind: %{valid_mime_types}'
+            start_import: Import starten
+            title: Übersetzungen importieren
+            zip_hint: Sie können auch die ZIP-Datei aus dem Übersetzungsexport hochladen.
+          update:
+            error: Fehler beim Aktualisieren der Übersetzung.
+            success: Übersetzung erfolgreich aktualisiert.
+        translations_destroys:
+          destroy:
+            error: Fehlen beim Löschen der Übersetzungen.
+            success: Übersetzungen erfolgreich gelöscht.
+          new:
+            destroy: Löschen
+            title: Übersetzungen löschen
+      menu:
+        term_customizer: Begriffsanpasser
