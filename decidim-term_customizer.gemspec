@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.description = "Adds a UI to customize the terms and limit the customizations to specific places."
   spec.homepage = "https://github.com/mainio/decidim-module-term_customizer"
   spec.license = "AGPL-3.0"
-  spec.required_ruby_version = ">= 2.7"
+  spec.required_ruby_version = ">= 3.0.6"
 
   spec.files = Dir[
     "{app,config,db,lib}/**/*",
@@ -33,4 +33,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "decidim-dev", Decidim::TermCustomizer::DECIDIM_VERSION
   spec.add_development_dependency "decidim-participatory_processes", Decidim::TermCustomizer::DECIDIM_VERSION
   spec.add_development_dependency "decidim-proposals", Decidim::TermCustomizer::DECIDIM_VERSION
+  spec.metadata["rubygems_mfa_required"] = "true"
 end

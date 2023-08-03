@@ -32,9 +32,9 @@ module Decidim
       private
 
       def original_backend
-        if I18n.backend.class == I18n::Backend::Chain
+        if I18n.backend.instance_of?(I18n::Backend::Chain)
           return I18n.backend.backends.find do |be|
-            be.class == I18n::Backend::Simple
+            be.instance_of?(I18n::Backend::Simple)
           end
         end
 

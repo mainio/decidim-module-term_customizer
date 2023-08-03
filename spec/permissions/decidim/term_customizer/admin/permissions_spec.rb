@@ -23,7 +23,7 @@ describe Decidim::TermCustomizer::Admin::Permissions do
       { scope: :admin, action: :create, subject: :translation_set }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   describe "translation set reading" do
@@ -33,7 +33,7 @@ describe Decidim::TermCustomizer::Admin::Permissions do
 
     let(:translation_set) { create :translation_set, organization: organization }
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   describe "translation set editing" do
@@ -44,7 +44,7 @@ describe Decidim::TermCustomizer::Admin::Permissions do
     let(:translation_set) { create :translation_set, organization: organization }
 
     context "when everything is OK" do
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
   end
 
@@ -56,7 +56,7 @@ describe Decidim::TermCustomizer::Admin::Permissions do
     let(:translation_set) { create :translation_set, organization: organization }
 
     context "when everything is OK" do
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
   end
 
@@ -68,7 +68,7 @@ describe Decidim::TermCustomizer::Admin::Permissions do
     let(:translation_set) { create :translation_set, organization: organization }
 
     context "when everything is OK" do
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
   end
 
@@ -77,7 +77,7 @@ describe Decidim::TermCustomizer::Admin::Permissions do
       { scope: :admin, action: :create, subject: :translation }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   describe "translation reading" do
@@ -88,7 +88,7 @@ describe Decidim::TermCustomizer::Admin::Permissions do
     let(:set) { create :translation_set, organization: organization }
     let(:translation) { create :translation, translation_set: set }
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   describe "translation editing" do
@@ -100,7 +100,7 @@ describe Decidim::TermCustomizer::Admin::Permissions do
     let(:translation) { create :translation, translation_set: set }
 
     context "when everything is OK" do
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
   end
 
@@ -113,7 +113,7 @@ describe Decidim::TermCustomizer::Admin::Permissions do
     let(:translation) { create :translation, translation_set: set }
 
     context "when everything is OK" do
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
   end
 
@@ -125,7 +125,7 @@ describe Decidim::TermCustomizer::Admin::Permissions do
     let(:translation_set) { create :translation_set, organization: organization }
 
     context "when everything is OK" do
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
   end
 
@@ -137,7 +137,7 @@ describe Decidim::TermCustomizer::Admin::Permissions do
     let(:translation_set) { create :translation_set, organization: organization }
 
     context "when everything is OK" do
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
   end
 end

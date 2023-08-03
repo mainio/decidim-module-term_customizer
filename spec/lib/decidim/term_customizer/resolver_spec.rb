@@ -3,7 +3,8 @@
 require "spec_helper"
 
 describe Decidim::TermCustomizer::Resolver do
-  let(:subject) { described_class.new(organization, space, component) }
+  subject { described_class.new(organization, space, component) }
+
   let(:organization) { create(:organization) }
   let(:space) { nil }
   let(:component) { nil }

@@ -33,7 +33,7 @@ describe Decidim::TermCustomizer::Admin::ImportTranslationKeys do
 
     describe "when the form is not valid" do
       before do
-        expect(form).to receive(:invalid?).and_return(true)
+        allow(form).to receive(:invalid?).and_return(true)
       end
 
       it "broadcasts invalid" do
@@ -68,14 +68,14 @@ describe Decidim::TermCustomizer::Admin::ImportTranslationKeys do
     end
 
     context "when the key exists in another translation set" do
-      let!(:translation_set_2) do
+      let!(:translation_set2) do
         create(:translation_set, organization: organization)
       end
       let(:key) { "decidim.admin.actions.new_translation" }
       let!(:translation) do
         create(
           :translation,
-          translation_set: translation_set_2,
+          translation_set: translation_set2,
           locale: :en,
           key: key
         )

@@ -38,15 +38,15 @@ describe Decidim::TermCustomizer::Engine do
     let(:resolver) { double }
 
     before do
-      expect(Decidim::TermCustomizer::I18nBackend).to receive(:new).and_return(dummy_backend)
+      allow(Decidim::TermCustomizer::I18nBackend).to receive(:new).and_return(dummy_backend)
 
       run_initializer
 
-      expect(dummy_data_headers).to receive(:env).and_return(dummy_env)
+      allow(dummy_data_headers).to receive(:env).and_return(dummy_env)
     end
 
     it "calls the subscribed block set during initialization" do
-      expect(Decidim::TermCustomizer::Resolver).to receive(:new).with(
+      allow(Decidim::TermCustomizer::Resolver).to receive(:new).with(
         dummy_organization,
         dummy_space,
         dummy_component
@@ -73,9 +73,9 @@ describe Decidim::TermCustomizer::Engine do
       end
 
       it "fetches the space from the controller" do
-        expect(controller).to receive(:current_participatory_space).and_return(controller_space)
+        allow(controller).to receive(:current_participatory_space).and_return(controller_space)
 
-        expect(Decidim::TermCustomizer::Resolver).to receive(:new).with(
+        allow(Decidim::TermCustomizer::Resolver).to receive(:new).with(
           dummy_organization,
           controller_space,
           dummy_component
@@ -103,11 +103,11 @@ describe Decidim::TermCustomizer::Engine do
       allow(dummy_job).to receive(:queue_name).and_return("queue")
       allow(dummy_job).to receive(:arguments).and_return(arguments)
 
-      expect(Decidim::TermCustomizer::I18nBackend).to receive(:new).and_return(dummy_backend)
+      allow(Decidim::TermCustomizer::I18nBackend).to receive(:new).and_return(dummy_backend)
 
       run_initializer
 
-      expect(dummy_job).to receive(:arguments).and_return(arguments)
+      allow(dummy_job).to receive(:arguments).and_return(arguments)
     end
 
     context "with organization in the arguments" do
@@ -115,7 +115,7 @@ describe Decidim::TermCustomizer::Engine do
       let(:arguments) { [organization] }
 
       it "creates a resolver with the organization" do
-        expect(Decidim::TermCustomizer::Resolver).to receive(:new).with(
+        allow(Decidim::TermCustomizer::Resolver).to receive(:new).with(
           organization,
           nil,
           nil
@@ -135,7 +135,7 @@ describe Decidim::TermCustomizer::Engine do
       let(:arguments) { [user] }
 
       it "creates a resolver with the user's organization" do
-        expect(Decidim::TermCustomizer::Resolver).to receive(:new).with(
+        allow(Decidim::TermCustomizer::Resolver).to receive(:new).with(
           user.organization,
           nil,
           nil
@@ -156,7 +156,7 @@ describe Decidim::TermCustomizer::Engine do
       let(:arguments) { [organization, user] }
 
       it "creates a resolver with the organization" do
-        expect(Decidim::TermCustomizer::Resolver).to receive(:new).with(
+        allow(Decidim::TermCustomizer::Resolver).to receive(:new).with(
           organization,
           nil,
           nil

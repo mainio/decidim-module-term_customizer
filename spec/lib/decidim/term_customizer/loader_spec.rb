@@ -37,7 +37,7 @@ describe Decidim::TermCustomizer::Loader do
     end
     let(:translation_objects) do
       objects = []
-      translations_list.each_with_object({}) do |(locale, v)|
+      translations_list.each_with_object({}) do |(locale, v), _obj|
         objects << flatten_hash(v).map do |translation_key, translation_term|
           create(:translation, locale: locale, key: translation_key, value: translation_term)
         end
@@ -46,7 +46,7 @@ describe Decidim::TermCustomizer::Loader do
     end
 
     it "returns the correct translations list" do
-      expect(resolver).to receive(:translations).and_return(translation_objects)
+      allow(resolver).to receive(:translations).and_return(translation_objects)
       expect(subject.translations_hash).to match(translations_list)
     end
 

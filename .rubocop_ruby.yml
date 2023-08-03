@@ -1,7 +1,6 @@
 require:
   - rubocop-rspec
   - rubocop-faker
-  - rubocop-performance
 
 # Common configuration.
 AllCops:
@@ -14,10 +13,13 @@ AllCops:
     - "**/Gemfile"
     - "**/Rakefile"
   Exclude:
+    - "**/node_modules/**/*"
     - "**/vendor/**/*"
     - "development_app/**/*"
+    - "decidim_app-design/node_modules/**/*"
     - "spec/decidim_dummy_app/**/*"
     - "node_modules/**/*"
+    - "decidim-initiatives/lib/gem_overrides/origami/date.rb"
   # Default formatter will be used if no -f/--format option is given.
   DefaultFormatter: progress
   # Cop names are not displayed in offense messages by default. Change behavior
@@ -68,12 +70,12 @@ AllCops:
   # If a value is specified for TargetRubyVersion then it is used.
   # Else if .ruby-version exists and it contains an MRI version it is used.
   # Otherwise we fallback to the oldest officially supported Ruby version (2.0).
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.0
 
-  RSpec:
-    Patterns:
-      - "(?:^|/)spec/"
-      - "(?:^|/)test/"
+#  RSpec:
+#    Patterns:
+#      - "(?:^|/)spec/"
+#      - "(?:^|/)test/"
 
 # Indent private/protected/public as deep as method definitions
 Layout/AccessModifierIndentation:
@@ -176,6 +178,15 @@ Layout/ParameterAlignment:
   # By default, the indentation width from Style/IndentationWidth is used
   # But it can be overridden by setting this parameter
   IndentationWidth: ~
+
+Style/ArrayCoercion:
+  Description: >-
+    Use Array() instead of explicit Array check or [*var], when dealing
+    with a variable you want to treat as an Array, but you're not certain it's an array.
+  StyleGuide: '#array-coercion'
+  Safe: false
+  Enabled: false
+  VersionAdded: '0.88'
 
 Style/AndOr:
   # Whether `and` and `or` are banned only in conditionals (conditionals)
@@ -452,6 +463,7 @@ Naming/FileName:
     - "**/Gemfile"
     - "**/Rakefile"
     - "**/*.gemspec"
+    - "decidim-dev/lib/decidim-dev.rb"
   # When true, requires that each source file should define a class or module
   # with a name which matches the file name (converted to ... case).
   # It further expects it to be nested inside modules which match the names
@@ -1202,10 +1214,6 @@ Lint/UnusedMethodArgument:
 
 ##################### Performance ############################
 
-Performance/RedundantMerge:
-  # Max number of key-value pairs to consider an offense
-  MaxKeyValuePairs: 2
-
 Metrics/BlockLength:
   Enabled: false
 
@@ -1223,7 +1231,7 @@ RSpec/ContextWording:
 RSpec/DescribeClass:
   Exclude:
     - spec/gemfiles_spec.rb
-    - spec/js_bundles_spec.rb
+    - spec/webpacker_spec.rb
     - spec/i18n_spec.rb
     - "**/*/spec/**/*_badge_spec.rb"
     - decidim-core/spec/lib/global_engines_spec.rb
@@ -1253,6 +1261,8 @@ RSpec/MultipleExpectations:
 
 RSpec/MultipleMemoizedHelpers:
   Max: 35
+  Exclude:
+    - decidim-assemblies/spec/forms/assembly_form_spec.rb
 
 RSpec/NestedGroups:
   Max: 7
@@ -1261,10 +1271,11 @@ RSpec/NamedSubject:
   Enabled: false
 
 RSpec/RepeatedExampleGroupDescription:
-  Enabled: false
+  Enabled: true
 
 RSpec/RepeatedExampleGroupBody:
-  Enabled: false
+  Enabled: true
+
 RSpec/VerifiedDoubles:
   Enabled: false
 
@@ -1754,4 +1765,3 @@ Faker/DeprecatedArguments:
       questions:
         - number
         - supplemental
-

@@ -3,7 +3,8 @@
 require "spec_helper"
 
 describe Decidim::TermCustomizer::Context::ControllerContext do
-  let(:subject) { described_class.new(data) }
+  subject { described_class.new(data) }
+
   let(:data) { { headers: headers } }
   let(:headers) { double }
   let(:controller) { double }

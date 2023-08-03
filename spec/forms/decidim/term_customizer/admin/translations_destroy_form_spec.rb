@@ -43,12 +43,6 @@ module Decidim
           end
         end
 
-        describe "#translations_current" do
-          it "returns the translations" do
-            expect(subject.translations).to eq(translations)
-          end
-        end
-
         context "when additional translations are available with other locales" do
           before do
             # Create the translations with the same keys with other locales

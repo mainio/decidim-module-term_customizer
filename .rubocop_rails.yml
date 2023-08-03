@@ -65,6 +65,10 @@ Rails/Output:
     - decidim-system/db/seeds.rb
     - decidim-templates/db/seeds.rb
 
+Rails/HelperInstanceVariable:
+  Exclude:
+    - app/helpers/decidim/proposals/admin/proposal_bulk_actions_helper.rb
+
 Rails/OutputSafety:
   Enabled: false
 
@@ -91,3 +95,6 @@ Rails/SkipsModelValidations:
 Rails/Validation:
   Include:
     - decidim-*/app/models/**/*.rb
+
+Metrics/CyclomaticComplexity:
+  Enabled: false

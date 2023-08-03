@@ -11,7 +11,7 @@ describe Decidim::TermCustomizer::Import::ImporterFactory do
 
     context "when reader exists" do
       it "creates a new importer with the correct reader" do
-        expect(Decidim::TermCustomizer::Import::Readers).to receive(
+        allow(Decidim::TermCustomizer::Import::Readers).to receive(
           :find_by_mime_type
         ).with(mime_type).and_return(reader)
         expect(Decidim::TermCustomizer::Import::Importer).to receive(:new).with(
@@ -25,7 +25,7 @@ describe Decidim::TermCustomizer::Import::ImporterFactory do
 
     context "when reader does not exist" do
       it "raises a NotImplementedError" do
-        expect(Decidim::TermCustomizer::Import::Readers).to receive(
+        allow(Decidim::TermCustomizer::Import::Readers).to receive(
           :find_by_mime_type
         ).with(mime_type).and_return(nil)
         expect do

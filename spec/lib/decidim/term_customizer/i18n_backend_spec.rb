@@ -69,7 +69,7 @@ describe Decidim::TermCustomizer::I18nBackend do
 
     context "when the translation query raises ActiveRecord::StatementInvalid" do
       it "returns and empty result" do
-        expect(Decidim::TermCustomizer::Translation).to receive(
+        allow(Decidim::TermCustomizer::Translation).to receive(
           :available_locales
         ).and_raise(ActiveRecord::StatementInvalid)
 
@@ -90,7 +90,7 @@ describe Decidim::TermCustomizer::I18nBackend do
 
       before do
         allow(Decidim::TermCustomizer).to receive(:loader).and_return(loader)
-        expect(loader).to receive(:translations_hash).and_return([])
+        allow(loader).to receive(:translations_hash).and_return([])
       end
 
       it "returns true" do
@@ -105,7 +105,7 @@ describe Decidim::TermCustomizer::I18nBackend do
 
     before do
       allow(Decidim::TermCustomizer).to receive(:loader).and_return(loader)
-      expect(loader).to receive(:translations_hash).and_return([])
+      allow(loader).to receive(:translations_hash).and_return([])
     end
 
     it "resets the translations" do
@@ -121,7 +121,7 @@ describe Decidim::TermCustomizer::I18nBackend do
 
     before do
       allow(Decidim::TermCustomizer).to receive(:loader).and_return(loader)
-      expect(loader).to receive(:translations_hash).and_return(translations_list)
+      allow(loader).to receive(:translations_hash).and_return(translations_list)
     end
 
     it "returns the correct translations list" do
@@ -131,7 +131,7 @@ describe Decidim::TermCustomizer::I18nBackend do
 
   describe "#translate" do
     it "calls lookup" do
-      expect(subject).to receive(:lookup).and_return("Translation") # rubocop:disable RSpec/SubjectStub
+      allow(subject).to receive(:lookup).and_return("Translation") # rubocop:disable RSpec/SubjectStub
       subject.translate(:en, "decidim.term1")
     end
 
@@ -140,7 +140,7 @@ describe Decidim::TermCustomizer::I18nBackend do
 
       before do
         allow(Decidim::TermCustomizer).to receive(:loader).and_return(loader)
-        expect(loader).to receive(:translations_hash).and_return(translations_list)
+        allow(loader).to receive(:translations_hash).and_return(translations_list)
       end
 
       it "translates the translation keys correctly" do
@@ -158,7 +158,7 @@ describe Decidim::TermCustomizer::I18nBackend do
 
       before do
         allow(Decidim::TermCustomizer).to receive(:loader).and_return(loader)
-        expect(loader).to receive(:translations_hash).and_return(pluralize_translations_list)
+        allow(loader).to receive(:translations_hash).and_return(pluralize_translations_list)
       end
 
       it "translates the translation keys correctly" do

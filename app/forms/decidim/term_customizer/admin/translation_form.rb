@@ -19,12 +19,12 @@ module Decidim
         validate :key_uniqueness
 
         def map_model(model)
-          self.value = Hash[Decidim::TermCustomizer::Translation.where(
+          self.value = Decidim::TermCustomizer::Translation.where(
             translation_set: model.translation_set,
             key: model.key
-          ).map do |translation|
+          ).to_h do |translation|
             [translation.locale, translation.value]
-          end]
+          end
         end
 
         def key_uniqueness

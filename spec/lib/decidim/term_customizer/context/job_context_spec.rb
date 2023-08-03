@@ -3,7 +3,8 @@
 require "spec_helper"
 
 describe Decidim::TermCustomizer::Context::JobContext do
-  let(:subject) { described_class.new(data) }
+  subject { described_class.new(data) }
+
   let(:data) { { job: job } }
   let(:job) { double }
   let(:organization) { create(:organization) }
@@ -27,7 +28,7 @@ describe Decidim::TermCustomizer::Context::JobContext do
     let(:arguments) { [obj] }
 
     before do
-      expect(obj).to receive(:organization).and_return(organization)
+      allow(obj).to receive(:organization).and_return(organization)
     end
 
     it "resolves the organization" do
@@ -65,7 +66,7 @@ describe Decidim::TermCustomizer::Context::JobContext do
     let(:arguments) { [organization, obj] }
 
     before do
-      expect(obj).to receive(:participatory_space).and_return(space)
+      allow(obj).to receive(:participatory_space).and_return(space)
     end
 
     it "resolves the participatory space" do
@@ -125,7 +126,7 @@ describe Decidim::TermCustomizer::Context::JobContext do
     let(:arguments) { [obj] }
 
     before do
-      expect(obj).to receive(:component).and_return(component)
+      allow(obj).to receive(:component).and_return(component)
     end
 
     it "resolves the participatory space" do
