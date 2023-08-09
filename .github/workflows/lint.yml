@@ -7,10 +7,6 @@ on:
       - release/*
   pull_request:
 
-env:
-  CI: "true"
-  CODECOV: "true"
-
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
@@ -18,14 +14,8 @@ concurrency:
 jobs:
   lint:
     name: Lint code
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 1
-      - uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-      - name: Run Rubocop
-        run: bundle exec rubocop -P
+    uses: mainio/gha-decidim-module/.github/workflows/lint.yml@main
+    secrets: inherit
+    with:
+      eslint: true
+      stylelint: true
