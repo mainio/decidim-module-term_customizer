@@ -2,87 +2,87 @@ lt:
   activemodel:
     attributes:
       constraint:
-        component_id: Component
-        subject_id: Participatory space
-        subject_manifest: Participatory space type
+        component_id: Komponentas
+        subject_id: Dalyvaujamoji erdvė
+        subject_manifest: Dalyvaujamojo proceso tipas
       translation:
-        key: Translation key
-        value: Customized term
+        key: Vertimo raktas
+        value: Keičiamas terminas
       translation_set:
-        name: Name
+        name: Pavadinimas
       translations_import:
-        file: Import file
+        file: Importuoti rinkmeną
     errors:
       models:
         translations_import:
           attributes:
             file:
-              invalid_mime_type: 'Invalid file type. Accepted formats are: %{valid_mime_types}'
+              invalid_mime_type: 'Netinkamas rinkmenos tipas. Priimtini formatai: %{valid_mime_types}'
   decidim:
     term_customizer:
       admin:
         actions:
-          add_multiple_translations: Add multiple
-          back: Back
-          cancel: Cancel
-          clear_cache: Clear cache
-          confirm_duplicate: Are you sure you want to duplicate this set?
-          duplicate: Duplicate
-          help: Help
-          import: Import
-          new_translation: New translation
-          new_translation_set: New translation set
-          view: View
+          add_multiple_translations: Pridėti kelis
+          back: Atgal
+          cancel: Atšaukti
+          clear_cache: Išvalyti talpyklą
+          confirm_duplicate: Ar tikrai norėtumėte dublikuoti šią kolekciją?
+          duplicate: Dublikuoti
+          help: Pagalba
+          import: Importuoti
+          new_translation: Naujas vertimas
+          new_translation_set: Nauja vertimų kolekcija
+          view: Peržiūrėti
         add_translations:
           index:
-            add: Add
-            help_html: <p>Start by typing a couple of letters appearing in the term that you want to change in the search panel. Wait for few seconds and a list of all translations matching your search will be displayed below the search field. Click the translations in that list that you want to change. They will appear below the search field in the list of translations to be added.</p> <p>Once you have added all the translations that you want to change, click the "%{button_name}" button at the bottom of the screen.</p>
-            help_title: How to search for translations?
-            search: Search
+            add: Pridėti
+            help_html: <p>Pradėkite rašyti porą raidžių, kurios yra norimame keisti termino paieškos skydelyje. Palaukite kelias sekundes, ir žemiau paieškos lauko bus rodomas sąrašas su visais vertimais, atitinkančiais jūsų paiešką. Spustelėkite vertimus tame sąraše, kuriuos norite pakeisti. Jie pasirodys žemiau paieškos lauko pridedamų vertimų sąraše.</p> <p>Kai pridėsite visus vertimus, kuriuos norite pakeisti, spustelėkite mygtuką „%{button_name}“ ekrano apačioje.</p>
+            help_title: Kaip ieškoti vertimų?
+            search: Ieškoti
         caches:
           clear:
-            success: Cache cleared successfully
+            success: Talpykla išvalyta sėkmingai
         models:
           translation_sets:
             fields:
-              name: Name
+              name: Pavadinimas
           translations:
             fields:
-              key: Translation key
-              original_term: Original term
-              term: Customized term
+              key: Vertimo raktas
+              original_term: Originalus terminas
+              term: Pakeistas terminas
         titles:
-          add_multiple_translations: Add multiple
-          translation_sets: Translation sets
-          translations: Translations
+          add_multiple_translations: Pridėti kelis
+          translation_sets: Vertimų kolekcija
+          translations: Vertimai
         translation_sets:
           constraint_fields:
-            constraint: Constraint
-            remove: Remove
+            constraint: Ribojimai
+            remove: Pašalinti
           create:
-            error: Error creating translation set.
-            success: Translation set successfully created.
+            error: Klaida kuriant vertimų kolekciją.
+            success: Vertimų kolekcija sukurta.
           destroy:
-            success: Translation set successfully deleted.
+            success: Vertimų kolekcija ištrinta.
           duplicate:
-            copied_set_name: Copy of %{name}
-            error: Error duplicating translation set.
-            success: Translation set successfully duplicated.
+            copied_set_name: '%{name} kopija'
+            error: Klaida dublikuojant vertimų kolekciją.
+            success: Vertimų kolekcija dublikuota.
           edit:
-            save: Save
-            title: Translation set
+            save: Išsaugoti
+            title: Vertimų kolekcija
           form:
-            add_constraint: Add constraint
-            constraint_help_html: <p>Constraints are specific rules that allow you to apply the customizations in a set to a specific context.</p> <p>In case you do not define any constraint rules, the customizations in this set will apply to the whole application. On the other hand, if you want the customizations in this set to apply only to a specific process, select "Participatory processes" as the participatory space type and the target process as the participatory space. Furthermore, you can also apply the customizations to a specific component by defining the component for the constraint.</p> <p>If you define multiple constraints, the customizations will apply in all of those.</p>
-            constraint_help_title: What are constraints?
-            help_html: <p>A translation set is a "container" that holds the translations for a specific context you want to customize.</p> <p>Translation sets help you to organize your customizations and apply them to different contexts. This allows you to customize the same translation differently in different contexts.</p> <p>For example, if you want to customize a button with the term "Add" differently for different participatory processes, you can create separate translation sets for both processes and apply the set to those processes using the constraints.</p>
-            help_title: What is a translation set?
-            title: Translation set
+            add_constraint: Pridėti apribojimą
+            constraint_help_html: <p>Apribojimai yra specifinės taisyklės, leidžiančios taikyti individualizacijas rinkinyje tam tikram kontekstui.</p> <p>Jeigu neapibrėžiate jokių apribojimų taisyklių, šio rinkinio individualizacijos bus taikomos visai programai. Kita vertus, jei norite, kad šio rinkinio individualizacijos būtų taikomos tik tam tikram procesui, pasirinkite „Dalyvaujantys procesai“ kaip dalyvaujamojo erdvės tipą ir tikslinį procesą kaip dalyvaujamąją erdvę. Be to, galite taikyti individualizacijas tam tikram komponentui, apibrėždami apribojimui komponentą.</p> <p>Jeigu apibrėžiate kelis apribojimus, individualizacijos bus taikomos visuose jų.</p>
+            constraint_help_title: Kas yra apribojimai?
+            help_html: <p>Vertimų kolekcija yra „konteineris“, kuriame laikomi vertimai tam tikram kontekstui, kurį norite pritaikyti pagal savo poreikius.</p> <p>Vertimų rinkiniai padeda jums organizuoti savo pritaikymus ir taikyti juos skirtingiems kontekstams. Tai leidžia jums pritaikyti tą patį vertimą skirtingai skirtinguose kontekstuose.</p> <p>Pavyzdžiui, jei norite pritaikyti mygtuką su terminu „Pridėti“ skirtingai skirtingiems dalyvaujantiems procesams, galite sukurti atskirus vertimų rinkinius abiem procesams ir taikyti rinkinį tiems procesams naudodami apribojimus.</p>
+            help_title: Kas yra vertimų kolekcija?
+            title: Vertimų kolekcija
           index:
-            no_records_html: <p>No translation sets available.</p> <p>Start by adding a translation set from the "<a href="%{new_set_link}">%{button_name}</a>" button.</p>
+            no_records_html: <p>Nėra nei vienos vertimų kolekcijos.</p><p>Pradėkite kurti kolekciją su <a href="%{new_set_link}">%{button_name}</a>mygtuku.</p>
           new:
-            create: Create
-            title: Translation sets
+            create: Kurti
+            title: Vertimų kolekcija
           update:
             error: Error updating translation set.
             success: Translation set successfully updated.
