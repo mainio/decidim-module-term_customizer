@@ -61,37 +61,37 @@ ro:
             remove: Elimină
           create:
             error: Eroare la crearea setului de traduceri.
-            success: Translation set successfully created.
+            success: Setul de traduceri a fost creat.
           destroy:
-            success: Translation set successfully deleted.
+            success: Setul de traduceri a fost șters.
           duplicate:
             copied_set_name: Copy of %{name}
             error: Eroare la duplicarea setului de traducere.
-            success: Translation set successfully duplicated.
+            success: Setul de traduceri a fost copiat.
           edit:
             save: Salvează
-            title: Translation set
+            title: Set de traducere
           form:
             add_constraint: Adaugă constrângere
             constraint_help_html: <p>Constraints are specific rules that allow you to apply the customizations in a set to a specific context.</p> <p>In case you do not define any constraint rules, the customizations in this set will apply to the whole application. On the other hand, if you want the customizations in this set to apply only to a specific process, select "Participatory processes" as the participatory space type and the target process as the participatory space. Furthermore, you can also apply the customizations to a specific component by defining the component for the constraint.</p> <p>If you define multiple constraints, the customizations will apply in all of those.</p>
-            constraint_help_title: What are constraints?
+            constraint_help_title: Ce sunt constrângerile?
             help_html: <p>A translation set is a "container" that holds the translations for a specific context you want to customize.</p> <p>Translation sets help you to organize your customizations and apply them to different contexts. This allows you to customize the same translation differently in different contexts.</p> <p>For example, if you want to customize a button with the term "Add" differently for different participatory processes, you can create separate translation sets for both processes and apply the set to those processes using the constraints.</p>
-            help_title: What is a translation set?
-            title: Translation set
+            help_title: Ce este un set de traducere?
+            title: Set de traducere
           index:
             no_records_html: <p>No translation sets available.</p> <p>Start by adding a translation set from the "<a href="%{new_set_link}">%{button_name}</a>" button.</p>
           new:
-            create: Create
-            title: Translation sets
+            create: Creează
+            title: Seturi de traducere
           update:
-            error: Error updating translation set.
-            success: Translation set successfully updated.
+            error: Eroare la actualizarea setului de traduceri.
+            success: Setul de traduceri a fost actualizat.
         translations:
           create:
-            error: Error creating translation.
+            error: Eroare la crearea traducerii.
             success: Traducere creată cu succes.
           destroy:
-            success: Translation successfully deleted.
+            success: Traducere ștearsă cu succes.
           edit:
             save: Save
             title: Traducere
@@ -106,7 +106,7 @@ ro:
             success: Traduceri importate cu succes.
           index:
             actions: Acțiuni
-            no_records_html: <p>No translations available in this set.</p> <p>Start by adding translations to this set. The easiest way is to use the "<a href="%{add_multiple_link}">%{button_name}</a>" button where you can search translations with the same terms that you see in the UI.</p>
+            no_records_html: <p>Nici o traducere disponibilă în acest set.</p> <p>Începe prin a adăuga traduceri la acest set. Cel mai simplu mod de a utiliza butonul "<a href="%{add_multiple_link}">%{button_name}</a>" unde poți căuta traduceri cu aceiași termeni pe care îi vezi în Interfață.</p>
             selected: selectat
           new:
             create: Creare
@@ -116,7 +116,7 @@ ro:
               csv: CSV
               json: JSON
               xlsx: XLSX
-            file_legend: 'Add an import file that will be parsed for translations. Suported formats are: %{valid_mime_types}'
+            file_legend: 'Adăugă un fișier de import care va fi analizat pentru traduceri. Formatele Suportate sunt: %{valid_mime_types}'
             start_import: Începe importul
             title: Importa traduceri
             zip_hint: De asemenea, poți încărca fișierul ZIP din exportul de traduceri.
