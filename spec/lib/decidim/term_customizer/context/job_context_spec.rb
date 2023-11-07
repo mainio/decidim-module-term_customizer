@@ -135,4 +135,14 @@ describe Decidim::TermCustomizer::Context::JobContext do
       expect(subject.component).to be(component)
     end
   end
+
+  context "with object having arguments passed as Hash" do
+    let(:arguments) { [args: [organization]] }
+
+    it "resolves the organization" do
+      expect(subject.organization).to be(organization)
+      expect(subject.space).to be_nil
+      expect(subject.component).to be_nil
+    end
+  end
 end
