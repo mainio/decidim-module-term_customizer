@@ -145,4 +145,16 @@ describe Decidim::TermCustomizer::Context::JobContext do
       expect(subject.component).to be_nil
     end
   end
+
+  context "with a list of arguments" do
+    let(:user) { create(:user) }
+    let(:arguments) { ["Decidim::DecidimDeviseMailer", "reset_password_instructions", "deliver_now", { args: [user] }] }
+
+    it "resolves the user's organization" do
+      expect(subject.organization).not_to be(organization)
+      expect(subject.organization).to be(user.organization)
+      expect(subject.space).to be_nil
+      expect(subject.component).to be_nil
+    end
+  end
 end
