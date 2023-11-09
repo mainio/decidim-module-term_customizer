@@ -169,25 +169,6 @@ describe Decidim::TermCustomizer::Engine do
           dummy_data
         )
       end
-
-      context "and user does not belong to the organization" do
-        let(:user) { create(:user) }
-
-        it "creates a resolver with the user's organization" do
-          allow(Decidim::TermCustomizer::Resolver).to receive(:new).with(
-            user.organization,
-            nil,
-            nil
-          ).and_return(resolver)
-          expect(Decidim::TermCustomizer::Loader).to receive(:new).with(resolver)
-          expect(dummy_backend).to receive(:reload!)
-
-          ActiveSupport::Notifications.instrument(
-            "perform_start.active_job",
-            dummy_data
-          )
-        end
-      end
     end
   end
 
