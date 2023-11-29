@@ -8,6 +8,7 @@ describe Decidim::TermCustomizer::Context::JobContext do
   let(:data) { { job: job } }
   let(:job) { double }
   let(:organization) { create(:organization) }
+  let(:arguments) { [organization] }
 
   before do
     allow(job).to receive(:arguments).and_return(arguments)
@@ -151,6 +152,19 @@ describe Decidim::TermCustomizer::Context::JobContext do
     let(:arguments) { ["Decidim::DecidimDeviseMailer", "reset_password_instructions", "deliver_now", { args: [user] }] }
 
     it "resolves the user's organization" do
+      expect(subject.organization).not_to be(organization)
+      expect(subject.organization).to be(user.organization)
+      expect(subject.space).to be_nil
+      expect(subject.component).to be_nil
+    end
+  end
+
+  context "with a resource that does not contain args" do
+    let(:user) { create(:user) }
+    let(:arguments) { ["Decidim::DecidimDeviseMailer", "reset_password_instructions", "deliver_now", user] }
+
+    it "resolves the user's organization" do
+      expect(arguments).not_to respond_to(:args)
       expect(subject.organization).not_to be(organization)
       expect(subject.organization).to be(user.organization)
       expect(subject.space).to be_nil
