@@ -1,0 +1,134 @@
+ro:
+  activemodel:
+    attributes:
+      constraint:
+        component_id: Componentă
+        subject_id: Spaţiu participativ
+        subject_manifest: Tip de spaţiu participativ
+      translation:
+        key: Cheie traducere
+        value: Termen personalizat
+      translation_set:
+        name: Nume
+      translations_import:
+        file: Importă fișier
+    errors:
+      models:
+        translations_import:
+          attributes:
+            file:
+              invalid_mime_type: 'Tip de fișier invalid. Formatele acceptate sunt: %{valid_mime_types}'
+  decidim:
+    term_customizer:
+      admin:
+        actions:
+          add_multiple_translations: Adaugă mai multe
+          back: Inapoi
+          cancel: Anulează
+          clear_cache: Golește memoria cache
+          confirm_duplicate: Sigur vrei să duplici acest set?
+          duplicate: Duplică
+          help: Ajutor
+          import: Importă
+          new_translation: Traducere nouă
+          new_translation_set: Set nou de traducere
+          view: Vizualizare
+        add_translations:
+          index:
+            add: Adăugare
+            help_html: <p>Start by typing a couple of letters appearing in the term that you want to change in the search panel. Wait for few seconds and a list of all translations matching your search will be displayed below the search field. Click the translations in that list that you want to change. They will appear below the search field in the list of translations to be added.</p> <p>Once you have added all the translations that you want to change, click the "%{button_name}" button at the bottom of the screen.</p>
+            help_title: Cum să cauți traduceri?
+            search: Caută
+        caches:
+          clear:
+            success: Memoria cache a fost ștearsă cu succes
+        models:
+          translation_sets:
+            fields:
+              name: Nume
+          translations:
+            fields:
+              key: Cheie traducere
+              original_term: Termenul iniţial
+              term: Termen personalizat
+        titles:
+          add_multiple_translations: Adaugă mai multe
+          translation_sets: Seturi de traducere
+          translations: Traduceri
+        translation_sets:
+          constraint_fields:
+            constraint: Constrângere
+            remove: Elimină
+          create:
+            error: Eroare la crearea setului de traduceri.
+            success: Setul de traduceri a fost creat.
+          destroy:
+            success: Setul de traduceri a fost șters.
+          duplicate:
+            copied_set_name: Copy of %{name}
+            error: Eroare la duplicarea setului de traducere.
+            success: Setul de traduceri a fost copiat.
+          edit:
+            save: Salvează
+            title: Set de traducere
+          form:
+            add_constraint: Adaugă constrângere
+            constraint_help_html: <p>Constraints are specific rules that allow you to apply the customizations in a set to a specific context.</p> <p>In case you do not define any constraint rules, the customizations in this set will apply to the whole application. On the other hand, if you want the customizations in this set to apply only to a specific process, select "Participatory processes" as the participatory space type and the target process as the participatory space. Furthermore, you can also apply the customizations to a specific component by defining the component for the constraint.</p> <p>If you define multiple constraints, the customizations will apply in all of those.</p>
+            constraint_help_title: Ce sunt constrângerile?
+            help_html: <p>A translation set is a "container" that holds the translations for a specific context you want to customize.</p> <p>Translation sets help you to organize your customizations and apply them to different contexts. This allows you to customize the same translation differently in different contexts.</p> <p>For example, if you want to customize a button with the term "Add" differently for different participatory processes, you can create separate translation sets for both processes and apply the set to those processes using the constraints.</p>
+            help_title: Ce este un set de traducere?
+            title: Set de traducere
+          index:
+            no_records_html: <p>No translation sets available.</p> <p>Start by adding a translation set from the "<a href="%{new_set_link}">%{button_name}</a>" button.</p>
+          new:
+            create: Creează
+            title: Seturi de traducere
+          update:
+            error: Eroare la actualizarea setului de traduceri.
+            success: Setul de traduceri a fost actualizat.
+        translations:
+          create:
+            error: Eroare la crearea traducerii.
+            success: Traducere creată cu succes.
+          destroy:
+            success: Traducere ștearsă cu succes.
+          edit:
+            save: Save
+            title: Traducere
+          form:
+            help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
+            help_title: Ce este cheia de traducere?
+            term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
+            term_help_title: Ce este termenul personalizat?
+            title: Traducere
+          import:
+            error: Eroare la importarea traducerilor
+            success: Traduceri importate cu succes.
+          index:
+            actions: Acțiuni
+            no_records_html: <p>Nici o traducere disponibilă în acest set.</p> <p>Începe prin a adăuga traduceri la acest set. Cel mai simplu mod de a utiliza butonul "<a href="%{add_multiple_link}">%{button_name}</a>" unde poți căuta traduceri cu aceiași termeni pe care îi vezi în Interfață.</p>
+            selected: selectat
+          new:
+            create: Creare
+            title: Traduceri
+          new_import:
+            accepted_mime_types:
+              csv: CSV
+              json: JSON
+              xlsx: XLSX
+            file_legend: 'Adăugă un fișier de import care va fi analizat pentru traduceri. Formatele Suportate sunt: %{valid_mime_types}'
+            start_import: Începe importul
+            title: Importa traduceri
+            zip_hint: De asemenea, poți încărca fișierul ZIP din exportul de traduceri.
+          update:
+            error: Eroare la actualizarea traducerii.
+            success: Traducere actualizata cu succes.
+        translations_destroys:
+          destroy:
+            error: Eroare la ștergerea traducerilor.
+            success: Traducerile au fost șterse.
+          new:
+            destroy: Şterge
+            title: Ștergere traduceri
+      menu:
+        term_customizer: Term customizer

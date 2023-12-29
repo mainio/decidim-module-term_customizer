@@ -1,0 +1,134 @@
+lt:
+  activemodel:
+    attributes:
+      constraint:
+        component_id: Komponentas
+        subject_id: Dalyvaujamoji erdvė
+        subject_manifest: Dalyvaujamojo proceso tipas
+      translation:
+        key: Vertimo raktas
+        value: Keičiamas terminas
+      translation_set:
+        name: Pavadinimas
+      translations_import:
+        file: Importuoti rinkmeną
+    errors:
+      models:
+        translations_import:
+          attributes:
+            file:
+              invalid_mime_type: 'Netinkamas rinkmenos tipas. Priimtini formatai: %{valid_mime_types}'
+  decidim:
+    term_customizer:
+      admin:
+        actions:
+          add_multiple_translations: Pridėti kelis
+          back: Atgal
+          cancel: Atšaukti
+          clear_cache: Išvalyti talpyklą
+          confirm_duplicate: Ar tikrai norėtumėte dublikuoti šią kolekciją?
+          duplicate: Dublikuoti
+          help: Pagalba
+          import: Importuoti
+          new_translation: Naujas vertimas
+          new_translation_set: Nauja vertimų kolekcija
+          view: Peržiūrėti
+        add_translations:
+          index:
+            add: Pridėti
+            help_html: <p>Pradėkite rašyti porą raidžių, kurios yra norimame keisti termino paieškos skydelyje. Palaukite kelias sekundes, ir žemiau paieškos lauko bus rodomas sąrašas su visais vertimais, atitinkančiais jūsų paiešką. Spustelėkite vertimus tame sąraše, kuriuos norite pakeisti. Jie pasirodys žemiau paieškos lauko pridedamų vertimų sąraše.</p> <p>Kai pridėsite visus vertimus, kuriuos norite pakeisti, spustelėkite mygtuką „%{button_name}“ ekrano apačioje.</p>
+            help_title: Kaip ieškoti vertimų?
+            search: Ieškoti
+        caches:
+          clear:
+            success: Talpykla išvalyta sėkmingai
+        models:
+          translation_sets:
+            fields:
+              name: Pavadinimas
+          translations:
+            fields:
+              key: Vertimo raktas
+              original_term: Originalus terminas
+              term: Pakeistas terminas
+        titles:
+          add_multiple_translations: Pridėti kelis
+          translation_sets: Vertimų kolekcija
+          translations: Vertimai
+        translation_sets:
+          constraint_fields:
+            constraint: Ribojimai
+            remove: Pašalinti
+          create:
+            error: Klaida kuriant vertimų kolekciją.
+            success: Vertimų kolekcija sukurta.
+          destroy:
+            success: Vertimų kolekcija ištrinta.
+          duplicate:
+            copied_set_name: '%{name} kopija'
+            error: Klaida dublikuojant vertimų kolekciją.
+            success: Vertimų kolekcija dublikuota.
+          edit:
+            save: Išsaugoti
+            title: Vertimų kolekcija
+          form:
+            add_constraint: Pridėti apribojimą
+            constraint_help_html: <p>Apribojimai yra specifinės taisyklės, leidžiančios taikyti individualizacijas rinkinyje tam tikram kontekstui.</p> <p>Jeigu neapibrėžiate jokių apribojimų taisyklių, šio rinkinio individualizacijos bus taikomos visai programai. Kita vertus, jei norite, kad šio rinkinio individualizacijos būtų taikomos tik tam tikram procesui, pasirinkite „Dalyvaujantys procesai“ kaip dalyvaujamojo erdvės tipą ir tikslinį procesą kaip dalyvaujamąją erdvę. Be to, galite taikyti individualizacijas tam tikram komponentui, apibrėždami apribojimui komponentą.</p> <p>Jeigu apibrėžiate kelis apribojimus, individualizacijos bus taikomos visuose jų.</p>
+            constraint_help_title: Kas yra apribojimai?
+            help_html: <p>Vertimų kolekcija yra „konteineris“, kuriame laikomi vertimai tam tikram kontekstui, kurį norite pritaikyti pagal savo poreikius.</p> <p>Vertimų rinkiniai padeda jums organizuoti savo pritaikymus ir taikyti juos skirtingiems kontekstams. Tai leidžia jums pritaikyti tą patį vertimą skirtingai skirtinguose kontekstuose.</p> <p>Pavyzdžiui, jei norite pritaikyti mygtuką su terminu „Pridėti“ skirtingai skirtingiems dalyvaujantiems procesams, galite sukurti atskirus vertimų rinkinius abiem procesams ir taikyti rinkinį tiems procesams naudodami apribojimus.</p>
+            help_title: Kas yra vertimų kolekcija?
+            title: Vertimų kolekcija
+          index:
+            no_records_html: <p>Nėra nei vienos vertimų kolekcijos.</p><p>Pradėkite kurti kolekciją su <a href="%{new_set_link}">%{button_name}</a>mygtuku.</p>
+          new:
+            create: Kurti
+            title: Vertimų kolekcija
+          update:
+            error: Error updating translation set.
+            success: Translation set successfully updated.
+        translations:
+          create:
+            error: Error creating translation.
+            success: Translation successfully created.
+          destroy:
+            success: Translation successfully deleted.
+          edit:
+            save: Save
+            title: Translation
+          form:
+            help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
+            help_title: What is translation key?
+            term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
+            term_help_title: What is customized term?
+            title: Translation
+          import:
+            error: Error importing translations
+            success: Translations successfully imported.
+          index:
+            actions: Actions
+            no_records_html: <p>No translations available in this set.</p> <p>Start by adding translations to this set. The easiest way is to use the "<a href="%{add_multiple_link}">%{button_name}</a>" button where you can search translations with the same terms that you see in the UI.</p>
+            selected: selected
+          new:
+            create: Create
+            title: Translations
+          new_import:
+            accepted_mime_types:
+              csv: CSV
+              json: JSON
+              xlsx: XLSX
+            file_legend: 'Add an import file that will be parsed for translations. Suported formats are: %{valid_mime_types}'
+            start_import: Start import
+            title: Import translations
+            zip_hint: You can also upload the ZIP file from the translations export.
+          update:
+            error: Error updating translation.
+            success: Translation successfully updated.
+        translations_destroys:
+          destroy:
+            error: Error deleting translations.
+            success: Translations successfully deleted.
+          new:
+            destroy: Delete
+            title: Translations delete
+      menu:
+        term_customizer: Term customizer
