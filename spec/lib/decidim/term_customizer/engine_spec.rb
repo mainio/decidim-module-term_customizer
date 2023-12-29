@@ -152,7 +152,7 @@ describe Decidim::TermCustomizer::Engine do
 
     context "with user and organization in the arguments" do
       let(:organization) { create(:organization) }
-      let(:user) { create(:user) }
+      let(:user) { create(:user, organization: organization) }
       let(:arguments) { [organization, user] }
 
       it "creates a resolver with the organization" do
