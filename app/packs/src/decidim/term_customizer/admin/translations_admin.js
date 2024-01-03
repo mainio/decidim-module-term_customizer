@@ -37,7 +37,7 @@ $(() => {
       modifyResult: (item, valueItem) => {
         const sanitizedSearch = currentSearch.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
         const re = new RegExp(`(${sanitizedSearch})`, "gi");
-        const replacedText = item.textContent.replace(re, '<strong class="search-highlight">$1</strong>');
+        const replacedText = valueItem.label.replace(re, '<strong class="search-highlight">$1</strong>');
         item.innerHTML = replacedText;
         item.dataset.value = valueItem.value;
       },

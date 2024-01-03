@@ -52,12 +52,15 @@ module Decidim
           data_headers = []
           reader.new(file).read_rows do |rowdata, index|
             if index.zero?
-              data_headers = rowdata.map(&:to_sym)
+              data_headers = rowdata.compact_blank.map(&:to_sym)
             else
+              next if rowdata.blank?
+
               @collection_data <<
-                rowdata.each_with_index.to_h do |val, ind|
-                  [data_headers[ind], val]
-                end
+                data_headers.each_with_index.map do |header, ind|
+                  val = rowdata[ind]
+                  [header, val] if header.present? && val.present?
+                end.compact.to_h
             end
           end
 
