@@ -51,12 +51,12 @@ module Decidim
             current_organization: current_organization,
             translation_set: set
           )
-          page_param = params[:translation][:page]
 
           UpdateTranslation.call(@form, translation) do
             on(:ok) do
               flash[:notice] = I18n.t("translations.update.success", scope: "decidim.term_customizer.admin")
-              redirect_to translation_set_translations_path(set, page: page_param)
+
+              redirect_to redirect_path_for_set(set)
             end
 
             on(:invalid) do
@@ -137,6 +137,15 @@ module Decidim
 
         def translation
           @translation ||= Decidim::TermCustomizer::Translation.find(params[:id])
+        end
+
+        def redirect_path_for_set(set)
+          page_param = params[:translation][:page]
+          if page_param.nil?
+            translation_set_translations_path(set)
+          else
+            translation_set_translations_path(set, page: page_param)
+          end
         end
 
         alias collection translations
