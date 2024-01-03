@@ -1,7 +1,10 @@
-<%= decidim_form_for(@form, url: translation_set_translations_path(set), html: { class: "form translation-sets-form new_translation translation_form_admin" }) do |f| %>
-  <%= render partial: "form", object: f, locals: { title: t(".title") } %>
-
-  <div class="button--double form-general-submit">
-    <%= f.submit t(".create") %>
-  </div>
-<% end %>
+<div class="item__edit-form">
+  <%= decidim_form_for(@form, url: translation_set_translations_path(set), html: { class: "form translation-sets-form new_translation translation_form_admin" }) do |f| %>
+    <%= render partial: "form", object: f, locals: { title: t(".title") } %>
+    <div class="item__edit-sticky">
+      <div class="item__edit-sticky-container">
+        <%= f.submit t(".create"), class: "button button__sm button__secondary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

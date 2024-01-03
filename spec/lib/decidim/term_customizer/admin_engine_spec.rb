@@ -56,7 +56,7 @@ describe Decidim::TermCustomizer::AdminEngine do
           :term_customizer,
           "Term customizer",
           path,
-          icon_name: "text",
+          icon_name: "Decidim::TermCustomizer",
           position: 7.1,
           active: :inclusive,
           if: allowed_to_result

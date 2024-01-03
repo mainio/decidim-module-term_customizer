@@ -9,6 +9,10 @@
     "lint": "eslint -c .eslintrc.json --no-error-on-unmatched-pattern --ignore-pattern app/packs/vendor --ext .js app/packs",
     "stylelint": "stylelint app/packs/**/*.scss"
   },
+  "engines": {
+    "node": "18.17.1",
+    "npm": ">=9.6.7"
+  },
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.5",
     "@babel/plugin-proposal-private-methods": "^7.18.6",
