@@ -10,6 +10,6 @@ describe Decidim::TermCustomizer::Import::Readers::XLSX do
   context "with xlsx files containing nils in header" do
     let(:file) { file_fixture("set-translations-with-nils.xlsx") }
 
-  it_behaves_like "translation import reader"
+    it_behaves_like "translation import reader"
   end
 end

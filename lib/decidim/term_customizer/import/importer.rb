@@ -52,9 +52,7 @@ module Decidim
           data_headers = []
           reader.new(file).read_rows do |rowdata, index|
             if index.zero?
-              data_headers = rowdata.map do |cell|
-                cell.to_sym if cell.present?
-              end
+              data_headers = rowdata.compact_blank.map(&:to_sym)
             else
               next if rowdata.blank?
 
