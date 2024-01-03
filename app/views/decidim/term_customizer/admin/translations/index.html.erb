@@ -61,7 +61,7 @@
                 </td>
                 <td class="table-list__actions">
                   <% if allowed_to? :update, :translation, translation: translation %>
-                    <%= icon_link_to "pencil", edit_translation_set_translation_path(set, translation), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
+                    <%= icon_link_to "pencil", edit_translation_set_translation_path(set, translation, page: params[:page]), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
                   <% end %>
 
                   <% if allowed_to? :destroy, :translation, translation: translation %>
