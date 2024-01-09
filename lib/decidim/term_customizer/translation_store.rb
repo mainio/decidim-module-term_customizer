@@ -19,7 +19,7 @@ module Decidim
 
       def by_term(search, case_sensitive: false)
         @values.select do |_key, term|
-          includes_string?(term, search, case_sensitive: case_sensitive)
+          includes_string?(term, search, case_sensitive:)
         end
       end
 

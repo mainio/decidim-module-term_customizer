@@ -7,7 +7,7 @@ describe Decidim::TermCustomizer::TranslationImportCollection do
 
   let(:translation_set) { create(:translation_set) }
   let(:records) do
-    build_list(:translation, 10, translation_set: translation_set)
+    build_list(:translation, 10, translation_set:)
   end
   let(:locales) { [:en] }
 
@@ -54,7 +54,7 @@ describe Decidim::TermCustomizer::TranslationImportCollection do
             locale: attr[:locale],
             key: attr[:key],
             value: attr[:value],
-            translation_set: translation_set
+            translation_set:
           )
         end
       end

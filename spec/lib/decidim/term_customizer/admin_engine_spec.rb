@@ -44,12 +44,11 @@ describe Decidim::TermCustomizer::AdminEngine do
         expect(name).to eq(:admin_menu)
 
         context = context_class.new(&block)
-        allow(context).to receive(:decidim_admin_term_customizer).and_return(routes)
-        allow(context).to receive(:current_organization).and_return(organization)
+        allow(context).to receive_messages(decidim_admin_term_customizer: routes, current_organization: organization)
         allow(context).to receive(:allowed_to?).with(
           :update,
           :organization,
-          organization: organization
+          organization:
         ).and_return(allowed_to_result)
         allow(routes).to receive(:translation_sets_path).and_return(path)
         expect(menu).to receive(:add_item).with(

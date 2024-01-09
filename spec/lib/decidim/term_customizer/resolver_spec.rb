@@ -9,7 +9,7 @@ describe Decidim::TermCustomizer::Resolver do
   let(:space) { nil }
   let(:component) { nil }
   let(:set) { create(:translation_set) }
-  let(:constraint) { set.constraints.create!(organization: organization) }
+  let(:constraint) { set.constraints.create!(organization:) }
 
   context "with organization" do
     let(:other_organization) { create(:organization) }
@@ -33,19 +33,19 @@ describe Decidim::TermCustomizer::Resolver do
   end
 
   context "with participatory process" do
-    let(:space) { create(:participatory_process, organization: organization) }
-    let(:other_space) { create(:participatory_process, organization: organization) }
+    let(:space) { create(:participatory_process, organization:) }
+    let(:other_space) { create(:participatory_process, organization:) }
     let(:other_set) { create(:translation_set) }
 
     let(:constraint) do
       set.constraints.create!(
-        organization: organization,
+        organization:,
         subject: space
       )
     end
     let!(:other_constraint) do
       other_set.constraints.create!(
-        organization: organization,
+        organization:,
         subject: other_space
       )
     end
@@ -68,13 +68,13 @@ describe Decidim::TermCustomizer::Resolver do
     context "when constraints are set for the subject type" do
       let(:constraint) do
         set.constraints.create!(
-          organization: organization,
+          organization:,
           subject_type: space.class.name
         )
       end
       let!(:other_constraint) do
         other_set.constraints.create!(
-          organization: organization,
+          organization:,
           subject_type: other_space.class.name
         )
       end
@@ -97,21 +97,21 @@ describe Decidim::TermCustomizer::Resolver do
   end
 
   context "with component process" do
-    let(:space) { create(:participatory_process, organization: organization) }
+    let(:space) { create(:participatory_process, organization:) }
     let(:component) { create(:proposal_component, participatory_space: space) }
-    let(:other_space) { create(:participatory_process, organization: organization) }
+    let(:other_space) { create(:participatory_process, organization:) }
     let(:other_set) { create(:translation_set) }
     let(:other_component) { create(:proposal_component, participatory_space: other_space) }
 
     let(:constraint) do
       set.constraints.create!(
-        organization: organization,
+        organization:,
         subject: component
       )
     end
     let!(:other_constraint) do
       other_set.constraints.create!(
-        organization: organization,
+        organization:,
         subject: other_component
       )
     end

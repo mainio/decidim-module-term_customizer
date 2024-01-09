@@ -45,8 +45,8 @@ module Decidim
             TermCustomizer::Translation.create!(
               translation_set: form.translation_set,
               key: form.key,
-              value: value,
-              locale: locale
+              value:,
+              locale:
             )
           end
         end

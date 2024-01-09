@@ -16,7 +16,7 @@ module Decidim
           enforce_permission_to :create, :translation
           @form = form(TranslationKeyImportForm).from_params(
             params,
-            current_organization: current_organization,
+            current_organization:,
             translation_set: set
           )
 

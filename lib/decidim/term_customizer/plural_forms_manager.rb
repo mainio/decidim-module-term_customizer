@@ -71,14 +71,14 @@ module Decidim
           # Check that the translation is not already added in the set
           next if translation.translation_set.translations.where(
             key: target_key,
-            locale: locale
+            locale:
           ).any?
 
           # Add the plural form
           translation.translation_set.translations.create!(
             key: target_key,
-            locale: locale,
-            value: I18n.t(target_key, locale: locale, default: "")
+            locale:,
+            value: I18n.t(target_key, locale:, default: "")
           )
         end
       end
@@ -91,7 +91,7 @@ module Decidim
           # Find the plural form the plural form
           target = translation.translation_set.translations.find_by(
             key: target_key,
-            locale: locale
+            locale:
           )
           next unless target
 

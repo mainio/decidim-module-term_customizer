@@ -14,7 +14,7 @@ module Decidim
         translatable_attribute :value, String
 
         validates :key, presence: true
-        validates :key, format: { with: %r{\A([a-z0-9_/?\-]+\.)*[a-z0-9_/?\-]+\z} }, unless: -> { key.blank? }
+        validates :key, format: { with: %r{\A([a-z0-9_/?-]+\.)*[a-z0-9_/?-]+\z} }, unless: -> { key.blank? }
         validates :value, translatable_presence: true
         validate :key_uniqueness
 
@@ -30,8 +30,8 @@ module Decidim
         def key_uniqueness
           errors.add(:key, :taken) if translation_set && translation_set.translations.where(
             locale: I18n.locale,
-            key: key
-          ).where.not(id: id).exists?
+            key:
+          ).where.not(id:).exists?
         end
       end
     end

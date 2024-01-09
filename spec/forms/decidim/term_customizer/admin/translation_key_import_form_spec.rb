@@ -9,14 +9,14 @@ module Decidim
         subject { form }
 
         let(:organization) { create(:organization) }
-        let(:translation_set) { create(:translation_set, organization: organization) }
+        let(:translation_set) { create(:translation_set, organization:) }
         let(:keys) { ["first.key", "second.key", "third.key"] }
-        let(:params) { { keys: keys } }
+        let(:params) { { keys: } }
 
         let(:form) do
           described_class.from_params(params).with_context(
             current_organization: organization,
-            translation_set: translation_set
+            translation_set:
           )
         end
 

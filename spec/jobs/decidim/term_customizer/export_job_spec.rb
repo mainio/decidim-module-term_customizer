@@ -7,8 +7,8 @@ module Decidim
     module Admin
       describe ExportJob do
         let(:organization) { create(:organization) }
-        let!(:translation_set) { create :translation_set, organization: organization }
-        let!(:user) { create(:user, organization: organization) }
+        let!(:translation_set) { create(:translation_set, organization:) }
+        let!(:user) { create(:user, organization:) }
 
         before do
           # Unsubscribe from the active job notification in order to avoid the

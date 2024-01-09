@@ -10,7 +10,7 @@ module Decidim
 
         let(:organization) { create(:organization) }
         let(:subject_manifest) { :particpatory_process }
-        let(:params) { { subject_manifest: subject_manifest } }
+        let(:params) { { subject_manifest: } }
 
         let(:form) do
           described_class.from_params(params).with_context(
@@ -23,7 +23,7 @@ module Decidim
         end
 
         describe "#to_param" do
-          subject { described_class.new(id: id) }
+          subject { described_class.new(id:) }
 
           context "with actual ID" do
             let(:id) { double }

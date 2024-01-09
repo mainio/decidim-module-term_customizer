@@ -26,7 +26,7 @@ module Decidim
       end
 
       def translations_by_term(search, case_sensitive: false)
-        translations.by_term(search, case_sensitive: case_sensitive)
+        translations.by_term(search, case_sensitive:)
       end
 
       private

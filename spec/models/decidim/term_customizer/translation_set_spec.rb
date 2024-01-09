@@ -8,7 +8,7 @@ module Decidim
       subject { translation_set }
 
       let(:organization) { create(:organization) }
-      let(:translation_set) { create(:translation_set, organization: organization) }
+      let(:translation_set) { create(:translation_set, organization:) }
 
       it { is_expected.to be_valid }
 

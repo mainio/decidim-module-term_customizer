@@ -44,7 +44,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_term_customizer.register_icons"  do |_app|
+      initializer "decidim_term_customizer.register_icons" do |_app|
         Decidim.icons.register(name: "Decidim::TermCustomizer", icon: "translate", category: "system", description: "Term Customizer", engine: :admin)
         Decidim.icons.register(name: "git-branch-line", icon: "git-branch-line", category: "system", description: "fork icon", engine: :admin)
       end

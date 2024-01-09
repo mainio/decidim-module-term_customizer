@@ -4,14 +4,14 @@ require "spec_helper"
 
 module Decidim
   module TermCustomizer
-    describe Admin::AddTranslationsController, type: :controller do
+    describe Admin::AddTranslationsController do
       include_context "with setup initializer"
 
       routes { Decidim::TermCustomizer::AdminEngine.routes }
 
       let(:organization) { create(:organization) }
-      let(:user) { create(:user, :confirmed, :admin, organization: organization) }
-      let(:translation_set) { create(:translation_set, organization: organization) }
+      let(:user) { create(:user, :confirmed, :admin, organization:) }
+      let(:translation_set) { create(:translation_set, organization:) }
 
       let(:params) do
         {
@@ -26,7 +26,7 @@ module Decidim
 
       describe "GET index" do
         it "renders the index template" do
-          get :index, params: params
+          get(:index, params:)
           expect(response).to have_http_status(:ok)
           expect(subject).to render_template(:index)
         end
@@ -50,10 +50,10 @@ module Decidim
       describe "GET search" do
         context "with no search term provided" do
           it "renders an empty search results JSON" do
-            get :search, params: params
+            get(:search, params:)
             expect(response).to have_http_status(:ok)
 
-            json = JSON.parse(response.body)
+            json = response.parsed_body
             expect(json.length).to eq(0)
           end
         end
@@ -65,7 +65,7 @@ module Decidim
             )
             expect(response).to have_http_status(:ok)
 
-            json = JSON.parse(response.body)
+            json = response.parsed_body
             expect(json.length).to eq(76)
           end
         end

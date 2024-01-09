@@ -39,7 +39,7 @@ module Decidim
           @form = form(Admin::TranslationsDestroyForm).from_params(
             params
           ).with_context(
-            current_organization: current_organization,
+            current_organization:,
             translation_set: set
           )
         end

@@ -4,13 +4,13 @@ require "spec_helper"
 
 module Decidim
   module TermCustomizer
-    describe Admin::CachesController, type: :controller do
+    describe Admin::CachesController do
       include_context "with setup initializer"
 
       routes { Decidim::TermCustomizer::AdminEngine.routes }
 
       let(:organization) { create(:organization) }
-      let(:user) { create(:user, :confirmed, :admin, organization: organization) }
+      let(:user) { create(:user, :confirmed, :admin, organization:) }
 
       before do
         request.env["decidim.current_organization"] = organization
