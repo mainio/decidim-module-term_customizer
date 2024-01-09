@@ -32,6 +32,7 @@ sv:
           import: Import
           new_translation: New translation
           new_translation_set: New translation set
+          title: Actions
           view: View
         add_translations:
           index:
