@@ -32,6 +32,7 @@ ro:
           import: Importă
           new_translation: Traducere nouă
           new_translation_set: Set nou de traducere
+          title: Actions
           view: Vizualizare
         add_translations:
           index:
