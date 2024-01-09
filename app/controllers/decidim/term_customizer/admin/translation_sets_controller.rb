@@ -21,11 +21,16 @@ module Decidim
           )
         end
 
+        def edit
+          enforce_permission_to :update, :translation_set, translation_set: set
+          @form = form(TranslationSetForm).from_model(set)
+        end
+
         def create
           enforce_permission_to :create, :translation_set
           @form = form(TranslationSetForm).from_params(
             params,
-            current_organization: current_organization
+            current_organization:
           )
 
           CreateTranslationSet.call(@form) do
@@ -41,16 +46,11 @@ module Decidim
           end
         end
 
-        def edit
-          enforce_permission_to :update, :translation_set, translation_set: set
-          @form = form(TranslationSetForm).from_model(set)
-        end
-
         def update
           enforce_permission_to :update, :translation_set, translation_set: set
           @form = form(TranslationSetForm).from_params(
             params,
-            current_organization: current_organization
+            current_organization:
           )
 
           UpdateTranslationSet.call(@form, set) do
@@ -84,7 +84,7 @@ module Decidim
               hash["name_#{locale}"] = I18n.t(
                 "translation_sets.duplicate.copied_set_name",
                 name: set.name[locale],
-                locale: locale,
+                locale:,
                 scope: "decidim.term_customizer.admin"
               )
             end
@@ -92,7 +92,7 @@ module Decidim
 
           @form = form(TranslationSetForm).from_params(
             params.merge(name_attrs),
-            current_organization: current_organization
+            current_organization:
           )
 
           DuplicateTranslationSet.call(@form, set) do

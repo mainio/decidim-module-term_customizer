@@ -17,7 +17,7 @@ module Decidim
             )
           )
         end
-        let(:params) { { file: file } }
+        let(:params) { { file: } }
 
         let(:form) do
           described_class.from_params(params).with_context(

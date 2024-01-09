@@ -8,14 +8,14 @@ module Decidim
       subject { translation }
 
       let(:organization) { create(:organization) }
-      let(:translation_set) { create(:translation_set, organization: organization) }
+      let(:translation_set) { create(:translation_set, organization:) }
       let(:translation) do
         build(
           :translation,
-          translation_set: translation_set,
-          locale: locale,
-          key: key,
-          value: value
+          translation_set:,
+          locale:,
+          key:,
+          value:
         )
       end
       let(:locale) { :en }
@@ -31,7 +31,7 @@ module Decidim
       context "when locale is empty" do
         let(:locale) { nil }
 
-        it { is_expected.to be_invalid }
+        it { is_expected.not_to be_valid }
       end
 
       it_behaves_like "translation validatable"

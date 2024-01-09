@@ -4,15 +4,15 @@ require "spec_helper"
 
 module Decidim
   module TermCustomizer
-    describe Admin::TranslationsController, type: :controller do
+    describe Admin::TranslationsController do
       include_context "with setup initializer"
 
       routes { Decidim::TermCustomizer::AdminEngine.routes }
 
       let(:organization) { create(:organization) }
       let(:other_organization) { create(:organization) }
-      let(:user) { create(:user, :confirmed, :admin, organization: organization) }
-      let(:translation_set) { create(:translation_set, organization: organization) }
+      let(:user) { create(:user, :confirmed, :admin, organization:) }
+      let(:translation_set) { create(:translation_set, organization:) }
       let(:other_translation_set) { create(:translation_set, organization: other_organization) }
 
       let(:params) do
@@ -28,12 +28,12 @@ module Decidim
 
       describe "GET index" do
         before do
-          create_list(:translation, 10, translation_set: translation_set)
+          create_list(:translation, 10, translation_set:)
           create_list(:translation, 10, translation_set: other_translation_set)
         end
 
         it "renders the index listing" do
-          get :index, params: params
+          get(:index, params:)
           expect(response).to have_http_status(:ok)
           expect(subject).to render_template(:index)
           expect(assigns(:translations).count).to eq(10)
@@ -42,7 +42,7 @@ module Decidim
 
       describe "GET new" do
         it "renders the empty form" do
-          get :new, params: params
+          get(:new, params:)
           expect(response).to have_http_status(:ok)
           expect(subject).to render_template(:new)
         end
@@ -61,7 +61,7 @@ module Decidim
       end
 
       describe "GET edit" do
-        let(:translation) { create(:translation, translation_set: translation_set) }
+        let(:translation) { create(:translation, translation_set:) }
 
         it "renders the edit form" do
           get :edit, params: params.merge(id: translation.id)
@@ -71,7 +71,7 @@ module Decidim
       end
 
       describe "PUT update" do
-        let(:translation) { create(:translation, translation_set: translation_set) }
+        let(:translation) { create(:translation, translation_set:) }
 
         it "updates the translation" do
           put :update, params: params.merge(
@@ -86,7 +86,7 @@ module Decidim
       end
 
       describe "POST export" do
-        let(:translation_set) { create(:translation_set, organization: organization) }
+        let(:translation_set) { create(:translation_set, organization:) }
 
         it "exports the translations" do
           post :export, params: params.merge(format: "JSON")
@@ -97,7 +97,7 @@ module Decidim
       end
 
       describe "DELETE destroy" do
-        let(:translation) { create(:translation, translation_set: translation_set) }
+        let(:translation) { create(:translation, translation_set:) }
 
         it "destroys the translation" do
           delete :destroy, params: params.merge(id: translation.id)
@@ -109,7 +109,7 @@ module Decidim
 
       describe "GET import" do
         it "renders the import form" do
-          get :new_import, params: params
+          get(:new_import, params:)
 
           expect(response).to have_http_status(:ok)
           expect(subject).to render_template(:new_import)
@@ -127,7 +127,7 @@ module Decidim
         end
 
         it "runs the import" do
-          post :import, params: params.merge(file: file)
+          post :import, params: params.merge(file:)
 
           expect(flash[:notice]).not_to be_empty
           expect(response).to have_http_status(:found)

@@ -58,7 +58,7 @@ describe Decidim::TermCustomizer::I18nBackend do
 
       before do
         locales.each do |locale|
-          create_list(:translation, 3, locale: locale)
+          create_list(:translation, 3, locale:)
         end
       end
 
@@ -132,7 +132,8 @@ describe Decidim::TermCustomizer::I18nBackend do
   describe "#translate" do
     it "calls lookup" do
       allow(subject).to receive(:lookup).and_return("Translation") # rubocop:disable RSpec/SubjectStub
-      subject.translate(:en, "decidim.term1")
+      result = subject.translate(:en, "decidim.term1")
+      expect(result).to eq("Translation")
     end
 
     context "with actual translations" do

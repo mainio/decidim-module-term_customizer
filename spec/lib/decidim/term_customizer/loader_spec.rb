@@ -39,7 +39,7 @@ describe Decidim::TermCustomizer::Loader do
       objects = []
       translations_list.each_with_object({}) do |(locale, v), _obj|
         objects << flatten_hash(v).map do |translation_key, translation_term|
-          create(:translation, locale: locale, key: translation_key, value: translation_term)
+          create(:translation, locale:, key: translation_key, value: translation_term)
         end
       end
       objects.flatten
@@ -91,7 +91,7 @@ describe Decidim::TermCustomizer::Loader do
     end
 
     context "with organization and space" do
-      let(:space) { create(:participatory_process, organization: organization) }
+      let(:space) { create(:participatory_process, organization:) }
 
       it "clears cache with correct key" do
         expect(Rails.cache).to receive(:delete_matched).with(
@@ -103,7 +103,7 @@ describe Decidim::TermCustomizer::Loader do
     end
 
     context "with organization, space and component" do
-      let(:space) { create(:participatory_process, organization: organization) }
+      let(:space) { create(:participatory_process, organization:) }
       let(:component) { create(:proposal_component, participatory_space: space) }
 
       it "clears cache with correct key" do
@@ -148,7 +148,7 @@ describe Decidim::TermCustomizer::Loader do
       end
 
       context "with organization and space" do
-        let(:space) { create(:participatory_process, organization: organization) }
+        let(:space) { create(:participatory_process, organization:) }
 
         it "clears cache with correct key" do
           expect(Rails.cache).to receive(:delete).with(
@@ -163,7 +163,7 @@ describe Decidim::TermCustomizer::Loader do
       end
 
       context "with organization, space and component" do
-        let(:space) { create(:participatory_process, organization: organization) }
+        let(:space) { create(:participatory_process, organization:) }
         let(:component) { create(:proposal_component, participatory_space: space) }
 
         it "clears cache with correct key" do
@@ -215,7 +215,7 @@ describe Decidim::TermCustomizer::Loader do
       end
 
       context "with organization and space" do
-        let(:space) { create(:participatory_process, organization: organization) }
+        let(:space) { create(:participatory_process, organization:) }
 
         it "clears cache with correct key" do
           expect(Rails.cache).to receive(:delete).with(
@@ -230,7 +230,7 @@ describe Decidim::TermCustomizer::Loader do
       end
 
       context "with organization, space and component" do
-        let(:space) { create(:participatory_process, organization: organization) }
+        let(:space) { create(:participatory_process, organization:) }
         let(:component) { create(:proposal_component, participatory_space: space) }
 
         it "clears cache with correct key" do

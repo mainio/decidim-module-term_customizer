@@ -44,13 +44,18 @@ module Decidim
         end
       end
 
+      initializer "decidim_term_customizer.register_icons" do |_app|
+        Decidim.icons.register(name: "Decidim::TermCustomizer", icon: "translate", category: "system", description: "Term Customizer", engine: :admin)
+        Decidim.icons.register(name: "git-branch-line", icon: "git-branch-line", category: "system", description: "fork icon", engine: :admin)
+      end
+
       initializer "decidim_term_customizer.admin_menu" do
         Decidim.menu :admin_menu do |menu|
           menu.add_item(
             :term_customizer,
             I18n.t("menu.term_customizer", scope: "decidim.term_customizer"),
             decidim_admin_term_customizer.translation_sets_path,
-            icon_name: "text",
+            icon_name: "Decidim::TermCustomizer",
             position: 7.1,
             active: :inclusive,
             if: allowed_to?(:update, :organization, organization: current_organization)

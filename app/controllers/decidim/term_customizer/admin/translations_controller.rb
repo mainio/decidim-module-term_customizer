@@ -18,11 +18,16 @@ module Decidim
           @form = form(TranslationForm).from_model(Translation.new)
         end
 
+        def edit
+          enforce_permission_to(:update, :translation, translation:)
+          @form = form(TranslationForm).from_model(translation)
+        end
+
         def create
           enforce_permission_to :create, :translation
           @form = form(TranslationForm).from_params(
             params,
-            current_organization: current_organization,
+            current_organization:,
             translation_set: set
           )
 
@@ -39,16 +44,11 @@ module Decidim
           end
         end
 
-        def edit
-          enforce_permission_to :update, :translation, translation: translation
-          @form = form(TranslationForm).from_model(translation)
-        end
-
         def update
-          enforce_permission_to :update, :translation, translation: translation
+          enforce_permission_to(:update, :translation, translation:)
           @form = form(TranslationForm).from_params(
             params,
-            current_organization: current_organization,
+            current_organization:,
             translation_set: set
           )
 
@@ -66,7 +66,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :destroy, :translation, translation: translation
+          enforce_permission_to(:destroy, :translation, translation:)
 
           # Destroy all locales of the translation key
           pfm = TermCustomizer::PluralFormsManager.new(current_organization)
@@ -104,7 +104,7 @@ module Decidim
 
           @import = form(Admin::TranslationsImportForm).from_params(
             params,
-            current_organization: current_organization
+            current_organization:
           )
           ImportSetTranslations.call(@import, set) do
             on(:ok) do

@@ -10,7 +10,7 @@ module Decidim
 
         let(:organization) { create(:organization) }
         let(:name) { Decidim::Faker::Localized.sentence(word_count: 3) }
-        let(:params) { { name: name } }
+        let(:params) { { name: } }
 
         let(:form) do
           described_class.from_params(params).with_context(
@@ -25,7 +25,7 @@ module Decidim
         context "when the name is not defined" do
           let(:name) { nil }
 
-          it { is_expected.to be_invalid }
+          it { is_expected.not_to be_valid }
         end
       end
     end

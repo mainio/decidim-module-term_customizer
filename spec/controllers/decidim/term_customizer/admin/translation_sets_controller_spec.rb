@@ -4,14 +4,14 @@ require "spec_helper"
 
 module Decidim
   module TermCustomizer
-    describe Admin::TranslationSetsController, type: :controller do
+    describe Admin::TranslationSetsController do
       include_context "with setup initializer"
 
       routes { Decidim::TermCustomizer::AdminEngine.routes }
 
       let(:organization) { create(:organization) }
       let(:other_organization) { create(:organization) }
-      let(:user) { create(:user, :confirmed, :admin, organization: organization) }
+      let(:user) { create(:user, :confirmed, :admin, organization:) }
 
       before do
         request.env["decidim.current_organization"] = organization
@@ -20,7 +20,7 @@ module Decidim
 
       describe "GET index" do
         before do
-          create_list(:translation_set, 10, organization: organization)
+          create_list(:translation_set, 10, organization:)
           create_list(:translation_set, 10, organization: other_organization)
         end
 
@@ -44,7 +44,7 @@ module Decidim
 
         context "when participatory space exists" do
           before do
-            create(:participatory_process, organization: organization)
+            create(:participatory_process, organization:)
           end
 
           it "is available for selection" do
@@ -68,7 +68,7 @@ module Decidim
       end
 
       describe "GET edit" do
-        let(:translation_set) { create(:translation_set, organization: organization) }
+        let(:translation_set) { create(:translation_set, organization:) }
 
         it "renders the edit form" do
           get :edit, params: { id: translation_set.id }
@@ -78,7 +78,7 @@ module Decidim
       end
 
       describe "PUT update" do
-        let(:translation_set) { create(:translation_set, organization: organization) }
+        let(:translation_set) { create(:translation_set, organization:) }
 
         it "updates the translation set" do
           put :update, params: {
@@ -92,7 +92,7 @@ module Decidim
       end
 
       describe "DELETE destroy" do
-        let(:translation_set) { create(:translation_set, organization: organization) }
+        let(:translation_set) { create(:translation_set, organization:) }
 
         it "destroys the translation set" do
           delete :destroy, params: { id: translation_set.id }
@@ -103,7 +103,7 @@ module Decidim
       end
 
       describe "POST duplicate" do
-        let(:translation_set) { create(:translation_set, organization: organization) }
+        let(:translation_set) { create(:translation_set, organization:) }
 
         it "duplicates a translation set" do
           post :duplicate, params: { id: translation_set.id }
