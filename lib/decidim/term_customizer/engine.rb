@@ -7,9 +7,11 @@ module Decidim
 
       initializer "decidim_term_customizer.setup" do
         customizer_backend = Decidim::TermCustomizer::I18nBackend.new
+        i18n_backend = I18n.backend
+
         I18n.backend = I18n::Backend::Chain.new(
           customizer_backend,
-          I18n.backend
+          i18n_backend
         )
 
         # Setup a controller hook to setup the term customizer before the
@@ -27,10 +29,10 @@ module Decidim
           )
 
           # Create the loader for the backend to fetch the translations from
-          TermCustomizer.loader = Loader.new(resolver)
+          I18n.backend.backends.first.loader = Loader.new(resolver)
 
           # Force the backend to reload the translations for the current request
-          customizer_backend.reload!
+          I18n.backend.backends.first.reload!
         end
 
         # The jobs are generally run in different context than the controllers
@@ -57,10 +59,10 @@ module Decidim
           )
 
           # Create the loader for the backend to fetch the translations from
-          TermCustomizer.loader = Loader.new(resolver)
+          I18n.backend.backends.first.loader = Loader.new(resolver)
 
-          # Force the backend to reload the translations for the job
-          customizer_backend.reload!
+          # Force the backend to reload the translations for the current request
+          I18n.backend.backends.first.reload!
         end
       end
     end

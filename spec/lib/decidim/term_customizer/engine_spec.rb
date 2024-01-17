@@ -39,7 +39,7 @@ describe Decidim::TermCustomizer::Engine do
 
     before do
       allow(Decidim::TermCustomizer::I18nBackend).to receive(:new).and_return(dummy_backend)
-
+      allow(dummy_backend).to receive(:loader=)
       run_initializer
 
       allow(dummy_data_headers).to receive(:env).and_return(dummy_env)
@@ -119,7 +119,7 @@ describe Decidim::TermCustomizer::Engine do
           nil,
           nil
         ).and_return(resolver)
-        expect(Decidim::TermCustomizer::Loader).to receive(:new).with(resolver)
+        allow(dummy_backend).to receive(:loader=).with(Decidim::TermCustomizer::Loader)
         expect(dummy_backend).to receive(:reload!)
 
         ActiveSupport::Notifications.instrument(
@@ -139,7 +139,7 @@ describe Decidim::TermCustomizer::Engine do
           nil,
           nil
         ).and_return(resolver)
-        expect(Decidim::TermCustomizer::Loader).to receive(:new).with(resolver)
+        allow(dummy_backend).to receive(:loader=).with(Decidim::TermCustomizer::Loader)
         expect(dummy_backend).to receive(:reload!)
 
         ActiveSupport::Notifications.instrument(
@@ -160,7 +160,7 @@ describe Decidim::TermCustomizer::Engine do
           nil,
           nil
         ).and_return(resolver)
-        expect(Decidim::TermCustomizer::Loader).to receive(:new).with(resolver)
+        allow(dummy_backend).to receive(:loader=).with(Decidim::TermCustomizer::Loader)
         expect(dummy_backend).to receive(:reload!)
 
         ActiveSupport::Notifications.instrument(

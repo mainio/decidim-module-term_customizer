@@ -89,8 +89,8 @@ describe Decidim::TermCustomizer::I18nBackend do
       let(:loader) { double }
 
       before do
-        allow(Decidim::TermCustomizer).to receive(:loader).and_return(loader)
         allow(loader).to receive(:translations_hash).and_return([])
+        subject.loader = loader
       end
 
       it "returns true" do
@@ -104,8 +104,8 @@ describe Decidim::TermCustomizer::I18nBackend do
     let(:loader) { double }
 
     before do
-      allow(Decidim::TermCustomizer).to receive(:loader).and_return(loader)
       allow(loader).to receive(:translations_hash).and_return([])
+      subject.loader = loader
     end
 
     it "resets the translations" do
@@ -120,8 +120,8 @@ describe Decidim::TermCustomizer::I18nBackend do
     let(:loader) { double }
 
     before do
-      allow(Decidim::TermCustomizer).to receive(:loader).and_return(loader)
       allow(loader).to receive(:translations_hash).and_return(translations_list)
+      subject.loader = loader
     end
 
     it "returns the correct translations list" do
@@ -140,8 +140,8 @@ describe Decidim::TermCustomizer::I18nBackend do
       let(:loader) { double }
 
       before do
-        allow(Decidim::TermCustomizer).to receive(:loader).and_return(loader)
         allow(loader).to receive(:translations_hash).and_return(translations_list)
+        subject.loader = loader
       end
 
       it "translates the translation keys correctly" do
@@ -158,8 +158,8 @@ describe Decidim::TermCustomizer::I18nBackend do
       let(:loader) { double }
 
       before do
-        allow(Decidim::TermCustomizer).to receive(:loader).and_return(loader)
         allow(loader).to receive(:translations_hash).and_return(pluralize_translations_list)
+        subject.loader = loader
       end
 
       it "translates the translation keys correctly" do
