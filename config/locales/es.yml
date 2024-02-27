@@ -32,6 +32,7 @@ es:
           import: Importar
           new_translation: Nueva traducción
           new_translation_set: Nuevo grupo de traducciones
+          title: Actions
           view: Ver
         add_translations:
           index:

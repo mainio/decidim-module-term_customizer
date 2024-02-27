@@ -32,6 +32,7 @@ ca:
           import: Importar
           new_translation: Nova traducció
           new_translation_set: Nou set/joc de traducció
+          title: Actions
           view: Visualitza
         add_translations:
           index:

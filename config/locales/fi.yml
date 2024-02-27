@@ -32,6 +32,7 @@ fi:
           import: Tuo
           new_translation: Uusi käännös
           new_translation_set: Uusi käännöspaketti
+          title: Actions
           view: Näytä
         add_translations:
           index:

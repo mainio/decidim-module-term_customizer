@@ -32,6 +32,7 @@ fr:
           import: Importer
           new_translation: Nouvelle traduction
           new_translation_set: Nouveau jeu de traduction
+          title: Actions
           view: Afficher
         add_translations:
           index:
