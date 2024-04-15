@@ -4,11 +4,11 @@ fi:
     attributes:
       constraint:
         component_id: Komponentti
-        subject_id: Osallisuustila
-        subject_manifest: Osallisuustilan tyyppi
+        subject_id: Osallistumistila
+        subject_manifest: Osallistumistilan tyyppi
       translation:
         key: Käännösavain
-        value: Kustomoitu termi
+        value: Muutettu termi
       translation_set:
         name: Nimi
       translations_import:
@@ -33,7 +33,7 @@ fi:
           import: Tuo
           new_translation: Uusi käännös
           new_translation_set: Uusi käännöspaketti
-          title: Actions
+          title: Toiminnot
           view: Näytä
         add_translations:
           index:
@@ -52,7 +52,7 @@ fi:
             fields:
               key: Käännösavain
               original_term: Alkuperäinen termi
-              term: Kustomoitu termi
+              term: Muutettu termi
         titles:
           add_multiple_translations: Lisää useita
           translation_sets: Käännöspaketit
@@ -75,13 +75,13 @@ fi:
             title: Käännöspaketti
           form:
             add_constraint: Lisää rajaussääntö
-            constraint_help_html: <p>Rajaussääntöjen avulla voit rajata käännöspaketin muutokset ainoastaan tiettyyn kontekstiin sivustolla.</p><p>Mikäli et määritä mitään sääntöjä, tämän käännöspaketin termikustomoinnit tulevat käyttöön koko applikaatioon. Toisaalta, jos haluat rajata tämän käännöspaketin kustomoinnit ainoastaan tiettyyn prosessiin, valitse "Osallisuusprosessit" osallisuustilaksi ja määritä haluamasi prosessi osallisuustila-kenttään. Voit myös liittää kustomoinnit ainoastaan tiettyyn komponenttiin määrittämällä kyseisen komponentin komponentti-kenttään.</p><p>Jos määrität useita rajaussääntöjä, termikustomointeja käytetään kaikkialla, jokin kyseisistä säännöistä pätee.</p>
+            constraint_help_html: <p>Rajaussääntöjen avulla voit rajata käännöspaketin muutokset ainoastaan tiettyyn kontekstiin sivustolla.</p><p>Mikäli et määritä mitään sääntöjä, tämän käännöspaketin termimuutokset tulevat käyttöön koko sovellukseen. Toisaalta, jos haluat rajata tämän käännöspaketin muutokset ainoastaan tiettyyn prosessiin, valitse "Osallistumisprosessit" osallistumistilaksi ja määritä haluamasi prosessi osallistumistila-kenttään. Voit myös liittää muutokset ainoastaan tiettyyn komponenttiin määrittämällä kyseisen komponentin komponentti-kenttään.</p><p>Jos määrität useita rajaussääntöjä, termimuutoksia käytetään kaikkialla, jos jokin kyseisistä säännöistä pätee.</p>
             constraint_help_title: Mitä ovat rajaussäännöt?
-            help_html: <p>Käännöspaketti, on "paketti", joka sisältää käännöksiä tietylle kontekstille, jonka termejä haluat muuttaa.</p><p>Käännöspaketit auttavat sinua pitämään kustomointisi järjestyksessä ja rajaamaan niitä tiettyihin konteksteihin. Tämä mahdollistaa sen, että voit esimerkiksi muuttaa saman termin eri tavalla sivuston eri paikoissa.</p><p>Mikäli haluat esimerkiski muuttaa "Lisää" -napin tekstin erilaiseksi eri prosesseille, voit luoda kaksi erillistä käännöspakettia molempia prosesseja varten. Molemmat paketit rajataan kyseisiin prosesseihin rajaussääntöjen avulla.</p>
+            help_html: <p>Käännöspaketti, on "paketti", joka sisältää käännöksiä tietylle kontekstille, jonka termejä haluat muuttaa.</p><p>Käännöspaketit auttavat sinua pitämään muutoksesi järjestyksessä ja rajaamaan niitä tiettyihin konteksteihin. Tämä mahdollistaa sen, että voit esimerkiksi muuttaa saman termin eri tavalla sivuston eri paikoissa.</p><p>Mikäli haluat esimerkiski muuttaa "Lisää" -painikkeen tekstin erilaiseksi eri prosesseille, voit luoda kaksi erillistä käännöspakettia molempia prosesseja varten. Molemmat paketit rajataan kyseisiin prosesseihin rajaussääntöjen avulla.</p>
             help_title: Mikä on käännöspaketti?
             title: Käännöspaketti
           index:
-            no_records_html: <p>Ei käännöspaketteja.</p><p>Aloita lisäämällä käännöspaketti "<a href="%{new_set_link}">%{button_name}</a>" -napin avulla.</p>
+            no_records_html: <p>Ei käännöspaketteja.</p><p>Aloita lisäämällä käännöspaketti "<a href="%{new_set_link}">%{button_name}</a>" -painikkeen avulla.</p>
           new:
             create: Luo
             title: Käännöspaketit
@@ -100,8 +100,8 @@ fi:
           form:
             help_html: <p>Käännösavain on tekninen viittaus käännökseen. Tämä ei siis ole se termi, jonka haluat muuttaa, vaan tekninen avain, joka viittaa kyseiseen termiin.</p><p>Mikäli haluat muuttaa esimerkiksi sanan <em>"Prosessit"</em> ylävalikosta, voit käyttää käännösavainta <em>"decidim.menu.processes"</em>.</p><p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank">Lue lisää Rails-kehyksen käännöksistä</a>.</p>
             help_title: Mikä on käännösavain?
-            term_help_html: "<p>Kustomoitu termi on lopullinen sana, jonka haluat esiintyvän käyttöliittymässä alkuperäisen termin sijaan. Luonnollisesti, kustomoitu termi voi olla erilainen kaikille käytössä oleville kielille.</p>"
-            term_help_title: Mikä on kustomoitu termi?
+            term_help_html: "<p>Muutettu termi on lopullinen sana, jonka haluat esiintyvän käyttöliittymässä alkuperäisen termin sijaan. Luonnollisesti, muutettu termi voi olla erilainen kaikille käytössä oleville kielille.</p>"
+            term_help_title: Mikä on muutettu termi?
             title: Käännös
           import:
             error: Käännösten tuonti epäonnistui
@@ -133,4 +133,4 @@ fi:
             destroy: Poista
             title: Käännösten poisto
       menu:
-        term_customizer: Termien kustomoinnit
+        term_customizer: Termien muutokset
