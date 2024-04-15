@@ -4,6 +4,7 @@
   <p><strong><%= t ".constraint_help_title" %></strong></p>
   <%= t ".constraint_help_html" %>
 </div>
+
 <div class="form__wrapper">
   <div class="card pt-4">
     <div class="card-section">
@@ -13,7 +14,7 @@
     </div>
   </div>
 
-  <div class="multifield-fields constraints-container" data-placeholder-id="<%= blank_constraint.to_param %>">
+  <div class="multifield-fields constraints-container form__wrapper" data-placeholder-id="<%= blank_constraint.to_param %>">
     <template>
       <%= fields_for "constraints[#{blank_constraint.to_param}]", blank_constraint do |constraint_form| %>
         <%= render "constraint_fields", form: constraint_form, index: blank_constraint.to_param, id: tabs_id_for_constraint(blank_constraint) %>
@@ -27,10 +28,10 @@
         <% end %>
       <% end %>
     </div>
-    <div class="row column">
+    <div>
       <button class="button button__sm button__secondary small hollow add-external-domain"><%= t(".add_constraint") %></button>
     </div>
   </div>
 </div>
 
-<%= append_javascript_pack_tag "decidim_term_customizer_admin" %>
+<%= append_javascript_pack_tag "decidim_term_customizer_admin_sets" %>

@@ -1,5 +1,5 @@
 <div class="item__edit-form">
-  <%= decidim_form_for(@form, url: translation_set_translation_path(set, translation), html: { class: "form translation-sets-form edit_translation translation_form_admin" }) do |f| %>
+  <%= decidim_form_for(@form, url: translation_set_translation_path(set, translation), html: { class: "form form-defaults translation-sets-form edit_translation translation_form_admin" }) do |f| %>
     <%= render partial: "form", object: f, locals: { title: t(".title") } %>
 
     <div class="item__edit-sticky">
