@@ -61,6 +61,16 @@ module Decidim
             if: allowed_to?(:update, :organization, organization: current_organization)
           )
         end
+
+        Decidim.menu :term_customizer_translation_sets_menu do |menu|
+          menu.add_item(
+            :term_customizer_translation_sets,
+            I18n.t("menu.translation_set", scope: "decidim.term_customizer"),
+            decidim_admin_term_customizer.translation_set_translations_path,
+            active: is_active_link?(decidim_admin_term_customizer.translation_set_translations_path) ||
+              is_active_link?(decidim_admin_term_customizer.translation_set_add_translations_path)
+          )
+        end
       end
     end
   end

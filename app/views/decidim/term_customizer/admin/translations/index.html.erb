@@ -2,11 +2,9 @@
   <div class="item_show__header">
     <h2 class="item_show__header-title">
       <div>
-        <%= link_to t("decidim.term_customizer.menu.term_customizer"), translation_sets_path %>
-        &gt;
         <%= translated_attribute(set.name) %>
 
-        <span id="js-selected-proposals-count" class="component-counter component-counter--inline" title="<%= t("decidim.term_customizer.admin.translations.index.selected") %>"></span>
+        <span id="js-selected-translation-count" class="component-counter component-counter--inline" title="<%= t("decidim.term_customizer.admin.translations.index.selected") %>"></span>
       </div>
 
       <div id="js-other-actions-wrapper" class="flex align-middle gap-x-4 ml-auto">
