@@ -5,7 +5,6 @@ on:
       - develop
       - main
       - release/*
-      - fix/*
   pull_request:
 
 concurrency:
