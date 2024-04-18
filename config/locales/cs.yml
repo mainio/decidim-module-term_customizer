@@ -1,3 +1,4 @@
+---
 cs:
   activemodel:
     attributes:
@@ -32,6 +33,7 @@ cs:
           import: Importovat
           new_translation: Nový překlad
           new_translation_set: Nová sada překladů
+          title: Akce
           view: Zobrazit
         add_translations:
           index:

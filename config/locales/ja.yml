@@ -1,3 +1,4 @@
+---
 ja:
   activemodel:
     attributes:
@@ -32,6 +33,7 @@ ja:
           import: インポート
           new_translation: 新しい翻訳
           new_translation_set: 新しい翻訳セット
+          title: アクション
           view: 表示
         add_translations:
           index:

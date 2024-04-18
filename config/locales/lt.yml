@@ -1,3 +1,4 @@
+---
 lt:
   activemodel:
     attributes:
@@ -32,6 +33,7 @@ lt:
           import: Importuoti
           new_translation: Naujas vertimas
           new_translation_set: Nauja vertimų kolekcija
+          title: Actions
           view: Peržiūrėti
         add_translations:
           index:
