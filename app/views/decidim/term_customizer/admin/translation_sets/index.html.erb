@@ -2,7 +2,7 @@
   <div class="item_show__header">
     <h2 class="item_show__header-title">
       <%= t "decidim.term_customizer.admin.titles.translation_sets" %>
-      <div id="js-other-actions-wrapper">
+      <div id="js-other-actions-wrapper" class="flex align-middle gap-x-4 ml-auto">
         <% if allowed_to? :create, :translation_set %>
           <%= link_to t("actions.new_translation_set", scope: "decidim.term_customizer.admin"), new_translation_set_path, class: "imports-example tiny button button__sm button__secondary button--simple mr-2" %>
         <% end %>

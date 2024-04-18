@@ -5,6 +5,7 @@ module Decidim
     module Admin
       class TranslationsController < TermCustomizer::Admin::ApplicationController
         helper_method :collection, :set, :translations, :translation
+        add_breadcrumb_item_from_menu :term_customizer_translation_sets_menu
 
         def index
           enforce_permission_to :read, :translation

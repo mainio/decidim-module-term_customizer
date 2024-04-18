@@ -37,12 +37,11 @@ describe Decidim::TermCustomizer::AdminEngine do
     let(:routes) { double }
     let(:path) { double }
     let(:organization) { double }
+    let(:is_active_link?) { double }
     let(:allowed_to_result) { double }
 
     it "adds the admin menu item" do
-      expect(Decidim).to receive(:menu) do |name, &block|
-        expect(name).to eq(:admin_menu)
-
+      expect(Decidim).to receive(:menu).twice do |name, &block|
         context = context_class.new(&block)
         allow(context).to receive_messages(decidim_admin_term_customizer: routes, current_organization: organization)
         allow(context).to receive(:allowed_to?).with(
@@ -50,18 +49,32 @@ describe Decidim::TermCustomizer::AdminEngine do
           :organization,
           organization:
         ).and_return(allowed_to_result)
-        allow(routes).to receive(:translation_sets_path).and_return(path)
-        expect(menu).to receive(:add_item).with(
-          :term_customizer,
-          "Term customizer",
-          path,
-          icon_name: "Decidim::TermCustomizer",
-          position: 7.1,
-          active: :inclusive,
-          if: allowed_to_result
-        )
 
-        context.call(menu)
+        if name == :admin_menu
+          allow(routes).to receive(:translation_sets_path).and_return(path)
+          expect(menu).to receive(:add_item).with(
+            :term_customizer,
+            "Term customizer",
+            path,
+            icon_name: "Decidim::TermCustomizer",
+            position: 7.1,
+            active: :inclusive,
+            if: allowed_to_result
+          )
+
+          context.call(menu)
+        elsif name == :term_customizer_translation_sets_menu
+          allow(context).to receive(:is_active_link?).with(path).and_return(true)
+          allow(routes).to receive(:translation_set_translations_path).and_return(path)
+          expect(menu).to receive(:add_item).with(
+            :term_customizer_translation_sets,
+            "Translation set",
+            path,
+            active: true
+          )
+
+          context.call(menu)
+        end
       end
 
       run_initializer("decidim_term_customizer.admin_menu")

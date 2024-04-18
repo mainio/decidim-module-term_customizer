@@ -79,7 +79,7 @@ en:
             success: Translation set successfully duplicated.
           edit:
             save: Save
-            title: Translation set
+            title: Edit translation set
           form:
             add_constraint: Add constraint
             constraint_help_html: <p>Constraints are specific rules that allow you
@@ -102,7 +102,7 @@ en:
               processes, you can create separate translation sets for both processes
               and apply the set to those processes using the constraints.</p>
             help_title: What is a translation set?
-            title: Translation set
+            title: New translation set
           index:
             no_records_html: <p>No translation sets available.</p> <p>Start by adding
               a translation set from the "<a href="%{new_set_link}">%{button_name}</a>"
@@ -121,7 +121,7 @@ en:
             success: Translation successfully deleted.
           edit:
             save: Save
-            title: Translation
+            title: Edit translation
           form:
             help_html: <p>A translation key is a technical reference to the translation
               to be translatated. This is not the term you want to change but the
@@ -147,7 +147,7 @@ en:
             selected: selected
           new:
             create: Create
-            title: Translations
+            title: New translation
           new_import:
             accepted_mime_types:
               csv: CSV
@@ -170,3 +170,4 @@ en:
             title: Translations delete
       menu:
         term_customizer: Term customizer
+        translation_set: Translation set
