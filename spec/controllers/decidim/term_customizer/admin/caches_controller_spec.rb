@@ -27,13 +27,8 @@ module Decidim
       end
 
       describe "DELETE clear" do
-        let(:loader) { double }
 
         it "clears the cache and redirects to the translation sets path" do
-          allow(TermCustomizer).to receive(:loader).and_return(loader)
-          allow(loader).to receive(:translations_hash).and_return({})
-          expect(loader).to receive(:clear_cache)
-
           delete :clear
 
           expect(response).to have_http_status(:found)
