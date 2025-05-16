@@ -37,15 +37,13 @@ group :development, :test do
   # must be a boolean instead of contextual. These version locks can be removed when this problem is handled
   # through decidim-dev.
   gem "rubocop", "~>1.28"
-  gem "rubocop-performance", "~> 1.6.0"
-  gem "rubocop-rspec", "2.20"
+  gem "rubocop-performance", "~> 1.21"
+  gem "rubocop-rspec", "~> 3.0"
 end
 
 group :development do
   gem "letter_opener_web", "~> 2.0"
   gem "listen", "~> 3.1"
   gem "rubocop-faker"
-  gem "spring", "~> 2.0"
-  gem "spring-watcher-listen", "~> 2.0"
   gem "web-console", "~> 4.2"
 end
