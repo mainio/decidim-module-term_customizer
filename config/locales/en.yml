@@ -125,7 +125,7 @@ en:
             save: Save
             title: Translation
             help_html: <p>A translation key is a technical reference to the translation
-              to be translatated. This is not the term you want to change but the
+              to be translated. This is not the term you want to change but the
               technical key that refers to that translation.</p> <p>For example, if
               you want to change the term <em>"Processes"</em> in the top menu, you
               would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html"
@@ -149,7 +149,7 @@ en:
             create: Create
             title: Translations
             help_html: <p>A translation key is a technical reference to the translation
-              to be translatated. This is not the term you want to change but the
+              to be translated. This is not the term you want to change but the
               technical key that refers to that translation.</p> <p>For example, if
               you want to change the term <em>"Processes"</em> in the top menu, you
               would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html"
