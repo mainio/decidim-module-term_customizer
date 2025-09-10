@@ -62,13 +62,13 @@ eu:
             constraint: Murrizketa
             remove: Kendu
           create:
-            error: Itzulpengintza multzoa sortzean errorea.
+            error: Akats bat izan da Itzulpengintza multzoa sortzean.
             success: Itzulpengintza multzoa behar bezala sortu da.
           destroy:
             success: Itzulpengintza multzoa behar bezala ezabatu da.
           duplicate:
             copied_set_name: '%{name} terminoaren kopia'
-            error: Itzulpengintza multzoa sortzean errorea.
+            error: Akats bat izan da itzulpengintza multzoa sortzean.
             success: Itzulpengintza multzoa behar bezala ezabatu da.
           edit:
             save: Gorde
@@ -81,59 +81,59 @@ eu:
             help_title: Zer da itzulpen multzo bat?
             title: Itzulpen multzoa
           index:
-            no_records_html: <p class="ml-2">No translation sets available.</p> <p class="ml-2 mb-4">Start by adding a translation set from the "<a href="%{new_set_link}" class="text-blue-600 underline hover:text-blue-800"> %{button_name} </a>" button.</p>
+            no_records_html: <p class="ml-2">Ez dago itzulpen-multzorik eskuragarri.</p> <p class="ml-2 mb-4">Hasi itzulpen-multzo bat gehitzen «<a href="%{new_set_link}" class="text-blue-600 underhover:text-blue-800"> %{button_name} </a>» botoitik.</p>
           new:
             create: Sortu
             title: Itzulpen multzoak
           update:
-            error: Itzulpengintza multzoa sortzean errorea.
+            error: Akats bat izan da itzulpengintza multzoa sortzean.
             success: Itzulpengintza multzoa behar bezala sortu da.
         translations:
           create:
-            error: Itzulpengintza multzoa sortzean errorea.
+            error: Akats bat izan da iItzulpengintza multzoa sortzean.
             success: Itzulpengintza multzoa behar bezala sortu da.
           destroy:
             success: Itzulpena behar bezala ezabatu da.
           edit:
-            help_title: What is translation key?
+            help_title: Zer da itzulpen gako bat?
             save: Gorde
             title: Itzulpena
-            help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
-            term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
-            term_help_title: What is customized term?
+            help_html: <p>Itzulpen-gako bat itzuli beharreko itzulpenaren erreferentzia tekniko bat da. Ez da terminoa aldatu nahi dena, itzulpen horri erreferentzia egiten dion gako teknikoa baizik. </p> <p>Adibidez, goiko menuan <em>«Prozesuak»</em> terminoa aldatu nahi bada, <em>«decidim.menu.processes»</em> gakoa erabiliko da. </p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Railen nazioartekotzeari buruzko informazio gehiago</p>.</p>
+            term_help_html: "<p>Termino pertsonalizatua da UIn agertu nahi duzun azken hitza, jatorrizko terminoaren ordez. Bistan denez, termino pertsonalizatua desberdina izan daiteke gaitutako hizkuntza bakoitzeko.</p>"
+            term_help_title: Zer da pertsonalizatutako terminoa?
           import:
             error: Itzulpengintza multzoa sortzean errorea
             success: Itzulpenaak behar bezala inportatu dira.
           index:
             actions: Ekintzak
-            no_records_html: <p class="ml-2">No translations available in this set.</p> <p class="ml-2 mb-4">Start by adding translations to this set. The easiest way is to use the "<a href="%{add_multiple_link}" class="text-blue-600 underline hover:text-blue-800"> %{button_name} </a>" button where you can search translations with the same terms that you see in the UI.</p>
+            no_records_html: <p class="ml-2">Multzo honetan ez dago itzulpenik eskuragarri.</p> <p class="ml-2 mb-4">Multzo honi itzulpenak gehituz hasten da. Modurik errazena da «<a href="%{add_multiple_link}" class="text-blue-600 underline hover:text-blue-800"> %{button_name} </a> botoia erabiltzea. Botoi horren bidez, erabiltzaile-interfazean ikusten dituzun termino berak dituzten itzulpenak bila ditzakezu</p>
             selected: hautatua
           new:
             create: Sortu
-            title: Translation
-            help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
-            help_title: What is translation key?
-            term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
-            term_help_title: What is customized term?
+            title: Itzulpena
+            help_html: <p>Itzulpen-gako bat itzuli beharreko itzulpenaren erreferentzia teknikoa da. <p>Ez da aldatu nahi duzun terminoa, itzulpen horri dagokion gako teknikoa baizik.</p> <p>Adibidez, <em>"Prozesuak"</em> terminoa goiko menuan aldatu nahi baduzu, <em>"decidim.menu.processes"</em> tekla erabiliko zenuke.</p> <p> <a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Nazioartekotzeko errailei buruz gehiago irakurri</p>.</p>
+            help_title: Zein da itzulpenaren gakoa?
+            term_help_html: "<p>Termino pertsonalizatua da UIn agertu nahi duzun azken hitza, jatorrizko terminoaren ordez. Bistan denez, termino pertsonalizatua desberdina izan daiteke gaitutako hizkuntza bakoitzeko.</p>"
+            term_help_title: Zer da pertsonalizatutako terminoa?
           new_import:
             accepted_mime_types:
               csv: CSV
               json: JSON
               xlsx: XLS
-            file_legend: 'Itzulpenak lortzeko inportazio fitxategi bat gehi daiteke. Onartutako formatuak:%{valid_mime_types}'
-            start_import: Hasi inportazioa
+            file_legend: 'Itzulpenak lortzeko inportazio fitxategi bat gehi daiteke. Hona hemen, onartutako formatuak:%{valid_mime_types}'
+            start_import: Inportazioa hasi
             title: Itzulpenak inportatu
             zip_hint: Itzulpengintzen esportaziotik ZIP fitxategia ere igo dezakezu.
           update:
-            error: Itzulpengintza multzoa sortzean errorea.
+            error: Akats bat izan da Itzulpengintza multzoa sortzean.
             success: Itzulpengintza multzoa behar bezala sortu da.
         translations_destroys:
           destroy:
-            error: Errorea itzulpenak ezabatzean.
+            error: Akats bat izan da itzulpenak ezabatzean.
             success: Itzulpenaak behar bezala ezabatu dira.
           new:
             destroy: Ezabatu
-            title: Delete translations
-            no_records_html: <p class="ml-2 mb-4">No translations available in this set.</p>
+            title: Itzulpenak ezabatu
+            no_records_html: <p class="ml-2 mb-4">Ez dago itzulpenik eskuragarri multzo honetan</p>
       menu:
         term_customizer: Terminoen pertsonalizatzailea
