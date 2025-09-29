@@ -1,36 +1,42 @@
-<%= decidim_form_for(@form, url: translation_set_translations_destroy_path(set), method: :delete, html: { class: "form translation-sets-form edit_translation translation_form_admin" }) do |f| %>
-  <div class="card">
-    <div class="card-divider">
-      <h2 class="card-title flex--sbc">
-        <div>
-          <%= link_to t("decidim.term_customizer.menu.term_customizer"), translation_sets_path %>
-          &gt;
-          <%= link_to translated_attribute(set.name), translation_set_translations_path(set) %>
-          &gt;
-          <%= t ".title" %>
-        </div>
-
-        <div class="flex--cc flex-gap--1">
-          <div id="js-other-actions-wrapper">
-            <%= link_to t("actions.back", scope: "decidim.term_customizer.admin"), translation_set_translations_path(set), class: "button hollow tiny button--simple" %>
+<% add_decidim_page_title(t(".title")) %>
+<div class="item_show__header">
+  <h1 class="item_show__header-title">
+    <div>
+      <%= link_to translated_attribute(set.name), translation_set_translations_path(set) %>
+      &gt;
+      <%= t ".title" %>
+    </div>
+  </h1>
+</div>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, url: translation_set_translations_destroy_path(set), method: :delete, html: { class: "form-defaults form translation-sets-form edit_translation translation_form_admin" }) do |f| %>
+      <div class="form__wrapper">
+        <div class="card pt-4">
+          <div class="card-section">
+            <% if @form.translations_current.count > 0 %>
+              <ul>
+                <% @form.translations_current.each do |translation| %>
+                  <li>
+                    <%= hidden_field_tag "translation_ids[]", translation.id %>
+                    <%= translation.key %>
+                  </li>
+                <% end %>
+              </ul>
+            <% else %>
+              <div>
+                <%= t ".no_records_html" %>
+              </div>
+            <% end %>
           </div>
         </div>
-      </h2>
-    </div>
 
-    <div class="card-section">
-      <ul>
-        <% @form.translations_current.each do |translation| %>
-          <li>
-            <%= hidden_field_tag "translation_ids[]", translation.id %>
-            <%= translation.key %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+        <div class="item__edit-sticky">
+          <div class="item__edit-sticky-container">
+            <%= f.submit t(".destroy"), class: "button button__sm button__secondary", disabled: (@form.translations_current.count < 1) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-
-  <div class="button--double form-general-submit">
-    <%= f.submit t(".destroy") %>
-  </div>
-<% end %>
+</div>

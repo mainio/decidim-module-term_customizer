@@ -1,15 +1,15 @@
+<% add_decidim_page_title(translated_attribute(set.name)) %>
+
 <div class="card" id="translations">
   <div class="item_show__header">
-    <h2 class="item_show__header-title">
+    <h1 class="item_show__header-title">
       <div>
-        <%= link_to t("decidim.term_customizer.menu.term_customizer"), translation_sets_path %>
-        &gt;
         <%= translated_attribute(set.name) %>
 
         <span id="js-selected-proposals-count" class="component-counter component-counter--inline" title="<%= t("decidim.term_customizer.admin.translations.index.selected") %>"></span>
       </div>
 
-      <div id="js-other-actions-wrapper">
+      <div id="flex items-center gap-x-4">
         <%= render partial: "decidim/term_customizer/admin/translations/bulk_actions/dropdown" %>
         <% if allowed_to? :create, :translation %>
           <%= link_to t("actions.add_multiple_translations", scope: "decidim.term_customizer.admin"), translation_set_add_translations_path(set), class: "button button__sm button__secondary" %>
@@ -25,10 +25,10 @@
 
       <%= render partial: "decidim/term_customizer/admin/translations/bulk_actions/destroy" %>
 
-    </h2>
+    </h1>
   </div>
 
-  <div class="table-scroll">
+  <div class="table-scroll mt-16">
     <% if @translations.count > 0 %>
       <table class="table-list">
         <thead>
@@ -72,11 +72,11 @@
       </table>
       <%= paginate @translations, theme: "decidim" %>
     <% else %>
+      <div class="mt-4">
+        <%= t ".no_records_html", add_multiple_link: translation_set_add_translations_path(set), button_name: t("decidim.term_customizer.admin.actions.add_multiple_translations") %>
+      </div>
+    <% end %>
   </div>
-  <div class="mt-4">
-    <%= t ".no_records_html", add_multiple_link: translation_set_add_translations_path(set), button_name: t("decidim.term_customizer.admin.actions.add_multiple_translations") %>
-  </div>
-  <% end %>
 </div>
 
 <%= append_javascript_pack_tag "decidim_term_customizer_admin_bulk" %>

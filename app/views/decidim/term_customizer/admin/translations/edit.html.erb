@@ -1,5 +1,29 @@
+<% add_decidim_page_title(t(".title")) %>
+
+<div class="item_show__header">
+  <h1 class="item_show__header-title">
+    <div>
+      <%= link_to translated_attribute(set.name), translation_set_translations_path(set) %>
+      &gt;
+      <%= t ".title" %>
+
+      <a data-toggle="help-panel" class="label h-6 button button__sm button__secondary">
+        <%= icon "information-line" %>
+        <%= t("actions.help", scope: "decidim.term_customizer.admin") %>
+      </a>
+    </div>
+  </h1>
+</div>
+
+<div id="help-panel" class="callout help-text hide" data-toggler=".hide">
+  <p><strong><%= t ".help_title" %></strong></p>
+  <%= t ".help_html" %>
+  <p><strong><%= t ".term_help_title" %></strong></p>
+  <%= t ".term_help_html" %>
+</div>
+
 <div class="item__edit-form">
-  <%= decidim_form_for(@form, url: translation_set_translation_path(set, translation), html: { class: "form translation-sets-form edit_translation translation_form_admin" }) do |f| %>
+  <%= decidim_form_for(@form, url: translation_set_translation_path(set, translation), html: { class: "form-defaults form translation-sets-form edit_translation translation_form_admin" }) do |f| %>
     <%= render partial: "form", object: f, locals: { title: t(".title") } %>
 
     <div class="item__edit-sticky">

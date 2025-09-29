@@ -1,8 +1,10 @@
+<% add_decidim_page_title(t("decidim.term_customizer.admin.titles.translation_sets")) %>
+
 <div class="card" id="translation_sets">
   <div class="item_show__header">
-    <h2 class="item_show__header-title">
+    <h1 class="item_show__header-title">
       <%= t "decidim.term_customizer.admin.titles.translation_sets" %>
-      <div id="js-other-actions-wrapper">
+      <div id="js-other-actions-wrapper" class="flex items-center gap-x-4">
         <% if allowed_to? :create, :translation_set %>
           <%= link_to t("actions.new_translation_set", scope: "decidim.term_customizer.admin"), new_translation_set_path, class: "imports-example tiny button button__sm button__secondary button--simple mr-2" %>
         <% end %>
@@ -10,10 +12,10 @@
           <%= link_to t("actions.clear_cache", scope: "decidim.term_customizer.admin"), clear_caches_path, method: :delete, class: "imports-example tiny button button__sm button__secondary button--simple mr-2", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
         <% end %>
       </div>
-    </h2>
+    </h1>
   </div>
 
-  <div class="table-scroll">
+  <div class="table-scroll mt-16">
     <% if @sets.count > 0 %>
       <table class="table-list">
         <thead>
@@ -55,7 +57,7 @@
         </table>
       </div>
     <% else %>
-      <div class="mt-4">
+      <div class="flex flex-col items-center mt-4">
         <%= t ".no_records_html", new_set_link: new_translation_set_path, button_name: t("decidim.term_customizer.admin.actions.new_translation_set") %>
       </div>
     <% end %>

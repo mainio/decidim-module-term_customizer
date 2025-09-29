@@ -1,45 +1,41 @@
+<% add_decidim_page_title(t("decidim.term_customizer.admin.titles.add_multiple_translations")) %>
+
 <div class="item_show__wrapper">
   <div class="card" id="add-translations-search">
     <div class="item_show__header">
-      <h2 class="item_show__header-title">
+      <h1 class="item_show__header-title">
         <div>
-          <%= link_to t("decidim.term_customizer.menu.term_customizer"), translation_sets_path %>
-          &gt;
           <%= link_to translated_attribute(set.name), translation_set_translations_path(set) %>
           &gt;
           <%= t "decidim.term_customizer.admin.titles.add_multiple_translations" %>
 
-          <a data-toggle="help-panel" class="label secondary">
+          <a data-toggle="help-panel" class="label h-6 button button__sm button__secondary">
             <%= icon "information-line" %>
             <%= t("actions.help", scope: "decidim.term_customizer.admin") %>
           </a>
         </div>
-
-        <div id="js-other-actions-wrapper">
-          <%= link_to t("actions.back", scope: "decidim.term_customizer.admin"), translation_set_translations_path(set), class: "button button__sm button__secondary hollow tiny button--simple" %>
-        </div>
-      </h2>
+      </h1>
     </div>
 
-      <div id="help-panel" class="callout help-text hide" data-toggler=".hide">
-        <p><strong><%= t ".help_title" %></strong></p>
-        <%= t ".help_html", button_name: t(".add") %>
-      </div>
+    <div id="help-panel" class="callout help-text hide" data-toggler=".hide">
+      <p><strong><%= t ".help_title" %></strong></p>
+      <%= t ".help_html", button_name: t(".add") %>
+    </div>
 
-      <div class="filters">
-        <div class="column medium-4">
-          <%= form_tag search_translation_set_add_translations_path, autocomplete: "off", method: :get do %>
-            <div class="filter-search">
-              <%= search_field_tag :term, nil, label: false, id: "tc-autocomplete", class: "autocomplete-input input-group-field", placeholder: t(".search"), data: {
-                autocomplete: {
-                  searchURL: search_translation_set_add_translations_url,
-                  searchPromptText: t("autocomplete.search_prompt", scope: "decidim.admin")
-                }
-              } %>
-            </div>
-          <% end %>
-        </div>
+    <div class="filters">
+      <div class="column medium-4">
+        <%= form_tag search_translation_set_add_translations_path, autocomplete: "off", method: :get do %>
+          <div class="filter-search">
+            <%= search_field_tag :term, nil, label: false, id: "tc-autocomplete", class: "autocomplete-input input-group-field", placeholder: t(".search"), data: {
+              autocomplete: {
+                searchURL: search_translation_set_add_translations_url,
+                searchPromptText: t("autocomplete.search_prompt", scope: "decidim.admin")
+              }
+            } %>
+          </div>
+        <% end %>
       </div>
+    </div>
   </div>
 
   <div class="form__wrapper mt-[230px]">
@@ -74,10 +70,10 @@
         </div>
 
         <div class="item__edit-sticky">
-      <div class="item__edit-sticky-container">
-        <%= f.submit t(".add") %>
-      </div>
-    </div>
+          <div class="item__edit-sticky-container">
+            <%= f.submit t(".add"), class: "button button__sm button__secondary" %>
+          </div>
+        </div>
       </div>
     <% end %>
   </div>

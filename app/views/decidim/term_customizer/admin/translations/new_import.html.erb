@@ -3,15 +3,9 @@
     <div class="item_show__header">
       <h2 class="item_show__header-title">
         <div>
-          <%= link_to t("decidim.term_customizer.menu.term_customizer"), translation_sets_path %>
-          &gt;
           <%= link_to translated_attribute(set.name), translation_set_translations_path(set) %>
           &gt;
           <%= t "translations.new_import.title", scope: "decidim.term_customizer.admin" %>
-        </div>
-
-        <div id="js-other-actions-wrapper">
-          <%= link_to t("actions.back", scope: "decidim.term_customizer.admin"), translation_set_translations_path(set), class: "button hollow tiny button--simple" %>
         </div>
       </h2>
     </div>
@@ -35,7 +29,7 @@
       </div>
       <div class="item__edit-sticky">
         <div class="item__edit-sticky-container">
-          <%= form.submit t(".start_import") %>
+          <%= form.submit t(".start_import"), class: "button button__sm button__secondary" %>
         </div>
       </div>
     </div>

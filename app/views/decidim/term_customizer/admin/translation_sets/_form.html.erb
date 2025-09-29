@@ -20,15 +20,16 @@
       <% end %>
     </template>
 
-    <div class="multifield-fields-list constraints-list">
+    <div class="multifield-fields-list constraints-list space-y-2">
       <% @form.constraints.each do |constraint| %>
         <%= fields_for "constraints[]", constraint do |constraint_form| %>
           <%= render "constraint_fields", form: constraint_form, index: constraint.id || blank_constraint.to_param, id: tabs_id_for_constraint(constraint) %>
         <% end %>
       <% end %>
     </div>
-    <div class="row column">
-      <button class="button button__sm button__secondary small hollow add-external-domain"><%= t(".add_constraint") %></button>
+
+    <div class="mt-4">
+      <button class="button button__sm button__secondary add-field add-constraint"><%= t(".add_constraint") %></button>
     </div>
   </div>
 </div>
