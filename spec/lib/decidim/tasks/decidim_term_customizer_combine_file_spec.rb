@@ -16,7 +16,7 @@ describe "rake decidim:term_customizer:combine_file", type: :task do
 
         it "gives error for missing locale" do
           task.reenable
-          expect { task.invoke("no","file:testfiles/blank.xlsx") }.to raise_error(SystemExit).and output("No files found for locale 'no' \n").to_stderr
+          expect { task.invoke("no", "file:testfiles/blank.xlsx") }.to raise_error(SystemExit).and output("No files found for locale 'no' \n").to_stderr
         end
       end
 
@@ -37,7 +37,7 @@ describe "rake decidim:term_customizer:combine_file", type: :task do
       context "when given locale and prefix without file" do
         it "gives error" do
           task.reenable
-          expect { task.invoke("te","prefix:test") }.to raise_error(SystemExit).and output("Missing argument 'file:*'\n").to_stderr
+          expect { task.invoke("te", "prefix:test") }.to raise_error(SystemExit).and output("Missing argument 'file:*'\n").to_stderr
         end
       end
 
@@ -68,13 +68,13 @@ describe "rake decidim:term_customizer:combine_file", type: :task do
 
       it "passes" do
         task.reenable
-        expect { task.invoke("te","file:#{file_path}") }.to output("Combined 1 file(s) into 'config/locales/te.yml'\nTranslations combined successfully!\n").to_stdout
+        expect { task.invoke("te", "file:#{file_path}") }.to output("Combined 1 file(s) into 'config/locales/te.yml'\nTranslations combined successfully!\n").to_stdout
         check_no_errors_have_been_printed
       end
 
       it "writes file correctly" do
         task.reenable
-        expect { task.invoke("te","file:#{file_path}") }.to output("Combined 1 file(s) into 'config/locales/te.yml'\nTranslations combined successfully!\n").to_stdout
+        expect { task.invoke("te", "file:#{file_path}") }.to output("Combined 1 file(s) into 'config/locales/te.yml'\nTranslations combined successfully!\n").to_stdout
         expect(File).to have_received(:write) do |output_file, yaml_content|
           expect(output_file).to eq("config/locales/te.yml")
 
@@ -107,7 +107,7 @@ describe "rake decidim:term_customizer:combine_file", type: :task do
 
         it "writes file correctly" do
           task.reenable
-          expect { task.invoke("te","file:#{file_path}") }.to output("Combined 1 file(s) into 'config/locales/te.yml'\nTranslations combined successfully!\n").to_stdout
+          expect { task.invoke("te", "file:#{file_path}") }.to output("Combined 1 file(s) into 'config/locales/te.yml'\nTranslations combined successfully!\n").to_stdout
           expect(File).to have_received(:write) do |output_file, yaml_content|
             expect(output_file).to eq("config/locales/te.yml")
 
@@ -141,7 +141,7 @@ describe "rake decidim:term_customizer:combine_file", type: :task do
 
         it "writes file correctly" do
           task.reenable
-          expect { task.invoke("te","file:#{file_path}") }.to output("Combined 1 file(s) into 'config/locales/te.yml'\nTranslations combined successfully!\n").to_stdout
+          expect { task.invoke("te", "file:#{file_path}") }.to output("Combined 1 file(s) into 'config/locales/te.yml'\nTranslations combined successfully!\n").to_stdout
           expect(File).to have_received(:write) do |output_file, yaml_content|
             expect(output_file).to eq("config/locales/te.yml")
 
