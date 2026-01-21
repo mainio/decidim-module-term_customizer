@@ -63,7 +63,7 @@ namespace :decidim do
       extra.each do |argument|
         parsed = parse_arguments(argument)
 
-        prefix = add_arguments(parsed, prefix: prefix, files: files)
+        prefix = add_arguments(parsed, prefix:, files:)
       end
 
       abort "Missing argument 'file:*'" if files.empty?
@@ -109,7 +109,7 @@ namespace :decidim do
 end
 
 def term_customizer_data(locale)
-  translations = Decidim::TermCustomizer::Translation.where(locale: locale)
+  translations = Decidim::TermCustomizer::Translation.where(locale:)
 
   abort "No term customizer translations found for locale '#{locale}'" if translations.empty?
 
