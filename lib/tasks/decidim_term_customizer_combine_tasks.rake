@@ -171,7 +171,7 @@ def term_customizer_file_data(locale, file)
   data
 end
 
-def create_reader
+def create_reader(file)
   file_type = File.extname(file).downcase
 
   file_class = case file_type
@@ -179,7 +179,7 @@ def create_reader
                when ".xlsx" then Decidim::Admin::Import::Readers::XLSX
                when ".json" then Decidim::Admin::Import::Readers::JSON
                else
-                 abort "Unsupported file type: #{file_type}"
+                 abort "Unsupported file type: '#{file_type}'"
                end
 
   file_class.new(file)
