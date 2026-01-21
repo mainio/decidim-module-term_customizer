@@ -163,6 +163,25 @@ describe "rake decidim:term_customizer:combine_file", type: :task do
           end
         end
       end
+
+      context "when term customizer file type is incorrect" do
+        let(:file_path) { Decidim::TermCustomizer::Engine.root.join("lib/decidim/term_customizer/test/assets/term_translations.json") }
+        let!(:file) do
+          Rack::Test::UploadedFile.new(
+            file_path,
+            Decidim::Admin::Import::Readers::JSON::MIME_TYPE
+          )
+        end
+
+        before do
+          allow(File).to receive(:extname).and_return(".wrong")
+        end
+
+        it "writes file correctly" do
+          task.reenable
+          expect { task.invoke("te", "file:#{file_path}") }.to raise_error(SystemExit).and output("Unsupported file type: '.wrong'\n").to_stderr
+        end
+      end
     end
   end
 
@@ -248,25 +267,6 @@ describe "rake decidim:term_customizer:combine_file", type: :task do
             }
           )
         end
-      end
-    end
-
-    context "when term customizer file type is incorrect" do
-      let(:file_path) { Decidim::TermCustomizer::Engine.root.join("lib/decidim/term_customizer/test/assets/term_translations.json") }
-      let!(:file) do
-        Rack::Test::UploadedFile.new(
-          file_path,
-          Decidim::Admin::Import::Readers::JSON::MIME_TYPE
-        )
-      end
-
-      before do
-        allow(File).to receive(:extname).and_return(".wrong")
-      end
-
-      it "writes file correctly" do
-        task.reenable
-        expect { task.invoke("te", "file:#{file_path}") }.to raise_error(SystemExit).and output("Unsupported file type: '.wrong'\n").to_stderr
       end
     end
   end
