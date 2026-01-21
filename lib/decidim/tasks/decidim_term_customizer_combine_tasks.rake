@@ -133,17 +133,7 @@ def term_customizer_data(locale)
 end
 
 def term_customizer_file_data(locale, file)
-  file_type = File.extname(file).downcase
-
-  file_class = case file_type
-               when ".csv" then Decidim::Admin::Import::Readers::CSV
-               when ".xlsx" then Decidim::Admin::Import::Readers::XLSX
-               when ".json" then Decidim::Admin::Import::Readers::JSON
-               else
-                 abort "Unsupported file type: #{file_type}"
-               end
-
-  reader = file_class.new(file)
+  reader = create_reader(file)
 
   headers = nil
   data = {}
@@ -179,6 +169,20 @@ def term_customizer_file_data(locale, file)
   end
 
   data
+end
+
+def create_reader
+  file_type = File.extname(file).downcase
+
+  file_class = case file_type
+               when ".csv" then Decidim::Admin::Import::Readers::CSV
+               when ".xlsx" then Decidim::Admin::Import::Readers::XLSX
+               when ".json" then Decidim::Admin::Import::Readers::JSON
+               else
+                 abort "Unsupported file type: #{file_type}"
+               end
+
+  file_class.new(file)
 end
 
 def parse_arguments(argument)
