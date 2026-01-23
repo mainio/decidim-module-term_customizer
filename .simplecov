@@ -28,7 +28,7 @@ if ENV["SIMPLECOV"]
   if ENV["CI"]
     require "simplecov-cobertura"
     SimpleCov.formatter =
-    # Add a guard clause to prevent simplecov crash from generating invalid XML in CI pipeline
+      # Add a guard clause to prevent simplecov crash from generating invalid XML in CI pipeline
       if SimpleCov.result.files.empty?
         SimpleCov::Formatter::HTMLFormatter
       else
