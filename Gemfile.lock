@@ -816,6 +816,8 @@ DEPENDENCIES
   dalli (~> 2.7, >= 2.7.10)
   decidim (~> 0.29.0)
   decidim-dev (~> 0.29.0)
+  decidim-participatory_processes (~> 0.29.0)
+  decidim-proposals (~> 0.29.0)
   decidim-term_customizer!
   faker (= 3.2)
   letter_opener_web (~> 2.0)

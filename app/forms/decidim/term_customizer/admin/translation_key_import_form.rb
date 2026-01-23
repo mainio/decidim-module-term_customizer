@@ -8,7 +8,7 @@ module Decidim
 
         delegate :translation_set, to: :context, prefix: false, allow_nil: true
 
-        attribute :keys, Array[String]
+        attribute :keys, [String]
       end
     end
   end

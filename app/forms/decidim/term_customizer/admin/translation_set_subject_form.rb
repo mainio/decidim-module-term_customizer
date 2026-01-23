@@ -6,7 +6,7 @@ module Decidim
       class TranslationSetSubjectForm < Decidim::Form
         attribute :subject_manifest, String
         attribute :subject_id, Integer
-        attribute :component_model, Array[TermCustomizer::Admin::TranslationSetSubjectComponentForm]
+        attribute :component_model, [TermCustomizer::Admin::TranslationSetSubjectComponentForm]
 
         def map_model(model)
           component = model if model.is_a?(Decidim::Component)

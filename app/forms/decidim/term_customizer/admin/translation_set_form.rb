@@ -9,7 +9,7 @@ module Decidim
         mimic :translation_set
 
         translatable_attribute :name, String
-        attribute :constraints, Array[TermCustomizer::Admin::TranslationSetConstraintForm]
+        attribute :constraints, [TermCustomizer::Admin::TranslationSetConstraintForm]
 
         validates :name, translatable_presence: true
       end
