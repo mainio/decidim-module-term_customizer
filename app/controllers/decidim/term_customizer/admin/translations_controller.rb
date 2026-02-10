@@ -86,7 +86,7 @@ module Decidim
           enforce_permission_to :export, :translation_set, translation_set: set
           name = "set-translations"
 
-          ExportJob.perform_later(current_user, set, name, params[:format] || "json")
+          ExportJob.perform_later(current_user, set, params[:format] || "json")
 
           flash[:notice] = I18n.t("exports.notice", scope: "decidim.admin")
 
