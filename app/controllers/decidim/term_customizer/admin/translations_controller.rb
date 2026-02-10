@@ -84,7 +84,6 @@ module Decidim
 
         def export
           enforce_permission_to :export, :translation_set, translation_set: set
-          name = "set-translations"
 
           ExportJob.perform_later(current_user, set, params[:format] || "json")
 
