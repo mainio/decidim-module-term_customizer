@@ -1,0 +1,139 @@
+---
+eu:
+  activemodel:
+    attributes:
+      constraint:
+        component_id: Osagaia
+        subject_id: Partaidetza-espazioa
+        subject_manifest: Partaidetza-espazio mota
+      translation:
+        key: Itzulpen gakoa
+        value: Termino pertsonalizatua
+      translation_set:
+        name: Izena
+      translations_import:
+        file: Inportatu fitxategia
+    errors:
+      models:
+        translations_import:
+          attributes:
+            file:
+              invalid_mime_type: 'Fitxategi mota baliogabea. Onartutako formatuak hauek dira: %{valid_mime_types}'
+  decidim:
+    term_customizer:
+      admin:
+        actions:
+          add_multiple_translations: Itzulpen anitz gehitu
+          back: Itzuli
+          cancel: Ezeztatu
+          clear_cache: Katxea garbitu
+          confirm_duplicate: Ziur zaude multzo hau bikoiztu nahi duzula?
+          duplicate: Bikoiztu
+          help: Laguntza
+          import: Inportatu
+          new_translation: Intzulpen berria
+          new_translation_set: Itzulpen multzo berria
+          title: Ekintzak
+          view: Ikusi
+        add_translations:
+          index:
+            add: Gehitu
+            help_html: <p>Hasteko, idatzi hizki pare bat bilaketa-panelean aldatu nahi duzun terminoan. Itxaron segundo batzuk eta zure bilaketarekin bat datozen itzulpen guztien zerrenda bat agertuko da bilaketa-eremuaren azpian. Egin klik aldatu nahi duzun zerrenda horretako itzulpenetan.</p> <p>Gehitu nahi duzun itzulpenen zerrendako bilaketa-eremuaren azpian agertuko dira. Aldatu nahi dituzun itzulpen guztiak gehitu ondoren, sakatu pantailaren beheko aldean dagoen " %{button_name}" botoian.</p>
+            help_title: Nola bilatu itzulpenak?
+            search: Bilatu
+        caches:
+          clear:
+            success: Katxea behar bezala garbitu da
+        models:
+          translation_sets:
+            fields:
+              name: Izena
+          translations:
+            fields:
+              key: Itzulpen gakoa
+              original_term: Jatorrizko terminoa
+              term: Termino pertsonalizatua
+        titles:
+          add_multiple_translations: Itzulpen batzuk gehitu
+          translation_sets: Itzulpen multzoak
+          translations: Itzulpenak
+        translation_sets:
+          constraint_fields:
+            constraint: Murrizketa
+            remove: Kendu
+          create:
+            error: Akats bat izan da Itzulpengintza multzoa sortzean.
+            success: Itzulpengintza multzoa behar bezala sortu da.
+          destroy:
+            success: Itzulpengintza multzoa behar bezala ezabatu da.
+          duplicate:
+            copied_set_name: '%{name} terminoaren kopia'
+            error: Akats bat izan da itzulpengintza multzoa sortzean.
+            success: Itzulpengintza multzoa behar bezala ezabatu da.
+          edit:
+            save: Gorde
+            title: Itzulpen multzoa
+          form:
+            add_constraint: Murrizketa gehitu
+            constraint_help_html: <p>Mugak arau espezifikoak dira, eta aukera ematen dute pertsonalizazioak testuinguru jakin batean aplikatzeko.</p> <p>Ez bada mugapen-araurik zehazten, aplikazio osoan aplikatuko dira multzo horretako pertsonalizazioak. Bestalde, multzo horretako pertsonalizazioak prozesu jakin batean bakarrik aplikatzea nahi bada, aukeratu "Partaidetza-prozesuak", partaidetza-espazio gisa, eta helburu-prozesu gisa, partaidetza-espazio gisa.</p><p>Gainera, pertsonalizazioak ere aplika daitezke osagai zehatz batean, mugapen-osagaia definituz. Muga anitzak definituz gero, horiek guztiak aplikatuko dira.</p>
+            constraint_help_title: Zer dira murrizketak?
+            help_html: <p>Itzulpen-multzo bat "edukitzailea" da, eta itzulpenak pertsonalizatu nahi diren testuinguru jakin baterako gordetzen ditu.</p> <p>Itzulpen-multzoek zure pertsonalizazioak antolatzen eta testuinguru desberdinetan aplikatzen laguntzen dizute. Horrek aukera ematen dizu itzulpen bera testuinguru desberdinetan pertsonalizatzeko.</p><p>Adibidez, "Gehitu" terminoa duen botoi bat pertsonalizatu nahi baduzu, prozesu parte-hartzaile desberdinetarako, itzulpen-multzo bereiziak sor ditzakezu bi prozesuetarako, eta prozesu horietarako multzoa aplikatu, mugak erabiliz.</p>
+            help_title: Zer da itzulpen multzo bat?
+            title: Itzulpen multzoa
+          index:
+            no_records_html: <p class="ml-2">Ez dago itzulpen-multzorik eskuragarri.</p> <p class="ml-2 mb-4">Hasi itzulpen-multzo bat gehitzen «<a href="%{new_set_link}" class="text-blue-600 underhover:text-blue-800"> %{button_name} </a>» botoitik.</p>
+          new:
+            create: Sortu
+            title: Itzulpen multzoak
+          update:
+            error: Akats bat izan da itzulpengintza multzoa sortzean.
+            success: Itzulpengintza multzoa behar bezala sortu da.
+        translations:
+          create:
+            error: Akats bat izan da iItzulpengintza multzoa sortzean.
+            success: Itzulpengintza multzoa behar bezala sortu da.
+          destroy:
+            success: Itzulpena behar bezala ezabatu da.
+          edit:
+            help_title: Zer da itzulpen gako bat?
+            save: Gorde
+            title: Itzulpena
+            help_html: <p>Itzulpen-gako bat itzuli beharreko itzulpenaren erreferentzia tekniko bat da. Ez da terminoa aldatu nahi dena, itzulpen horri erreferentzia egiten dion gako teknikoa baizik. </p> <p>Adibidez, goiko menuan <em>«Prozesuak»</em> terminoa aldatu nahi bada, <em>«decidim.menu.processes»</em> gakoa erabiliko da. </p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Railen nazioartekotzeari buruzko informazio gehiago</p>.</p>
+            term_help_html: "<p>Termino pertsonalizatua da UIn agertu nahi duzun azken hitza, jatorrizko terminoaren ordez. Bistan denez, termino pertsonalizatua desberdina izan daiteke gaitutako hizkuntza bakoitzeko.</p>"
+            term_help_title: Zer da pertsonalizatutako terminoa?
+          import:
+            error: Itzulpengintza multzoa sortzean errorea
+            success: Itzulpenaak behar bezala inportatu dira.
+          index:
+            actions: Ekintzak
+            no_records_html: <p class="ml-2">Multzo honetan ez dago itzulpenik eskuragarri.</p> <p class="ml-2 mb-4">Multzo honi itzulpenak gehituz hasten da. Modurik errazena da «<a href="%{add_multiple_link}" class="text-blue-600 underline hover:text-blue-800"> %{button_name} </a> botoia erabiltzea. Botoi horren bidez, erabiltzaile-interfazean ikusten dituzun termino berak dituzten itzulpenak bila ditzakezu</p>
+            selected: hautatua
+          new:
+            create: Sortu
+            title: Itzulpena
+            help_html: <p>Itzulpen-gako bat itzuli beharreko itzulpenaren erreferentzia teknikoa da. <p>Ez da aldatu nahi duzun terminoa, itzulpen horri dagokion gako teknikoa baizik.</p> <p>Adibidez, <em>"Prozesuak"</em> terminoa goiko menuan aldatu nahi baduzu, <em>"decidim.menu.processes"</em> tekla erabiliko zenuke.</p> <p> <a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Nazioartekotzeko errailei buruz gehiago irakurri</p>.</p>
+            help_title: Zein da itzulpenaren gakoa?
+            term_help_html: "<p>Termino pertsonalizatua da UIn agertu nahi duzun azken hitza, jatorrizko terminoaren ordez. Bistan denez, termino pertsonalizatua desberdina izan daiteke gaitutako hizkuntza bakoitzeko.</p>"
+            term_help_title: Zer da pertsonalizatutako terminoa?
+          new_import:
+            accepted_mime_types:
+              csv: CSV
+              json: JSON
+              xlsx: XLS
+            file_legend: 'Itzulpenak lortzeko inportazio fitxategi bat gehi daiteke. Hona hemen, onartutako formatuak:%{valid_mime_types}'
+            start_import: Inportazioa hasi
+            title: Itzulpenak inportatu
+            zip_hint: Itzulpengintzen esportaziotik ZIP fitxategia ere igo dezakezu.
+          update:
+            error: Akats bat izan da Itzulpengintza multzoa sortzean.
+            success: Itzulpengintza multzoa behar bezala sortu da.
+        translations_destroys:
+          destroy:
+            error: Akats bat izan da itzulpenak ezabatzean.
+            success: Itzulpenaak behar bezala ezabatu dira.
+          new:
+            destroy: Ezabatu
+            title: Itzulpenak ezabatu
+            no_records_html: <p class="ml-2 mb-4">Ez dago itzulpenik eskuragarri multzo honetan</p>
+      menu:
+        term_customizer: Terminoen pertsonalizatzailea

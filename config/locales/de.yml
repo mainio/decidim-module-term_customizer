@@ -34,7 +34,7 @@ de:
           new_translation: Neue Übersetzung
           new_translation_set: Neues Übersetzungsset
           title: Aktionen
-          view: Ansicht
+          view: Anzeigen
         add_translations:
           index:
             add: Hinzufügen
@@ -81,7 +81,7 @@ de:
             help_title: Was ist ein Übersetzungsset?
             title: Übersetzungsset
           index:
-            no_records_html: <p>Keine Übersetzungssets verfügbar.</p> <p>Beginnen Sie, indem Sie ein Übersetzungsset mit einem Klick auf "<a href="%{new_set_link}">%{button_name}</a>" hinzufügen.</p>
+            no_records_html: <p class="ml-2">Keine Übersetzungssets verfügbar.</p> <p class="ml-2 mb-4">Beginnen Sie, indem Sie ein Übersetzungsset mit einem Klick auf "<a href="%{new_set_link}">%{button_name}</a>" hinzufügen.</p>
           new:
             create: Erstellen
             title: Übersetzungssets
@@ -95,24 +95,26 @@ de:
           destroy:
             success: Übersetzung erfolgreich gelöscht.
           edit:
+            help_title: Was ist Übersetzungsschlüssel?
             save: Speichern
             title: Übersetzung
-          form:
-            help_html: <p>Ein Übersetzungsschlüssel ist eine technische Referenz für die zu übersetzende Übersetzung. Dies ist nicht der Begriff, den Sie ändern wollen, sondern der technische Schlüssel, auf den sich diese Übersetzung bezieht.</p> <p>Zum Beispiel, wenn Sie den Begriff <em>"Prozesse"</em> im oberen Menü ändern möchten, verwenden Sie den Schlüssel <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Hier finden Sie mehr Informationen Internationalisierung bei Rails</a>.</p>
-            help_title: Was ist Übersetzungsschlüssel?
+            help_html: <p>Ein Übersetzungsschlüssel ist ein technischer Verweis auf die zu anzupassende Übersetzung. Es ist nicht der Begriff selbst, den Sie ändern wollen, sondern der technische Schlüssel, der sich auf diese Übersetzung bezieht.</p> <p>Zum Beispiel, wenn Sie den Begriff <em>"Prozess"</em> im oberen Menü ändern möchten, verwenden Sie dazu den Schlüssel <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Hier finden Sie weitere Informationen über die Internationalisierung bei Rails</a>.</p>
             term_help_html: "<p>Der angepasste Begriff ist das Wort, das Sie auf der Benutzeroberfläche, anstelle des ursprünglichen Begriffs, anzeigen lassen möchten. Selbstverständlich kann der angepasste Begriff für jede aktivierte Sprache unterschiedlich sein.</p>"
             term_help_title: Was ist ein angepasster Begriff?
-            title: Übersetzung
           import:
             error: Fehler beim Importieren der Übersetzungen
             success: Übersetzungen erfolgreich importiert.
           index:
             actions: Aktionen
-            no_records_html: <p>In diesem Set sind keine Übersetzungen verfügbar.</p> <p>Fügen Sie Übersetzungen zu diesem Set hinzu. Der einfachste Weg ist, auf "<a href="%{add_multiple_link}">%{button_name}</a>" zu klicken, wo Sie Übersetzungen mit den gleichen Begriffen durchsuchen können, welche Sie gleich in der Benutzeroberfläche sehen können.</p>
+            no_records_html: <p class="ml-2">In diesem Set sind keine Übersetzungen verfügbar.</p> <p class="ml-2 mb-4">Fügen Sie Übersetzungen zu diesem Set hinzu. Der einfachste Weg ist, auf "<a href="%{add_multiple_link}">%{button_name}</a>" zu klicken, wo Sie Übersetzungen mit den gleichen Begriffen durchsuchen können, welche Sie gleich in der Benutzeroberfläche sehen können.</p>
             selected: ausgewählt
           new:
             create: Erstellen
-            title: Übersetzungen
+            title: Übersetzung
+            help_html: <p>Ein Übersetzungsschlüssel ist ein technischer Verweis auf die zu anzupassende Übersetzung. Es ist nicht der Begriff selbst, den Sie ändern wollen, sondern der technische Schlüssel, der sich auf diese Übersetzung bezieht.</p> <p>Zum Beispiel, wenn Sie den Begriff <em>"Prozess"</em> im oberen Menü ändern möchten, verwenden Sie dazu den Schlüssel <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Hier finden Sie weitere Informationen über die Internationalisierung bei Rails</a>.</p>
+            help_title: Was ist Übersetzungsschlüssel?
+            term_help_html: "<p>Der angepasste Begriff ist das Wort, das Sie auf der Benutzeroberfläche, anstelle des ursprünglichen Begriffs, anzeigen lassen möchten. Selbstverständlich kann der angepasste Begriff für jede aktivierte Sprache unterschiedlich sein.</p>"
+            term_help_title: Was ist ein angepasster Begriff?
           new_import:
             accepted_mime_types:
               csv: CSV
@@ -132,5 +134,6 @@ de:
           new:
             destroy: Löschen
             title: Übersetzungen löschen
+            no_records_html: <p class="ml-2 mb-4">Keine Übersetzungen in diesem Set vorhanden.</p>
       menu:
         term_customizer: Begriffsanpasser
