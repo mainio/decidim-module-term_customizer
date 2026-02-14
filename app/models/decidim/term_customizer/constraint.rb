@@ -23,7 +23,7 @@ module Decidim
       def manifest
         space_class = space ? space.class.name : subject_type
 
-        Decidim.participatory_space_manifests.find do |manifest|
+        Decidim::TermCustomizer.manifests.find do |manifest|
           manifest.model_class_name == space_class
         end
       end

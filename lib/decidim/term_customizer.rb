@@ -39,5 +39,9 @@ module Decidim
     class << self
       attr_accessor :loader
     end
+
+    def self.manifests
+      Decidim.participatory_space_manifests + [Decidim.find_resource_manifest(:participatory_process_group)]
+    end
   end
 end
