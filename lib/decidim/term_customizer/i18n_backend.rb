@@ -19,6 +19,10 @@ module Decidim
           []
         end
 
+        def loader=(loader)
+          @loader = loader
+        end
+
         def initialized?
           !@translations.nil?
         end
@@ -31,9 +35,9 @@ module Decidim
 
         def translations
           return @translations if @translations
-          return {} unless TermCustomizer.loader
+          return {} unless @loader
 
-          @translations = TermCustomizer.loader.translations_hash
+          @translations = @loader.translations_hash
         end
 
         protected
