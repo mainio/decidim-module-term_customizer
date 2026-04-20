@@ -95,8 +95,12 @@ ca:
           destroy:
             success: La traducció ha estat esborrada amb èxit
           edit:
+            help_title: Què és una clau de traducció?
             save: Guardar
             title: Traducció
+            help_html: <p>Una clau de traducció és una referència tècnica de la paraula i/o frase que s'ha de traduir. Aquest no és el terme que voleu canviar, sinó la clau tècnica que fa referència a aquesta traducció.</p> <p>Per exemple, si voleu canviar el terme <em>"Processos"</em> al menú superior, utilitzareu la clau <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target=" _blank"> Més informació sobre la internacionalització de Rails</a>.</p>
+            term_help_html: "<p>El terme personalitzat és la paraula final que voleu que aparegui a la IU en lloc del terme original. Evidentment, el terme personalitzat pot variar per a cada idioma habilitat.</p>"
+            term_help_title: Què és un terme personalizat?
           form:
             help_html: <p>Una clau de traducció és una referència tècnica de la paraula i/o frase que s'ha de traduir. Aquest no és el terme que voleu canviar, sinó la clau tècnica que fa referència a aquesta traducció.</p> <p>Per exemple, si voleu canviar el terme <em>"Processos"</em> al menú superior, utilitzareu la clau <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target=" _blank"> Més informació sobre la internacionalització de Rails</a>.</p>
             help_title: Què és una clau de traducció?
@@ -113,6 +117,10 @@ ca:
           new:
             create: Crear
             title: Traduccions
+            help_html: <p>Una clau de traducció és una referència tècnica de la paraula i/o frase que s'ha de traduir. Aquest no és el terme que voleu canviar, sinó la clau tècnica que fa referència a aquesta traducció.</p> <p>Per exemple, si voleu canviar el terme <em>"Processos"</em> al menú superior, utilitzareu la clau <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target=" _blank"> Més informació sobre la internacionalització de Rails</a>.</p>
+            help_title: Què és una clau de traducció?
+            term_help_html: "<p>El terme personalitzat és la paraula final que voleu que aparegui a la IU en lloc del terme original. Evidentment, el terme personalitzat pot variar per a cada idioma habilitat.</p>"
+            term_help_title: Què és un terme personalizat?
           new_import:
             accepted_mime_types:
               csv: CSV
