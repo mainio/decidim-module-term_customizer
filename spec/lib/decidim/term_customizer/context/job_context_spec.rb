@@ -49,6 +49,39 @@ describe Decidim::TermCustomizer::Context::JobContext do
     end
   end
 
+  context "with user passed inside an array in the arguments" do
+    let(:user) { create(:user) }
+    let(:arguments) { [[user]] }
+
+    it "resolves the user's organization" do
+      expect(subject.organization).to be(user.organization)
+      expect(subject.space).to be_nil
+      expect(subject.component).to be_nil
+    end
+  end
+
+  context "with user passed inside a hash in the arguments" do
+    let(:user) { create(:user) }
+    let(:arguments) { [{ arg: user }] }
+
+    it "resolves the user's organization" do
+      expect(subject.organization).to be(user.organization)
+      expect(subject.space).to be_nil
+      expect(subject.component).to be_nil
+    end
+  end
+
+  context "with user passed inside a sub-hash in the arguments" do
+    let(:user) { create(:user) }
+    let(:arguments) { [{ job: { arg: user } }] }
+
+    it "resolves the user's organization" do
+      expect(subject.organization).to be(user.organization)
+      expect(subject.space).to be_nil
+      expect(subject.component).to be_nil
+    end
+  end
+
   context "with participatory process passed in the arguments" do
     let(:space) { create(:participatory_process, organization:) }
     let(:arguments) { [organization, space] }
@@ -102,6 +135,32 @@ describe Decidim::TermCustomizer::Context::JobContext do
       expect(subject.organization).to be(organization)
       expect(subject.space).to be(space)
       expect(subject.component).to be(component)
+    end
+  end
+
+  context "with a questionnaire passed in the arguments" do
+    let(:space) { create(:participatory_process, organization:) }
+    let(:questionnaire) { create(:questionnaire, questionnaire_for: component) }
+    let(:component) do
+      create(:component, manifest_name: :meetings, participatory_space: space)
+    end
+    let(:arguments) { [[questionnaire]] }
+
+    it "resolves the participatory space based on the questionnaire" do
+      expect(subject.organization).to be(organization)
+      expect(subject.space).to be(space)
+      expect(subject.component).to be(component)
+    end
+
+    context "and questionnaire is for an intermediary object" do
+      let(:questionnaire) { create(:questionnaire, questionnaire_for: meeting) }
+      let(:meeting) { create(:meeting, component: component) }
+
+      it "resolves the participatory space based on the questionnaire" do
+        expect(subject.organization).to be(organization)
+        expect(subject.space).to be(space)
+        expect(subject.component).to be(component)
+      end
     end
   end
 
