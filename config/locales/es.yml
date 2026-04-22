@@ -95,8 +95,12 @@ es:
           destroy:
             success: Traducción eliminada exitosamente.
           edit:
+            help_title: '¿Qué es una clave de traducción?'
             save: Guardar
             title: Traducción
+            help_html: <p>Una clave de traducción es una referencia técnica a la traducción que se va a traducir. Este no es el término que desea cambiar sino la clave técnica que hace referencia a esa traducción.</p> <p>Por ejemplo, si desea cambiar el término <em>"Procesos"</em> en el menú superior , usaría la clave <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target=" _blank"> Obtenga más información sobre la internacionalización de Rails</a>.</p>
+            term_help_html: "<p>El término personalizado es la palabra final que desea que aparezca en la interfaz de usuario en lugar del término original. El término personalizado puede diferir para cada idioma habilitado.</p>"
+            term_help_title: '¿Qué es un término personalizado?'
           form:
             help_html: <p>Una clave de traducción es una referencia técnica a la traducción que se va a traducir. Este no es el término que desea cambiar sino la clave técnica que hace referencia a esa traducción.</p> <p>Por ejemplo, si desea cambiar el término <em>"Procesos"</em> en el menú superior , usaría la clave <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target=" _blank"> Obtenga más información sobre la internacionalización de Rails</a>.</p>
             help_title: '¿Qué es una clave de traducción?'
@@ -113,6 +117,10 @@ es:
           new:
             create: Crear
             title: Traducciones
+            help_html: <p>Una clave de traducción es una referencia técnica a la traducción que se va a traducir. Este no es el término que desea cambiar sino la clave técnica que hace referencia a esa traducción.</p> <p>Por ejemplo, si desea cambiar el término <em>"Procesos"</em> en el menú superior , usaría la clave <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target=" _blank"> Obtenga más información sobre la internacionalización de Rails</a>.</p>
+            help_title: '¿Qué es una clave de traducción?'
+            term_help_html: "<p>El término personalizado es la palabra final que desea que aparezca en la interfaz de usuario en lugar del término original. El término personalizado puede diferir para cada idioma habilitado.</p>"
+            term_help_title: '¿Qué es un término personalizado?'
           new_import:
             accepted_mime_types:
               csv: CSV
