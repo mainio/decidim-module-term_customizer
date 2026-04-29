@@ -17,7 +17,19 @@ module Decidim
         @translations ||= TranslationStore.new(backend_translations)
       end
 
+      # Additional languages may be incomplete, so searches also include the
+      # canonical English source translations as a fallback to improve coverage.
+      # In Decidim, English is the upstream source locale and the only locale
+      # guaranteed to contain the full translation key set.
+      def canonical_source_terms
+        @canonical_source_terms ||= TranslationStore.new(all_translations[:en])
+      end
+
       def translations_search(search)
+        merge_search_results(
+          translations.by_key(search).merge(translations.by_term(search)),
+          canonical_source_terms.by_key(search).merge(canonical_source_terms.by_term(search))
+        )
       end
 
       def translations_by_key(search)
