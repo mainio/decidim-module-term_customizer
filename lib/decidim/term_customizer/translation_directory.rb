@@ -18,11 +18,10 @@ module Decidim
       end
 
       def translations_search(search)
-        translations_by_key(search).merge(translations_by_term(search))
       end
 
-      def translations_by_key(search) # rubocop:disable Rails/Delegate
-        translations.by_key(search)
+      def translations_by_key(search)
+        merge_search_results(translations.by_key(search), canonical_source_terms.by_key(search))
       end
 
       def translations_by_term(search, case_sensitive: false)
@@ -42,8 +41,15 @@ module Decidim
       end
 
       def backend_translations
-        list = backend.translations(do_init: true)
-        list[locale]
+        all_translations[locale]
+      end
+
+      def all_translations
+        @all_translations ||= backend.translations(do_init: true)
+      end
+
+      def merge_search_results(locale_results, primary_results)
+        primary_results.merge(locale_results)
       end
     end
   end
