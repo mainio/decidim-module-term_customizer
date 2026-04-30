@@ -18,16 +18,13 @@ module Decidim
           )
         end
 
-        it "sends an email with the result of the export" do
+        it "sends an email with a link to the result of the export" do
           ExportJob.perform_now(user, translation_set, "dummies", "CSV")
 
           email = last_email
           expect(email.subject).to include("dummies")
-          attachment = email.attachments.first
-
-          expect(attachment.read.length).to be_positive
-          expect(attachment.mime_type).to eq("application/zip")
-          expect(attachment.filename).to match(/^dummies-[0-9]+-[0-9]+-[0-9]+-[0-9]+\.zip$/)
+          expect(email.body.encoded).to include("download_your_data")
+          expect(email.body.encoded).to include("Your download is ready")
         end
 
         describe "CSV" do
