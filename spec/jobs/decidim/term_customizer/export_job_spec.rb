@@ -18,28 +18,25 @@ module Decidim
           )
         end
 
-        it "sends an email with the result of the export" do
+        it "sends an email with a link to the result of the export" do
           ExportJob.perform_now(user, translation_set, "dummies", "CSV")
 
           email = last_email
           expect(email.subject).to include("dummies")
-          attachment = email.attachments.first
-
-          expect(attachment.read.length).to be_positive
-          expect(attachment.mime_type).to eq("application/zip")
-          expect(attachment.filename).to match(/^dummies-[0-9]+-[0-9]+-[0-9]+-[0-9]+\.zip$/)
+          expect(email.body.encoded).to include("download_your_data")
+          expect(email.body.encoded).to include("Your download is ready")
         end
 
         describe "CSV" do
           it "uses the CSV exporter" do
-            export_data = double
+            export_data = double(read: "", filename: "dummies-export.zip", extension: "zip")
 
             expect(Decidim::Exporters::CSV)
               .to(receive(:new).with(anything, TranslationSerializer))
               .and_return(double(export: export_data))
 
             expect(ExportMailer)
-              .to(receive(:export).with(user, anything, export_data))
+              .to(receive(:export).with(user, instance_of(Decidim::PrivateExport)))
               .and_return(double(deliver_now: true))
 
             ExportJob.perform_now(user, translation_set, "dummies", "CSV")
@@ -48,14 +45,14 @@ module Decidim
 
         describe "JSON" do
           it "uses the JSON exporter" do
-            export_data = double
+            export_data = double(read: "", filename: "dummies-export.zip", extensions: "zip")
 
             expect(Decidim::Exporters::JSON)
               .to(receive(:new).with(anything, TranslationSerializer))
               .and_return(double(export: export_data))
 
             expect(ExportMailer)
-              .to(receive(:export).with(user, anything, export_data))
+              .to(receive(:export).with(user, instance_of(Decidim::PrivateExport)))
               .and_return(double(deliver_now: true))
 
             ExportJob.perform_now(user, translation_set, "dummies", "JSON")
