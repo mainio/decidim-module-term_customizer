@@ -29,14 +29,14 @@ module Decidim
 
         describe "CSV" do
           it "uses the CSV exporter" do
-            export_data = double
+            export_data = double(read: "", filename: "dummies-export.zip", extension: "zip")
 
             expect(Decidim::Exporters::CSV)
               .to(receive(:new).with(anything, TranslationSerializer))
               .and_return(double(export: export_data))
 
             expect(ExportMailer)
-              .to(receive(:export).with(user, anything, export_data))
+              .to(receive(:export).with(user, instance_of(Decidim::PrivateExport)))
               .and_return(double(deliver_now: true))
 
             ExportJob.perform_now(user, translation_set, "dummies", "CSV")
@@ -45,14 +45,14 @@ module Decidim
 
         describe "JSON" do
           it "uses the JSON exporter" do
-            export_data = double
+            export_data = double(read: "", filename: "dummies-export.zip", extensions: "zip")
 
             expect(Decidim::Exporters::JSON)
               .to(receive(:new).with(anything, TranslationSerializer))
               .and_return(double(export: export_data))
 
             expect(ExportMailer)
-              .to(receive(:export).with(user, anything, export_data))
+              .to(receive(:export).with(user, instance_of(Decidim::PrivateExport)))
               .and_return(double(deliver_now: true))
 
             ExportJob.perform_now(user, translation_set, "dummies", "JSON")
