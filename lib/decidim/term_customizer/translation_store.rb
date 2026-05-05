@@ -18,17 +18,23 @@ module Decidim
       end
 
       def by_term(search, case_sensitive: false)
+        normalized_search = case_sensitive ? search : normalize(search).downcase
+
         @values.select do |_key, term|
-          includes_string?(term, search, case_sensitive:)
+          includes_string?(term, normalized_search, case_sensitive:)
         end
       end
 
       private
 
+      def normalize(str)
+        str.unicode_normalize(:nfd).gsub(/\p{M}/, "")
+      end
+
       def includes_string?(source, search, case_sensitive: false)
         return source.include?(search) if case_sensitive
 
-        source.downcase.include?(search.downcase)
+        normalize(source).downcase.include?(search)
       end
 
       def flat_hash(hash)
