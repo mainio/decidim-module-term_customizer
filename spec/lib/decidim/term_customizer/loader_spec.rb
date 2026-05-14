@@ -182,6 +182,74 @@ describe Decidim::TermCustomizer::Loader do
       end
     end
 
+    # FileStore implements `delete_matched` but can raise `ArgumentError` when
+    # traversing cache files whose keys contain URL-encoded sequences (e.g.
+    # ActiveStorage pre-signed S3 URLs) split across directory chunks.
+    context "when using file_store with invalid %-encoding cache files" do
+      let(:mock_cache) { ActiveSupport::Cache::MemoryStore.new }
+
+      before do
+        allow(mock_cache).to receive(:delete_matched).and_raise(ArgumentError, "invalid %-encoding")
+        allow(Rails).to receive(:cache).and_return(mock_cache)
+      end
+
+      context "without organization" do
+        let(:organization) { nil }
+
+        it "falls back to manual cache deletion without raising" do
+          expect(Rails.cache).to receive(:delete).with(
+            "decidim_term_customizer/system"
+          )
+
+          expect { subject.clear_cache }.not_to raise_error
+        end
+      end
+
+      context "with organization" do
+        it "falls back to manual cache deletion without raising" do
+          expect(Rails.cache).to receive(:delete).with(
+            "decidim_term_customizer/organization_#{organization.id}"
+          )
+
+          expect { subject.clear_cache }.not_to raise_error
+        end
+      end
+
+      context "with organization and space" do
+        let(:space) { create(:participatory_process, organization:) }
+
+        it "falls back to manual cache deletion without raising" do
+          expect(Rails.cache).to receive(:delete).with(
+            "decidim_term_customizer/organization_#{organization.id}"
+          )
+          expect(Rails.cache).to receive(:delete).with(
+            "decidim_term_customizer/organization_#{organization.id}/space_#{space.id}"
+          )
+
+          expect { subject.clear_cache }.not_to raise_error
+        end
+      end
+
+      context "with organization, space and component" do
+        let(:space) { create(:participatory_process, organization:) }
+        let(:component) { create(:proposal_component, participatory_space: space) }
+
+        it "falls back to manual cache deletion without raising" do
+          expect(Rails.cache).to receive(:delete).with(
+            "decidim_term_customizer/organization_#{organization.id}"
+          )
+          expect(Rails.cache).to receive(:delete).with(
+            "decidim_term_customizer/organization_#{organization.id}/space_#{space.id}"
+          )
+          expect(Rails.cache).to receive(:delete).with(
+            "decidim_term_customizer/organization_#{organization.id}/space_#{space.id}/component_#{component.id}"
+          )
+
+          expect { subject.clear_cache }.not_to raise_error
+        end
+      end
+    end
+
     # The DalliStore does not implement `delete_matched` which allows us to
     # test the `clear_cache` functionality when the cache implementation raises
     # a `NoMethodError`.
