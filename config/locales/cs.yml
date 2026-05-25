@@ -81,7 +81,7 @@ cs:
             help_title: Co je to překladová sada?
             title: Překladová sada
           index:
-            no_records_html: <p>Žádné překladové sady nejsou k dispozici.</p> <p>Začněte přidáním překladové sady tlačítkem "<a href="%{new_set_link}">%{button_name}</a>.</p>
+            no_records_html: <p class="ml-2">Žádné sady překladů nejsou k dispozici.</p> <p class="ml-2 mb-4">Začněte přidáním překladu sady z tlačítka "<a href="%{new_set_link}" class="text-blue-600 underline hover:text-blue-800"> %{button_name} </a>".</p>
           new:
             create: Vytvořit
             title: Překladové sady
@@ -95,24 +95,26 @@ cs:
           destroy:
             success: Překlad byl úspěšně odstraněn.
           edit:
+            help_title: Co je překladový klíč?
             save: Uložit
             title: Překlad
-          form:
             help_html: <p>Překladový klíč je technickým odkazem na překlad, který má být přeložen. Toto není termín, který chcete změnit, ale technický klíč, který odkazuje na tento překlad.</p> <p>Například pokud chcete změnit termín <em>"Procesy"</em> v horním menu, byste použili klíč <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Přečtěte si více o Rails Internationalization</a>.</p>
-            help_title: Co je překladový klíč?
             term_help_html: "<p>Nastavený termín je poslední slovo, které se chcete objevit v uživatelském rozhraní namísto původního výrazu. Přizpůsobený termín se samozřejmě může lišit pro každý povolený jazyk.</p>"
             term_help_title: Co je upravený termín?
-            title: Překlad
           import:
             error: Chyba při importu překladů
             success: Překlady byly úspěšně importovány.
           index:
             actions: Akce
-            no_records_html: <p>V této sadě nejsou k dispozici žádné překlady.</p> <p>Začněte přidáním překladů do této sady. Nejjednodušším způsobem je použít tlačítko "<a href="%{add_multiple_link}">%{button_name}</a>, kde můžete vyhledávat překlady se stejnými termíny, jaké vidíte v uživatelském rozhraní.</p>
+            no_records_html: <p class="ml-2">V této sadě nejsou k dispozici žádné překlady.</p> <p class="ml-2 mb-4">Začněte přidáním překladů do této sady. Nejjednodušším způsobem je použít tlačítko "<a href="%{add_multiple_link}" class="text-blue-600 underline hover:text-blue-800"> %{button_name} </a>", kde můžete vyhledávat překlady se stejnými termíny, jaké vidíte v uživatelském rozhraní.</p>
             selected: vybráno
           new:
             create: Vytvořit
-            title: Překlady
+            title: Překlad
+            help_html: <p>Překladový klíč je technickým odkazem na překlad, který má být přeložen. Toto není termín, který chcete změnit, ale technický klíč, který odkazuje na tento překlad.</p> <p>Například pokud chcete změnit termín <em>"Procesy"</em> v horním menu, byste použili klíč <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Přečtěte si více o Rails Internationalization</a>.</p>
+            help_title: Co je překladový klíč?
+            term_help_html: "<p>Nastavený termín je poslední slovo, které se chcete objevit v uživatelském rozhraní namísto původního výrazu. Přizpůsobený termín se samozřejmě může lišit pro každý povolený jazyk.</p>"
+            term_help_title: Co je upravený termín?
           new_import:
             accepted_mime_types:
               csv: CSV
@@ -131,6 +133,7 @@ cs:
             success: Překlady byly úspěšně odstraněny.
           new:
             destroy: Vymazat
-            title: Smazat překlady
+            title: Odstranit překlady
+            no_records_html: <p class="ml-2 mb-4">V této sadě nejsou k dispozici žádné překlady.</p>
       menu:
         term_customizer: Úprava termínů

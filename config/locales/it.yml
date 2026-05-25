@@ -81,7 +81,7 @@ it:
             help_title: Cos'è un set di traduzione?
             title: Set di traduzioni
           index:
-            no_records_html: <p>Nessun set di traduzione disponibile.</p> <p>Inizia aggiungendo un set di traduzioni dal pulsante "<a href="%{new_set_link}">%{button_name}</a>".</p>
+            no_records_html: <p class="ml-2">No translation sets available.</p> <p class="ml-2 mb-4">Start by adding a translation set from the "<a href="%{new_set_link}" class="text-blue-600 underline hover:text-blue-800"> %{button_name} </a>" button.</p>
           new:
             create: Crea
             title: Set di traduzione
@@ -95,24 +95,26 @@ it:
           destroy:
             success: Translation successfully deleted.
           edit:
+            help_title: What is translation key?
             save: Salva
             title: Traduzione
-          form:
             help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
-            help_title: What is translation key?
             term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
             term_help_title: What is customized term?
-            title: Traduzione
           import:
             error: Error importing translations
             success: Translations successfully imported.
           index:
             actions: Azioni
-            no_records_html: <p>No translations available in this set.</p> <p>Start by adding translations to this set. The easiest way is to use the "<a href="%{add_multiple_link}">%{button_name}</a>" button where you can search translations with the same terms that you see in the UI.</p>
+            no_records_html: <p class="ml-2">No translations available in this set.</p> <p class="ml-2 mb-4">Start by adding translations to this set. The easiest way is to use the "<a href="%{add_multiple_link}" class="text-blue-600 underline hover:text-blue-800"> %{button_name} </a>" button where you can search translations with the same terms that you see in the UI.</p>
             selected: selected
           new:
             create: Create
-            title: Translations
+            title: Translation
+            help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
+            help_title: What is translation key?
+            term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
+            term_help_title: What is customized term?
           new_import:
             accepted_mime_types:
               csv: CSV
@@ -131,6 +133,7 @@ it:
             success: Translations successfully deleted.
           new:
             destroy: Delete
-            title: Traduzioni elimina
+            title: Delete translations
+            no_records_html: <p class="ml-2 mb-4">No translations available in this set.</p>
       menu:
         term_customizer: Term customizer
