@@ -49,4 +49,132 @@ describe Decidim::TermCustomizer::TranslationDirectory do
       )
     end
   end
+
+  context "when using accented characters in the search" do
+    it "returns correct translations when the search is case insensitive" do
+      expect(subject.translations_search("térm custômizer")).to eq(
+        "decidim.term_customizer.menu.term_customizer" => "Term customizer"
+      )
+    end
+
+    context "when the term contains accents" do
+      let(:locale) { :ca }
+
+      # rubocop:disable RSpec/SubjectStub
+      before do
+        allow(subject).to receive(:all_translations).and_return({
+                                                                  en: {
+                                                                    decidim: {
+                                                                      term_customizer: {
+                                                                        menu: {
+                                                                          term_customizer: "Term custômizer"
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                })
+      end
+
+      it "returns correct translations when the search is case insensitive" do
+        expect(subject.translations_search("térm customizer")).to eq(
+          "decidim.term_customizer.menu.term_customizer" => "Term custômizer"
+        )
+      end
+    end
+  end
+
+  context "when the locale is not present in the translations" do
+    let(:locale) { :ca }
+
+    before do
+      allow(subject).to receive(:all_translations).and_return({
+                                                                en: {
+                                                                  decidim: {
+                                                                    term_customizer: {
+                                                                      menu: {
+                                                                        term_customizer: "Term customizer"
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              })
+    end
+    # rubocop:enable RSpec/SubjectStub
+
+    it "does not return any translations by key when using the secondary language backend" do
+      expect(subject.translations.by_key("term_customizer")).to eq({})
+    end
+
+    it "returns translations by key when using the English source fallback" do
+      expect(subject.canonical_source_terms.by_key("term_customizer")).to eq(
+        "decidim.term_customizer.menu.term_customizer" => "Term customizer"
+      )
+    end
+
+    it "still returns the correct translations by key globally" do
+      expect(subject.translations_by_key("term_customizer")).to eq(
+        "decidim.term_customizer.menu.term_customizer" => "Term customizer"
+      )
+    end
+
+    it "does not return the correct translation by term" do
+      expect(subject.translations_by_term("term customizer")).to eq({})
+    end
+
+    it "returns the correct translations by term globally with merged search" do
+      expect(subject.translations_search("term customizer")).to eq(
+        "decidim.term_customizer.menu.term_customizer" => "Term customizer"
+      )
+    end
+  end
+
+  context "when the locale has translations for the same keys as the primary language" do
+    let(:locale) { :ca }
+
+    # rubocop:disable RSpec/SubjectStub
+    before do
+      allow(subject).to receive(:all_translations).and_return({
+                                                                en: {
+                                                                  decidim: {
+                                                                    term_customizer: {
+                                                                      menu: {
+                                                                        term_customizer: "Term customizer",
+                                                                        secondary_term: "Secondary term"
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                },
+                                                                ca: {
+                                                                  decidim: {
+                                                                    term_customizer: {
+                                                                      menu: {
+                                                                        term_customizer: "Personalitzador de termes"
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              })
+    end
+    # rubocop:enable RSpec/SubjectStub
+
+    it "returns the localized value for overlapping keys and falls back to English for missing ones in key searches" do
+      expect(subject.translations_by_key("menu.term_customizer")).to eq(
+        "decidim.term_customizer.menu.term_customizer" => "Personalitzador de termes"
+      )
+
+      expect(subject.translations_by_key("menu.secondary_term")).to eq(
+        "decidim.term_customizer.menu.secondary_term" => "Secondary term"
+      )
+    end
+
+    it "prefers the localized value and keeps English fallback when merging global search results" do
+      expect(subject.translations_search("menu.term_customizer")).to eq(
+        "decidim.term_customizer.menu.term_customizer" => "Personalitzador de termes"
+      )
+
+      expect(subject.translations_search("menu.secondary_term")).to eq(
+        "decidim.term_customizer.menu.secondary_term" => "Secondary term"
+      )
+    end
+  end
 end
