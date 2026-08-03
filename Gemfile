@@ -31,6 +31,7 @@ group :development, :test do
 
   gem "dalli", "~> 2.7", ">= 2.7.10" # For testing MemCacheStore
   gem "decidim-dev", DECIDIM_VERSION
+  gem "decidim-initiatives", DECIDIM_VERSION
   gem "decidim-participatory_processes", DECIDIM_VERSION
   gem "decidim-proposals", DECIDIM_VERSION
 end
