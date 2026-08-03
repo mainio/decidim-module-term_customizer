@@ -1,0 +1,9 @@
+<div class="flex align-middle gap-x-4 ml-auto" id="js-other-actions-wrapper">
+  <%= render partial: "decidim/term_customizer/admin/translations/bulk_actions/dropdown" %>
+  <% if allowed_to? :import, :translation_set, translation_set: set %>
+    <%= link_to t("actions.import", scope: "decidim.term_customizer.admin"), import_translation_set_translations_path(set), class: "button button__sm button__secondary" %>
+  <% end %>
+  <% if set.translations.count > 0 && allowed_to?(:export, :translation_set, translation_set: set) %>
+    <%= render partial: "export_dropdown" %>
+  <% end %>
+</div>

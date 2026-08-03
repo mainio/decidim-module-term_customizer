@@ -23,8 +23,15 @@ gem "faker", "~> 3.2"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
+
+  # Activesupport::Cache::MemCacheStore.new triggered argumenterror because of
+  # connection_pool's new version which didn't accept arguments anymore ->
+  # version locked < 3.0
+  gem "connection_pool", "~> 2.0"
+
   gem "dalli", "~> 2.7", ">= 2.7.10" # For testing MemCacheStore
   gem "decidim-dev", DECIDIM_VERSION
+  gem "decidim-initiatives", DECIDIM_VERSION
   gem "decidim-participatory_processes", DECIDIM_VERSION
   gem "decidim-proposals", DECIDIM_VERSION
 end
