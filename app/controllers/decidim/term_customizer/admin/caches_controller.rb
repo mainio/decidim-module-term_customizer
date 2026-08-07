@@ -13,7 +13,8 @@ module Decidim
         def clear
           enforce_permission_to :update, :organization
 
-          TermCustomizer.loader.clear_cache
+          resolver = TermCustomizer::Resolver.new(current_organization, nil, nil)
+          Loader.new(resolver).clear_cache
           flash[:notice] = I18n.t("caches.clear.success", scope: "decidim.term_customizer.admin")
 
           redirect_to translation_sets_path
