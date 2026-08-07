@@ -16,7 +16,7 @@ module Decidim
                       model
                     end
 
-          self.subject_manifest = Decidim.participatory_space_manifests.find do |m|
+          self.subject_manifest = Decidim::TermCustomizer.manifests.find do |m|
             m.model_class_name == subject.class.name
           end.try(:name)
           self.subject_id = subject.id
@@ -46,8 +46,8 @@ module Decidim
         end
 
         def manifest
-          @manifest ||= Decidim.participatory_space_manifests.find do |m|
-            m.name == subject_manifest.to_sym
+          @manifest ||= Decidim::TermCustomizer.manifests.find do |m|
+            m.name.to_sym == subject_manifest.to_sym
           end
         end
 
