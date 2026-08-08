@@ -81,7 +81,7 @@ ro:
             help_title: Ce este un set de traducere?
             title: Set de traducere
           index:
-            no_records_html: <p>No translation sets available.</p> <p>Start by adding a translation set from the "<a href="%{new_set_link}">%{button_name}</a>" button.</p>
+            no_records_html: <p class="ml-2">No translation sets available.</p> <p class="ml-2 mb-4">Start by adding a translation set from the "<a href="%{new_set_link}" class="text-blue-600 underline hover:text-blue-800"> %{button_name} </a>" button.</p>
           new:
             create: Creează
             title: Seturi de traducere
@@ -95,24 +95,26 @@ ro:
           destroy:
             success: Traducere ștearsă cu succes.
           edit:
+            help_title: What is translation key?
             save: Save
             title: Traducere
-          form:
             help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
-            help_title: Ce este cheia de traducere?
             term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
-            term_help_title: Ce este termenul personalizat?
-            title: Traducere
+            term_help_title: What is customized term?
           import:
             error: Eroare la importarea traducerilor
             success: Traduceri importate cu succes.
           index:
             actions: Acțiuni
-            no_records_html: <p>Nici o traducere disponibilă în acest set.</p> <p>Începe prin a adăuga traduceri la acest set. Cel mai simplu mod de a utiliza butonul "<a href="%{add_multiple_link}">%{button_name}</a>" unde poți căuta traduceri cu aceiași termeni pe care îi vezi în Interfață.</p>
+            no_records_html: <p class="ml-2">No translations available in this set.</p> <p class="ml-2 mb-4">Start by adding translations to this set. The easiest way is to use the "<a href="%{add_multiple_link}" class="text-blue-600 underline hover:text-blue-800"> %{button_name} </a>" button where you can search translations with the same terms that you see in the UI.</p>
             selected: selectat
           new:
             create: Creare
-            title: Traduceri
+            title: Translation
+            help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
+            help_title: What is translation key?
+            term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
+            term_help_title: What is customized term?
           new_import:
             accepted_mime_types:
               csv: CSV
@@ -131,6 +133,7 @@ ro:
             success: Traducerile au fost șterse.
           new:
             destroy: Şterge
-            title: Ștergere traduceri
+            title: Delete translations
+            no_records_html: <p class="ml-2 mb-4">No translations available in this set.</p>
       menu:
         term_customizer: Term customizer
