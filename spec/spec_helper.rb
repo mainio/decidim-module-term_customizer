@@ -9,6 +9,8 @@ Decidim::Dev.dummy_app_path =
 
 require "decidim/dev/test/base_spec_helper"
 
+RSpec::Matchers.define_negated_matcher :not_output, :output
+
 RSpec.configure do |config|
   # Add extra traslation load path for the tests
   I18n.load_path << File.join(__dir__, "fixtures", "locales", "en.yml")
