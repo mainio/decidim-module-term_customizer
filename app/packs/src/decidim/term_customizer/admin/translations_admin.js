@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved */
-import AutoComplete from "src/decidim/refactor/moved/autocomplete";
+import AutoComplete from "src/decidim/autocomplete";
 
 $(() => {
   const searchInput = document.getElementById("tc-autocomplete");
