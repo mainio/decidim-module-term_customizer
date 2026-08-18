@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import AutoComplete from "src/decidim/refactor/moved/autocomplete";
 
 $(() => {
