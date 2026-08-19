@@ -15,7 +15,7 @@ module Decidim
         # Get available locales from the translations hash
         def available_locales
           Translation.available_locales
-        rescue ::ActiveRecord::StatementInvalid
+        rescue ::ActiveRecord::StatementInvalid, ::ActiveRecord::ConnectionNotEstablished
           []
         end
 
