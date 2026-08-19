@@ -12,6 +12,10 @@ describe Decidim::TermCustomizer::AdminEngine do
       def call(*)
         instance_exec(*, &@block)
       end
+
+      def scope(*)
+        yield
+      end
     end
   end
 

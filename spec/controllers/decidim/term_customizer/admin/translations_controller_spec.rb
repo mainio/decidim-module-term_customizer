@@ -17,7 +17,8 @@ module Decidim
 
       let(:params) do
         {
-          translation_set_id: translation_set.id
+          translation_set_id: translation_set.id,
+          locale: I18n.locale
         }
       end
 

@@ -18,7 +18,8 @@ module Decidim
       let(:params) do
         {
           translation_set_id: translation_set.id,
-          translation_ids: translations.map(&:id)
+          translation_ids: translations.map(&:id),
+          locale: I18n.locale
         }
       end
 
