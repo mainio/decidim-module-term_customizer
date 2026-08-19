@@ -8,7 +8,13 @@ require_relative "term_customizer/context"
 
 module Decidim
   module TermCustomizer
-    include ActiveSupport::Configurable
+    # In case you want to customize the context detection for the jobs,
+    # configure your own context resolver.
+    mattr_accessor :job_context_class, default: Decidim::TermCustomizer::Context::JobContext
+
+    # In case you want to customize the context detection for the controllers
+    # and views, configure your own context resolver.
+    mattr_accessor :controller_context_class, default: Decidim::TermCustomizer::Context::ControllerContext
 
     autoload :I18nBackend, "decidim/term_customizer/i18n_backend"
     autoload :Import, "decidim/term_customizer/import"
@@ -23,18 +29,6 @@ module Decidim
     autoload :TranslationStore, "decidim/term_customizer/translation_store"
 
     EMPTY_HASH = {}.freeze
-
-    # In case you want to customize the context detection for the controllers
-    # and views, configure your own context resolver.
-    config_accessor :controller_context_class do
-      Decidim::TermCustomizer::Context::ControllerContext
-    end
-
-    # In case you want to customize the context detection for the jobs,
-    # configure your own context resolver.
-    config_accessor :job_context_class do
-      Decidim::TermCustomizer::Context::JobContext
-    end
 
     class << self
       attr_accessor :loader
