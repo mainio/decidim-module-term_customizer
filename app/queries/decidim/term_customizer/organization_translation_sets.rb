@@ -20,7 +20,7 @@ module Decidim
             decidim_organization_id: @organization.id
           }
         ).select(columns.join(","))
-        q.order("local_name")
+        q.order(:local_name)
       end
 
       def count
