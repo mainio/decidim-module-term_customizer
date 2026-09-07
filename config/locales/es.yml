@@ -81,7 +81,7 @@ es:
             help_title: '¿Qué es un conjunto de traducciones?'
             title: Grupo de traducciones
           index:
-            no_records_html: <p>No hay conjuntos de traducción disponibles.</p> <p>Comience agregando un conjunto de traducción desde el botón "<a href="%{new_set_link}">%{button_name}</a>".</p>
+            no_records_html: <p class="ml-2">No translation sets available.</p> <p class="ml-2 mb-4">Start by adding a translation set from the "<a href="%{new_set_link}" class="text-blue-600 underline hover:text-blue-800"> %{button_name} </a>" button.</p>
           new:
             create: Crear
             title: Grupo de traducciones
@@ -95,24 +95,26 @@ es:
           destroy:
             success: Traducción eliminada exitosamente.
           edit:
+            help_title: What is translation key?
             save: Guardar
             title: Traducción
-          form:
-            help_html: <p>Una clave de traducción es una referencia técnica a la traducción que se va a traducir. Este no es el término que desea cambiar sino la clave técnica que hace referencia a esa traducción.</p> <p>Por ejemplo, si desea cambiar el término <em>"Procesos"</em> en el menú superior , usaría la clave <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target=" _blank"> Obtenga más información sobre la internacionalización de Rails</a>.</p>
-            help_title: '¿Qué es una clave de traducción?'
-            term_help_html: "<p>El término personalizado es la palabra final que desea que aparezca en la interfaz de usuario en lugar del término original. El término personalizado puede diferir para cada idioma habilitado.</p>"
-            term_help_title: '¿Qué es un término personalizado?'
-            title: Traducción
+            help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
+            term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
+            term_help_title: What is customized term?
           import:
             error: Error importando archivos de traducción
             success: Éxito importando archivos de traducción.
           index:
             actions: Acciones
-            no_records_html: <p>No hay traducciones disponibles en este conjunto.</p> <p>Empiece agregando traducciones a este conjunto. La forma más sencilla es usar el botón "<a href="%{add_multiple_link}">%{button_name}</a>", donde puede buscar traducciones con los mismos términos que ve en la interfaz de usuario.</p>
+            no_records_html: <p class="ml-2">No translations available in this set.</p> <p class="ml-2 mb-4">Start by adding translations to this set. The easiest way is to use the "<a href="%{add_multiple_link}" class="text-blue-600 underline hover:text-blue-800"> %{button_name} </a>" button where you can search translations with the same terms that you see in the UI.</p>
             selected: seleccionadas
           new:
             create: Crear
-            title: Traducciones
+            title: Translation
+            help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
+            help_title: What is translation key?
+            term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
+            term_help_title: What is customized term?
           new_import:
             accepted_mime_types:
               csv: CSV
@@ -131,6 +133,7 @@ es:
             success: Traducción eliminada con éxito.
           new:
             destroy: Borrar
-            title: Traducción eliminada
+            title: Delete translations
+            no_records_html: <p class="ml-2 mb-4">No translations available in this set.</p>
       menu:
         term_customizer: Personalización de términos
