@@ -100,6 +100,7 @@ fi:
             term_help_html: "<p>Muutettu termi on lopullinen sana, jonka haluat esiintyvän käyttöliittymässä alkuperäisen termin sijaan. Luonnollisesti, muutettu termi voi olla erilainen kaikille käytössä oleville kielille.</p>"
             term_help_title: Mikä on muutettu termi?
             title: Käännös
+            save: Tallenna
           import:
             error: Käännösten tuonti epäonnistui
             success: Käännösten tuonti onnistui.
