@@ -82,6 +82,9 @@ en:
             title: Translation set
           form:
             add_constraint: Add constraint
+            components_error: The components of the selected participatory space
+              could not be loaded. Please select the participatory space again.
+            components_loading: Loading the components...
             constraint_help_html: <p>Constraints are specific rules that allow you
               to apply the customizations in a set to a specific context.</p> <p>In
               case you do not define any constraint rules, the customizations in this

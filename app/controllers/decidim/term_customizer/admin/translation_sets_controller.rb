@@ -4,7 +4,7 @@ module Decidim
   module TermCustomizer
     module Admin
       class TranslationSetsController < TermCustomizer::Admin::ApplicationController
-        include TranslatableAttributes
+        include Decidim::TermCustomizer::Admin::ConstraintSubjects
 
         helper_method :collection, :subject_manifests, :blank_constraint
 
@@ -117,12 +117,9 @@ module Decidim
         alias collection sets
 
         def subject_manifests
-          @subject_manifests ||= Decidim.participatory_space_manifests.map do |manifest|
-            models = manifest.model_class_name.constantize.where(organization: current_organization).map { |p| [translated_attribute(p.title), p.id] }
-            next unless models.count.positive?
-
-            manifest
-          end.compact
+          @subject_manifests ||= Decidim.participatory_space_manifests.select do |manifest|
+            manifest.model_class_name.constantize.exists?(organization: current_organization)
+          end
         end
 
         def set
