@@ -63,8 +63,8 @@ module Decidim
       def clear_cache
         Rails.cache.delete_matched("#{cache_key_base}/*")
       rescue NotImplementedError, NoMethodError
-        # Some cache store, such as `ActiveSupport::Cache::MemCacheStore` or
-        # `ActiveSupport::Cache::DalliStore` do not support `delete_matched`.
+        # Some cache store, such as `ActiveSupport::Cache::MemCacheStore`
+        # do not support `delete_matched`.
         # Therefore, clear all the possibly existing
         # cache keys manually for each space and component.
 

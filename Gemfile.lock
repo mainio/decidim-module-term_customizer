@@ -154,7 +154,8 @@ GEM
       base64
       ssrf_filter (~> 1.5)
     csv (3.3.7)
-    dalli (2.7.11)
+    dalli (5.2.5)
+      logger
     data_migrate (11.3.1)
       activerecord (>= 6.1)
       railties (>= 6.1)
@@ -929,7 +930,7 @@ DEPENDENCIES
   bootsnap (~> 1.4)
   byebug (~> 11.0)
   connection_pool (~> 2.0)
-  dalli (~> 2.7, >= 2.7.10)
+  dalli (>= 3.2.3)
   decidim (~> 0.32.0)
   decidim-dev (~> 0.32.0)
   decidim-initiatives (~> 0.32.0)
