@@ -46,11 +46,13 @@ module Decidim
 
         private
 
+        # rubocop:disable Decidim/OrganizationScopedFinder
         def translation_set
           @translation_set ||= OrganizationTranslationSets.new(
             current_organization
           ).query.find(params[:translation_set_id])
         end
+        # rubocop:enable Decidim/OrganizationScopedFinder
 
         def reject_keys
           @reject_keys ||= (request_keys + existing_keys).uniq

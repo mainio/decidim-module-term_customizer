@@ -65,6 +65,7 @@ module Decidim
           end
         end
 
+        # rubocop:disable Decidim/OrganizationScopedFinder
         def destroy
           enforce_permission_to(:destroy, :translation, translation:)
 
@@ -81,6 +82,7 @@ module Decidim
 
           redirect_to translation_set_translations_path(set)
         end
+        # rubocop:enable Decidim/OrganizationScopedFinder
 
         def export
           enforce_permission_to :export, :translation_set, translation_set: set
@@ -121,21 +123,23 @@ module Decidim
 
         private
 
+        # rubocop:disable Decidim/OrganizationScopedFinder
         def translation_set
           @translation_set ||= OrganizationTranslationSets.new(
             current_organization
           ).query.find(params[:translation_set_id])
         end
 
+        def translation
+          @translation ||= Decidim::TermCustomizer::Translation.find(params[:id])
+        end
+        # rubocop:enable Decidim/OrganizationScopedFinder
+
         def translations
           @translations ||= SetTranslations.new(
             translation_set,
             current_locale
           ).query.page(params[:page]).per(30)
-        end
-
-        def translation
-          @translation ||= Decidim::TermCustomizer::Translation.find(params[:id])
         end
 
         alias collection translations

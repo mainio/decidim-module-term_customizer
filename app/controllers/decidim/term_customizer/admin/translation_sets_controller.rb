@@ -125,9 +125,11 @@ module Decidim
           end.compact
         end
 
+        # rubocop:disable Decidim/OrganizationScopedFinder
         def set
           @set ||= Decidim::TermCustomizer::TranslationSet.find(params[:id])
         end
+        # rubocop:enable Decidim/OrganizationScopedFinder
 
         def blank_constraint
           @blank_constraint ||= Admin::TranslationSetConstraintForm.from_model(
