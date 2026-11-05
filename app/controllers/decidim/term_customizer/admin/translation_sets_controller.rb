@@ -125,9 +125,14 @@ module Decidim
           end.compact
         end
 
+        # Linter doesn't understand it's scoped for current organization
         # rubocop:disable Decidim/OrganizationScopedFinder
         def set
-          @set ||= Decidim::TermCustomizer::TranslationSet.find(params[:id])
+          @set ||= Decidim::TermCustomizer::TranslationSet
+                   .joins(:constraints)
+                   .where(decidim_term_customizer_constraints: { decidim_organization_id: current_organization.id })
+                   .distinct
+                   .find(params[:id])
         end
         # rubocop:enable Decidim/OrganizationScopedFinder
 

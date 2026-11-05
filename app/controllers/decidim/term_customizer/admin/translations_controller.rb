@@ -65,6 +65,8 @@ module Decidim
           end
         end
 
+        # Translation doesn't have organization column and the set is already
+        # scoped for current organization
         # rubocop:disable Decidim/OrganizationScopedFinder
         def destroy
           enforce_permission_to(:destroy, :translation, translation:)
@@ -129,9 +131,16 @@ module Decidim
             current_organization
           ).query.find(params[:translation_set_id])
         end
+        # rubocop:enable Decidim/OrganizationScopedFinder
 
+        # Linter doesn't understand it's scoped for current organization
+        # rubocop:disable Decidim/OrganizationScopedFinder
         def translation
-          @translation ||= Decidim::TermCustomizer::Translation.find(params[:id])
+          @translation ||= Decidim::TermCustomizer::Translation
+                           .joins(:constraints)
+                           .where(decidim_term_customizer_constraints: { decidim_organization_id: current_organization.id })
+                           .distinct
+                           .find(params[:id])
         end
         # rubocop:enable Decidim/OrganizationScopedFinder
 
