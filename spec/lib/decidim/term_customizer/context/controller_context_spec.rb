@@ -110,7 +110,7 @@ describe Decidim::TermCustomizer::Context::ControllerContext do
       }
     end
 
-    let(:process_group) { create(:participatory_process_group, organization: organization) }
+    let(:process_group) { create(:participatory_process_group, organization:) }
 
     before do
       allow(controller).to receive(:params).and_return({ id: process_group.id })
