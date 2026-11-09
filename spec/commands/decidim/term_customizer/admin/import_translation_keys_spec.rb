@@ -6,7 +6,7 @@ describe Decidim::TermCustomizer::Admin::ImportTranslationKeys do
   let(:form_klass) { Decidim::TermCustomizer::Admin::TranslationKeyImportForm }
 
   let(:organization) { create(:organization) }
-  let(:translation_set) { create(:translation_set, organization: organization) }
+  let(:translation_set) { create(:translation_set, organization:) }
   let(:keys) do
     [
       "decidim.admin.actions.new_translation",
@@ -20,12 +20,12 @@ describe Decidim::TermCustomizer::Admin::ImportTranslationKeys do
       form_params
     ).with_context(
       current_organization: organization,
-      translation_set: translation_set
+      translation_set:
     )
   end
 
   describe "call" do
-    let(:form_params) { { keys: keys } }
+    let(:form_params) { { keys: } }
 
     let(:command) do
       described_class.new(form)
@@ -33,7 +33,7 @@ describe Decidim::TermCustomizer::Admin::ImportTranslationKeys do
 
     describe "when the form is not valid" do
       before do
-        expect(form).to receive(:invalid?).and_return(true)
+        allow(form).to receive(:invalid?).and_return(true)
       end
 
       it "broadcasts invalid" do
@@ -61,23 +61,23 @@ describe Decidim::TermCustomizer::Admin::ImportTranslationKeys do
 
         keys.each do |key|
           expect(
-            Decidim::TermCustomizer::Translation.where(key: key).count
+            Decidim::TermCustomizer::Translation.where(key:).count
           ).to eq(3)
         end
       end
     end
 
     context "when the key exists in another translation set" do
-      let!(:translation_set_2) do
-        create(:translation_set, organization: organization)
+      let!(:translation_set2) do
+        create(:translation_set, organization:)
       end
       let(:key) { "decidim.admin.actions.new_translation" }
       let!(:translation) do
         create(
           :translation,
-          translation_set: translation_set_2,
+          translation_set: translation_set2,
           locale: :en,
-          key: key
+          key:
         )
       end
 
@@ -85,7 +85,7 @@ describe Decidim::TermCustomizer::Admin::ImportTranslationKeys do
         command.call
 
         expect(
-          Decidim::TermCustomizer::Translation.where(key: key).count
+          Decidim::TermCustomizer::Translation.where(key:).count
         ).to eq(4)
       end
     end

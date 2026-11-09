@@ -13,25 +13,33 @@ module Decidim
         attribute :key, String
         translatable_attribute :value, String
 
+        SEGMENT_FORMAT = %r{\A[a-z0-9_/?-]+\z}
+
         validates :key, presence: true
-        validates :key, format: { with: %r{\A([a-z0-9_/?\-]+\.)*[a-z0-9_/?\-]+\z} }, unless: -> { key.blank? }
         validates :value, translatable_presence: true
         validate :key_uniqueness
+        validate :key_format, unless: -> { key.blank? }
+
+        def key_format
+          return if key.split(".", -1).all? { |segment| segment.match?(SEGMENT_FORMAT) }
+
+          errors.add(:key, :invalid)
+        end
 
         def map_model(model)
-          self.value = Hash[Decidim::TermCustomizer::Translation.where(
+          self.value = Decidim::TermCustomizer::Translation.where(
             translation_set: model.translation_set,
             key: model.key
-          ).map do |translation|
+          ).to_h do |translation|
             [translation.locale, translation.value]
-          end]
+          end
         end
 
         def key_uniqueness
           errors.add(:key, :taken) if translation_set && translation_set.translations.where(
             locale: I18n.locale,
-            key: key
-          ).where.not(id: id).exists?
+            key:
+          ).where.not(id:).exists?
         end
       end
     end

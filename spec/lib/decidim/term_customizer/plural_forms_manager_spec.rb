@@ -3,11 +3,12 @@
 require "spec_helper"
 
 describe Decidim::TermCustomizer::PluralFormsManager do
+  subject { described_class.new(organization) }
+
   let(:locales) { [:en, :fi, :sv] }
   let(:plural_keys) { [:zero, :one, :few, :other] }
   let(:organization) { create(:organization, available_locales: locales) }
-  let(:translation_set) { create(:translation_set, organization: organization) }
-  let(:subject) { described_class.new(organization) }
+  let(:translation_set) { create(:translation_set, organization:) }
 
   before do
     I18n.available_locales = locales
@@ -37,7 +38,7 @@ describe Decidim::TermCustomizer::PluralFormsManager do
         next if other_key == plural_key
 
         "#{base_key}.#{other_key}"
-      end.reject(&:nil?)
+      end.compact
 
       # Note that the `:few` key does not exist in the source translation which
       # means that in case we add translations for that, all the plural formats
@@ -119,10 +120,10 @@ describe Decidim::TermCustomizer::PluralFormsManager do
     locales.map do |locale|
       create(
         :translation,
-        translation_set: translation_set,
-        key: key,
+        translation_set:,
+        key:,
         value: "Translation",
-        locale: locale
+        locale:
       )
     end
   end

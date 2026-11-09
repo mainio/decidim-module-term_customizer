@@ -39,16 +39,18 @@ module Decidim
           @form = form(Admin::TranslationsDestroyForm).from_params(
             params
           ).with_context(
-            current_organization: current_organization,
+            current_organization:,
             translation_set: set
           )
         end
 
+        # rubocop:disable Decidim/OrganizationScopedFinder
         def translation_set
           @translation_set ||= OrganizationTranslationSets.new(
             current_organization
           ).query.find(params[:translation_set_id])
         end
+        # rubocop:enable Decidim/OrganizationScopedFinder
 
         alias set translation_set
       end

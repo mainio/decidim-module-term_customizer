@@ -65,7 +65,7 @@ shared_examples "translation importer" do
               record.save!
             end
           end
-        end.to change { Decidim::TermCustomizer::Translation.count }.by(6)
+        end.to change(Decidim::TermCustomizer::Translation, :count).by(6)
 
         # Check that saved data matches with expected data
         expected_data.each do |data|
@@ -101,9 +101,9 @@ shared_examples "translation import reader" do
     end
 
     expected_array = []
-    expected_array << ["id"] + expected_data.first.keys.map(&:to_s)
+    expected_array << (["id"] + expected_data.first.keys.map(&:to_s))
     expected_data.each_with_index do |row, index|
-      expected_array << [(index + 1).to_s] + row.values.map(&:to_s)
+      expected_array << ([(index + 1).to_s] + row.values.map(&:to_s))
     end
 
     expect(data).to eq(expected_array)

@@ -16,27 +16,29 @@ gem "decidim", DECIDIM_VERSION
 gem "decidim-term_customizer", path: "."
 
 gem "bootsnap", "~> 1.4"
-gem "puma", ">= 5.0.0"
-gem "uglifier", "~> 4.1"
+
+gem "puma", ">= 5.6.2"
+
+gem "faker", "~> 3.2"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
-  gem "dalli", "~> 2.7", ">= 2.7.10" # For testing MemCacheStore
-  gem "decidim-consultations", DECIDIM_VERSION
+
+  # Activesupport::Cache::MemCacheStore.new triggered argumenterror because of
+  # connection_pool's new version which didn't accept arguments anymore ->
+  # version locked < 3.0
+  gem "connection_pool", "~> 2.0"
+
+  gem "dalli", ">= 3.2.3" # For testing MemCacheStore
   gem "decidim-dev", DECIDIM_VERSION
-  gem "rubocop-faker"
-  gem "rubocop-performance", "~> 1.6.0"
+  gem "decidim-initiatives", DECIDIM_VERSION
+  gem "decidim-participatory_processes", DECIDIM_VERSION
+  gem "decidim-proposals", DECIDIM_VERSION
 end
 
 group :development do
-  gem "faker", "~> 2.14"
-  gem "letter_opener_web", "~> 1.4", ">= 1.4.0"
+  gem "letter_opener_web", "~> 2.0"
   gem "listen", "~> 3.1"
-  gem "spring", "~> 2.0"
-  gem "spring-watcher-listen", "~> 2.0"
-  gem "web-console", "~> 3.7", ">= 3.7.0"
-end
-
-group :test do
-  gem "codecov", require: false
+  gem "rubocop-faker"
+  gem "web-console", "~> 4.2"
 end

@@ -21,20 +21,20 @@ module Decidim
         translations_by_key(search).merge(translations_by_term(search))
       end
 
-      def translations_by_key(search) # rubocop:disable Rails/Delegate
+      def translations_by_key(search)
         translations.by_key(search)
       end
 
       def translations_by_term(search, case_sensitive: false)
-        translations.by_term(search, case_sensitive: case_sensitive)
+        translations.by_term(search, case_sensitive:)
       end
 
       private
 
       def original_backend
-        if I18n.backend.class == I18n::Backend::Chain
+        if I18n.backend.instance_of?(I18n::Backend::Chain)
           return I18n.backend.backends.find do |be|
-            be.class == I18n::Backend::Simple
+            be.instance_of?(I18n::Backend::Simple)
           end
         end
 

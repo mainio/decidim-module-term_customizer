@@ -6,7 +6,7 @@ describe Decidim::TermCustomizer::Admin::UpdateTranslation do
   let(:form_klass) { Decidim::TermCustomizer::Admin::TranslationForm }
 
   let(:organization) { create(:organization) }
-  let(:user) { create :user, :admin, :confirmed, organization: organization }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:form) do
     form_klass.from_params(
       form_params
@@ -16,10 +16,10 @@ describe Decidim::TermCustomizer::Admin::UpdateTranslation do
     )
   end
 
-  let!(:translation) { create :translation, locale: :en, value: "Original value" }
+  let!(:translation) { create(:translation, locale: :en, value: "Original value") }
 
   describe "call" do
-    let(:space) { create(:participatory_process, organization: organization) }
+    let(:space) { create(:participatory_process, organization:) }
 
     let(:form_params) do
       {
@@ -38,7 +38,7 @@ describe Decidim::TermCustomizer::Admin::UpdateTranslation do
 
     describe "when the form is not valid" do
       before do
-        expect(form).to receive(:invalid?).and_return(true)
+        allow(form).to receive(:invalid?).and_return(true)
       end
 
       it "broadcasts invalid" do

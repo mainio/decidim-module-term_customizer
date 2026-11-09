@@ -24,7 +24,7 @@ describe Decidim::TermCustomizer::TranslationDirectory do
       expect(subject.translations_search("term customizer")).to eq(
         "decidim.term_customizer.menu.term_customizer" => "Term customizer"
       )
-      expect(subject.translations_search("term_customizer").length).to eq(75)
+      expect(subject.translations_search("term_customizer").length).to eq(80)
     end
   end
 
@@ -34,7 +34,7 @@ describe Decidim::TermCustomizer::TranslationDirectory do
     end
 
     it "returns correct translations" do
-      expect(subject.translations_by_key("term_customizer").length).to eq(75)
+      expect(subject.translations_by_key("term_customizer").length).to eq(80)
     end
   end
 

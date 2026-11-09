@@ -1,0 +1,25 @@
+name: "[CI] Lint"
+on:
+  push:
+    branches:
+      - develop
+      - main
+      - release/*
+  pull_request:
+
+env:
+  CI: "true"
+  CODECOV: "true"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Lint code
+    uses: mainio/gha-decidim-module/.github/workflows/lint.yml@main
+    secrets: inherit
+    with:
+      eslint: true
+      stylelint: true

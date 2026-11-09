@@ -1,12 +1,38 @@
 # frozen_string_literal: true
 
-SimpleCov.start do
-  root ENV["ENGINE_ROOT"]
+if ENV["SIMPLECOV"]
+  SimpleCov.start do
+    # `ENGINE_ROOT` holds the name of the engine we are testing.
+    # This brings us to the main Decidim folder.
+    root ENV.fetch("ENGINE_ROOT", nil)
 
-  add_filter "lib/decidim/term_customizer/version.rb"
-  add_filter "/spec"
+    # We make sure we track all Ruby files, to avoid skipping unrequired files
+    # We need to include the `../` section, otherwise it only tracks files from the
+    # `ENGINE_ROOT` folder for some reason.
+    track_files "**/*.rb"
+
+    # We ignore some of the files because they are never tested
+    add_filter "/config/"
+    add_filter "/db/"
+    add_filter "/vendor/"
+    add_filter "/spec/"
+    add_filter "/test/"
+    add_filter %r{^/lib/decidim/[^/]*/engine.rb}
+    add_filter %r{^/lib/decidim/[^/]*/admin_engine.rb}
+    add_filter %r{^/lib/decidim/[^/]*/component.rb}
+    add_filter %r{^/lib/decidim/[^/]*/participatory_space.rb}
+  end
+
+  SimpleCov.merge_timeout 1800
+
+  if ENV["CI"]
+    require "simplecov-cobertura"
+    SimpleCov.formatter =
+      # Add a guard clause to prevent simplecov crash from generating invalid XML in CI pipeline
+      if SimpleCov.result.files.empty?
+        SimpleCov::Formatter::HTMLFormatter
+      else
+        SimpleCov::Formatter::CoberturaFormatter
+      end
+  end
 end
-
-SimpleCov.command_name ENV["COMMAND_NAME"] || File.basename(Dir.pwd)
-
-SimpleCov.merge_timeout 1800
