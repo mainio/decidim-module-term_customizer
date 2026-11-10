@@ -44,12 +44,12 @@ module Decidim
           items = form.keys.map do |key|
             form.current_organization.available_locales.map do |locale|
               attrs = {
-                key: key,
-                locale: locale
+                key:,
+                locale:
               }
               next unless form.translation_set.translations.find_by(attrs).nil?
 
-              attrs.merge(value: I18n.t(key, locale: locale, default: ""))
+              attrs.merge(value: I18n.t(key, locale:, default: ""))
             end
           end.flatten
 

@@ -56,9 +56,9 @@ module Decidim
             # the found item to the final array.
             if item.nil?
               {
-                key: key,
+                key:,
                 locale: locale.to_s,
-                value: I18n.t(key, locale: locale, default: "")
+                value: I18n.t(key, locale:, default: "")
               }
             else
               item

@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::TermCustomizer::Context::JobContext do
   subject { described_class.new(data) }
 
-  let(:data) { { job: job } }
+  let(:data) { { job: } }
   let(:job) { double }
   let(:organization) { create(:organization) }
   let(:arguments) { [organization] }
@@ -51,7 +51,7 @@ describe Decidim::TermCustomizer::Context::JobContext do
   end
 
   context "with participatory process passed in the arguments" do
-    let(:space) { create(:participatory_process, organization: organization) }
+    let(:space) { create(:participatory_process, organization:) }
     let(:arguments) { [organization, space] }
 
     it "resolves the participatory space" do
@@ -62,7 +62,7 @@ describe Decidim::TermCustomizer::Context::JobContext do
   end
 
   context "with object having a participatory process passed in the arguments" do
-    let(:space) { create(:participatory_process, organization: organization) }
+    let(:space) { create(:participatory_process, organization:) }
     let(:obj) { double }
     let(:arguments) { [organization, obj] }
 
@@ -78,7 +78,7 @@ describe Decidim::TermCustomizer::Context::JobContext do
   end
 
   context "with component passed in the arguments" do
-    let(:space) { create(:participatory_process, organization: organization) }
+    let(:space) { create(:participatory_process, organization:) }
     let(:component) do
       create(:component, manifest_name: :proposals, participatory_space: space)
     end
@@ -92,8 +92,8 @@ describe Decidim::TermCustomizer::Context::JobContext do
   end
 
   context "with component and space passed in the arguments" do
-    let(:other_space) { create(:participatory_process, organization: organization) }
-    let(:space) { create(:participatory_process, organization: organization) }
+    let(:other_space) { create(:participatory_process, organization:) }
+    let(:space) { create(:participatory_process, organization:) }
     let(:component) do
       create(:component, manifest_name: :proposals, participatory_space: space)
     end
@@ -108,7 +108,7 @@ describe Decidim::TermCustomizer::Context::JobContext do
 
   context "with organization and space passed in the arguments" do
     let(:other_organization) { create(:organization) }
-    let(:space) { create(:participatory_process, organization: organization) }
+    let(:space) { create(:participatory_process, organization:) }
     let(:arguments) { [other_organization, space] }
 
     it "resolves the participatory space based on the component" do
@@ -119,7 +119,7 @@ describe Decidim::TermCustomizer::Context::JobContext do
   end
 
   context "with object having a component passed in the arguments" do
-    let(:space) { create(:participatory_process, organization: organization) }
+    let(:space) { create(:participatory_process, organization:) }
     let(:component) do
       create(:component, manifest_name: :proposals, participatory_space: space)
     end

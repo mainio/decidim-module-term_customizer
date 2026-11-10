@@ -78,6 +78,54 @@ To keep the gem up to date, you can use the commands above to also update it.
 The UI is currently a bit rough, it could definitely use some improvement.
 Contributions regarding this are very welcome!
 
+### Rake tasks
+
+This module comes with rake tasks that allow developers to combine instance's translations with instance's term
+customizer translations or term customizer translations from an exported file (.xlsx, .csv, .json). This allows easy
+transfer of terms to other instances without having to create new translation sets in every instance.
+
+To combine these translations and terms together, it requires your instance to have the corresponding locale -file you
+are generating.
+
+To generate a combination file of translations and terms without a prefix using the term customizer database:
+
+Run - `bundle exec rake decidim:term_customizer:combine_db[locale]`
+
+This requires you to have at least 1 translation set with term(s) and a `locale.yml` -file in your instance. After the rake
+task you will have the same `locale.yml` -file with replaced content where the terms get priority, so if your translation -file
+and terms share the same translations the term will always be the one to stay.
+
+To generate a combination file of translations and terms with a prefix using the term customizer database:
+
+Run - `bundle exec rake decidim:term_customizer:combine_db[locale,prefix]`
+
+This requires you to have at least 1 translation set with term(s) and a `prefix.locale.yml` -file in your instance.
+This rake task combines **ALL** of your translation files with a prefix (any prefix) and the corresponding locale and
+your terms. It will keep your old files and combine them to a new file based on your given prefix. If the prefix
+is the same as an existing file it will be replaced. Once again terms take priority over the instance's translations.
+
+To generate a combination file of translations and terms without a prefix using the term customizer export file:
+
+Run - `bundle exec rake decidim:term_customizer:combine_file[locale,file:file_path]`
+
+This requires you to have at least 1 term customizer export file and a `locale.yml` -file in your instance. After the
+rake task you will have the same `locale.yml` -file with replaced content where the terms get priority. The `file:` -argument
+is mandatory since without it you don't have a file to combine. You can insert as many files you want but they need to
+be separated with a `comma` and the argument always has to start with the `file:` -prefix (not to be mixed with prefix -argument).
+
+The easiest way to run this task is to have the term customizer -export file in the root of your project (instance) e.g.
+in a temporary folder, run the task from the root and insert the relative path. Once again the terms take the priority
+over instance's translations.
+
+To generate a combination file of translations and terms with a prefix using the term customizer export file:
+
+Run - `bundle exec rake decidim:term_customizer:combine_file[locale,prefix:prefix,file:file_path]`
+
+Works the same way as the previous task but uses the prefix, so once again collects all the instance's translation files
+with any prefix and corresponding locale, combines them with the export file(s') terms and creates a new file
+`prefix.locale.yml` unless a file with the same name already exists -> replaces it, terms have priority over translations.
+Use only 1 prefix and remember `file:` is mandatory.
+
 ## Contributing
 
 For instructions how to setup your development environment for Decidim, see [Decidim](https://github.com/decidim/decidim). Also follow Decidim's general

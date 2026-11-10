@@ -5,15 +5,15 @@ require "spec_helper"
 describe Decidim::TermCustomizer::Admin::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { build :user, :admin, organization: organization }
-  let(:organization) { build :organization }
+  let(:user) { build(:user, :admin, organization:) }
+  let(:organization) { build(:organization) }
   let(:current_component) { create(:plan_component) }
   let(:translation_set) { nil }
   let(:translation) { nil }
   let(:context) do
     {
-      translation_set: translation_set,
-      translation: translation
+      translation_set:,
+      translation:
     }
   end
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
@@ -31,7 +31,7 @@ describe Decidim::TermCustomizer::Admin::Permissions do
       { scope: :admin, action: :read, subject: :translation_set }
     end
 
-    let(:translation_set) { create :translation_set, organization: organization }
+    let(:translation_set) { create(:translation_set, organization:) }
 
     it { is_expected.to be true }
   end
@@ -41,7 +41,7 @@ describe Decidim::TermCustomizer::Admin::Permissions do
       { scope: :admin, action: :update, subject: :translation_set }
     end
 
-    let(:translation_set) { create :translation_set, organization: organization }
+    let(:translation_set) { create(:translation_set, organization:) }
 
     context "when everything is OK" do
       it { is_expected.to be true }
@@ -53,7 +53,7 @@ describe Decidim::TermCustomizer::Admin::Permissions do
       { scope: :admin, action: :destroy, subject: :translation_set }
     end
 
-    let(:translation_set) { create :translation_set, organization: organization }
+    let(:translation_set) { create(:translation_set, organization:) }
 
     context "when everything is OK" do
       it { is_expected.to be true }
@@ -65,7 +65,7 @@ describe Decidim::TermCustomizer::Admin::Permissions do
       { scope: :admin, action: :export, subject: :translation_set }
     end
 
-    let(:translation_set) { create :translation_set, organization: organization }
+    let(:translation_set) { create(:translation_set, organization:) }
 
     context "when everything is OK" do
       it { is_expected.to be true }
@@ -85,8 +85,8 @@ describe Decidim::TermCustomizer::Admin::Permissions do
       { scope: :admin, action: :read, subject: :translation }
     end
 
-    let(:set) { create :translation_set, organization: organization }
-    let(:translation) { create :translation, translation_set: set }
+    let(:set) { create(:translation_set, organization:) }
+    let(:translation) { create(:translation, translation_set: set) }
 
     it { is_expected.to be true }
   end
@@ -96,8 +96,8 @@ describe Decidim::TermCustomizer::Admin::Permissions do
       { scope: :admin, action: :update, subject: :translation }
     end
 
-    let(:set) { create :translation_set, organization: organization }
-    let(:translation) { create :translation, translation_set: set }
+    let(:set) { create(:translation_set, organization:) }
+    let(:translation) { create(:translation, translation_set: set) }
 
     context "when everything is OK" do
       it { is_expected.to be true }
@@ -109,8 +109,8 @@ describe Decidim::TermCustomizer::Admin::Permissions do
       { scope: :admin, action: :destroy, subject: :translation }
     end
 
-    let(:set) { create :translation_set, organization: organization }
-    let(:translation) { create :translation, translation_set: set }
+    let(:set) { create(:translation_set, organization:) }
+    let(:translation) { create(:translation, translation_set: set) }
 
     context "when everything is OK" do
       it { is_expected.to be true }
@@ -122,7 +122,7 @@ describe Decidim::TermCustomizer::Admin::Permissions do
       { scope: :admin, action: :import, subject: :translation_set }
     end
 
-    let(:translation_set) { create :translation_set, organization: organization }
+    let(:translation_set) { create(:translation_set, organization:) }
 
     context "when everything is OK" do
       it { is_expected.to be true }
@@ -134,7 +134,7 @@ describe Decidim::TermCustomizer::Admin::Permissions do
       { scope: :admin, action: :destroy, subject: :translations }
     end
 
-    let(:translation_set) { create :translation_set, organization: organization }
+    let(:translation_set) { create(:translation_set, organization:) }
 
     context "when everything is OK" do
       it { is_expected.to be true }

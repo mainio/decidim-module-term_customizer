@@ -10,7 +10,7 @@ module Decidim
 
         let(:organization) { create(:organization) }
         let(:subject_manifest) { :particpatory_process }
-        let(:params) { { subject_manifest: subject_manifest } }
+        let(:params) { { subject_manifest: } }
 
         let(:form) do
           described_class.from_params(params).with_context(
@@ -24,7 +24,7 @@ module Decidim
 
         describe "#map_model" do
           context "with participatory space" do
-            let(:space) { create(:participatory_process, organization: organization) }
+            let(:space) { create(:participatory_process, organization:) }
 
             it "maps the model" do
               subject.map_model(space)
@@ -36,6 +36,7 @@ module Decidim
         end
 
         describe "#component" do
+          let(:space) { create(:participatory_process, organization:) }
           let(:form_subject) { space }
 
           before do
@@ -43,7 +44,6 @@ module Decidim
           end
 
           context "with participatory space containing components" do
-            let(:space) { create(:participatory_process, organization: organization) }
             let(:form_subject) { create(:proposal_component, participatory_space: space) }
 
             it "returns the correct component" do
@@ -52,8 +52,6 @@ module Decidim
           end
 
           context "with participatory space containing no components" do
-            let(:form_subject) { create(:consultation, organization: organization) }
-
             it "returns the correct component" do
               expect(subject.component).to be_nil
             end
