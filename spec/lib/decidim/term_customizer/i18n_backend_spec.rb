@@ -58,7 +58,7 @@ describe Decidim::TermCustomizer::I18nBackend do
 
       before do
         locales.each do |locale|
-          create_list(:translation, 3, locale: locale)
+          create_list(:translation, 3, locale:)
         end
       end
 
@@ -75,6 +75,22 @@ describe Decidim::TermCustomizer::I18nBackend do
 
         expect(subject.available_locales).to be_empty
       end
+    end
+  end
+
+  context "when the translation query raises ActiveRecord::StatementInvalid" do
+    it "returns an empty result" do
+      allow(Decidim::TermCustomizer::Translation).to receive(:available_locales).and_raise(ActiveRecord::ConnectionNotEstablished)
+
+      expect(subject.available_locales).to be_empty
+    end
+  end
+
+  context "when there is no database connection" do
+    it "returns an empty result" do
+      allow(Decidim::TermCustomizer::Translation).to receive(:available_locales).and_raise(PG::ConnectionBad)
+
+      expect(subject.available_locales).to be_empty
     end
   end
 
@@ -132,7 +148,8 @@ describe Decidim::TermCustomizer::I18nBackend do
   describe "#translate" do
     it "calls lookup" do
       allow(subject).to receive(:lookup).and_return("Translation") # rubocop:disable RSpec/SubjectStub
-      subject.translate(:en, "decidim.term1")
+      result = subject.translate(:en, "decidim.term1")
+      expect(result).to eq("Translation")
     end
 
     context "with actual translations" do

@@ -9,8 +9,8 @@ module Decidim
         subject { form }
 
         let(:organization) { create(:organization) }
-        let(:translation_set) { create(:translation_set, organization: organization) }
-        let(:translations) { create_list(:translation, 10, translation_set: translation_set) }
+        let(:translation_set) { create(:translation_set, organization:) }
+        let(:translations) { create_list(:translation, 10, translation_set:) }
         let(:params) { { translation_ids: translations.map(&:id) } }
 
         let(:form_translation_set) { translation_set }
@@ -50,8 +50,8 @@ module Decidim
               translations.each do |tr|
                 create(
                   :translation,
-                  translation_set: translation_set,
-                  locale: locale,
+                  translation_set:,
+                  locale:,
                   key: tr.key,
                   value: Decidim::Faker::Localized.sentence(word_count: 3)
                 )

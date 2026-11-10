@@ -6,20 +6,20 @@ describe Decidim::TermCustomizer::Admin::DestroyTranslations do
   let(:form_klass) { Decidim::TermCustomizer::Admin::TranslationsDestroyForm }
 
   let(:organization) { create(:organization) }
-  let(:user) { create :user, :admin, :confirmed, organization: organization }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:form) do
     form_klass.from_params(
       form_params
     ).with_context(
       current_organization: organization,
       current_user: user,
-      translation_set: translation_set
+      translation_set:
     )
   end
 
   let!(:translation_set) { create(:translation_set) }
   let!(:translations) do
-    create_list(:translation, 10, translation_set: translation_set)
+    create_list(:translation, 10, translation_set:)
   end
 
   describe "call" do
@@ -67,7 +67,7 @@ describe Decidim::TermCustomizer::Admin::DestroyTranslations do
           [
             create(
               :translation,
-              translation_set: translation_set,
+              translation_set:,
               key: "test.plural.one"
             )
           ]
@@ -77,7 +77,7 @@ describe Decidim::TermCustomizer::Admin::DestroyTranslations do
           # Add a plural form that should also get destroyed
           create(
             :translation,
-            translation_set: translation_set,
+            translation_set:,
             key: "test.plural.other"
           )
         end

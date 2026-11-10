@@ -17,7 +17,7 @@ module Decidim
             )
           )
         end
-        let(:params) { { file: file } }
+        let(:params) { { file: } }
 
         let(:form) do
           described_class.from_params(params).with_context(
@@ -62,7 +62,7 @@ module Decidim
           let(:file) do
             upload_test_file(
               Rack::Test::UploadedFile.new(
-                file_fixture("set-translations.json"),
+                file_fixture("set-translations.txt"),
                 "text/plain"
               )
             )

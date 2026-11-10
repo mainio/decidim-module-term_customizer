@@ -68,7 +68,7 @@ module Decidim
 
         query.or!(
           TermCustomizer::Constraint.where(
-            organization: organization,
+            organization:,
             subject_type: nil,
             subject_id: nil
           )
@@ -80,13 +80,13 @@ module Decidim
 
         query.or!(
           TermCustomizer::Constraint.where(
-            organization: organization,
+            organization:,
             subject: space
           )
         )
         query.or!(
           TermCustomizer::Constraint.where(
-            organization: organization,
+            organization:,
             subject_type: space.class.name,
             subject_id: nil
           )
@@ -98,7 +98,7 @@ module Decidim
 
         query.or!(
           TermCustomizer::Constraint.where(
-            organization: organization,
+            organization:,
             subject: component
           )
         )

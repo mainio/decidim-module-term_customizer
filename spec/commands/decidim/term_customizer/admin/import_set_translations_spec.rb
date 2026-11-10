@@ -7,9 +7,9 @@ describe Decidim::TermCustomizer::Admin::ImportSetTranslations do
 
   let(:locales) { [:en, :fi] }
   let(:organization) { create(:organization, available_locales: locales) }
-  let(:translation_set) { create(:translation_set, organization: organization) }
+  let(:translation_set) { create(:translation_set, organization:) }
   let(:file) { nil }
-  let(:form_params) { { file: file } }
+  let(:form_params) { { file: } }
   let(:form) do
     form_klass.from_params(
       form_params
