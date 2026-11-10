@@ -79,7 +79,7 @@ describe Decidim::TermCustomizer::I18nBackend do
   end
 
   context "when the translation query raises ActiveRecord::StatementInvalid" do
-    it "returns and empty result" do
+    it "returns an empty result" do
       allow(Decidim::TermCustomizer::Translation).to receive(:available_locales).and_raise(ActiveRecord::ConnectionNotEstablished)
 
       expect(subject.available_locales).to be_empty
@@ -87,7 +87,7 @@ describe Decidim::TermCustomizer::I18nBackend do
   end
 
   context "when there is no database connection" do
-    it "returns and empty result" do
+    it "returns an empty result" do
       allow(Decidim::TermCustomizer::Translation).to receive(:available_locales).and_raise(PG::ConnectionBad)
 
       expect(subject.available_locales).to be_empty
