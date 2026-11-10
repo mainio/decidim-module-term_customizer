@@ -6,18 +6,18 @@ describe Decidim::TermCustomizer::Admin::CreateTranslation do
   let(:form_klass) { Decidim::TermCustomizer::Admin::TranslationForm }
 
   let(:organization) { create(:organization) }
-  let(:user) { create :user, :admin, :confirmed, organization: organization }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:form) do
     form_klass.from_params(
       form_params
     ).with_context(
       current_organization: organization,
       current_user: user,
-      translation_set: translation_set
+      translation_set:
     )
   end
 
-  let!(:translation_set) { create :translation_set }
+  let!(:translation_set) { create(:translation_set) }
 
   describe "call" do
     let(:form_params) do

@@ -4,13 +4,13 @@ require "spec_helper"
 
 module Decidim
   module TermCustomizer
-    describe Admin::CachesController, type: :controller do
+    describe Admin::CachesController do
       include_context "with setup initializer"
 
       routes { Decidim::TermCustomizer::AdminEngine.routes }
 
       let(:organization) { create(:organization) }
-      let(:user) { create(:user, :confirmed, :admin, organization: organization) }
+      let(:user) { create(:user, :confirmed, :admin, organization:) }
 
       before do
         request.env["decidim.current_organization"] = organization
@@ -19,7 +19,7 @@ module Decidim
 
       describe "GET index" do
         it "redirects to the translation sets path" do
-          get :index
+          get :index, params: { locale: I18n.locale }
 
           expect(response).to have_http_status(:found)
           expect(subject).to redirect_to(translation_sets_path)
@@ -34,7 +34,7 @@ module Decidim
           allow(loader).to receive(:translations_hash).and_return({})
           expect(loader).to receive(:clear_cache)
 
-          delete :clear
+          delete :clear, params: { locale: I18n.locale }
 
           expect(response).to have_http_status(:found)
           expect(subject).to redirect_to(translation_sets_path)

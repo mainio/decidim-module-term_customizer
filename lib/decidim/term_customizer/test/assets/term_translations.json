@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "locale": "te",
+    "key": "decidim.term_customizer.test.word",
+    "value": "bird"
+  },
+  {
+    "id": 2,
+    "locale": "te",
+    "key": "decidim.term_customizer.test.term",
+    "value": "empty"
+  },
+  {
+    "id": 3,
+    "locale": "te",
+    "key": "decidim.term_customizer.test.entry",
+    "value": "similar"
+  }
+]

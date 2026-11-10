@@ -21,11 +21,17 @@ module Decidim
           )
         end
 
+        def edit
+          enforce_permission_to :update, :translation_set, translation_set: set
+          @form = form(TranslationSetForm).from_model(set)
+        end
+
         def create
           enforce_permission_to :create, :translation_set
+
           @form = form(TranslationSetForm).from_params(
             params,
-            current_organization: current_organization
+            current_organization:
           )
 
           CreateTranslationSet.call(@form) do
@@ -41,16 +47,11 @@ module Decidim
           end
         end
 
-        def edit
-          enforce_permission_to :update, :translation_set, translation_set: set
-          @form = form(TranslationSetForm).from_model(set)
-        end
-
         def update
           enforce_permission_to :update, :translation_set, translation_set: set
           @form = form(TranslationSetForm).from_params(
             params,
-            current_organization: current_organization
+            current_organization:
           )
 
           UpdateTranslationSet.call(@form, set) do
@@ -84,7 +85,7 @@ module Decidim
               hash["name_#{locale}"] = I18n.t(
                 "translation_sets.duplicate.copied_set_name",
                 name: set.name[locale],
-                locale: locale,
+                locale:,
                 scope: "decidim.term_customizer.admin"
               )
             end
@@ -92,7 +93,7 @@ module Decidim
 
           @form = form(TranslationSetForm).from_params(
             params.merge(name_attrs),
-            current_organization: current_organization
+            current_organization:
           )
 
           DuplicateTranslationSet.call(@form, set) do
@@ -117,7 +118,7 @@ module Decidim
         alias collection sets
 
         def subject_manifests
-          @subject_manifests ||= Decidim.participatory_space_manifests.map do |manifest|
+          @subject_manifests ||= Decidim::TermCustomizer.manifests.map do |manifest|
             models = manifest.model_class_name.constantize.where(organization: current_organization).map { |p| [translated_attribute(p.title), p.id] }
             next unless models.count.positive?
 
@@ -125,9 +126,16 @@ module Decidim
           end.compact
         end
 
+        # Linter doesn't understand it's scoped for current organization
+        # rubocop:disable Decidim/OrganizationScopedFinder
         def set
-          @set ||= Decidim::TermCustomizer::TranslationSet.find(params[:id])
+          @set ||= Decidim::TermCustomizer::TranslationSet
+                   .joins(:constraints)
+                   .where(decidim_term_customizer_constraints: { decidim_organization_id: current_organization.id })
+                   .distinct
+                   .find(params[:id])
         end
+        # rubocop:enable Decidim/OrganizationScopedFinder
 
         def blank_constraint
           @blank_constraint ||= Admin::TranslationSetConstraintForm.from_model(

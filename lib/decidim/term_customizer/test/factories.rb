@@ -3,7 +3,7 @@
 FactoryBot.define do
   # Create as a sequence to avoid key collisions
   sequence :translation_key do |n|
-    "#{::Faker::Lorem.words(number: rand(1..3)).join(".").downcase}.tr#{n}"
+    "#{Faker::Lorem.words(number: rand(1..3)).join(".").downcase}.tr#{n}"
   end
 
   factory :translation_set, class: "Decidim::TermCustomizer::TranslationSet" do
@@ -31,13 +31,13 @@ FactoryBot.define do
   factory :translation, class: "Decidim::TermCustomizer::Translation" do
     locale { :en }
     key { generate(:translation_key) }
-    value { ::Faker::Lorem.words(number: rand(1..10)).join(" ") }
-    translation_set { create(:translation_set) }
+    value { Faker::Lorem.words(number: rand(1..10)).join(" ") }
+    translation_set
   end
 
   factory :translation_set_constraint, class: "Decidim::TermCustomizer::Constraint" do
-    organization { create(:organization) }
-    translation_set { create(:translation_set) }
-    subject { create(:participatory_process, organization: organization) }
+    organization
+    translation_set
+    subject { association(:participatory_process, organization:) }
   end
 end

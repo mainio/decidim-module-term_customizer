@@ -8,7 +8,7 @@ module Decidim
       subject { constraint }
 
       let(:organization) { create(:organization) }
-      let(:constraint) { build(:translation_set_constraint, organization: organization) }
+      let(:constraint) { build(:translation_set_constraint, organization:) }
 
       it { is_expected.to be_valid }
 
