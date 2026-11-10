@@ -28,6 +28,7 @@ module Decidim
 
         def create
           enforce_permission_to :create, :translation_set
+
           @form = form(TranslationSetForm).from_params(
             params,
             current_organization:
@@ -117,7 +118,7 @@ module Decidim
         alias collection sets
 
         def subject_manifests
-          @subject_manifests ||= Decidim.participatory_space_manifests.map do |manifest|
+          @subject_manifests ||= Decidim::TermCustomizer.manifests.map do |manifest|
             models = manifest.model_class_name.constantize.where(organization: current_organization).map { |p| [translated_attribute(p.title), p.id] }
             next unless models.count.positive?
 
