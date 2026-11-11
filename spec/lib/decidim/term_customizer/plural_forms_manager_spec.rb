@@ -8,7 +8,7 @@ describe Decidim::TermCustomizer::PluralFormsManager do
   let(:locales) { [:en, :fi, :sv] }
   let(:plural_keys) { [:zero, :one, :few, :other] }
   let(:organization) { create(:organization, available_locales: locales) }
-  let(:translation_set) { create(:translation_set, organization: organization) }
+  let(:translation_set) { create(:translation_set, organization:) }
 
   before do
     I18n.available_locales = locales
@@ -120,10 +120,10 @@ describe Decidim::TermCustomizer::PluralFormsManager do
     locales.map do |locale|
       create(
         :translation,
-        translation_set: translation_set,
-        key: key,
+        translation_set:,
+        key:,
         value: "Translation",
-        locale: locale
+        locale:
       )
     end
   end

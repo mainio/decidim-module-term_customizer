@@ -4,12 +4,15 @@ module Decidim
   module TermCustomizer
     module Context
       class JobContext < Base
+        # rubocop:disable Metrics/CyclomaticComplexity
         # rubocop:disable Metrics/PerceivedComplexity
         def resolve!
           # Figure out the organization and user through the job arguments if
           # passed for the job.
           user = nil
           data[:job].arguments.each do |arg|
+            arg = arg[:args].first if arg.is_a?(Hash) && arg.has_key?(:args)
+
             @organization ||= organization_from_argument(arg)
             @space ||= space_from_argument(arg)
             @component ||= component_from_argument(arg)
@@ -28,6 +31,7 @@ module Decidim
           # it through the user (if the user was passed).
           @organization ||= user.organization if user
         end
+        # rubocop:enable Metrics/CyclomaticComplexity
         # rubocop:enable Metrics/PerceivedComplexity
 
         protected

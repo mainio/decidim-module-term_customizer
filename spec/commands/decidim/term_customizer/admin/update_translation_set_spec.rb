@@ -6,7 +6,7 @@ describe Decidim::TermCustomizer::Admin::UpdateTranslationSet do
   let(:form_klass) { Decidim::TermCustomizer::Admin::TranslationSetForm }
 
   let(:organization) { create(:organization) }
-  let(:user) { create :user, :admin, :confirmed, organization: organization }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:form) do
     form_klass.from_params(
       form_params
@@ -16,10 +16,10 @@ describe Decidim::TermCustomizer::Admin::UpdateTranslationSet do
     )
   end
 
-  let!(:translation_set) { create :translation_set }
+  let!(:translation_set) { create(:translation_set) }
 
   describe "call" do
-    let(:space) { create(:participatory_process, organization: organization) }
+    let(:space) { create(:participatory_process, organization:) }
 
     let(:form_params) do
       {

@@ -99,8 +99,7 @@ describe Decidim::TermCustomizer::Engine do
     let(:resolver) { double }
 
     before do
-      allow(dummy_job).to receive(:job_id).and_return(1)
-      allow(dummy_job).to receive(:queue_name).and_return("queue")
+      allow(dummy_job).to receive_messages(job_id: 1, queue_name: "queue")
       allow(dummy_job).to receive(:arguments).and_return(arguments)
 
       allow(Decidim::TermCustomizer::I18nBackend).to receive(:new).and_return(dummy_backend)
@@ -152,7 +151,7 @@ describe Decidim::TermCustomizer::Engine do
 
     context "with user and organization in the arguments" do
       let(:organization) { create(:organization) }
-      let(:user) { create(:user) }
+      let(:user) { create(:user, organization:) }
       let(:arguments) { [organization, user] }
 
       it "creates a resolver with the organization" do

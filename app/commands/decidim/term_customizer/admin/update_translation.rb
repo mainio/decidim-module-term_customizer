@@ -43,21 +43,21 @@ module Decidim
             l_translation = TermCustomizer::Translation.find_by(
               translation_set: translation.translation_set,
               key: translation.key,
-              locale: locale
+              locale:
             )
 
             if l_translation
               l_translation.update!(
                 key: form.key,
-                value: value,
-                locale: locale
+                value:,
+                locale:
               )
             else
               l_translation = TermCustomizer::Translation.create!(
                 translation_set: translation.translation_set,
                 key: form.key,
-                value: value,
-                locale: locale
+                value:,
+                locale:
               )
             end
 

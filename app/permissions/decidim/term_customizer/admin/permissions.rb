@@ -36,7 +36,7 @@ module Decidim
         end
 
         def allowed_translation_set_action?
-          return unless permission_action.subject == :translation_set
+          return false unless permission_action.subject == :translation_set
 
           case permission_action.action
           when :create, :read
@@ -47,7 +47,7 @@ module Decidim
         end
 
         def allowed_translation_action?
-          return unless permission_action.subject == :translation
+          return false unless permission_action.subject == :translation
 
           case permission_action.action
           when :create, :read
@@ -58,7 +58,7 @@ module Decidim
         end
 
         def allowed_translation_bulk_action?
-          return unless permission_action.subject == :translations
+          return false unless permission_action.subject == :translations
 
           case permission_action.action
           when :destroy
