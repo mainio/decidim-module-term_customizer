@@ -1,3 +1,37 @@
 .search-highlight {
-  background: $warning-color;
+  @apply bg-[--warning];
+}
+
+.tc-result-line {
+  @apply block;
+}
+
+.tc-result-line + span.tc-result-line {
+  @apply mt-1;
+}
+
+.tc-result-line + .tc-result-list {
+  @apply mt-1;
+}
+
+.tc-result-list {
+  @apply block bg-gray-5 p-1;
+
+  .tc-result-line + .tc-result-line {
+    @apply mt-0.5;
+  }
+
+  .tc-result-line:not(.tc-result-key) {
+    @apply relative pl-4;
+
+    &::before {
+      @apply absolute left-0.5;
+
+      content: "•";
+    }
+  }
+}
+
+.tc-result-line.tc-result-key {
+  @apply mt-1 pt-0.5 border-t border-solid border-gray-3;
 }
