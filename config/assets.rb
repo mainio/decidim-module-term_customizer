@@ -13,4 +13,4 @@ Decidim::Shakapacker.register_entrypoints(
 )
 
 # Stylesheet imports for admin panel
-Decidim::Shakapacker.register_stylesheet_import("stylesheets/decidim/term_customizer/admin", group: :admin)
+Decidim::Shakapacker.register_stylesheet_import("stylesheets/decidim/term_customizer/admin")
