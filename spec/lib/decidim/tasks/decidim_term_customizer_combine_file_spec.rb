@@ -271,3 +271,7 @@ describe "rake decidim:term_customizer:combine_file", type: :task do
     end
   end
 end
+
+def check_no_errors_have_been_printed
+  expect($stdout.string).not_to include("ERROR:")
+end

@@ -11,6 +11,8 @@ module Decidim
           # passed for the job.
           user = nil
           data[:job].arguments.each do |arg|
+            arg = arg[:args].first if arg.is_a?(Hash) && arg.has_key?(:args)
+
             @organization ||= organization_from_argument(arg)
             @space ||= space_from_argument(arg)
             @component ||= component_from_argument(arg)

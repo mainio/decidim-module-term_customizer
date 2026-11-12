@@ -112,6 +112,10 @@ fi:
             selected: valittu
           new:
             create: Luo
+            help_html: <p>Käännösavain on tekninen viittaus käännökseen. Tämä ei siis ole se termi, jonka haluat muuttaa, vaan tekninen avain, joka viittaa kyseiseen termiin.</p><p>Mikäli haluat muuttaa esimerkiksi sanan <em>"Prosessit"</em> ylävalikosta, voit käyttää käännösavainta <em>"decidim.menu.processes"</em>.</p><p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank">Lue lisää Rails-kehyksen käännöksistä</a>.</p>
+            help_title: Mikä on käännösavain?
+            term_help_html: "<p>Muutettu termi on lopullinen sana, jonka haluat esiintyvän käyttöliittymässä alkuperäisen termin sijaan. Luonnollisesti, muutettu termi voi olla erilainen kaikille käytössä oleville kielille.</p>"
+            term_help_title: Mikä on muutettu termi?
             title: Käännökset
           new_import:
             accepted_mime_types:

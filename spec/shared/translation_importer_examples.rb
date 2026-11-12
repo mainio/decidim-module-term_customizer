@@ -97,7 +97,7 @@ shared_examples "translation import reader" do
   it "yields all the data correctly" do
     data = []
     subject.read_rows do |row, index|
-      data[index] = row.map(&:to_s)
+      data[index] = row.compact_blank.map(&:to_s)
     end
 
     expected_array = []

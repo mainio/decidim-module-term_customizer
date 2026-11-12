@@ -55,7 +55,8 @@ module Decidim
           UpdateTranslation.call(@form, translation) do
             on(:ok) do
               flash[:notice] = I18n.t("translations.update.success", scope: "decidim.term_customizer.admin")
-              redirect_to translation_set_translations_path(set)
+
+              redirect_to redirect_path_for_set(set)
             end
 
             on(:invalid) do
@@ -65,6 +66,9 @@ module Decidim
           end
         end
 
+        # Translation doesn't have organization column and the set is already
+        # scoped for current organization
+        # rubocop:disable Decidim/OrganizationScopedFinder
         def destroy
           enforce_permission_to(:destroy, :translation, translation:)
 
@@ -81,6 +85,7 @@ module Decidim
 
           redirect_to translation_set_translations_path(set)
         end
+        # rubocop:enable Decidim/OrganizationScopedFinder
 
         def export
           enforce_permission_to :export, :translation_set, translation_set: set
@@ -121,11 +126,24 @@ module Decidim
 
         private
 
+        # rubocop:disable Decidim/OrganizationScopedFinder
         def translation_set
           @translation_set ||= OrganizationTranslationSets.new(
             current_organization
           ).query.find(params[:translation_set_id])
         end
+        # rubocop:enable Decidim/OrganizationScopedFinder
+
+        # Linter doesn't understand it's scoped for current organization
+        # rubocop:disable Decidim/OrganizationScopedFinder
+        def translation
+          @translation ||= Decidim::TermCustomizer::Translation
+                           .joins(:constraints)
+                           .where(decidim_term_customizer_constraints: { decidim_organization_id: current_organization.id })
+                           .distinct
+                           .find(params[:id])
+        end
+        # rubocop:enable Decidim/OrganizationScopedFinder
 
         def translations
           @translations ||= SetTranslations.new(
@@ -134,8 +152,13 @@ module Decidim
           ).query.page(params[:page]).per(30)
         end
 
-        def translation
-          @translation ||= Decidim::TermCustomizer::Translation.find(params[:id])
+        def redirect_path_for_set(set)
+          page_param = params[:translation][:page]
+          if page_param.nil?
+            translation_set_translations_path(set)
+          else
+            translation_set_translations_path(set, page: page_param)
+          end
         end
 
         alias collection translations

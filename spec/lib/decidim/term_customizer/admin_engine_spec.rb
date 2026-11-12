@@ -9,8 +9,12 @@ describe Decidim::TermCustomizer::AdminEngine do
         @block = block
       end
 
-      def call(*args)
-        instance_exec(*args, &@block)
+      def call(*)
+        instance_exec(*, &@block)
+      end
+
+      def scope(*)
+        yield
       end
     end
   end
