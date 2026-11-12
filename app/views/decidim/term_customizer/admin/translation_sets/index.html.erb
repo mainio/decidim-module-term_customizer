@@ -1,57 +1,54 @@
-<div class="card" id="translation_sets">
-  <div class="card-divider">
-    <h2 class="card-title flex--sbc">
-      <div>
-        <%= t "decidim.term_customizer.admin.titles.translation_sets" %>
-      </div>
+<% add_decidim_page_title(t("decidim.term_customizer.admin.titles.translation_sets")) %>
 
-      <div class="flex--cc flex-gap--1">
-        <div id="js-other-actions-wrapper">
-          <% if allowed_to? :create, :translation_set %>
-            <%= link_to t("actions.new_translation_set", scope: "decidim.term_customizer.admin"), new_translation_set_path, class: "button tiny button--simple" %>
-          <% end %>
-          <% if allowed_to? :update, :organization %>
-            <%= link_to t("actions.clear_cache", scope: "decidim.term_customizer.admin"), clear_caches_path, method: :delete, class: "button tiny button--simple", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
-          <% end %>
-        </div>
+<div class="card" id="translation_sets">
+  <div class="item_show__header">
+    <h1 class="item_show__header-title">
+      <%= t "decidim.term_customizer.admin.titles.translation_sets" %>
+      <div id="js-other-actions-wrapper" class="flex items-center gap-x-4">
+        <% if allowed_to? :create, :translation_set %>
+          <%= link_to t("actions.new_translation_set", scope: "decidim.term_customizer.admin"), new_translation_set_path, class: "imports-example tiny button button__sm button__secondary button--simple mr-2" %>
+        <% end %>
+        <% if allowed_to? :update, :organization %>
+          <%= link_to t("actions.clear_cache", scope: "decidim.term_customizer.admin"), clear_caches_path, method: :delete, class: "imports-example tiny button button__sm button__secondary button--simple mr-2", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+        <% end %>
       </div>
-    </h2>
+    </h1>
   </div>
-  <div class="card-section">
+
+  <div class="table-scroll mt-16">
     <% if @sets.count > 0 %>
-      <div class="table-scroll">
-        <table class="table-list">
-          <thead>
-            <tr>
-              <th><%= t("models.translation_sets.fields.name", scope: "decidim.term_customizer.admin") %></th>
-              <th></th>
-            </tr>
-          </thead>
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.translation_sets.fields.name", scope: "decidim.term_customizer.admin") %></th>
+            <th class="actions"><%= t("actions.title", scope: "decidim.term_customizer.admin") %></th>
+          </tr>
+        </thead>
           <tbody>
             <% @sets.each do |set| %>
               <tr>
                 <td>
                   <% if allowed_to? :read, :translation %>
-                    <%= link_to translated_attribute(set.name), translation_set_translations_path(set) %><br />
+                    <%= link_to translated_attribute(set.name), translation_set_translations_path(set) %><br>
                   <% else %>
                     <%= translated_attribute(set.name) %>
                   <% end %>
                 </td>
-                <td class="table-list__actions">
+                <td class="table-list__actions large-3">
                   <% if allowed_to? :read, :translation %>
-                    <%= icon_link_to "eye", translation_set_translations_path(set), t("actions.view", scope: "decidim.term_customizer.admin"), class: "action-icon--show" %>
+                    <%= icon_link_to "eye-line", translation_set_translations_path(set), t("actions.view", scope: "decidim.term_customizer.admin"), class: "action-icon--show" %>
                   <% end %>
 
                   <% if allowed_to? :update, :translation_set, translation_set: set %>
-                    <%= icon_link_to "pencil", edit_translation_set_path(set), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
+                    <%= icon_link_to "pencil-line", edit_translation_set_path(set), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
                   <% end %>
 
                   <% if allowed_to? :create, :translation_set %>
-                    <%= icon_link_to "fork", duplicate_translation_set_path(set), t("actions.duplicate", scope: "decidim.term_customizer.admin"), method: :post, class: "action-icon--new", data: { confirm: t("actions.confirm_duplicate", scope: "decidim.term_customizer.admin") } %>
+                    <%= icon_link_to "git-branch-line", duplicate_translation_set_path(set), t("actions.duplicate", scope: "decidim.term_customizer.admin"), method: :post, class: "action-icon--new", data: { confirm: t("actions.confirm_duplicate", scope: "decidim.term_customizer.admin") } %>
                   <% end %>
 
                   <% if allowed_to? :destroy, :translation_set, translation_set: set %>
-                    <%= icon_link_to "circle-x", translation_set_path(set), t("actions.destroy", scope: "decidim.admin"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                    <%= icon_link_to "delete-bin-line", translation_set_path(set), t("actions.destroy", scope: "decidim.admin"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
                   <% end %>
                 </td>
               </tr>
@@ -60,7 +57,7 @@
         </table>
       </div>
     <% else %>
-      <div class="text-center">
+      <div class="flex flex-col items-center mt-4">
         <%= t ".no_records_html", new_set_link: new_translation_set_path, button_name: t("decidim.term_customizer.admin.actions.new_translation_set") %>
       </div>
     <% end %>

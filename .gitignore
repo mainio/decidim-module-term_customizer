@@ -21,3 +21,5 @@ spec/decidim_dummy_app
 
 # default development application
 development_app
+tailwind.config.js
+development_app_27

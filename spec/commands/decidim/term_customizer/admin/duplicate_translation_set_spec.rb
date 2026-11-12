@@ -6,7 +6,7 @@ describe Decidim::TermCustomizer::Admin::DuplicateTranslationSet do
   let(:form_klass) { Decidim::TermCustomizer::Admin::TranslationSetForm }
 
   let(:organization) { create(:organization) }
-  let(:user) { create :user, :admin, :confirmed, organization: organization }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:form) do
     form_klass.from_params(
       form_params
@@ -15,10 +15,10 @@ describe Decidim::TermCustomizer::Admin::DuplicateTranslationSet do
       current_user: user
     )
   end
-  let!(:translation_set) { create :translation_set }
+  let!(:translation_set) { create(:translation_set) }
 
   describe "call" do
-    let(:space) { create(:participatory_process, organization: organization) }
+    let(:space) { create(:participatory_process, organization:) }
 
     let(:form_params) { { name: { en: "Name of the set" } } }
 
@@ -45,15 +45,15 @@ describe Decidim::TermCustomizer::Admin::DuplicateTranslationSet do
     describe "when the form is valid" do
       before do
         translation_set.constraints.create!(
-          organization: organization
+          organization:
         )
         translation_set.constraints.create!(
-          organization: organization,
+          organization:,
           subject_type: "Decidim::ParticipatoryProcess",
           subject: space
         )
         translation_set.constraints.create!(
-          organization: organization,
+          organization:,
           subject_type: "Decidim::Assembly"
         )
 

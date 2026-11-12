@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import AutoLabelByPositionComponent from "src/decidim/admin/auto_label_by_position.component"
 import AutoButtonsByPositionComponent from "src/decidim/admin/auto_buttons_by_position.component"
 import createDynamicFields from "src/decidim/admin/dynamic_fields.component"
