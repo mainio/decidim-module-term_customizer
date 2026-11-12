@@ -8,10 +8,6 @@ Decidim::Dev.dummy_app_path =
   File.expand_path(File.join(__dir__, "decidim_dummy_app"))
 
 require "decidim/dev/test/base_spec_helper"
-# This is being added because of the issues with the chrome-driver
-# in version 120 or later, and this can be removed after this pr#12160
-# being merged(more info https://github.com/decidim/decidim/pull/12159).
-require "#{Dir.pwd}/lib/decidim/term_customizer/test/rspec_support/capybara.rb"
 
 RSpec.configure do |config|
   # Add extra traslation load path for the tests
