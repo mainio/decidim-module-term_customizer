@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::TermCustomizer::Admin::ImportSetTranslations do
+  include_context "with custom available locales"
+
   let(:form_klass) { Decidim::TermCustomizer::Admin::TranslationsImportForm }
 
   let(:locales) { [:en, :fi] }
@@ -16,10 +18,6 @@ describe Decidim::TermCustomizer::Admin::ImportSetTranslations do
     ).with_context(
       current_organization: organization
     )
-  end
-
-  before do
-    I18n.available_locales = locales
   end
 
   describe "call" do
