@@ -8,7 +8,8 @@ Decidim::Shakapacker.register_path("#{base_path}/app/packs")
 
 # Entrypoints for the module
 Decidim::Shakapacker.register_entrypoints(
-  decidim_term_customizer_admin: "#{base_path}/app/packs/entrypoints/decidim_term_customizer_admin.js",
+  decidim_term_customizer_admin_autocomplete: "#{base_path}/app/packs/entrypoints/decidim_term_customizer_admin_autocomplete.js",
+  decidim_term_customizer_admin_sets: "#{base_path}/app/packs/entrypoints/decidim_term_customizer_admin_sets.js",
   decidim_term_customizer_admin_bulk: "#{base_path}/app/packs/entrypoints/decidim_term_customizer_admin_bulk.js"
 )
 
