@@ -81,7 +81,7 @@ fr:
             help_title: Qu'est-ce qu'un ensemble de traductions ?
             title: Jeu de traductions
           index:
-            no_records_html: <p>Aucune ensemble de traduction disponible.</p> <p>Commencez par ajouter une traduction définie à partir du bouton "<a href="%{new_set_link}">%{button_name}</a>.</p>
+            no_records_html: <p class="ml-2">Aucune ensemble de traduction disponible.</p> <p class="ml-2 mb-4">Commencez par ajouter une traduction définie à partir du bouton "<a href="%{new_set_link}">%{button_name}</a>.</p>
           new:
             create: Créer
             title: Jeu de traductions
@@ -95,24 +95,26 @@ fr:
           destroy:
             success: La traduction a été supprimée.
           edit:
+            help_title: Qu'est-ce qu'une clé de traduction ?
             save: Sauvegarder
             title: Traduction
-          form:
-            help_html: <p>Une clé de traduction est une référence technique à la traduction à traduire. Ce n'est pas le terme que vous voulez changer, mais la clé technique qui fait référence à cette traduction.</p> <p>Par exemple, si vous voulez changer le terme <em>"Processus"</em> dans le menu supérieur, vous utiliseriez la clé <em>"decidim. enu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> En savoir plus sur l'internationalisation Rails</a>.</p>
-            help_title: Qu'est-ce que la clé de traduction ?
+            help_html: <p>Une clé de traduction est une référence technique au mot ou à l'ensemble de mots à traduire. Ce n'est pas le terme que vous voulez changer, mais la clé qui fait référence à cette traduction.</p> <p>Par exemple, si vous voulez changer le terme <em>"Processus"</em> dans le menu supérieur, vous utiliseriez la clé <em>"decidim. enu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> En savoir plus sur l'internationalisation Rails</a>.</p>
             term_help_html: "<p>Le terme personnalisé est le dernier mot que vous voudriez apparaître dans l'interface utilisateur au lieu du terme original. Évidemment, le terme personnalisé peut différer pour chaque langue activée.</p>"
             term_help_title: Qu'est-ce qu'un terme personnalisé ?
-            title: Traduction
           import:
             error: Erreur lors de l'importation des traductions
             success: Traductions importées avec succès.
           index:
             actions: Actions
-            no_records_html: <p>Aucune traduction disponible dans cet ensemble.</p> <p>Commencez par ajouter des traductions à cet ensemble. La façon la plus simple est d'utiliser le bouton "<a href="%{add_multiple_link}">%{button_name}</a>" où vous pouvez rechercher des traductions avec les mêmes termes que ceux que vous voyez dans l'interface utilisateur.</p>
+            no_records_html: <p class="ml-2">Aucune traduction disponible dans cet ensemble.</p> <p class="ml-2 mb-4">Commencez par ajouter des traductions à cet ensemble. La façon la plus simple est d'utiliser le bouton "<a href="%{add_multiple_link}">%{button_name}</a>" où vous pouvez rechercher des traductions avec les mêmes termes que ceux que vous voyez dans l'interface utilisateur.</p>
             selected: sélectionné
           new:
             create: Créer
-            title: Traductions
+            title: Traduction
+            help_html: <p>Une clé de traduction est une référence technique au mot ou à l'ensemble de mots à traduire. Ce n'est pas le terme que vous voulez changer, mais la clé qui fait référence à cette traduction.</p> <p>Par exemple, si vous voulez changer le terme <em>"Processus"</em> dans le menu supérieur, vous utiliseriez la clé <em>"decidim. enu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> En savoir plus sur l'internationalisation Rails</a>.</p>
+            help_title: Qu'est-ce qu'une clé de traduction ?
+            term_help_html: "<p>Le terme personnalisé est le dernier mot que vous voudriez apparaître dans l'interface utilisateur au lieu du terme original. Évidemment, le terme personnalisé peut différer pour chaque langue activée.</p>"
+            term_help_title: Qu'est-ce qu'un terme personnalisé ?
           new_import:
             accepted_mime_types:
               csv: CSV
@@ -131,6 +133,7 @@ fr:
             success: Traductions supprimées avec succès.
           new:
             destroy: Supprimer
-            title: Traduction supprimées
+            title: Supprimer des traductions
+            no_records_html: <p class="ml-2 mb-4">Aucune traduction disponible dans cet ensemble.</p>
       menu:
         term_customizer: Paramétrages des traductions
