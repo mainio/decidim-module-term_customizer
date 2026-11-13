@@ -3,8 +3,6 @@
 <div class="item_show__header">
   <h1 class="item_show__header-title">
     <div>
-      <%= link_to translated_attribute(set.name), translation_set_translations_path(set) %>
-      &gt;
       <%= t ".title" %>
 
       <a data-controller="toggle" data-toggle-toggle-value="help-panel" class="label h-6 button button__sm button__secondary">
@@ -15,7 +13,7 @@
   </h1>
 </div>
 
-<div id="help-panel" class="callout help-text hide">
+<div id="help-panel" class="callout help-text" hidden>
   <p><strong><%= t ".help_title" %></strong></p>
   <%= t ".help_html" %>
   <p><strong><%= t ".term_help_title" %></strong></p>
