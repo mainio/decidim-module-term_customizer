@@ -44,9 +44,7 @@ describe Decidim::TermCustomizer::AdminEngine do
     let(:allowed_to_result) { double }
 
     it "adds the admin menu item" do
-      expect(Decidim).to receive(:menu) do |name, &block|
-        expect(name).to eq(:admin_menu)
-
+      expect(Decidim).to receive(:menu).with(:admin_menu) do |_name, &block|
         context = context_class.new(&block)
         allow(context).to receive_messages(decidim_admin_term_customizer: routes, current_organization: organization)
         allow(context).to receive(:allowed_to?).with(
@@ -63,6 +61,35 @@ describe Decidim::TermCustomizer::AdminEngine do
           position: 7.1,
           active: :inclusive,
           if: allowed_to_result
+        )
+
+        context.call(menu)
+      end
+      allow(Decidim).to receive(:menu).with(:term_customizer_translation_sets_menu)
+
+      run_initializer("decidim_term_customizer.admin_menu")
+    end
+
+    it "adds the translation sets menu" do
+      allow(Decidim).to receive(:menu).with(:admin_menu)
+      expect(Decidim).to receive(:menu).with(:term_customizer_translation_sets_menu) do
+        context = context_class.new(&block)
+        translations_path = double
+        add_translations_path = double
+        allow(routes).to receive_messages(
+          translation_set_translations_path: translations_path,
+          translation_set_add_translations_path: add_translations_path
+        )
+
+        allow(context).to receive(:decidim_admin_term_customizer).and_return(routes)
+        allow(context).to receive(:is_active_link?).with(translations_path).and_return(false)
+        allow(context).to receive(:is_active_link?).with(add_translations_path).and_return(true)
+
+        expect(menu).to receive(:add_item).with(
+          :term_customizer_translation_sets,
+          "Translation set",
+          translations_path,
+          active: true
         )
 
         context.call(menu)
