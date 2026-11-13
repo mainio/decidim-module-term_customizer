@@ -72,7 +72,7 @@ describe Decidim::TermCustomizer::AdminEngine do
 
     it "adds the translation sets menu" do
       allow(Decidim).to receive(:menu).with(:admin_menu)
-      expect(Decidim).to receive(:menu).with(:term_customizer_translation_sets_menu) do
+      expect(Decidim).to receive(:menu).with(:term_customizer_translation_sets_menu) do |_name, &block|
         context = context_class.new(&block)
         translations_path = double
         add_translations_path = double
