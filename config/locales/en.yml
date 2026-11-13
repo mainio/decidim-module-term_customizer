@@ -118,6 +118,9 @@ en:
           create:
             error: Error creating translation.
             success: Translation successfully created.
+          bulk_actions:
+            destroy:
+              delete: Delete selected?
           destroy:
             success: Translation successfully deleted.
           edit:

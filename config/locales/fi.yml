@@ -92,6 +92,9 @@ fi:
           create:
             error: Käännöksen luonti epäonnistui.
             success: Käännöksen luonti onnistui.
+          bulk_actions:
+            destroy:
+              delete: Poista valitut?
           destroy:
             success: Käännöksen poisto onnistui.
           edit:
