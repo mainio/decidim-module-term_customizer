@@ -35,3 +35,7 @@
 .tc-result-line.tc-result-key {
   @apply mt-1 pt-0.5 border-t border-solid border-gray-3;
 }
+
+#help-panel[hidden] {
+  @apply hidden;
+}

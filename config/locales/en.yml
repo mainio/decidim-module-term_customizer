@@ -79,7 +79,7 @@ en:
             success: Translation set successfully duplicated.
           edit:
             save: Save
-            title: Translation set
+            title: Edit translation set
           form:
             add_constraint: Add constraint
             constraint_help_html: <p>Constraints are specific rules that allow you
@@ -102,7 +102,7 @@ en:
               processes, you can create separate translation sets for both processes
               and apply the set to those processes using the constraints.</p>
             help_title: What is a translation set?
-            title: Translation set
+            title: New translation set
           index:
             no_records_html: <p class="ml-2">No translation sets available.</p> <p class="ml-2 mb-4">Start by adding
               a translation set from the "<a href="%{new_set_link}" class="text-blue-600 underline hover:text-blue-800">
@@ -126,7 +126,7 @@ en:
           edit:
             help_title: What is translation key?
             save: Save
-            title: Translation
+            title: Edit translation
             help_html: <p>A translation key is a technical reference to the translation
               to be translatated. This is not the term you want to change but the
               technical key that refers to that translation.</p> <p>For example, if
@@ -150,7 +150,7 @@ en:
             selected: selected
           new:
             create: Create
-            title: Translations
+            title: New translations
             help_html: <p>A translation key is a technical reference to the translation
               to be translatated. This is not the term you want to change but the
               technical key that refers to that translation.</p> <p>For example, if
@@ -162,7 +162,6 @@ en:
               appear in the UI instead of the original term. Obviously, the customized
               term can differ for each enabled language.</p>"
             term_help_title: What is customized term?
-            title: Translation
           new_import:
             accepted_mime_types:
               csv: CSV
@@ -186,3 +185,4 @@ en:
             no_records_html: <p class="ml-2 mb-4">No translations available in this set.</p>
       menu:
         term_customizer: Term customizer
+        translation_set: Translation set
