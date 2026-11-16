@@ -72,16 +72,16 @@ lt:
             success: Vertimų kolekcija dublikuota.
           edit:
             save: Išsaugoti
-            title: Edit translation set
+            title: Vertimų kolekcija
           form:
             add_constraint: Pridėti apribojimą
             constraint_help_html: <p>Apribojimai yra specifinės taisyklės, leidžiančios taikyti individualizacijas rinkinyje tam tikram kontekstui.</p> <p>Jeigu neapibrėžiate jokių apribojimų taisyklių, šio rinkinio individualizacijos bus taikomos visai programai. Kita vertus, jei norite, kad šio rinkinio individualizacijos būtų taikomos tik tam tikram procesui, pasirinkite „Dalyvaujantys procesai“ kaip dalyvaujamojo erdvės tipą ir tikslinį procesą kaip dalyvaujamąją erdvę. Be to, galite taikyti individualizacijas tam tikram komponentui, apibrėždami apribojimui komponentą.</p> <p>Jeigu apibrėžiate kelis apribojimus, individualizacijos bus taikomos visuose jų.</p>
             constraint_help_title: Kas yra apribojimai?
             help_html: <p>Vertimų kolekcija yra „konteineris“, kuriame laikomi vertimai tam tikram kontekstui, kurį norite pritaikyti pagal savo poreikius.</p> <p>Vertimų rinkiniai padeda jums organizuoti savo pritaikymus ir taikyti juos skirtingiems kontekstams. Tai leidžia jums pritaikyti tą patį vertimą skirtingai skirtinguose kontekstuose.</p> <p>Pavyzdžiui, jei norite pritaikyti mygtuką su terminu „Pridėti“ skirtingai skirtingiems dalyvaujantiems procesams, galite sukurti atskirus vertimų rinkinius abiem procesams ir taikyti rinkinį tiems procesams naudodami apribojimus.</p>
             help_title: Kas yra vertimų kolekcija?
-            title: New translation set
+            title: Vertimų kolekcija
           index:
-            no_records_html: <p class="ml-2">No translation sets available.</p> <p class="ml-2 mb-4">Start by adding a translation set from the "<a href="%{new_set_link}" class="text-blue-600 underline hover:text-blue-800"> %{button_name} </a>" button.</p>
+            no_records_html: <p class="ml-2">Nėra nei vienos vertimų kolekcijos.</p><p class="ml-2 mb-4">Pradėkite kurti kolekciją su <a href="%{new_set_link}" class="text-blue-600 underline hover:text-blue-800">%{button_name}</a>mygtuku.</p>
           new:
             create: Kurti
             title: Vertimų kolekcija
