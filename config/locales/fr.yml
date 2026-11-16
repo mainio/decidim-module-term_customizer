@@ -72,14 +72,14 @@ fr:
             success: Ensemble de traduction dupliqué avec succès.
           edit:
             save: Sauvegarder
-            title: Edit translation set
+            title: Jeu de traductions
           form:
             add_constraint: Ajouter contrainte
             constraint_help_html: <p>Les contraintes sont des règles spécifiques qui vous permettent d'appliquer les personnalisations dans un ensemble à un contexte spécifique.</p> <p>Si vous ne définissez aucune règle de contrainte, les personnalisations de cet ensemble s'appliqueront à l'ensemble de l'application. Par contre, si vous voulez que les personnalisations de cet ensemble s'appliquent uniquement à un processus spécifique, sélectionnez "Processus participatifs" comme type d'espace participatif et le processus cible comme espace participatif. De plus, vous pouvez également appliquer les personnalisations à un composant spécifique en définissant le composant de la contrainte.</p> <p>Si vous définissez plusieurs contraintes, les personnalisations s'appliqueront à tous ceux-ci.</p>
             constraint_help_title: Quelles sont les contraintes?
             help_html: <p>Un jeu de traduction est un "conteneur" qui contient les traductions pour un contexte spécifique que vous souhaitez personnaliser.</p> <p>Les ensembles de traduction vous aident à organiser vos personnalisations et à les appliquer à différents contextes. Cela vous permet de personnaliser la même traduction différemment dans différents contextes.</p> <p>Par exemple, si vous voulez personnaliser un bouton avec le terme "Ajouter" différemment pour différents processus participatifs, vous pouvez créer des ensembles de traduction séparés pour les deux processus et appliquer l'ensemble à ces processus en utilisant les contraintes.</p>
             help_title: Qu'est-ce qu'un ensemble de traductions ?
-            title: New translation set
+            title: Jeu de traductions
           index:
             no_records_html: <p class="ml-2">Aucune ensemble de traduction disponible.</p> <p class="ml-2 mb-4">Commencez par ajouter une traduction définie à partir du bouton "<a href="%{new_set_link}">%{button_name}</a>.</p>
           new:
@@ -100,7 +100,7 @@ fr:
           edit:
             help_title: Qu'est-ce qu'une clé de traduction ?
             save: Sauvegarder
-            title: Edit translation
+            title: Traduction
             help_html: <p>Une clé de traduction est une référence technique au mot ou à l'ensemble de mots à traduire. Ce n'est pas le terme que vous voulez changer, mais la clé qui fait référence à cette traduction.</p> <p>Par exemple, si vous voulez changer le terme <em>"Processus"</em> dans le menu supérieur, vous utiliseriez la clé <em>"decidim. enu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> En savoir plus sur l'internationalisation Rails</a>.</p>
             term_help_html: "<p>Le terme personnalisé est le dernier mot que vous voudriez apparaître dans l'interface utilisateur au lieu du terme original. Évidemment, le terme personnalisé peut différer pour chaque langue activée.</p>"
             term_help_title: Qu'est-ce qu'un terme personnalisé ?
@@ -113,7 +113,7 @@ fr:
             selected: sélectionné
           new:
             create: Créer
-            title: New translations
+            title: Traductions
             help_html: <p>Une clé de traduction est une référence technique au mot ou à l'ensemble de mots à traduire. Ce n'est pas le terme que vous voulez changer, mais la clé qui fait référence à cette traduction.</p> <p>Par exemple, si vous voulez changer le terme <em>"Processus"</em> dans le menu supérieur, vous utiliseriez la clé <em>"decidim. enu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> En savoir plus sur l'internationalisation Rails</a>.</p>
             help_title: Qu'est-ce qu'une clé de traduction ?
             term_help_html: "<p>Le terme personnalisé est le dernier mot que vous voudriez apparaître dans l'interface utilisateur au lieu du terme original. Évidemment, le terme personnalisé peut différer pour chaque langue activée.</p>"
