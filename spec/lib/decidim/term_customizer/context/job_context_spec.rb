@@ -155,7 +155,7 @@ describe Decidim::TermCustomizer::Context::JobContext do
 
     context "and questionnaire is for an intermediary object" do
       let(:questionnaire) { create(:questionnaire, questionnaire_for: meeting) }
-      let(:meeting) { create(:meeting, component: component) }
+      let(:meeting) { create(:meeting, component:) }
 
       it "resolves the participatory space based on the questionnaire" do
         expect(subject.organization).to be(organization)
