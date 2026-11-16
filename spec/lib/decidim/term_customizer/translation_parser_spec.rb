@@ -7,11 +7,11 @@ describe Decidim::TermCustomizer::TranslationParser do
 
   let(:data) do
     {
-      id: 123,
+      :id => 123,
       "id" => 456,
-      locale: "en",
-      key: "translation.key",
-      value: "Term"
+      :locale => "en",
+      :key => "translation.key",
+      :value => "Term"
     }
   end
 

@@ -62,7 +62,7 @@ module Decidim
           let(:file) do
             upload_test_file(
               Rack::Test::UploadedFile.new(
-                file_fixture("set-translations.json"),
+                file_fixture("set-translations.txt"),
                 "text/plain"
               )
             )

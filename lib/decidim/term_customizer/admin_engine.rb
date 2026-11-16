@@ -40,13 +40,14 @@ module Decidim
 
       initializer "decidim_term_customizer.admin_mount_routes" do
         Decidim::Core::Engine.routes do
-          mount Decidim::TermCustomizer::AdminEngine, at: "/admin/term_customizer", as: "decidim_admin_term_customizer"
+          scope "/:locale", constraints: { locale: Regexp.union(Decidim.available_locales.map(&:to_s)) } do
+            mount Decidim::TermCustomizer::AdminEngine, at: "/admin/term_customizer", as: "decidim_admin_term_customizer"
+          end
         end
       end
 
       initializer "decidim_term_customizer.register_icons" do |_app|
         Decidim.icons.register(name: "Decidim::TermCustomizer", icon: "translate", category: "system", description: "Term Customizer", engine: :admin)
-        Decidim.icons.register(name: "git-branch-line", icon: "git-branch-line", category: "system", description: "fork icon", engine: :admin)
       end
 
       initializer "decidim_term_customizer.admin_menu" do
@@ -59,6 +60,16 @@ module Decidim
             position: 7.1,
             active: :inclusive,
             if: allowed_to?(:update, :organization, organization: current_organization)
+          )
+        end
+
+        Decidim.menu :term_customizer_translation_sets_menu do |menu|
+          menu.add_item(
+            :term_customizer_translation_sets,
+            I18n.t("menu.translation_set", scope: "decidim.term_customizer"),
+            decidim_admin_term_customizer.translation_set_translations_path,
+            active: is_active_link?(decidim_admin_term_customizer.translation_set_translations_path) ||
+              is_active_link?(decidim_admin_term_customizer.translation_set_add_translations_path)
           )
         end
       end

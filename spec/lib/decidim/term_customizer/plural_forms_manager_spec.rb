@@ -5,14 +5,12 @@ require "spec_helper"
 describe Decidim::TermCustomizer::PluralFormsManager do
   subject { described_class.new(organization) }
 
+  include_context "with custom available locales"
+
   let(:locales) { [:en, :fi, :sv] }
   let(:plural_keys) { [:zero, :one, :few, :other] }
   let(:organization) { create(:organization, available_locales: locales) }
   let(:translation_set) { create(:translation_set, organization:) }
-
-  before do
-    I18n.available_locales = locales
-  end
 
   # The test cases include also the `:few` key which is one of the default
   # plural keys configured for the plural forms manager. However, this key does

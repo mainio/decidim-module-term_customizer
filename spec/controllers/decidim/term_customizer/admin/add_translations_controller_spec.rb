@@ -15,7 +15,8 @@ module Decidim
 
       let(:params) do
         {
-          translation_set_id: translation_set.id
+          translation_set_id: translation_set.id,
+          locale: I18n.locale
         }
       end
 
@@ -66,7 +67,7 @@ module Decidim
             expect(response).to have_http_status(:ok)
 
             json = response.parsed_body
-            expect(json.length).to eq(76)
+            expect(json.length).to eq(82)
           end
         end
       end

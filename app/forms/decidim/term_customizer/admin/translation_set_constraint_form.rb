@@ -7,7 +7,7 @@ module Decidim
         mimic :constraint
 
         attribute :subject_manifest, String
-        attribute :subject_model, Array[TermCustomizer::Admin::TranslationSetSubjectForm]
+        attribute :subject_model, [TermCustomizer::Admin::TranslationSetSubjectForm]
         attribute :deleted, Boolean, default: false
 
         def to_param
