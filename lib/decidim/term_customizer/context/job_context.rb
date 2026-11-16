@@ -10,8 +10,6 @@ module Decidim
           # passed for the job.
           user = nil
           data[:job].arguments.each do |arg|
-            arg = arg[:args].first if arg.is_a?(Hash) && arg.has_key?(:args)
-
             @organization ||= organization_from_argument(arg)
             @space ||= space_from_argument(arg)
             @component ||= component_from_argument(arg)
@@ -36,14 +34,18 @@ module Decidim
 
         def organization_from_argument(arg)
           org = find_object_by_class(arg, Decidim::Organization)
+          return org if org
 
-          org || find_value_by_method(arg, :organization)
+          nested = find_value_by_method(arg, :organization)
+          nested if nested.is_a?(Decidim::Organization)
         end
 
         def space_from_argument(arg)
           space = find_object_by_class(arg, Decidim::Participable)
+          return space if space
 
-          space || find_value_by_method(arg, :participatory_space)
+          nested = find_value_by_method(arg, :participatory_space)
+          nested if nested.is_a?(Decidim::Participable)
         end
 
         def component_from_argument(arg)
@@ -89,7 +91,12 @@ module Decidim
           return nil if seen[obj.__id__]
 
           seen[obj.__id__] = true
-          return obj.send(method) if obj.respond_to?(method)
+
+          if obj.respond_to?(method)
+            value = obj.send(method)
+
+            return value unless value.nil?
+          end
 
           values_from_iterable(obj).each do |item|
             found = find_value_by_method(item, method, seen)
