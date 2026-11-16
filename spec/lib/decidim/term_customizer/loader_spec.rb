@@ -182,42 +182,43 @@ describe Decidim::TermCustomizer::Loader do
       end
     end
 
-    # The DalliStore does not implement `delete_matched` which allows us to
-    # test the `clear_cache` functionality when the cache implementation raises
-    # a `NoMethodError`.
-    context "when using dalli_store" do
+    # FileStore implements `delete_matched` but can raise `ArgumentError` when
+    # traversing cache files whose keys contain URL-encoded sequences (e.g.
+    # ActiveStorage pre-signed S3 URLs) split across directory chunks.
+    context "when using file_store with invalid %-encoding cache files" do
+      let(:mock_cache) { ActiveSupport::Cache::MemoryStore.new }
+
       before do
-        allow(Rails).to receive(:cache).and_return(
-          ActiveSupport::Cache.lookup_store(:dalli_store)
-        )
+        allow(mock_cache).to receive(:delete_matched).and_raise(ArgumentError, "invalid %-encoding")
+        allow(Rails).to receive(:cache).and_return(mock_cache)
       end
 
       context "without organization" do
         let(:organization) { nil }
 
-        it "clears cache with correct key" do
+        it "falls back to manual cache deletion without raising" do
           expect(Rails.cache).to receive(:delete).with(
             "decidim_term_customizer/system"
           )
 
-          subject.clear_cache
+          expect { subject.clear_cache }.not_to raise_error
         end
       end
 
       context "with organization" do
-        it "clears cache with correct key" do
+        it "falls back to manual cache deletion without raising" do
           expect(Rails.cache).to receive(:delete).with(
             "decidim_term_customizer/organization_#{organization.id}"
           )
 
-          subject.clear_cache
+          expect { subject.clear_cache }.not_to raise_error
         end
       end
 
       context "with organization and space" do
         let(:space) { create(:participatory_process, organization:) }
 
-        it "clears cache with correct key" do
+        it "falls back to manual cache deletion without raising" do
           expect(Rails.cache).to receive(:delete).with(
             "decidim_term_customizer/organization_#{organization.id}"
           )
@@ -225,7 +226,7 @@ describe Decidim::TermCustomizer::Loader do
             "decidim_term_customizer/organization_#{organization.id}/space_#{space.id}"
           )
 
-          subject.clear_cache
+          expect { subject.clear_cache }.not_to raise_error
         end
       end
 
@@ -233,7 +234,7 @@ describe Decidim::TermCustomizer::Loader do
         let(:space) { create(:participatory_process, organization:) }
         let(:component) { create(:proposal_component, participatory_space: space) }
 
-        it "clears cache with correct key" do
+        it "falls back to manual cache deletion without raising" do
           expect(Rails.cache).to receive(:delete).with(
             "decidim_term_customizer/organization_#{organization.id}"
           )
@@ -244,7 +245,7 @@ describe Decidim::TermCustomizer::Loader do
             "decidim_term_customizer/organization_#{organization.id}/space_#{space.id}/component_#{component.id}"
           )
 
-          subject.clear_cache
+          expect { subject.clear_cache }.not_to raise_error
         end
       end
     end

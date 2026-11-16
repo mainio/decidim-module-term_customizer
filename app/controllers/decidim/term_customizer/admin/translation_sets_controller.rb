@@ -28,6 +28,7 @@ module Decidim
 
         def create
           enforce_permission_to :create, :translation_set
+
           @form = form(TranslationSetForm).from_params(
             params,
             current_organization:
@@ -117,7 +118,7 @@ module Decidim
         alias collection sets
 
         def subject_manifests
-          @subject_manifests ||= Decidim.participatory_space_manifests.map do |manifest|
+          @subject_manifests ||= Decidim::TermCustomizer.manifests.map do |manifest|
             models = manifest.model_class_name.constantize.where(organization: current_organization).map { |p| [translated_attribute(p.title), p.id] }
             next unless models.count.positive?
 
@@ -125,9 +126,16 @@ module Decidim
           end.compact
         end
 
+        # Linter doesn't understand it's scoped for current organization
+        # rubocop:disable Decidim/OrganizationScopedFinder
         def set
-          @set ||= Decidim::TermCustomizer::TranslationSet.find(params[:id])
+          @set ||= Decidim::TermCustomizer::TranslationSet
+                   .joins(:constraints)
+                   .where(decidim_term_customizer_constraints: { decidim_organization_id: current_organization.id })
+                   .distinct
+                   .find(params[:id])
         end
+        # rubocop:enable Decidim/OrganizationScopedFinder
 
         def blank_constraint
           @blank_constraint ||= Admin::TranslationSetConstraintForm.from_model(
