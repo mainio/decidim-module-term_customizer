@@ -72,14 +72,14 @@ eu:
             success: Itzulpengintza multzoa behar bezala ezabatu da.
           edit:
             save: Gorde
-            title: Itzulpen multzoa
+            title: Edit translation set
           form:
             add_constraint: Murrizketa gehitu
             constraint_help_html: <p>Mugak arau espezifikoak dira, eta aukera ematen dute pertsonalizazioak testuinguru jakin batean aplikatzeko.</p> <p>Ez bada mugapen-araurik zehazten, aplikazio osoan aplikatuko dira multzo horretako pertsonalizazioak. Bestalde, multzo horretako pertsonalizazioak prozesu jakin batean bakarrik aplikatzea nahi bada, aukeratu "Partaidetza-prozesuak", partaidetza-espazio gisa, eta helburu-prozesu gisa, partaidetza-espazio gisa.</p><p>Gainera, pertsonalizazioak ere aplika daitezke osagai zehatz batean, mugapen-osagaia definituz. Muga anitzak definituz gero, horiek guztiak aplikatuko dira.</p>
             constraint_help_title: Zer dira murrizketak?
             help_html: <p>Itzulpen-multzo bat "edukitzailea" da, eta itzulpenak pertsonalizatu nahi diren testuinguru jakin baterako gordetzen ditu.</p> <p>Itzulpen-multzoek zure pertsonalizazioak antolatzen eta testuinguru desberdinetan aplikatzen laguntzen dizute. Horrek aukera ematen dizu itzulpen bera testuinguru desberdinetan pertsonalizatzeko.</p><p>Adibidez, "Gehitu" terminoa duen botoi bat pertsonalizatu nahi baduzu, prozesu parte-hartzaile desberdinetarako, itzulpen-multzo bereiziak sor ditzakezu bi prozesuetarako, eta prozesu horietarako multzoa aplikatu, mugak erabiliz.</p>
             help_title: Zer da itzulpen multzo bat?
-            title: Itzulpen multzoa
+            title: New translation set
           index:
             no_records_html: <p class="ml-2">Ez dago itzulpen-multzorik eskuragarri.</p> <p class="ml-2 mb-4">Hasi itzulpen-multzo bat gehitzen «<a href="%{new_set_link}" class="text-blue-600 underhover:text-blue-800"> %{button_name} </a>» botoitik.</p>
           new:
@@ -92,12 +92,15 @@ eu:
           create:
             error: Akats bat izan da iItzulpengintza multzoa sortzean.
             success: Itzulpengintza multzoa behar bezala sortu da.
+          bulk_actions:
+            destroy:
+              delete: Delete selected?
           destroy:
             success: Itzulpena behar bezala ezabatu da.
           edit:
             help_title: Zer da itzulpen gako bat?
             save: Gorde
-            title: Itzulpena
+            title: Edit translation
             help_html: <p>Itzulpen-gako bat itzuli beharreko itzulpenaren erreferentzia tekniko bat da. Ez da terminoa aldatu nahi dena, itzulpen horri erreferentzia egiten dion gako teknikoa baizik. </p> <p>Adibidez, goiko menuan <em>«Prozesuak»</em> terminoa aldatu nahi bada, <em>«decidim.menu.processes»</em> gakoa erabiliko da. </p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Railen nazioartekotzeari buruzko informazio gehiago</p>.</p>
             term_help_html: "<p>Termino pertsonalizatua da UIn agertu nahi duzun azken hitza, jatorrizko terminoaren ordez. Bistan denez, termino pertsonalizatua desberdina izan daiteke gaitutako hizkuntza bakoitzeko.</p>"
             term_help_title: Zer da pertsonalizatutako terminoa?
@@ -110,7 +113,7 @@ eu:
             selected: hautatua
           new:
             create: Sortu
-            title: Itzulpena
+            title: New translations
             help_html: <p>Itzulpen-gako bat itzuli beharreko itzulpenaren erreferentzia teknikoa da. <p>Ez da aldatu nahi duzun terminoa, itzulpen horri dagokion gako teknikoa baizik.</p> <p>Adibidez, <em>"Prozesuak"</em> terminoa goiko menuan aldatu nahi baduzu, <em>"decidim.menu.processes"</em> tekla erabiliko zenuke.</p> <p> <a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Nazioartekotzeko errailei buruz gehiago irakurri</p>.</p>
             help_title: Zein da itzulpenaren gakoa?
             term_help_html: "<p>Termino pertsonalizatua da UIn agertu nahi duzun azken hitza, jatorrizko terminoaren ordez. Bistan denez, termino pertsonalizatua desberdina izan daiteke gaitutako hizkuntza bakoitzeko.</p>"
@@ -137,3 +140,4 @@ eu:
             no_records_html: <p class="ml-2 mb-4">Ez dago itzulpenik eskuragarri multzo honetan</p>
       menu:
         term_customizer: Terminoen pertsonalizatzailea
+        translation_set: Translation set
