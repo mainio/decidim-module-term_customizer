@@ -72,16 +72,16 @@ it:
             success: Set di traduzioni duplicato con successo.
           edit:
             save: Salva
-            title: Edit translation set
+            title: Set di traduzioni
           form:
             add_constraint: Aggiungi vincolo
             constraint_help_html: <p>I vincoli sono regole specifiche che consentono di applicare le personalizzazioni in un set a un contesto specifico.</p> <p>Nel caso in cui non si definiscano regole vincolanti, le personalizzazioni in questo set si applicheranno all'intera applicazione. D'altra parte, se si desidera che le personalizzazioni in questo set si applichino solo a un processo specifico, selezionare "Processi partecipativi" come tipo di spazio partecipativo e il processo di destinazione come spazio partecipativo. Inoltre, è anche possibile applicare le personalizzazioni a un componente specifico definendo il componente per il vincolo.</p> <p>Se definisci più vincoli, le personalizzazioni si applicheranno in tutti questi.</p>
             constraint_help_title: Quali sono i vincoli?
             help_html: <p>Un set di traduzioni è un "contenitore" che contiene le traduzioni per un contesto specifico che si desidera personalizzare.</p> <p>I set di traduzioni ti aiutano a organizzare le tue personalizzazioni e applicarle a contesti diversi. Questo consente di personalizzare la stessa traduzione in diversi contesti.</p> <p>Ad esempio, se si desidera personalizzare un pulsante con il termine "Aggiungi" in modo diverso per i diversi processi partecipativi, è possibile creare set di traduzioni separati per entrambi i processi e applicare il set a quei processi utilizzando i vincoli.</p>
             help_title: Cos'è un set di traduzione?
-            title: New translation set
+            title: Set di traduzioni
           index:
-            no_records_html: <p class="ml-2">No translation sets available.</p> <p class="ml-2 mb-4">Start by adding a translation set from the "<a href="%{new_set_link}" class="text-blue-600 underline hover:text-blue-800"> %{button_name} </a>" button.</p>
+            no_records_html: <p class="ml-2">Nessun set di traduzione disponibile.</p> <p class="ml-2 mb-4">Inizia aggiungendo un set di traduzioni dal pulsante "<a href="%{new_set_link}" class="text-blue-600 underline hover:text-blue-800">%{button_name}</a>".</p>
           new:
             create: Crea
             title: Set di traduzione
@@ -100,7 +100,7 @@ it:
           edit:
             help_title: What is translation key?
             save: Salva
-            title: Edit translation
+            title: Traduzione
             help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
             term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
             term_help_title: What is customized term?
@@ -136,7 +136,7 @@ it:
             success: Translations successfully deleted.
           new:
             destroy: Delete
-            title: Delete translations
+            title: Traduzioni elimina
             no_records_html: <p class="ml-2 mb-4">No translations available in this set.</p>
       menu:
         term_customizer: Term customizer
