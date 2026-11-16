@@ -72,14 +72,14 @@ es:
             success: El conjuntos de traducciones se ha duplicado con éxito.
           edit:
             save: Guardar
-            title: Grupo de traducciones
+            title: Edit translation set
           form:
             add_constraint: Agregar ámbito
             constraint_help_html: <p>La segmentación son reglas específicas que le permiten aplicar las personalizaciones del conjunto a un contexto específico.</p> <p>En caso de que no defina ninguna regla de restricción, las personalizaciones en este conjunto se aplicarán a toda la aplicación . Por otro lado, si desea que las personalizaciones de este conjunto se apliquen solo a un proceso específico, seleccione "Procesos participativos" como tipo de espacio participativo y el proceso objetivo como espacio participativo. Además, también puede aplicar las personalizaciones a un componente específico definiendo el componente para la restricción.</p> <p>Si define varias segmentaciones, las personalizaciones se aplicarán solo a ellas.</p>
             constraint_help_title: '¿Qué es la segmentación?'
             help_html: <p>Un conjunto de traducción es un "contenedor" que contiene las traducciones para un contexto específico que desea personalizar.</p> <p>Los conjuntos de traducción lo ayudan a organizar sus personalizaciones y aplicarlas a diferentes contextos. Esto le permite personalizar la misma traducción de manera diferente en diferentes contextos.</p> <p>Por ejemplo, si desea personalizar un botón con el término "Agregar" de manera diferente para diferentes procesos participativos, puede crear conjuntos de traducción separados para ambos procesos. Y aplicar el conjunto a esos procesos usando la segmentación.</p>
             help_title: '¿Qué es un conjunto de traducciones?'
-            title: Grupo de traducciones
+            title: New translation set
           index:
             no_records_html: <p class="ml-2">No translation sets available.</p> <p class="ml-2 mb-4">Start by adding a translation set from the "<a href="%{new_set_link}" class="text-blue-600 underline hover:text-blue-800"> %{button_name} </a>" button.</p>
           new:
@@ -92,12 +92,15 @@ es:
           create:
             error: Error creando la traducción.
             success: Traducción creada exitosamente.
+          bulk_actions:
+            destroy:
+              delete: Delete selected?
           destroy:
             success: Traducción eliminada exitosamente.
           edit:
             help_title: What is translation key?
             save: Guardar
-            title: Traducción
+            title: Edit translation
             help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
             term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
             term_help_title: What is customized term?
@@ -110,7 +113,7 @@ es:
             selected: seleccionadas
           new:
             create: Crear
-            title: Translation
+            title: New translations
             help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
             help_title: What is translation key?
             term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
@@ -137,3 +140,4 @@ es:
             no_records_html: <p class="ml-2 mb-4">No translations available in this set.</p>
       menu:
         term_customizer: Personalización de términos
+        translation_set: Translation set
