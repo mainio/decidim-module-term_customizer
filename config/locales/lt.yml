@@ -72,14 +72,14 @@ lt:
             success: Vertimų kolekcija dublikuota.
           edit:
             save: Išsaugoti
-            title: Vertimų kolekcija
+            title: Edit translation set
           form:
             add_constraint: Pridėti apribojimą
             constraint_help_html: <p>Apribojimai yra specifinės taisyklės, leidžiančios taikyti individualizacijas rinkinyje tam tikram kontekstui.</p> <p>Jeigu neapibrėžiate jokių apribojimų taisyklių, šio rinkinio individualizacijos bus taikomos visai programai. Kita vertus, jei norite, kad šio rinkinio individualizacijos būtų taikomos tik tam tikram procesui, pasirinkite „Dalyvaujantys procesai“ kaip dalyvaujamojo erdvės tipą ir tikslinį procesą kaip dalyvaujamąją erdvę. Be to, galite taikyti individualizacijas tam tikram komponentui, apibrėždami apribojimui komponentą.</p> <p>Jeigu apibrėžiate kelis apribojimus, individualizacijos bus taikomos visuose jų.</p>
             constraint_help_title: Kas yra apribojimai?
             help_html: <p>Vertimų kolekcija yra „konteineris“, kuriame laikomi vertimai tam tikram kontekstui, kurį norite pritaikyti pagal savo poreikius.</p> <p>Vertimų rinkiniai padeda jums organizuoti savo pritaikymus ir taikyti juos skirtingiems kontekstams. Tai leidžia jums pritaikyti tą patį vertimą skirtingai skirtinguose kontekstuose.</p> <p>Pavyzdžiui, jei norite pritaikyti mygtuką su terminu „Pridėti“ skirtingai skirtingiems dalyvaujantiems procesams, galite sukurti atskirus vertimų rinkinius abiem procesams ir taikyti rinkinį tiems procesams naudodami apribojimus.</p>
             help_title: Kas yra vertimų kolekcija?
-            title: Vertimų kolekcija
+            title: New translation set
           index:
             no_records_html: <p class="ml-2">No translation sets available.</p> <p class="ml-2 mb-4">Start by adding a translation set from the "<a href="%{new_set_link}" class="text-blue-600 underline hover:text-blue-800"> %{button_name} </a>" button.</p>
           new:
@@ -92,12 +92,15 @@ lt:
           create:
             error: Error creating translation.
             success: Translation successfully created.
+          bulk_actions:
+            destroy:
+              delete: Delete selected?
           destroy:
             success: Translation successfully deleted.
           edit:
             help_title: What is translation key?
             save: Save
-            title: Translation
+            title: Edit translation
             help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
             term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
             term_help_title: What is customized term?
@@ -110,7 +113,7 @@ lt:
             selected: selected
           new:
             create: Create
-            title: Translation
+            title: New translations
             help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
             help_title: What is translation key?
             term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
@@ -137,3 +140,4 @@ lt:
             no_records_html: <p class="ml-2 mb-4">No translations available in this set.</p>
       menu:
         term_customizer: Term customizer
+        translation_set: Translation set
