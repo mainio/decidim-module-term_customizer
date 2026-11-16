@@ -72,16 +72,16 @@ ca:
             success: El conjunt de traduccions s'ha duplicat amb èxit.
           edit:
             save: Guardar
-            title: Edit translation set
+            title: Set/Joc de traducció
           form:
             add_constraint: Afegir restricció
             constraint_help_html: <p> Les restriccions són regles específiques que us permeten aplicar les personalitzacions en un conjunt a un context específic. </p> <p> En cas que no definiu cap regla de restricció, les personalitzacions d'aquest conjunt s'aplicaran a tota l'aplicació. D'altra banda, si voleu que les personalitzacions d'aquest conjunt només s'apliquin a un procés concret, seleccioneu "Processos participatius" com a tipus d'espai participatiu i el procés objectiu com a espai participatiu. A més, també podeu aplicar les personalitzacions a un component específic definint el component per a la restricció. </p> <p> Si definiu diverses restriccions, les personalitzacions s'aplicaran en aquestes. </p>
             constraint_help_title: Què són les restriccions?
             help_html: <p>Un conjunt de traduccions és un "conjunt" que conté les traduccions d'un context específic que voleu personalitzar.</p> <p>Els conjunts de traduccions us ajuden a personalitzar el vocabulari i aplicar-les a diferents contextos. Això us permet personalitzar la mateixa traducció de manera diferent en diferents contextos.</p> <p>Per exemple, si voleu personalitzar un botó amb el terme "Afegeix" de manera diferent per a diferents processos de participació, podeu crear conjunts de traduccions separats per a tots dos processos i aplicar el conjunt en els processos mitjançant les restriccions.</p>
             help_title: Què és un conjunt de traduccions?
-            title: New translation set
+            title: Set/Joc de traducció
           index:
-            no_records_html: <p class="ml-2">No translation sets available.</p> <p class="ml-2 mb-4">Start by adding a translation set from the "<a href="%{new_set_link}" class="text-blue-600 underline hover:text-blue-800"> %{button_name} </a>" button.</p>
+            no_records_html: <p class="ml-2">No hi ha cap conjunt de traduccions disponible.</p> <p class="ml-2 mb-4">Comenceu afegint un conjunt de traduccions des del botó "<a href="%{new_set_link}" class="text-blue-600 underline hover:text-blue-800">%{button_name}</a>".</p>
           new:
             create: Crear
             title: Sets/Jocs de traduccions
@@ -98,22 +98,22 @@ ca:
           destroy:
             success: La traducció ha estat esborrada amb èxit
           edit:
-            help_title: What is translation key?
+            help_title: Què és una clau de traducció?
             save: Guardar
-            title: Edit translation
-            help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
-            term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
-            term_help_title: What is customized term?
+            title: Traducció
+            help_html: <p>Una clau de traducció és una referència tècnica de la paraula i/o frase que s'ha de traduir. Aquest no és el terme que voleu canviar, sinó la clau tècnica que fa referència a aquesta traducció.</p> <p>Per exemple, si voleu canviar el terme <em>"Processos"</em> al menú superior, utilitzareu la clau <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target=" _blank"> Més informació sobre la internacionalització de Rails</a>.</p>
+            term_help_html: "\"<p>El terme personalitzat és la paraula final que voleu que aparegui a la IU en lloc del terme original. Evidentment, el terme personalitzat pot variar per a cada idioma habilitat.</p>\""
+            term_help_title: Què és un terme personalizat?
           import:
             error: Error en l'importació de traduccions
             success: Èxit en l'importació de traducció.
           index:
             actions: Accions
-            no_records_html: <p class="ml-2">No translations available in this set.</p> <p class="ml-2 mb-4">Start by adding translations to this set. The easiest way is to use the "<a href="%{add_multiple_link}" class="text-blue-600 underline hover:text-blue-800"> %{button_name} </a>" button where you can search translations with the same terms that you see in the UI.</p>
+            no_records_html: <p class="ml-2">No hi ha traduccions disponibles en aquest conjunt.</p> <p class="ml-2 mb-4">Comenceu afegint traduccions per aquest conjunt. La manera més senzilla és utilitzar el botó "<a href="%{add_multiple_link}" class="text-blue-600 underline hover:text-blue-800">%{button_name}</a>" on pots cercar traduccions amb els mateixos termes que veus a la IU.</p>
             selected: selecciona
           new:
             create: Crear
-            title: New translations
+            title: Traduccions
             help_html: <p>A translation key is a technical reference to the translation to be translatated. This is not the term you want to change but the technical key that refers to that translation.</p> <p>For example, if you want to change the term <em>"Processes"</em> in the top menu, you would use the key <em>"decidim.menu.processes"</em>.</p> <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank"> Read more about Rails Internationalization</a>.</p>
             help_title: What is translation key?
             term_help_html: "<p>The customized term is the final word you want to appear in the UI instead of the original term. Obviously, the customized term can differ for each enabled language.</p>"
@@ -136,7 +136,7 @@ ca:
             success: Les traduccions han estat esborrades amb èxit.
           new:
             destroy: Eliminar
-            title: Delete translations
+            title: Traduccions eliminades
             no_records_html: <p class="ml-2 mb-4">No translations available in this set.</p>
       menu:
         term_customizer: Personalització de termes
