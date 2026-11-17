@@ -98,10 +98,10 @@ fi:
           destroy:
             success: Käännöksen poisto onnistui.
           edit:
+            help_title: Mikä on käännösavain?
             save: Tallenna
             title: Muokkaa käännöstä
             help_html: <p>Käännösavain on tekninen viittaus käännökseen. Tämä ei siis ole se termi, jonka haluat muuttaa, vaan tekninen avain, joka viittaa kyseiseen termiin.</p><p>Mikäli haluat muuttaa esimerkiksi sanan <em>"Prosessit"</em> ylävalikosta, voit käyttää käännösavainta <em>"decidim.menu.processes"</em>.</p><p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank">Lue lisää Rails-kehyksen käännöksistä</a>.</p>
-            help_title: Mikä on käännösavain?
             term_help_html: "<p>Muutettu termi on lopullinen sana, jonka haluat esiintyvän käyttöliittymässä alkuperäisen termin sijaan. Luonnollisesti, muutettu termi voi olla erilainen kaikille käytössä oleville kielille.</p>"
             term_help_title: Mikä on muutettu termi?
           import:
@@ -113,11 +113,11 @@ fi:
             selected: valittu
           new:
             create: Luo
+            title: Uusi käännös
             help_html: <p>Käännösavain on tekninen viittaus käännökseen. Tämä ei siis ole se termi, jonka haluat muuttaa, vaan tekninen avain, joka viittaa kyseiseen termiin.</p><p>Mikäli haluat muuttaa esimerkiksi sanan <em>"Prosessit"</em> ylävalikosta, voit käyttää käännösavainta <em>"decidim.menu.processes"</em>.</p><p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank">Lue lisää Rails-kehyksen käännöksistä</a>.</p>
             help_title: Mikä on käännösavain?
             term_help_html: "<p>Muutettu termi on lopullinen sana, jonka haluat esiintyvän käyttöliittymässä alkuperäisen termin sijaan. Luonnollisesti, muutettu termi voi olla erilainen kaikille käytössä oleville kielille.</p>"
             term_help_title: Mikä on muutettu termi?
-            title: Uusi käännös
           new_import:
             accepted_mime_types:
               csv: CSV
@@ -137,6 +137,7 @@ fi:
           new:
             destroy: Poista
             title: Käännösten poisto
+            no_records_html: <p class="ml-2 mb-4">Ei käännöspaketteja.</p>
       menu:
         term_customizer: Termien muutokset
         translation_set: Käännöspaketti
