@@ -78,11 +78,25 @@ module Decidim
           put :update, params: params.merge(
             id: translation.id,
             key: "updated.translation.key",
-            value: { en: "Lorem ipsum dolor" }
+            value: { en: "Lorem ipsum dolor" },
+            translation: { page: nil }
           )
 
           expect(flash[:notice]).not_to be_empty
           expect(response).to have_http_status(:found)
+        end
+
+        context "when page params exist" do
+          it "redirects to the same paginated page" do
+            put :update, params: params.merge(
+              id: translation.id,
+              key: "updated.translation.key",
+              value: { en: "Lorem ipsum dolor" },
+              translation: { page: "2" }
+            )
+
+            expect(response).to redirect_to("/en/admin/term_customizer/sets/#{translation_set.id}/translations?page=2")
+          end
         end
       end
 

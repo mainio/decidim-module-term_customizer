@@ -29,7 +29,7 @@ group :development, :test do
   # version locked < 3.0
   gem "connection_pool", "~> 2.0"
 
-  gem "dalli", "~> 2.7", ">= 2.7.10" # For testing MemCacheStore
+  gem "dalli", ">= 3.2.3" # For testing MemCacheStore
   gem "decidim-dev", DECIDIM_VERSION
   gem "decidim-initiatives", DECIDIM_VERSION
   gem "decidim-participatory_processes", DECIDIM_VERSION

@@ -44,11 +44,13 @@ module Decidim
           )
         end
 
+        # rubocop:disable Decidim/OrganizationScopedFinder
         def translation_set
           @translation_set ||= OrganizationTranslationSets.new(
             current_organization
           ).query.find(params[:translation_set_id])
         end
+        # rubocop:enable Decidim/OrganizationScopedFinder
 
         alias set translation_set
       end

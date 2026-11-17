@@ -8,6 +8,7 @@ describe Decidim::TermCustomizer::Context::JobContext do
   let(:data) { { job: } }
   let(:job) { double }
   let(:organization) { create(:organization) }
+  let(:arguments) { [organization] }
 
   before do
     allow(job).to receive(:arguments).and_return(arguments)
@@ -41,6 +42,39 @@ describe Decidim::TermCustomizer::Context::JobContext do
   context "with user passed in the arguments" do
     let(:user) { create(:user) }
     let(:arguments) { [user] }
+
+    it "resolves the user's organization" do
+      expect(subject.organization).to be(user.organization)
+      expect(subject.space).to be_nil
+      expect(subject.component).to be_nil
+    end
+  end
+
+  context "with user passed inside an array in the arguments" do
+    let(:user) { create(:user) }
+    let(:arguments) { [[user]] }
+
+    it "resolves the user's organization" do
+      expect(subject.organization).to be(user.organization)
+      expect(subject.space).to be_nil
+      expect(subject.component).to be_nil
+    end
+  end
+
+  context "with user passed inside a hash in the arguments" do
+    let(:user) { create(:user) }
+    let(:arguments) { [{ arg: user }] }
+
+    it "resolves the user's organization" do
+      expect(subject.organization).to be(user.organization)
+      expect(subject.space).to be_nil
+      expect(subject.component).to be_nil
+    end
+  end
+
+  context "with user passed inside a sub-hash in the arguments" do
+    let(:user) { create(:user) }
+    let(:arguments) { [{ job: { arg: user } }] }
 
     it "resolves the user's organization" do
       expect(subject.organization).to be(user.organization)
@@ -105,6 +139,32 @@ describe Decidim::TermCustomizer::Context::JobContext do
     end
   end
 
+  context "with a questionnaire passed in the arguments" do
+    let(:space) { create(:participatory_process, organization:) }
+    let(:questionnaire) { create(:questionnaire, questionnaire_for: component) }
+    let(:component) do
+      create(:component, manifest_name: :meetings, participatory_space: space)
+    end
+    let(:arguments) { [[questionnaire]] }
+
+    it "resolves the participatory space based on the questionnaire" do
+      expect(subject.organization).to be(organization)
+      expect(subject.space).to be(space)
+      expect(subject.component).to be(component)
+    end
+
+    context "and questionnaire is for an intermediary object" do
+      let(:questionnaire) { create(:questionnaire, questionnaire_for: meeting) }
+      let(:meeting) { create(:meeting, component:) }
+
+      it "resolves the participatory space based on the questionnaire" do
+        expect(subject.organization).to be(organization)
+        expect(subject.space).to be(space)
+        expect(subject.component).to be(component)
+      end
+    end
+  end
+
   context "with organization and space passed in the arguments" do
     let(:other_organization) { create(:organization) }
     let(:space) { create(:participatory_process, organization:) }
@@ -133,6 +193,41 @@ describe Decidim::TermCustomizer::Context::JobContext do
       expect(subject.organization).to be(organization)
       expect(subject.space).to be(space)
       expect(subject.component).to be(component)
+    end
+  end
+
+  context "with object having arguments passed as Hash" do
+    let(:arguments) { [{ args: [organization] }] }
+
+    it "resolves the organization" do
+      expect(subject.organization).to be(organization)
+      expect(subject.space).to be_nil
+      expect(subject.component).to be_nil
+    end
+  end
+
+  context "with a list of arguments" do
+    let(:user) { create(:user) }
+    let(:arguments) { ["Decidim::DecidimDeviseMailer", "reset_password_instructions", "deliver_now", { args: [user] }] }
+
+    it "resolves the user's organization" do
+      expect(subject.organization).not_to be(organization)
+      expect(subject.organization).to be(user.organization)
+      expect(subject.space).to be_nil
+      expect(subject.component).to be_nil
+    end
+  end
+
+  context "with a resource that does not contain args" do
+    let(:user) { create(:user) }
+    let(:arguments) { ["Decidim::DecidimDeviseMailer", "reset_password_instructions", "deliver_now", user] }
+
+    it "resolves the user's organization" do
+      expect(arguments).not_to respond_to(:args)
+      expect(subject.organization).not_to be(organization)
+      expect(subject.organization).to be(user.organization)
+      expect(subject.space).to be_nil
+      expect(subject.component).to be_nil
     end
   end
 end

@@ -5,6 +5,7 @@ module Decidim
     module Admin
       class AddTranslationsController < TermCustomizer::Admin::ApplicationController
         helper_method :set
+        add_breadcrumb_item_from_menu :term_customizer_translation_sets_menu
 
         def index
           enforce_permission_to :read, :translation
@@ -46,11 +47,13 @@ module Decidim
 
         private
 
+        # rubocop:disable Decidim/OrganizationScopedFinder
         def translation_set
           @translation_set ||= OrganizationTranslationSets.new(
             current_organization
           ).query.find(params[:translation_set_id])
         end
+        # rubocop:enable Decidim/OrganizationScopedFinder
 
         def reject_keys
           @reject_keys ||= (request_keys + existing_keys).uniq
