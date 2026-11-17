@@ -76,6 +76,16 @@ module Decidim
           expect(subject).to render_template(:edit)
         end
 
+        context "when the set belongs to another organization" do
+          let(:translation_set) { create(:translation_set, organization: other_organization) }
+
+          it "does not find the set" do
+            expect do
+              get :edit, params: { id: translation_set.id, locale: I18n.locale }
+            end.to raise_error(ActiveRecord::RecordNotFound)
+          end
+        end
+
         context "when the organization has participatory spaces" do
           render_views
 
@@ -175,10 +185,16 @@ module Decidim
           end
 
           context "when the constraint has no subject" do
-            let!(:space_constraint) { translation_set.constraints.create!(organization:) }
-            let!(:component_constraint) { translation_set.constraints.create!(organization:) }
+            # Override these variables so we don't have constraints with subjects
+            let!(:space_constraint) { nil }
+            let!(:component_constraint) { nil }
 
             it "renders no component fields" do
+              # Create constraints here instead of the overrides because of the
+              # global "before" that destroys all the constraints without subject.
+
+              translation_set.constraints.create!(organization:)
+
               get :edit, params: { id: translation_set.id, locale: I18n.locale }
 
               expect(component_field_names).to be_empty
