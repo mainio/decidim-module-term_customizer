@@ -75,6 +75,8 @@ es:
             title: Grupo de traducciones
           form:
             add_constraint: Agregar ámbito
+            components_error: The components of the selected participatory space could not be loaded. Please select the participatory space again.
+            components_loading: Loading the components...
             constraint_help_html: <p>La segmentación son reglas específicas que le permiten aplicar las personalizaciones del conjunto a un contexto específico.</p> <p>En caso de que no defina ninguna regla de restricción, las personalizaciones en este conjunto se aplicarán a toda la aplicación . Por otro lado, si desea que las personalizaciones de este conjunto se apliquen solo a un proceso específico, seleccione "Procesos participativos" como tipo de espacio participativo y el proceso objetivo como espacio participativo. Además, también puede aplicar las personalizaciones a un componente específico definiendo el componente para la restricción.</p> <p>Si define varias segmentaciones, las personalizaciones se aplicarán solo a ellas.</p>
             constraint_help_title: '¿Qué es la segmentación?'
             help_html: <p>Un conjunto de traducción es un "contenedor" que contiene las traducciones para un contexto específico que desea personalizar.</p> <p>Los conjuntos de traducción lo ayudan a organizar sus personalizaciones y aplicarlas a diferentes contextos. Esto le permite personalizar la misma traducción de manera diferente en diferentes contextos.</p> <p>Por ejemplo, si desea personalizar un botón con el término "Agregar" de manera diferente para diferentes procesos participativos, puede crear conjuntos de traducción separados para ambos procesos. Y aplicar el conjunto a esos procesos usando la segmentación.</p>
