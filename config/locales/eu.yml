@@ -75,6 +75,8 @@ eu:
             title: Edit translation set
           form:
             add_constraint: Murrizketa gehitu
+            components_error: The components of the selected participatory space could not be loaded. Please select the participatory space again.
+            components_loading: Loading the components...
             constraint_help_html: <p>Mugak arau espezifikoak dira, eta aukera ematen dute pertsonalizazioak testuinguru jakin batean aplikatzeko.</p> <p>Ez bada mugapen-araurik zehazten, aplikazio osoan aplikatuko dira multzo horretako pertsonalizazioak. Bestalde, multzo horretako pertsonalizazioak prozesu jakin batean bakarrik aplikatzea nahi bada, aukeratu "Partaidetza-prozesuak", partaidetza-espazio gisa, eta helburu-prozesu gisa, partaidetza-espazio gisa.</p><p>Gainera, pertsonalizazioak ere aplika daitezke osagai zehatz batean, mugapen-osagaia definituz. Muga anitzak definituz gero, horiek guztiak aplikatuko dira.</p>
             constraint_help_title: Zer dira murrizketak?
             help_html: <p>Itzulpen-multzo bat "edukitzailea" da, eta itzulpenak pertsonalizatu nahi diren testuinguru jakin baterako gordetzen ditu.</p> <p>Itzulpen-multzoek zure pertsonalizazioak antolatzen eta testuinguru desberdinetan aplikatzen laguntzen dizute. Horrek aukera ematen dizu itzulpen bera testuinguru desberdinetan pertsonalizatzeko.</p><p>Adibidez, "Gehitu" terminoa duen botoi bat pertsonalizatu nahi baduzu, prozesu parte-hartzaile desberdinetarako, itzulpen-multzo bereiziak sor ditzakezu bi prozesuetarako, eta prozesu horietarako multzoa aplikatu, mugak erabiliz.</p>

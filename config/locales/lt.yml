@@ -75,6 +75,8 @@ lt:
             title: Vertimų kolekcija
           form:
             add_constraint: Pridėti apribojimą
+            components_error: The components of the selected participatory space could not be loaded. Please select the participatory space again.
+            components_loading: Loading the components...
             constraint_help_html: <p>Apribojimai yra specifinės taisyklės, leidžiančios taikyti individualizacijas rinkinyje tam tikram kontekstui.</p> <p>Jeigu neapibrėžiate jokių apribojimų taisyklių, šio rinkinio individualizacijos bus taikomos visai programai. Kita vertus, jei norite, kad šio rinkinio individualizacijos būtų taikomos tik tam tikram procesui, pasirinkite „Dalyvaujantys procesai“ kaip dalyvaujamojo erdvės tipą ir tikslinį procesą kaip dalyvaujamąją erdvę. Be to, galite taikyti individualizacijas tam tikram komponentui, apibrėždami apribojimui komponentą.</p> <p>Jeigu apibrėžiate kelis apribojimus, individualizacijos bus taikomos visuose jų.</p>
             constraint_help_title: Kas yra apribojimai?
             help_html: <p>Vertimų kolekcija yra „konteineris“, kuriame laikomi vertimai tam tikram kontekstui, kurį norite pritaikyti pagal savo poreikius.</p> <p>Vertimų rinkiniai padeda jums organizuoti savo pritaikymus ir taikyti juos skirtingiems kontekstams. Tai leidžia jums pritaikyti tą patį vertimą skirtingai skirtinguose kontekstuose.</p> <p>Pavyzdžiui, jei norite pritaikyti mygtuką su terminu „Pridėti“ skirtingai skirtingiems dalyvaujantiems procesams, galite sukurti atskirus vertimų rinkinius abiem procesams ir taikyti rinkinį tiems procesams naudodami apribojimus.</p>

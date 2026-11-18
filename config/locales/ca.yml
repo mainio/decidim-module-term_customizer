@@ -75,6 +75,8 @@ ca:
             title: Set/Joc de traducció
           form:
             add_constraint: Afegir restricció
+            components_error: The components of the selected participatory space could not be loaded. Please select the participatory space again.
+            components_loading: Loading the components...
             constraint_help_html: <p> Les restriccions són regles específiques que us permeten aplicar les personalitzacions en un conjunt a un context específic. </p> <p> En cas que no definiu cap regla de restricció, les personalitzacions d'aquest conjunt s'aplicaran a tota l'aplicació. D'altra banda, si voleu que les personalitzacions d'aquest conjunt només s'apliquin a un procés concret, seleccioneu "Processos participatius" com a tipus d'espai participatiu i el procés objectiu com a espai participatiu. A més, també podeu aplicar les personalitzacions a un component específic definint el component per a la restricció. </p> <p> Si definiu diverses restriccions, les personalitzacions s'aplicaran en aquestes. </p>
             constraint_help_title: Què són les restriccions?
             help_html: <p>Un conjunt de traduccions és un "conjunt" que conté les traduccions d'un context específic que voleu personalitzar.</p> <p>Els conjunts de traduccions us ajuden a personalitzar el vocabulari i aplicar-les a diferents contextos. Això us permet personalitzar la mateixa traducció de manera diferent en diferents contextos.</p> <p>Per exemple, si voleu personalitzar un botó amb el terme "Afegeix" de manera diferent per a diferents processos de participació, podeu crear conjunts de traduccions separats per a tots dos processos i aplicar el conjunt en els processos mitjançant les restriccions.</p>

@@ -75,6 +75,8 @@ it:
             title: Set di traduzioni
           form:
             add_constraint: Aggiungi vincolo
+            components_error: The components of the selected participatory space could not be loaded. Please select the participatory space again.
+            components_loading: Loading the components...
             constraint_help_html: <p>I vincoli sono regole specifiche che consentono di applicare le personalizzazioni in un set a un contesto specifico.</p> <p>Nel caso in cui non si definiscano regole vincolanti, le personalizzazioni in questo set si applicheranno all'intera applicazione. D'altra parte, se si desidera che le personalizzazioni in questo set si applichino solo a un processo specifico, selezionare "Processi partecipativi" come tipo di spazio partecipativo e il processo di destinazione come spazio partecipativo. Inoltre, è anche possibile applicare le personalizzazioni a un componente specifico definendo il componente per il vincolo.</p> <p>Se definisci più vincoli, le personalizzazioni si applicheranno in tutti questi.</p>
             constraint_help_title: Quali sono i vincoli?
             help_html: <p>Un set di traduzioni è un "contenitore" che contiene le traduzioni per un contesto specifico che si desidera personalizzare.</p> <p>I set di traduzioni ti aiutano a organizzare le tue personalizzazioni e applicarle a contesti diversi. Questo consente di personalizzare la stessa traduzione in diversi contesti.</p> <p>Ad esempio, se si desidera personalizzare un pulsante con il termine "Aggiungi" in modo diverso per i diversi processi partecipativi, è possibile creare set di traduzioni separati per entrambi i processi e applicare il set a quei processi utilizzando i vincoli.</p>

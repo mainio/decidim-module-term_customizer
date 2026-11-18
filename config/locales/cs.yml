@@ -75,6 +75,8 @@ cs:
             title: Překladová sada
           form:
             add_constraint: Přidat omezení
+            components_error: The components of the selected participatory space could not be loaded. Please select the participatory space again.
+            components_loading: Loading the components...
             constraint_help_html: <p>Omezení jsou specifická pravidla, která vám umožňují použít vlastní nastavení v nastaveném kontextu.</p> <p>V případě, že nedefinujete žádná pravidla vazeb, budou přizpůsobení v této sadě platit pro celou aplikaci. Na druhé straně, pokud chcete, aby se přizpůsobení v této sadě vztahovalo pouze na konkrétní proces, jako participační prostor vyberte „účastnické procesy“ a cílový proces. Kromě toho můžete také použít přizpůsobení na určitou komponentu definováním komponenty pro omezení.</p> <p>Pokud definujete více vazeb, budou aplikovány na všechny tyto vazby.</p>
             constraint_help_title: Co jsou omezení?
             help_html: <p>sada překladů je "kontejner", který obsahuje překlady pro konkrétní kontext, který chcete upravit.</p> <p>Překlad vám pomůže uspořádat si vlastní nastavení a aplikovat je na různé kontexty. To vám umožní přizpůsobit stejný překlad rozdílně v různých kontextech.</p> <p>Například, pokud chcete přizpůsobit tlačítko s termínem "Přidat" odlišně pro různé participační procesy, můžete vytvořit samostatné sady překladů pro oba procesy a použít nastavení pro tyto procesy pomocí omezení.</p>
