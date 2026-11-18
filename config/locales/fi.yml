@@ -75,15 +75,15 @@ fi:
             title: Muokkaa käännöspakettia
           form:
             add_constraint: Lisää rajaussääntö
-            components_error: The components of the selected participatory space could not be loaded. Please select the participatory space again.
-            components_loading: Loading the components...
+            components_error: Valitun osallistumistilan komponentteja ei voitu ladata. Valitse osallistumistila uudelleen.
+            components_loading: Ladataan komponentteja...
             constraint_help_html: <p>Rajaussääntöjen avulla voit rajata käännöspaketin muutokset ainoastaan tiettyyn kontekstiin sivustolla.</p><p>Mikäli et määritä mitään sääntöjä, tämän käännöspaketin termimuutokset tulevat käyttöön koko sovellukseen. Toisaalta, jos haluat rajata tämän käännöspaketin muutokset ainoastaan tiettyyn prosessiin, valitse "Osallistumisprosessit" osallistumistilaksi ja määritä haluamasi prosessi osallistumistila-kenttään. Voit myös liittää muutokset ainoastaan tiettyyn komponenttiin määrittämällä kyseisen komponentin komponentti-kenttään.</p><p>Jos määrität useita rajaussääntöjä, termimuutoksia käytetään kaikkialla, jos jokin kyseisistä säännöistä pätee.</p>
             constraint_help_title: Mitä ovat rajaussäännöt?
             help_html: <p>Käännöspaketti, on "paketti", joka sisältää käännöksiä tietylle kontekstille, jonka termejä haluat muuttaa.</p><p>Käännöspaketit auttavat sinua pitämään muutoksesi järjestyksessä ja rajaamaan niitä tiettyihin konteksteihin. Tämä mahdollistaa sen, että voit esimerkiksi muuttaa saman termin eri tavalla sivuston eri paikoissa.</p><p>Mikäli haluat esimerkiski muuttaa "Lisää" -painikkeen tekstin erilaiseksi eri prosesseille, voit luoda kaksi erillistä käännöspakettia molempia prosesseja varten. Molemmat paketit rajataan kyseisiin prosesseihin rajaussääntöjen avulla.</p>
             help_title: Mikä on käännöspaketti?
             title: Uusi käännöspaketti
           index:
-            no_records_html: <p>Ei käännöspaketteja.</p><p>Aloita lisäämällä käännöspaketti "<a href="%{new_set_link}">%{button_name}</a>" -painikkeen avulla.</p>
+            no_records_html: <p class="ml-2">Ei käännöspaketteja.</p><p class="ml-2 mb-4">Aloita lisäämällä käännöspaketti "<a href="%{new_set_link}" class="text-blue-600 underline hover:text-blue-800">%{button_name}</a>" -painikkeen avulla.</p>
           new:
             create: Luo
             title: Käännöspaketit
@@ -111,7 +111,7 @@ fi:
             success: Käännösten tuonti onnistui.
           index:
             actions: Toiminnot
-            no_records_html: <p>Ei käännöksiä tässä paketissa.</p><p>Aloita lisäämällä käännöksiä tähän pakettiin. Helpoin tapa on käyttää "<a href="%{add_multiple_link}">%{button_name}</a>" -painiketta, jota painamalla voit etsiä käännöksiä niillä termeillä, jotka näet käyttöliittymässä.</p>
+            no_records_html: <p class="ml-2">Ei käännöksiä tässä paketissa.</p><p class="ml-2 mb-4">Aloita lisäämällä käännöksiä tähän pakettiin. Helpoin tapa on käyttää "<a href="%{add_multiple_link}" class="text-blue-600 underline hover:text-blue-800">%{button_name}</a>" -painiketta, jota painamalla voit etsiä käännöksiä niillä termeillä, jotka näet käyttöliittymässä.</p>
             selected: valittu
           new:
             create: Luo
