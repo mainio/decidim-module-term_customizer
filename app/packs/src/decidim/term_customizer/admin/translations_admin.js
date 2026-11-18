@@ -124,6 +124,7 @@ $(() => {
       searchPrompt: true,
       searchPromptText: config.searchPromptText,
       threshold: 3,
+      maxResults: 200,
       dataMatchKeys: ["label"],
       modifyResult: (item, valueItem) => {
         const sanitizedSearch = currentSearch.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");

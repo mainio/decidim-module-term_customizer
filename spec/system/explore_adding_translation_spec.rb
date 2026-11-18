@@ -23,7 +23,7 @@ describe "Translation" do
       click_link "Add multiple", match: :first
     end
 
-    it "Adds the lists properly" do
+    it "adds the lists properly" do
       # rubocop:disable RSpec/AnyInstance
       allow_any_instance_of(Decidim::TermCustomizer::TranslationDirectory).to receive(:translations_search).with("dummy re").and_return(translation_hash)
       # rubocop:enable RSpec/AnyInstance
