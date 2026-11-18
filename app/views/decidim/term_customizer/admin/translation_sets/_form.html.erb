@@ -13,7 +13,11 @@
     </div>
   </div>
 
-  <div class="multifield-fields constraints-container" data-placeholder-id="<%= blank_constraint.to_param %>">
+  <div class="multifield-fields constraints-container"
+       data-placeholder-id="<%= blank_constraint.to_param %>"
+       data-components-url="<%= constraint_components_path %>"
+       data-components-loading-text="<%= t(".components_loading") %>"
+       data-components-error-text="<%= t(".components_error") %>">
     <template>
       <%= fields_for "constraints[#{blank_constraint.to_param}]", blank_constraint do |constraint_form| %>
         <%= render "constraint_fields", form: constraint_form, index: blank_constraint.to_param, id: tabs_id_for_constraint(blank_constraint) %>

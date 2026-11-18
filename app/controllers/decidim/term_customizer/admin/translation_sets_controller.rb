@@ -4,7 +4,7 @@ module Decidim
   module TermCustomizer
     module Admin
       class TranslationSetsController < TermCustomizer::Admin::ApplicationController
-        include TranslatableAttributes
+        include Decidim::TermCustomizer::Admin::ConstraintSubjects
 
         helper_method :collection, :subject_manifests, :blank_constraint
 
@@ -118,24 +118,14 @@ module Decidim
         alias collection sets
 
         def subject_manifests
-          @subject_manifests ||= Decidim::TermCustomizer.manifests.map do |manifest|
-            models = manifest.model_class_name.constantize.where(organization: current_organization).map { |p| [translated_attribute(p.title), p.id] }
-            next unless models.count.positive?
-
-            manifest
-          end.compact
+          @subject_manifests ||= Decidim::TermCustomizer.manifests.select do |manifest|
+            manifest.model_class_name.constantize.exists?(organization: current_organization)
+          end
         end
 
-        # Linter doesn't understand it's scoped for current organization
-        # rubocop:disable Decidim/OrganizationScopedFinder
         def set
-          @set ||= Decidim::TermCustomizer::TranslationSet
-                   .joins(:constraints)
-                   .where(decidim_term_customizer_constraints: { decidim_organization_id: current_organization.id })
-                   .distinct
-                   .find(params[:id])
+          @set ||= sets.scope.find(params[:id])
         end
-        # rubocop:enable Decidim/OrganizationScopedFinder
 
         def blank_constraint
           @blank_constraint ||= Admin::TranslationSetConstraintForm.from_model(

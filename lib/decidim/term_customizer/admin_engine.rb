@@ -29,6 +29,8 @@ module Decidim
           end
         end
 
+        resources :constraint_components, only: [:index]
+
         resources :caches, only: [:index] do
           collection do
             delete :clear

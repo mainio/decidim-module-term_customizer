@@ -1,12 +1,9 @@
 <%
 constraint = form.object
-
-if constraint.component
-  selected_component = constraint.component.id
-  selected_space = constraint.component.participatory_space.id
-else
-  selected_space = constraint.subject.try(:id)
-end
+subject_form = constraint.subject_form
+selected_manifest = constraint.subject_manifest.to_s
+selected_space = subject_form&.subject_id
+selected_component = subject_form&.component_form&.component_id
 %>
 
 <div class="card multifield-field constraint-section" id="<%= id %>-field">
@@ -32,28 +29,35 @@ end
     </div>
 
     <% subject_manifests.each do |manifest| %>
-      <div class="manifest-container" data-manifest="<%= manifest.name %>">
-        <% models = manifest.model_class_name.constantize.where(organization: current_organization) %>
+      <% manifest_selected = manifest.name.to_s == selected_manifest %>
 
+      <div class="manifest-container" data-manifest="<%= manifest.name %>">
         <%= fields_for "constraints[#{index}][subject_model][#{manifest.name}]", constraint do |subject_fields| %>
           <div class="row column">
             <%= subject_fields.hidden_field :subject_manifest, value: manifest.name.to_s %>
-            <%= subject_fields.select :subject_id, models.map { |m| [translated_attribute(m.title), m.id] }, { selected: selected_space, include_blank: true }, class: "constraint-subject-model-selector" %>
+            <%= subject_fields.select :subject_id, constraint_space_options(manifest), { selected: (selected_space if manifest_selected), include_blank: true }, class: "constraint-subject-model-selector" %>
           </div>
+        <% end %>
 
-          <% models.each do |model| %>
-            <%= fields_for "constraints[#{index}][subject_model][#{manifest.name}][component_model][#{model.id}]", constraint do |component_fields| %>
-              <div class="row column component-container" data-components="<%= model.id %>">
-                <%= component_fields.hidden_field :subject_id, value: model.id %>
-                <% if model.respond_to?(:components) %>
-                  <%= component_fields.select :component_id, model.components.map { |c| [translated_attribute(c.name), c.id] }, selected: selected_component, include_blank: true %>
+        <%# The components of the selected space only. Every other space gets %>
+        <%# its fields from the constraint_components endpoint when it is %>
+        <%# selected, so that the form does not grow with the space count. %>
+        <div class="component-container-holder">
+          <% if manifest_selected && selected_space.present? %>
+            <% space = constraint_space(manifest.name, selected_space) %>
+
+            <%= fields_for "constraints[#{index}][subject_model][#{manifest.name}][component_model][#{selected_space}]", constraint do |component_fields| %>
+              <div class="row column component-container" data-components="<%= selected_space %>">
+                <%= component_fields.hidden_field :subject_id, value: selected_space %>
+                <% if space.respond_to?(:components) %>
+                  <%= component_fields.select :component_id, constraint_component_options(space), { selected: selected_component, include_blank: true }, class: "constraint-component-selector" %>
                 <% else %>
                   <%= component_fields.hidden_field :component_id, value: nil %>
                 <% end %>
               </div>
             <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     <% end %>
 

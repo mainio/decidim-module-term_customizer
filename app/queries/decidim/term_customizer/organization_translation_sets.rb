@@ -8,6 +8,14 @@ module Decidim
         @organization = organization
       end
 
+      def scope
+        Decidim::TermCustomizer::TranslationSet.where(
+          id: Decidim::TermCustomizer::Constraint
+              .where(decidim_organization_id: @organization.id)
+              .select(:translation_set_id)
+        )
+      end
+
       def query
         columns = [
           "DISTINCT(decidim_term_customizer_translation_sets.id)",
