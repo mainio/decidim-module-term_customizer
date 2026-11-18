@@ -75,6 +75,8 @@ de:
             title: Übersetzungsset
           form:
             add_constraint: Einschränkung hinzufügen
+            components_error: The components of the selected participatory space could not be loaded. Please select the participatory space again.
+            components_loading: Loading the components...
             constraint_help_html: <p>Einschränkungen sind Regeln, die Ihnen erlauben, Anpassungen eines Sets auf einen bestimmten Kontext anzuwenden.</p> <p>Falls Sie keine Einschränkungsregeln definieren, werden die Anpassungen eines Sets auf die gesamte Plattform angewendet. Wenn Sie jedoch möchten, dass die Anpassungen eines Sets nur für einen bestimmten Prozess gelten sollen, dann wählen Sie als partizipativen Bereichstyp "Beteiligungsprozesse" und als partizipativen Bereich den Zielprozess aus. Sie können zusätzlich Anpassungen nur auf eine bestimmte Komponente anwenden, indem Sie die Komponente für die Einschränkung auswählen.</p> <p>Wenn Sie mehrere Einschränkungen definieren, werden die Anpassungen auf alle angewendet.</p>
             constraint_help_title: Was sind Einschränkungen?
             help_html: <p>Ein Übersetzungsset ist ein Behälter für Übersetzungen eines bestimmten Kontexts, den Sie anpassen möchten.</p> <p>Übersetzungssets helfen Ihnen, Ihre Anpassungen zu organisieren und sie auf verschiedene Kontexte anzuwenden. So können Sie die gleiche Übersetzung in verschiedenen Kontexten unterschiedlich anpassen.</p> <p>Wenn Sie zum Beispiel einen Button mit dem Begriff "Hinzufügen" für verschiedene Beteiligungsprozesse anders beschriften möchten, dann können Sie separate Übersetzungssets für beide Prozesse erstellen und sie unter Verwendung der Einschränkungen auf diese Prozesse anwenden.</p>
